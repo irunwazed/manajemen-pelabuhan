@@ -14,8 +14,14 @@ menggunkan
 - node 20.7
 - php 8.1
 
+untuk tailwind
 ```
 npm install
+```
+
+untuk laravel
+```
+composer install
 ```
 
 ## running dev
