@@ -9,6 +9,11 @@
 
 ##  Instalasi
 
+
+menggunkan 
+- node 20.7
+- php 8.1
+
 ```
 npm install
 ```
