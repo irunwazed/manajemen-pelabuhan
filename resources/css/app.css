@@ -17,3 +17,7 @@
 .menu > li > a.active {
     @apply underline text-black;
 }
+
+.menu-bot {
+    @apply absolute top-5 left-1 bg-cyan-700 text-cyan-100 w-32 h-32 text-center rounded-full opacity-0
+}

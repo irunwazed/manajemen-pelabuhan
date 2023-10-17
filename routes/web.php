@@ -34,7 +34,6 @@ Route::get('/tes', function () {
 });
 
 
-
 // Route::get('/admin/pelayanan-kapal', function () {
 //     return view('app/pelayanan-kapal');
 // });
