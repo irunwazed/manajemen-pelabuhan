@@ -47,4 +47,14 @@ Route::prefix('/admin/pelayanan-kapal')->group(function () {
     });
 });
 
+Route::prefix('/admin/pelayanan-barang')->group(function () {
+    Route::get('/', function () {
+        return view('app/pelayanan-barang');
+    });
+    Route::get('/{menu}', function ($menu) {
+        return view('app/pelayanan-barang/'.$menu);
+    });
+});
+
+
 
