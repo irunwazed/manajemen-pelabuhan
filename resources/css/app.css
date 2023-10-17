@@ -7,7 +7,7 @@
 }
 
 .btn {
-	@apply font-semibold text-lg  py-1 px-6 rounded-sm hover:opacity-80;
+	@apply font-semibold text-lg  py-1 px-6 rounded-md hover:opacity-80;
 }
 
 .link {
