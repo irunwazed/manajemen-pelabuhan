@@ -16,7 +16,7 @@
                 </div>
                 <div class="text-start w-full">
                     <div>
-                        <label>Nama Agen</label>
+                        <label>No PPK</label>
                     </div>
                     <div>
                         <input type="text" class=" w-full bg-white rounded px-3 py-2 ring-1 ring-black mr-3">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="text-start w-full">
                     <div>
-                        <label>Nama Agen</label>
+                        <label>No Form 2B1</label>
                     </div>
                     <div>
                         <input type="text" class="w-full bg-white rounded px-3 py-2 ring-1 ring-black mr-3">
