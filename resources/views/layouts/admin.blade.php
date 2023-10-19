@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <div class="mx-24 mt-5">
+    <div class="mx-16 mt-5 lg:mx-24">
 
       <ul class="menu flex">
         <li>
@@ -88,7 +88,7 @@
         </li>
       </ul>
 
-      <div class="mt-6 px-6">
+      <div class="mt-6 px-6 md:px-2">
         @yield('content')
       </div>
     </div>
