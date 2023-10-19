@@ -195,6 +195,15 @@
 
     <hr class="border-spacing-2 border-black border-2 mt-4 mb-4">
     <div class="mt-5">
+
+      <ul class="grid grid-cols-5">
+        <li class="font-semibold text-xl bg-slate-400 text-black flex justify-center items-center"><span class="inline-block bg-red-700 ">1. MANIFEST KAPAL</span></li>
+        <li>2. DATA AWAK KAPAL</li>
+        <li>3. DATA MANIFEST BONGKAR MUAT</li>
+        <li>4. DOKUMEN KAPAL</li>
+        <li>5. BONGKAR MUAT</li>
+      </ul>
+
       <table class="mt-5 w-full border-solid border-2 border-slate-300">
         <thead>
           <tr class="border-solid border-2 border-slate-800 bg-gradient-to-r from-cyan-700 to-cyan-800 text-white">
