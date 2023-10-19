@@ -65,7 +65,7 @@
                         <td>
                             <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">view</button>
                             <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</button>
-                            <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Create 2B1</button>
+                            <a href="{{url('admin/pelayanan-barang/create-2b1')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Create 2B1</a>
                         </td>
                     </tr>
                     <tr class="border-solid border-2 border-slate-800 bg-slate-200 hover:bg-slate-300">
@@ -80,7 +80,7 @@
                         <td>
                             <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">view</button>
                             <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</button>
-                            <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Create 2B1</button>
+                            <a href="{{url('admin/pelayanan-barang/create-2b1')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Create 2B1</a>
                         </td>
                     </tr>
                     </tbody>
