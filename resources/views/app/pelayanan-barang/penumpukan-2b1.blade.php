@@ -11,7 +11,10 @@
                         <label>Nama Agen</label>
                     </div>
                     <div>
-                        <input type="text" class=" w-full bg-white rounded px-3 py-2 ring-1 ring-black mr-3 ">
+                        <input
+                            type="text"
+                            class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                        >
                     </div>
                 </div>
                 <div class="text-start w-full">
@@ -19,7 +22,10 @@
                         <label>No PPK</label>
                     </div>
                     <div>
-                        <input type="text" class=" w-full bg-white rounded px-3 py-2 ring-1 ring-black mr-3">
+                        <input
+                            type="text"
+                            class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                        >
                     </div>
                 </div>
                 <div class="text-start w-full">
@@ -27,12 +33,15 @@
                         <label>No Form 2B1</label>
                     </div>
                     <div>
-                        <input type="text" class="w-full bg-white rounded px-3 py-2 ring-1 ring-black mr-3">
+                        <input
+                            type="text"
+                            class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                        >
                     </div>
                 </div>
                 <div class="text-start">
                     <div>
-                        <button class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
+                        <button class="btn mt-8 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
                     </div>
                 </div>
             </div>

@@ -47,16 +47,6 @@
                             </td>
                         </tr>
                         <tr  class="text-start">
-                            <td>Tanggal 2B1</td>
-                            <td>:</td>
-                            <td class="py-1">
-                                <input
-                                    type="date"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                                >
-                            </td>
-                        </tr>
-                        <tr  class="text-start">
                             <td>Nama PBM</td>
                             <td>:</td>
                             <td class="py-1">
@@ -89,6 +79,40 @@
                                     disabled
                                     class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
                                     value="Auto Fill"
+                                >
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="w-full">
+                        <tr class="text-start">
+                            <td></td>
+                            <td></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="text-start">
+                            <td></td>
+                            <td></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr  class="text-start mb-4">
+                            <td></td>
+                            <td></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr  class="text-start">
+                            <td></td>
+                            <td>&nbsp;</td>
+                            <td></td>
+                        </tr>
+                        <tr  class="text-start">
+                            <td>Tanggal 2B1</td>
+                            <td>:</td>
+                            <td class="py-1">
+                                <input
+                                    type="date"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
                                 >
                             </td>
                         </tr>
