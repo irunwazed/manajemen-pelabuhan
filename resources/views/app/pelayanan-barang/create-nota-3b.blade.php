@@ -4,7 +4,7 @@
     <div class="">
         <div class="text-2xl ">
             Pelayanan Barang /
-            <a href="{{url('admin/pelayanan-barang/pengeluaran-2b2')}}"> Pranota (Nota 3B) </a>
+            <a href="{{url('admin/pelayanan-barang/nota-3b')}}"> Pranota (Nota 3B) </a>
             / Cetak
         </div>
         <hr class="border-b-2 border-black border-solid">
