@@ -56,5 +56,14 @@ Route::prefix('/admin/pelayanan-barang')->group(function () {
     });
 });
 
+Route::prefix('/admin/penyewaan-alat')->group(function () {
+    Route::get('/', function () {
+        return view('app/penyewaan-alat');
+    });
+    Route::get('/{menu}', function ($menu) {
+        return view('app/penyewaan-alat/'.$menu);
+    });
+});
+
 
 
