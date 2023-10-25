@@ -12,8 +12,9 @@
             <div class="text-4xl mb-2">SIMULATOR</div>
             <div class="font-bold text-6xl mb-16">MANAJEMEN PELABUHAN</div>
             <div class="text-2xl mb-4">Here to get, <span class="font-semibold">welcome</span></div>
-            <form action="/admin" method="get" id="login">
+            <form action="/login" method="post" id="login">
                 <div>
+                {{ csrf_field() }}
                     <div>
                         <label for="username">Username</label>
                         <input class="form-control" type="text" name="username" id="username" required>

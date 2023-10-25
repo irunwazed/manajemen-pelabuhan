@@ -21,9 +21,40 @@ Route::get('/login', function () {
     return view('pages/login');
 });
 
-Route::get('/admin', function () {
-    return view('pages/admin');
+Route::post('/login', function () {
+//     1. agen-kapal
+// 2. petugas-lala
+// 3. pbm
+// 4. bup
+// 5. syahbandar
+// 6. Pelindo-kapal
+// 7. Pelindo-pbau
+// 8. Pelindo-keuangan
+// 9. admin
+
+    $users = [
+       "agen-kapal",
+       "petugas-lala",
+       "pbm",
+       "bup",
+       "syahbandar",
+       "Pelindo-kapal",
+       "Pelindo-pbau",
+       "Pelindo-keuangan",
+       "admin"
+    ];
+
+    if(in_array(@$_POST['username'], $users) && @$_POST['password'] == "testing"){
+        // print_r($_POST);
+        header('Location: ' . "/".$_POST['username']);
+        die();
+    }else{
+        header('Location: ' . "/login");
+        die();
+    }
+
 });
+
 
 Route::get('/admin/menu', function () {
     return view('pages/menu');
@@ -38,12 +69,18 @@ Route::get('/tes', function () {
 //     return view('app/pelayanan-kapal');
 // });
 
-Route::prefix('/admin/pelayanan-kapal')->group(function () {
-    Route::get('/', function () {
-        return view('app/pelayanan-kapal');
+Route::prefix('/{user}/pelayanan-kapal')->group(function () {
+    Route::get('/', function ($user) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/pelayanan-kapal', $data);
     });
-    Route::get('/{menu}', function ($menu) {
-        return view('app/pelayanan-kapal/'.$menu);
+    Route::get('/{menu}', function ($user, $menu) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/pelayanan-kapal/'.$menu, $data);
     });
 });
 
@@ -67,3 +104,6 @@ Route::prefix('/admin/penyewaan-alat')->group(function () {
 
 
 
+Route::get('/{user}', function () {
+    return view('pages/admin');
+});
