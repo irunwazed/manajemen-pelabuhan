@@ -242,19 +242,19 @@
         </div>
     </li>
   <li>
-    <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="{{ URL::to('/admin/eksport-import'); }}">
+    <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="{{ URL::to('/admin/eksport-import') }}">
       <span class="mr-0">Eksport-Import</span>
-      <embed class="absolute right-0 top-4" width="10" src="{{URL::asset('assets/svg/arrow-down.svg')}}" />
+      <embed class="absolute right-0 top-4" width="10" src="{{ URL::asset('assets/svg/arrow-down.svg') }}" />
     </a>
   </li>
   <li>
-    <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="{{ URL::to('/admin/pelayanan-bongkar-muat'); }}">
+    <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="{{ URL::to('/admin/pelayanan-bongkar-muat') }}">
       <span class="mr-0">Warehoushing & Inventory</span>
       <embed class="absolute right-0 top-4" width="10" src="{{URL::asset('assets/svg/arrow-down.svg')}}" />
     </a>
   </li>
   <li>
-    <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="{{ URL::to('/admin/pelayanan-bongkar-muat'); }}">
+    <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="{{ URL::to('/admin/pelayanan-bongkar-muat') }}">
       <span class="mr-0">Keuangan</span>
       <embed class="absolute right-0 top-4" width="10" src="{{URL::asset('assets/svg/arrow-down.svg')}}" />
     </a>

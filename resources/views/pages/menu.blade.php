@@ -5,7 +5,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin</title>
-  @vite('resources/css/app.css')
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+<script>
+  tailwind.config = {
+    content: [
+      "./resources/**/*.blade.php",
+      "./resources/**/*.js",
+      "./resources/**/*.vue",
+    ],
+    theme: {
+      extend: {
+        colors: {
+          primary: '#1d184f',
+          warning: '#E65F2B',
+          info: '#06b6d4',
+          secondary: '#64748b',
+          dark: '#060606',
+          default: '#EBDFD7',
+        },
+      },
+    },
+    plugins: [],
+  }
+</script>
 </head>
 
 <body class="bg-slate-100">

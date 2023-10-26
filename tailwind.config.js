@@ -1,21 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./resources/**/*.blade.php",
-    "./resources/**/*.js",
-    "./resources/**/*.vue",
+    './storage/framework/views/*.php',
+    './resources/**/*.blade.php',
+    './resources/**/*.js',
+    './resources/**/*.vue',
   ],
   theme: {
-    extend: {
-			colors: {
-        primary: '#1d184f',
-				warning: '#E65F2B',
-				info: '#06b6d4',
-				secondary: '#64748b',
-				dark: '#060606',
-				default: '#EBDFD7',
-			},
-    },
+    extend: {},
   },
   plugins: [],
 }

@@ -6,8 +6,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin - @yield('title')</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
-  @vite('resources/css/app.css')
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 
+  <script>
+    tailwind.config = {
+      content: [
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+      ],
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1d184f',
+            warning: '#E65F2B',
+            info: '#06b6d4',
+            secondary: '#64748b',
+            dark: '#060606',
+            default: '#EBDFD7',
+          },
+        },
+      },
+      plugins: [],
+    }
+  </script>
+  <style type="text/tailwindcss">
+
+    .form-control {
+      @apply w-full px-3 py-1 mt-0 mb-5 border-solid border-b-2 border-black focus:outline-none focus:ring-2 focus:border-none focus:ring-black placeholder:text-slate-400 placeholder:text-sm text-secondary text-base;
+    }
+
+    .btn {
+      @apply font-semibold  py-1 px-6 rounded-md hover:opacity-80;
+    }
+
+    .link {
+        @apply underline italic hover:text-info;
+    }
+
+    .menu > li > a.active {
+        @apply underline text-black;
+    }
+
+    .menu-bot {
+        @apply absolute top-5 left-1 bg-cyan-700 text-cyan-100 w-32 h-32 text-center rounded-full opacity-0
+    }
+
+  </style>
 </head>
 
 <body class="bg-white">
@@ -58,7 +103,7 @@
 
     <!-- <button class="group fixed bottom-44 right-44">
       <div class="menu-bot group-focus:opacity-100 group-focus:-translate-x-[900px] duration-700">
-        <a href="{{ URL::to('/admin/pelayanan-kapal'); }}">
+        <a href="{{ URL::to('/admin/pelayanan-kapal') }}">
           <center class="mt-3">
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 307.000000 407.000000" preserveAspectRatio="xMidYMid meet">
               <g transform="translate(0.000000,407.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
@@ -81,7 +126,7 @@
         </a>
       </div>
       <div class="menu-bot group-focus:opacity-100 group-focus:-translate-x-[750px] duration-700">
-        <a href="{{ URL::to('/admin/pelayanan-kapal'); }}">
+        <a href="{{ URL::to('/admin/pelayanan-kapal') }}">
           <center class="mt-3">
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 307.000000 407.000000" preserveAspectRatio="xMidYMid meet">
               <g transform="translate(0.000000,407.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
@@ -104,7 +149,7 @@
         </a>
       </div>
       <div class="menu-bot group-focus:opacity-100 group-focus:-translate-x-[600px] duration-700">
-        <a href="{{ URL::to('/admin/pelayanan-kapal'); }}">
+        <a href="{{ URL::to('/admin/pelayanan-kapal') }}">
           <center class="mt-3">
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 307.000000 407.000000" preserveAspectRatio="xMidYMid meet">
               <g transform="translate(0.000000,407.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
@@ -127,7 +172,7 @@
         </a>
       </div>
       <div class="menu-bot group-focus:opacity-100 group-focus:-translate-x-[450px] duration-700">
-        <a href="{{ URL::to('/admin/pelayanan-kapal'); }}">
+        <a href="{{ URL::to('/admin/pelayanan-kapal') }}">
           <center class="mt-3">
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 307.000000 407.000000" preserveAspectRatio="xMidYMid meet">
               <g transform="translate(0.000000,407.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
@@ -150,7 +195,7 @@
         </a>
       </div>
       <div class="menu-bot group-focus:opacity-100 group-focus:-translate-x-[300px] duration-700">
-        <a href="{{ URL::to('/admin/pelayanan-kapal'); }}">
+        <a href="{{ URL::to('/admin/pelayanan-kapal') }}">
           <center class="mt-3">
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 307.000000 407.000000" preserveAspectRatio="xMidYMid meet">
               <g transform="translate(0.000000,407.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
@@ -173,7 +218,7 @@
         </a>
       </div>
       <div class=" menu-bot group-focus:opacity-100 group-focus:-translate-x-[150px] duration-700">
-        <a href="{{ URL::to('/admin/pelayanan-kapal'); }}">
+        <a href="{{ URL::to('/admin/pelayanan-kapal') }}">
           <center class="mt-3">
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 307.000000 407.000000" preserveAspectRatio="xMidYMid meet">
               <g transform="translate(0.000000,407.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
@@ -248,7 +293,7 @@
       // console.log(inArray("admin2",pathname.split("/")))
       // console.log(pathname.split("/"))
       let pathArr = pathname.split("/")
-      $("#"+pathArr[2]).addClass("active")
+      $("#" + pathArr[2]).addClass("active")
 
     });
   </script>
