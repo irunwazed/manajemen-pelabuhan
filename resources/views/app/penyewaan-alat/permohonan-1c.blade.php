@@ -71,8 +71,8 @@
                             <td>Titanic</td>
                             <td>Lorem ipsum dolor sit amet consectetur</td>
                             <td>
-                                <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">View</button>
-                                <a href="{{url('admin/penyewaan-alat/edit-permohonan-1c')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
+                                <a href="{{url('admin/penyewaan-alat/create-permohonan-1c')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">View</a>
+                                <a href="{{url('admin/penyewaan-alat/create-permohonan-1c')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
                             </td>
                         </tr>
                     </tbody>

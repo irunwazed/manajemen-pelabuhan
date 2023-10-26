@@ -68,8 +68,8 @@
                         <td>Titanic</td>
                         <td>Lorem ipsum dolor sit amet consectetur</td>
                         <td>
-                            <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">View</button>
-                            <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</button>
+                            <a href="{{url('admin/penyewaan-alat/create-bukti-2c')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">View</a>
+                            <a href="{{url('admin/penyewaan-alat/create-bukti-2c')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
                             <a href="{{url('admin/penyewaan-alat/create-bukti-2c')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Realisasi</a>
                         </td>
                     </tr>
