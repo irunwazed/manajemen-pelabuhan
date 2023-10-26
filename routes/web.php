@@ -102,6 +102,14 @@ Route::prefix('/admin/penyewaan-alat')->group(function () {
     });
 });
 
+Route::prefix('/admin/aneka-usaha')->group(function () {
+    Route::get('/', function () {
+        return view('app/aneka-usaha');
+    });
+    Route::get('/{menu}', function ($menu) {
+        return view('app/aneka-usaha/'.$menu);
+    });
+});
 
 
 Route::get('/{user}', function () {
