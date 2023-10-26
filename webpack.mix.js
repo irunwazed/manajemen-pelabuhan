@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
+mix.browserSync('127.0.0.1:8000');
 
 /*
  |--------------------------------------------------------------------------

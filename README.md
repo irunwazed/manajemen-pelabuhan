@@ -7,6 +7,33 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## instalasi
+
+- php 7.4.3
+- node 20
+
+
+install vendor
+```
+composer install
+```
+install package
+```
+npm install
+```
+
+## running
+
+run server 
+```
+php artisan serve
+```
+
+run auto reload for developer
+```
+npm run watch
+```
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
