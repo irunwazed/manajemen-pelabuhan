@@ -67,10 +67,10 @@
                         <td>2023-10-25</td>
                         <td>Jaya Sakti</td>
                         <td>
-                            <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">View</button>
-                            <a href="{{url('admin/aneka-usaha/edit-permohonan-sewa-lehan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
-                            <a href="{{url('admin/aneka-usaha/edit-permohonan-sewa-lehan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Pranota</a>
-                            <a href="{{url('admin/aneka-usaha/edit-permohonan-sewa-lehan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Nota 4E</a>
+                            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">View</a>
+                            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
+                            <a href="{{url('admin/aneka-usaha/pranota-permohonan-sewa-lahan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Pranota</a>
+                            <a href="{{url('admin/aneka-usaha/nota-4e')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Nota 4E</a>
                         </td>
                     </tr>
                     </tbody>

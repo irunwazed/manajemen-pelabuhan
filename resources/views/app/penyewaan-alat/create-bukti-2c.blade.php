@@ -20,7 +20,6 @@
                                 type="text"
                                 disabled
                                 class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                                value="Auto Fill"
                             >
                         </td>
                     </tr>

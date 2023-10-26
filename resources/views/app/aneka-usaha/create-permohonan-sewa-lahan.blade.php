@@ -327,7 +327,8 @@
         </div>
         <br>
         <br>
-        <div class="text-center pt-16 mt-16">
+        <br>
+        <div class="text-center pt-16 mt-16 pb-9">
             <button class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Simpan</button>
             <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Batal</a>
             <button class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Reset</button>
