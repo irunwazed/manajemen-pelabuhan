@@ -50,7 +50,7 @@
                 <button type="submit" form="login"  class="float-right text-white bg-black font-semibold text-lg py-1 px-10 rounded-lg hover:opacity-80">Continue</button>
             </div>
         </div>
-        <div class="basis-[54%] h-auto bg-[url('../../resources/images/login.jpg')] bg-cover bg-repeat ">
+        <div style="background-image: url('assets/img/login.jpg');"  class="basis-[54%] h-auto  bg-cover bg-repeat ">
             <img width="200" class="float-right m-10" src="assets/img/logo.png" alt="">
         </div>
     </div>
