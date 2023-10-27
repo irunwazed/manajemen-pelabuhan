@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    header("Location: login");
+    die();
 });
 
 Route::get('/login', function () {
