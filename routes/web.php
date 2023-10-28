@@ -48,10 +48,10 @@ Route::post('/login', function () {
 
     if(in_array(@$_POST['username'], $users) && @$_POST['password'] == "testing"){
         // print_r($_POST);
-        header('Location: ' . "/".$_POST['username']);
+        header('Location: ' .url('/'.$_POST['username']));
         die();
     }else{
-        header('Location: ' . "/login?message=Username dan Password salah!");
+        header('Location: ' . url('/login?message=Username dan Password salah!'));
         die();
     }
 

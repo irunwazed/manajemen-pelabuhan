@@ -29,25 +29,25 @@
       @endif
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/simlala" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">E-Service RPK Simlala</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/simlala') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">E-Service RPK Simlala</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/warta" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PKK-Pengajuan</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/warta') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PKK-Pengajuan</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPM</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/spm') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPM</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/spog" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPOG</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/spog') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPOG</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Keberangkatan Kapal</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Keberangkatan Kapal</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPB</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/spb') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPB</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
         </li>
       </ul>
       @endif
@@ -59,25 +59,25 @@
       @endif
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/permohonan-pkk" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PKK</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/permohonan-pkk') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PKK</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPM</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/spm') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPM</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RKBM</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/rkbm-lala') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RKBM</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PPK</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/ppk') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PPK</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RPKRO</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/rpkro') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RPKRO</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/lk3" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">LK3</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/lk3') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">LK3</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
         </li>
       </ul>
       @endif
@@ -90,19 +90,19 @@
       @endif
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPM</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/spm') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPM</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/syah-spog" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPOG</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/syah-spog') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPOG</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/kepelautan" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kepelautan</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/kepelautan') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kepelautan</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/spb" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPB</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/spb') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPB</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
         </li>
       </ul>
       @endif
@@ -114,10 +114,35 @@
       @endif
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RKBM</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/rkbm') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RKBM</a>
         </li>
         <li>
-          <a href="/{{ @$user }}/pelayanan-kapal/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
+        </li>
+      </ul>
+      @endif
+
+      @if(in_array(@$user, ["Pelindo-kapal", "admin"]))
+      @if(@$user == "admin")
+      <div class="pt-1 border-y-2 border-slate-200 border-solid">
+        <span class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white bg-slate-100">Pelindo-kapal</span>
+      </div>
+      @endif
+      <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+        <li>
+          <a href="{{ url(@$user.'/pelayanan-kapal') }}/rpkro" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RPKRO</a>
+        </li>
+        <li>
+          <a href="{{ url(@$user.'/pelayanan-kapal') }}/pandu-tunda" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Pandu Tunda</a>
+        </li>
+        <li>
+          <a href="{{ url(@$user.'/pelayanan-kapal') }}/air" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Isi Air</a>
+        </li>
+        <li>
+          <a href="{{ url(@$user.'/pelayanan-kapal') }}/nota4a" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nota4A</a>
+        </li>
+        <li>
+          <a href="{{ url(@$user.'/pelayanan-kapal') }}/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
         </li>
       </ul>
       @endif
@@ -132,30 +157,6 @@
     </button>
     <div id="pelayanan-bongkar-bar" class="z-10 hidden font-normal {{ @$user=='admin'?'overflow-y-scroll max-h-[500px]':'' }} bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
 
-      @if(in_array(@$user, ["Pelindo-kapal", "admin"]))
-      @if(@$user == "admin")
-      <div class="pt-1 border-y-2 border-slate-200 border-solid">
-        <span class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white bg-slate-100">Pelindo-kapal</span>
-      </div>
-      @endif
-      <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RPKRO</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Pandu Tunda</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Isi Air</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nota4A</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
-        </li>
-      </ul>
-      @endif
       @if(in_array(@$user, ["pelindo-pbau", "admin"]))
       @if(@$user == "admin")
       <div class="pt-1 border-y-2 border-slate-200 border-solid bg-slate-100">
@@ -164,16 +165,16 @@
       @endif
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
         <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penumpukan 2B1</a>
+          <a href="{{url('admin/pelayanan-barang/penumpukan-2b1')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penumpukan 2B1</a>
         </li>
         <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pengeluaran 2B2</a>
+          <a href="{{url('admin/pelayanan-barang/pengeluaran-2b2')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pengeluaran 2B2</a>
         </li>
         <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nota3B</a>
+          <a href="{{url('admin/pelayanan-barang/nota-3b')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nota 3B</a>
         </li>
         <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nota4B</a>
+          <a href="{{url('admin/pelayanan-barang/nota-4b')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nota 4B</a>
         </li>
         <li>
           <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan 1C</a>
@@ -234,7 +235,7 @@
           <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Lahan Dan Bangunan</a>
         </li>
         <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Bunker</a>
+          <a href="{{url('admin/aneka-usaha/permohonan-sewa-bunker')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Bunker</a>
         </li>
       </ul>
     </div>

@@ -69,7 +69,7 @@
             <div class="font-bold text-6xl mb-16">MANAJEMEN PELABUHAN</div>
             <div class="text-2xl mb-4">Here to get, <span class="font-semibold">welcome</span></div>
             <span class="text-red-500 font-semibold text-sm">{{ @$_GET['message'] }}</span>
-            <form action="/login" method="post" id="login">
+            <form action="{{ url('/login') }}" method="post" id="login">
                 <div>
                     {{ csrf_field() }}
                     <div>
