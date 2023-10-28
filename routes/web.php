@@ -132,6 +132,9 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
 });
 
 
-Route::get('/{user}', function () {
-    return view('pages/admin');
+Route::get('/{user}', function ($user) {
+    $data = [
+        "user" => $user
+    ];
+    return view('pages/admin', $data);
 });
