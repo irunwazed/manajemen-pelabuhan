@@ -27,7 +27,6 @@
     }
   </script>
 </head>
-
 <body class="bg-white">
   <div class="">
     <div class="w-full flex mt-6">
