@@ -10,11 +10,7 @@
 
   <script>
     tailwind.config = {
-      content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
-      ],
+      content: [],
       theme: {
         extend: {
           colors: {
@@ -75,7 +71,7 @@
                 </g>
               </svg>
               <input class="bg-gray-200 rounded-full py-2 px-3 w-full pl-10" name="search" type="text">
-              <button type="submit" class="absolute right-0 py-2 px-8 bg-black text-white rounded-xl">Search</button>
+              <button type="submit" class="absolute right-0 pt-2 pb-[9px] px-8 bg-black text-white rounded-xl">Search</button>
             </form>
           </div>
         </div>

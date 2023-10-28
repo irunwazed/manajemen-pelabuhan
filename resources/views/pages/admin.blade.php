@@ -35,7 +35,7 @@
   <div class="">
     <div class="w-full flex mt-6">
       <div class="flex-1 ml-6">
-        <a href="#" class="link">Privasi Polisi</a>
+        <a href="#" class="underline italic hover: text-info">Privasi Polisi</a>
       </div>
       <div class="shrink-0">
         <h3>Dashboard Simulator Manajemen Pelabuhan</h3>
