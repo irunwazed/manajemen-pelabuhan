@@ -98,8 +98,8 @@
                 </table>
             </div>
             <div class="text-start">
-                <button class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Create</button>
-                <a href="{{url('admin/penyewaan-alat/nota-4c')}}" class="btn mt-6 bg-warning text-blue-100 hover:bg-purple-600">Kembali</a>
+                <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Create</button>
+                <a href="{{url('admin/penyewaan-alat/nota-4c')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-6 bg-warning text-blue-100 hover:bg-purple-600">Kembali</a>
             </div>
         </div>
     </div>

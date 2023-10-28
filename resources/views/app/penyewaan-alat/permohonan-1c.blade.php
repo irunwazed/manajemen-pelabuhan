@@ -40,13 +40,13 @@
                 </div>
                 <div class="text-start">
                     <div>
-                        <button class="btn mt-8 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
+                        <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-8 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
                     </div>
                 </div>
             </div>
 
             <div class="text-end pt-5">
-                <a href="{{url('admin/penyewaan-alat/create-permohonan-1c')}}" class="btn btn-lg text-2xl bg-blue-600 text-blue-100 hover:bg-purple-600">Tambah</a>
+                <a href="{{url('admin/penyewaan-alat/create-permohonan-1c')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 btn-lg text-2xl bg-blue-600 text-blue-100 hover:bg-purple-600">Tambah</a>
             </div>
         <div class="text-center mb-3 mt-5">
             <div>
@@ -71,8 +71,8 @@
                             <td>Titanic</td>
                             <td>Lorem ipsum dolor sit amet consectetur</td>
                             <td>
-                                <a href="{{url('admin/penyewaan-alat/create-permohonan-1c')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">View</a>
-                                <a href="{{url('admin/penyewaan-alat/create-permohonan-1c')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
+                                <a href="{{url('admin/penyewaan-alat/create-permohonan-1c')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">View</a>
+                                <a href="{{url('admin/penyewaan-alat/create-permohonan-1c')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
                             </td>
                         </tr>
                     </tbody>

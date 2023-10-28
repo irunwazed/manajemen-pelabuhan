@@ -40,13 +40,13 @@
             </div>
             <div class="text-start">
                 <div>
-                    <button class="btn mt-8 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
+                    <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-8 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
                 </div>
             </div>
         </div>
 
         <div class="text-end pt-5">
-            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="btn btn-lg text-2xl bg-blue-600 text-blue-100 hover:bg-purple-600">Buat Data</a>
+            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 btn-lg text-2xl bg-blue-600 text-blue-100 hover:bg-purple-600">Buat Data</a>
         </div>
         <div class="text-center mb-3 mt-5">
             <div>
@@ -67,10 +67,10 @@
                         <td>2023-10-25</td>
                         <td>Jaya Sakti</td>
                         <td>
-                            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">View</a>
-                            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
-                            <a href="{{url('admin/aneka-usaha/pranota-permohonan-sewa-lahan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Pranota</a>
-                            <a href="{{url('admin/aneka-usaha/nota-4e')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Nota 4E</a>
+                            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">View</a>
+                            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
+                            <a href="{{url('admin/aneka-usaha/pranota-permohonan-sewa-lahan')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Pranota</a>
+                            <a href="{{url('admin/aneka-usaha/nota-4e')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Nota 4E</a>
                         </td>
                     </tr>
                     </tbody>

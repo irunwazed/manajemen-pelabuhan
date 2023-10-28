@@ -26,6 +26,7 @@
       plugins: [],
     }
   </script>
+  
 </head>
 <body class="bg-white">
   <div class="">
@@ -73,7 +74,7 @@
 
     <div class="mx-16 mt-5 lg:mx-24">
       @include('components/navbar')
-      <div class="mt-6 px-6 md:px-2">
+      <div class="mt-6 px-6 md:px-2 overflow-x-scroll lg:overflow-auto">
         @yield('content')
       </div>
     </div>
