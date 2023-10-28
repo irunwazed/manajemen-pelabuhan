@@ -176,7 +176,7 @@
         <div class="grid grid-cols-2 pt-16">
             <div class="bottom-0 left-0"><span class="text-2xl font-bold">List Alat</span></div>
             <div class="text-end pt-5">
-                <a href="" class="btn btn-lg text-2xl bg-blue-600 text-blue-100 hover:bg-purple-600">Tambah Alat</a>
+                <a href="" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 btn-lg text-2xl bg-blue-600 text-blue-100 hover:bg-purple-600">Tambah Alat</a>
             </div>
         </div>
         <div class="text-center">
@@ -208,16 +208,16 @@
                             <td>22-10-2023 22.00</td>
                             <td>100.000</td>
                             <td>
-                                <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">View</button>
-                                <a href="{{url('admin/penyewaan-alat/edit-permohonan-1c')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
+                                <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">View</button>
+                                <a href="{{url('admin/penyewaan-alat/edit-permohonan-1c')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="text-start">
-                <button class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Simpan</button>
-                <a href="{{url('admin/penyewaan-alat/permohonan-1c')}}" class="btn mt-6 bg-warning text-blue-100 hover:bg-purple-600">Kembali</a>
+                <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Simpan</button>
+                <a href="{{url('admin/penyewaan-alat/permohonan-1c')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-6 bg-warning text-blue-100 hover:bg-purple-600">Kembali</a>
             </div>
         </div>
     </div>

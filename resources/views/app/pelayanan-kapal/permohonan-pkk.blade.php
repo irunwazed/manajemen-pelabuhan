@@ -53,8 +53,8 @@
             <td></td>
             <td></td>
             <td class="py-3 w-[250px]">
-              <a href="/{{ $user }}/pelayanan-kapal/persetujuan-pkk" class="text-base bg-blue-600 text-blue-100 px-6 py-1 rounded hover:opacity-80">Detail</a>
-              <a href="/{{ $user }}/pelayanan-kapal/persetujuan-pkk" class="text-base bg-cyan-600 text-cyan-100 px-6 py-1 rounded hover:opacity-80">Verifikasi</a>
+              <a href="persetujuan-pkk" class="text-base bg-blue-600 text-blue-100 px-6 py-1 rounded hover:opacity-80">Detail</a>
+              <a href="persetujuan-pkk" class="text-base bg-cyan-600 text-cyan-100 px-6 py-1 rounded hover:opacity-80">Verifikasi</a>
             </td>
           </tr>
         </tbody>

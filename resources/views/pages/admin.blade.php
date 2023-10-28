@@ -32,9 +32,7 @@ array_push($navigations, [
   <script>
     tailwind.config = {
       content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
+        "../../../**/**/**/*.blade.php",
       ],
       theme: {
         extend: {
@@ -51,6 +49,20 @@ array_push($navigations, [
       plugins: [],
     }
   </script>
+  <!-- <style type="text/tailwindcss">
+        .form-control {
+            @apply w-full px-3 py-1 mt-0 mb-5 border-solid border-b-2 border-black focus: outline-none focus:ring-2 focus:border-none focus:ring-black placeholder:text-slate-400 placeholder:text-sm text-secondary text-base;
+        }
+
+        .btn {
+            @apply font-semibold py-1 px-6 rounded-md hover: opacity-80;
+        }
+
+        .link {
+            @apply underline italic hover: text-info;
+        }
+
+    </style> -->
 </head>
 
 <body class="bg-gradient-to-r from-slate-200 to-blue-200">

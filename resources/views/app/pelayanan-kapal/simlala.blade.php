@@ -15,22 +15,22 @@
     <h2 class="text-2xl font-bold">Pencarian NO RPK E-SERVICE SIMLALA DEPHUB</h2>
     <div class="flex flex-wrap place-content-center my-2">
       <label class="mt-2 mr-2">Nama Kapal : </label>
-      <input type="text" class="bg-white rounded-2xl px-3 py-2 ring-1 ring-black mr-3">
-      <button class="py-2 px-5 bg-cyan-800 rounded-xl shadow-xl hover:opacity-70">Cari</button>
+            <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 ml-1 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Cari</button>
     </div>
   </div>
 
-  <table class="border-solid border-2 border-slate-800">
+  <table class="border-solid border-2 border-slate-800 w-full">
     <thead>
-      <tr  class="border-solid border-2 border-slate-800 bg-gradient-to-r from-cyan-700 to-cyan-800 text-white">
+      <tr class="border-solid border-2 border-slate-800 bg-gradient-to-r from-[#211c5c] to-primary text-white">
         <th >TANGGAL</th>
         <th>No RKP</th>
         <th>JENIS</th>
         <th>NAMA PERUSAHAAN</th>
         <th>NAMA KAPAL</th>
-        <th>TANGGAL BERLAKU</th>
+        <th class="py-3">TANGGAL BERLAKU</th>
         <th>TRAYEK</th>
-        <th>MUATAN</th>
+        <th class="pr-3 py-3">MUATAN</th>
       </tr>
     </thead>
     <tbody>

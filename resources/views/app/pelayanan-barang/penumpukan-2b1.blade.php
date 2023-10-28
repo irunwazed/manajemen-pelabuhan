@@ -41,7 +41,7 @@
                 </div>
                 <div class="text-start">
                     <div>
-                        <button class="btn mt-8 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
+                        <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-8 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
                     </div>
                 </div>
             </div>
@@ -72,9 +72,9 @@
                         <td>Titanic</td>
                         <td>2 Oktober 2020</td>
                         <td>
-                            <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">view</button>
-                            <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</button>
-                            <a href="{{url('admin/pelayanan-barang/create-2b1')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Create 2B1</a>
+                            <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">view</button>
+                            <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</button>
+                            <a href="{{url('admin/pelayanan-barang/create-2b1')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Create 2B1</a>
                         </td>
                     </tr>
                     <tr class="border-solid border-2 border-slate-800 bg-slate-200 hover:bg-slate-300">
@@ -87,9 +87,9 @@
                         <td>Titanic</td>
                         <td>2 Oktober 2020</td>
                         <td>
-                            <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">view</button>
-                            <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</button>
-                            <a href="{{url('admin/pelayanan-barang/create-2b1')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Create 2B1</a>
+                            <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">view</button>
+                            <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</button>
+                            <a href="{{url('admin/pelayanan-barang/create-2b1')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Create 2B1</a>
                         </td>
                     </tr>
                     </tbody>

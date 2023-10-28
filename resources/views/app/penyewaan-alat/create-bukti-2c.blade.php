@@ -195,7 +195,7 @@
                         <td></td>
                         <td></td>
                         <td>
-                            <a href="" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Update Tanggal</a>
+                            <a href="" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Update Tanggal</a>
 
                         </td>
                     </tr>
@@ -232,15 +232,15 @@
                         <td>22-10-2023 22.00</td>
                         <td>100.000</td>
                         <td class="py-2">
-                            <a href="{{url('admin/penyewaan-alat/edit-permohonan-1c')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
+                            <a href="{{url('admin/penyewaan-alat/edit-permohonan-1c')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <div class="text-start">
-                <button class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Simpan</button>
-                <a href="{{url('admin/penyewaan-alat/bukti-2c')}}" class="btn mt-6 bg-warning text-blue-100 hover:bg-purple-600">Kembali</a>
+                <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Simpan</button>
+                <a href="{{url('admin/penyewaan-alat/bukti-2c')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-6 bg-warning text-blue-100 hover:bg-purple-600">Kembali</a>
             </div>
         </div>
     </div>

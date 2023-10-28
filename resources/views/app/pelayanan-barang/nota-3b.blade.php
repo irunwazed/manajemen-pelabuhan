@@ -41,7 +41,7 @@
                 </div>
                 <div class="text-start">
                     <div>
-                        <button class="btn mt-8 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
+                        <button class="font-semibold py-1 px-6 rounded-md hover: opacity-80 mt-8 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
                     </div>
                 </div>
             </div>
@@ -74,8 +74,8 @@
                             <td>XXXX</td>
                             <td>Titanic</td>
                             <td>
-                                <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">view</button>
-                                <a href="{{url('admin/pelayanan-barang/create-nota-3B')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Create Nota 3B</a>
+                                <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">view</button>
+                                <a href="{{url('admin/pelayanan-barang/create-nota-3B')}}" class="font-semibold py-1 px-6 rounded-md hover: opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Create Nota 3B</a>
                             </td>
                         </tr>
                     </tbody>

@@ -155,7 +155,7 @@
                             <td>2 Oktober 2020</td>
                             <td>2 Oktober 2020</td>
                             <td>
-                                <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="btn bg-blue-600 text-sm text-blue-100 hover:bg-purple-600">Update Tarif</button>
+                                <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-sm text-blue-100 hover:bg-purple-600">Update Tarif</button>
                                 <!-- Main modal -->
                                 <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                     <div class="relative w-full max-w-2xl max-h-full">
@@ -322,8 +322,8 @@
                 </table>
             </div>
             <div class="text-start">
-                <button class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Simpan</button>
-                <a href="{{url('admin/pelayanan-barang/penumpukan-2b1')}}" class="btn mt-6 bg-warning text-blue-100 hover:bg-purple-600">Kembali</a>
+                <button class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Simpan</button>
+                <a href="{{url('admin/pelayanan-barang/penumpukan-2b1')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-6 bg-warning text-blue-100 hover:bg-purple-600">Kembali</a>
             </div>
         </div>
     </div>
