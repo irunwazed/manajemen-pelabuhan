@@ -10,11 +10,7 @@
 
   <script>
     tailwind.config = {
-      content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
-      ],
+      content: [],
       theme: {
         extend: {
           colors: {
@@ -75,18 +71,25 @@
                 </g>
               </svg>
               <input class="bg-gray-200 rounded-full py-2 px-3 w-full pl-10" name="search" type="text">
-              <button type="submit" class="absolute right-0 py-2 px-8 bg-black text-white rounded-xl">Search</button>
+              <button type="submit" class="absolute right-0 pt-2 pb-[9px] px-8 bg-black text-white rounded-xl">Search</button>
             </form>
           </div>
         </div>
       </div>
       <div class="flex-1">
-        <div class="flex flex-wrap float-right mr-6 bg-white rounded-lg shadow-xl py-1 px-12 hover:opacity-80">
+        <div class="flex flex-wrap float-right mr-6 bg-white rounded-lg shadow-xl py-1 px-12 hover:opacity-80" data-dropdown-toggle="setting">
           <div>
             <img class="w-7 h-7 rounded-full bg-yellow-700" src="{{URL::asset('assets/img/avatar.png')}}" alt="">
           </div>
           <div class="ml-3">
             Labverse
+          </div>
+          <div id="setting" class="z-10 hidden font-normal  bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+              <li>
+                <a href="{{url('/')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Keluar</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

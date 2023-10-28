@@ -51,7 +51,7 @@ Route::post('/login', function () {
         header('Location: ' . "/".$_POST['username']);
         die();
     }else{
-        header('Location: ' . "/login");
+        header('Location: ' . "/login?message=Username dan Password salah!");
         die();
     }
 
