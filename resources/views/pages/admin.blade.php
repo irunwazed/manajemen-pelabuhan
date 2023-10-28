@@ -76,7 +76,7 @@
         <div class=" md:w-1/12"></div>
         <div class=" w-full flex flex-wrap gap-4 place-content-center mt-4 md:w-10/12">
           @for($i = 0; $i < 6; $i++) 
-          <a href="/admin/pelayanan-kapal">
+          <a href="{{ url('/admin/pelayanan-kapal') }}">
           <div class="max-w-[200px] bg-white text-primary p-6 rounded-lg shadow-xl hover:bg-primary hover:text-white hover:scale-105  transition-all">
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="120" viewBox="0 0 307.000000 407.000000" preserveAspectRatio="xMidYMid meet">
               <g transform="translate(0.000000,407.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
