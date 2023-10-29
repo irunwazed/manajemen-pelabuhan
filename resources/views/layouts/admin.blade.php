@@ -14,6 +14,7 @@
       theme: {
         extend: {
           colors: {
+            'primary-awal': '#211c5c',
             primary: '#1d184f',
             warning: '#E65F2B',
             info: '#06b6d4',

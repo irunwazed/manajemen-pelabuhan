@@ -62,9 +62,9 @@
         <div class="text-center mb-3 mt-5">
             <div>
                 <table class="mt-5 w-full border-solid border-2 border-slate-800">
-                    <thead class=" bg-gradient-to-r from-cyan-700 to-cyan-800  py-5">
+                    <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white  py-2">
                         <tr>
-                            <th class="py-5 px-3">No</th>
+                            <th class="py-2 px-3">No</th>
                             <th>Pemakaian</th>
                             <th>Jangka Waktu</th>
                             <th>Luas M2</th>

@@ -125,7 +125,7 @@
                     <span class="text-black font-bold ">List Barang</span>
                 </div>
                 <table class="mt-5 w-full border-solid border-2 border-slate-800">
-                    <thead class=" bg-gradient-to-r from-cyan-700 to-cyan-800 text-white py-5">
+                    <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white py-5">
                     <tr >
                         <th class="py-5 px-3">Nama Barang</th>
                         <th>Tuslag</th>
