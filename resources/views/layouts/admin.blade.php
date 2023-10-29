@@ -62,7 +62,7 @@ body {
         </div>
       </div>
       <div class="flex-1">
-        <div class="flex flex-wrap float-right mr-6 bg-white rounded-lg shadow-xl py-1 px-12 hover:opacity-80" data-dropdown-toggle="setting">
+        <div class="flex flex-wrap float-right mr-6 bg-white rounded-lg shadow-xl py-1 px-12 " data-dropdown-toggle="setting">
           <div>
             <img class="w-7 h-7 rounded-full bg-yellow-700" src="{{URL::asset('assets/img/avatar.png')}}" alt="">
           </div>
