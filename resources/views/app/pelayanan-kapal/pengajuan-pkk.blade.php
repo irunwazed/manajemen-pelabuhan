@@ -12,7 +12,7 @@
 
   <div class=" mb-3 mt-5">
 
-    <div class="relative -bottom-20 left-6 z-1 bg-white w-[230px] px-6 font-bold text-lg">
+    <div class="relative -bottom-20 left-6 z-1 bg-white w-[250px] px-6 font-bold text-lg">
       Pengajuan Keagenan
     </div>
     <div class="flex flex-wrap place-content-end my-2">
@@ -1003,7 +1003,356 @@
         <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="contacts2" role="tabpanel" aria-labelledby="contacts-tab2">
 
           <!-- BONGKAR MUAT -->
-          <h3>BONGKAR MUAT</h3>
+          <h3 class="font-semibold">BONGKAR MUAT</h3>
+
+          <div class="w-[500px]">
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">BARANG MAYORITAS / BARANG TERBANYAK DIATAS KAPAL</label>
+            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option value="">-= Pilih Barang =-</option>
+              <option>Dos</option>
+              <option>Lemari</option>
+              <option>Kulkas</option>
+              <option>Paket</option>
+            </select>
+          </div>
+
+
+          <div class="grid grid-cols-2 gap-5">
+            <div class="">
+              <h2 class="font-semibold text-lg mt-8">A. MUAT</h2>
+              <div>
+                <h3 class="font-semibold mt-5">1. KONTAINER ISI</h3>
+                <div>
+                  <div class="w-[70%] float-right bg-gray-200 text-center py-2">KONTAINER ISI YANG DIMUAT</div>
+                </div>
+                <table class="w-full">
+                  <tbody>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 40 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 40 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 20 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 20 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 45 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 45 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <h3 class="font-semibold mt-5">2. KONTAINER KOSONG</h3>
+                <div>
+                  <div class="w-[70%] float-right bg-gray-200 text-center py-2">KONTAINER KOSONG YANG DIMUAT</div>
+                </div>
+                <table class="w-full">
+                  <tbody>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 40 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 40 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 20 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 20 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 45 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 45 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <h3 class="font-semibold mt-5">3. CARGO</h3>
+                <div>
+                  <div class="w-[70%] float-right bg-gray-200 text-center py-2">CARGO YANG DIMUAT</div>
+                </div>
+                <table class="w-full">
+                  <tbody>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase Cargo <br> barang Campur </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Tonase Cargo <br> barang Karung </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase Cargo <br> barang Curah </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Tonase Cargo <br> barang Cair </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase Cargo <br> barang Berbahaya </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class=""></td>
+                      <td></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="">
+                <h3 class="font-semibold mt-5">4. KENDARAAN</h3>
+                <div>
+                  <div class="w-full bg-gray-200 text-center py-2">KENDARAAN NAIK</div>
+                </div>
+                <table class="w-full">
+                  <tbody>
+                    <tr>
+                      <td class="py-4">RODA DUA</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">UNIT </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">RODA EMPAT</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">UNIT </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">BUS</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">UNIT </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">TRUK</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">UNIT </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">ALAT BERAT</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">UNIT </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="">
+              <h2 class="font-semibold text-lg mt-8">A. BONGKAR</h2>
+              <div>
+                <h3 class="font-semibold mt-5">1. KONTAINER ISI</h3>
+                <div>
+                  <div class="w-[70%] float-right bg-gray-200 text-center py-2">KONTAINER ISI YANG DIMUAT</div>
+                </div>
+                <table class="w-full">
+                  <tbody>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 40 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 40 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 20 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 20 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 45 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 45 feet isi </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <h3 class="font-semibold mt-5">2. KONTAINER KOSONG</h3>
+                <div>
+                  <div class="w-[70%] float-right bg-gray-200 text-center py-2">KONTAINER KOSONG YANG DIMUAT</div>
+                </div>
+                <table class="w-full">
+                  <tbody>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 40 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 40 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 20 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 20 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase <br> kontainer 45 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Box <br> kontainer 45 feet kosong </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <h3 class="font-semibold mt-5">3. CARGO</h3>
+                <div>
+                  <div class="w-[70%] float-right bg-gray-200 text-center py-2">CARGO YANG DIMUAT</div>
+                </div>
+                <table class="w-full">
+                  <tbody>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase Cargo <br> barang Campur </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Tonase Cargo <br> barang Karung </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase Cargo <br> barang Curah </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">Jumlah Tonase Cargo <br> barang Cair </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase Cargo <br> barang Berbahaya </td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class=""></td>
+                      <td></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+              <div class="">
+                <h3 class="font-semibold mt-5">4. KENDARAAN</h3>
+                <div>
+                  <div class="w-full bg-gray-200 text-center py-2">KENDARAAN NAIK</div>
+                </div>
+                <table class="w-full">
+                  <tbody>
+                    <tr>
+                      <td class="py-4">RODA DUA</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">UNIT </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">RODA EMPAT</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">UNIT </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">BUS</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">UNIT </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">TRUK</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">UNIT </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">ALAT BERAT</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">UNIT </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+
+            <div>
+              <div class="w-full bg-gray-200 text-center py-2">BARANG LAINNYA YANG DIMUAT DAN DIBONGKAR</div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <h2 class="font-semibold text-">MUAT</h2>
+                <table class="w-full">
+                  <tbody>
+                    <tr>
+                      <td class="py-4">Nama Jenis Barang Lain</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">TON </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase yang dimuat</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">TON </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Total Tonase yang dimuat</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">TON </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Penumpang yang naik</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">ORANG </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Hewan yang dimuat</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">EKOR </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <h2 class="font-semibold text-">BONGKAR</h2>
+                <table class="w-full">
+                  <tbody>
+                    <tr>
+                      <td class="py-4">Nama Jenis Barang Lain</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">TON </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Tonase yang dimuat</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="">TON </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Total Tonase yang dimuat</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">TON </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Penumpang yang naik</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">ORANG </td>
+                    </tr>
+                    <tr>
+                      <td class="py-4">Jumlah Hewan yang dimuat</td>
+                      <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                      <td class="text-left">EKOR </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
 
           <!-- . BONGKAR MUAT -->
