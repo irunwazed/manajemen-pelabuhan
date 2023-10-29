@@ -67,10 +67,10 @@
                         <td>xxxx</td>
                         <td>Titanic</td>
                         <td>Lorem ipsum dolor sit amet consectetur</td>
-                        <td>
-                            <a href="{{url('admin/penyewaan-alat/create-bukti-2c')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">View</a>
-                            <a href="{{url('admin/penyewaan-alat/create-bukti-2c')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
-                            <a href="{{url('admin/penyewaan-alat/create-bukti-2c')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-blue-100 hover:bg-purple-600">Realisasi</a>
+                        <td class="py-2 flex flex-wrap gap-1 justify-center ">
+                            <a href="{{url('admin/penyewaan-alat/create-bukti-2c')}}" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
+                            <a href="{{url('admin/penyewaan-alat/create-bukti-2c')}}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Edit</a>
+                            <a href="{{url('admin/penyewaan-alat/create-bukti-2c')}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Realisasi</a>
                         </td>
                     </tr>
                     </tbody>
