@@ -11,7 +11,7 @@
   <hr class="border-b-2 border-black border-solid">
 
   <div class=" mb-3 py-8">
-    <h2 class="text-2xl font-bold mt-10 mb-7">FORM VERIFIKASI SPM</h2>
+    <h2 class="text-2xl font-bold mt-4 mb-7 text-center">FORM VERIFIKASI SPM</h2>
 
     <div class="px-8 py-5 border-2 border-solid border-slate-800 bg-white mx-2">
 
