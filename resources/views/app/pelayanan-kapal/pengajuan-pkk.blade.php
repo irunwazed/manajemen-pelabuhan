@@ -269,7 +269,7 @@
         </div>
       </div>
       <!-- . MODAL -->
-      <table class="border-solid border-2 border-slate-800 w-full mt-1">
+      <table class="border-solid border-2 border-slate-800 w-[700px] mt-1">
         <thead>
           <tr class="border-solid border-2 border-slate-800 bg-gray-300 to-primary text-slate-900">
             <th class="py-2">NO</th>
@@ -281,11 +281,19 @@
         </thead>
         <tbody>
           <tr class="border-solid border-2 border-slate-800">
-            <td>1</td>
+            <td class="text-center">1</td>
             <td>PT</td>
             <td>PBM</td>
             <td>B</td>
-            <td></td>
+            <td class="p-2">
+              <center>
+                <a href="#">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                    <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
+                  </svg>
+                </a>
+              </center>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -298,7 +306,7 @@
           <li class="mr-2 flex-1" role="presentation">
             <button class="inline-block p-4 border-b-2 rounded-t-lg" id="manifest-tab" data-tabs-target="#manifest" type="button" role="tab" aria-controls="manifest" aria-selected="false">1. MANIFEST KAPAL</button>
           </li>
-          <li class="mr-2  flex-1" role="presentation">
+          <li class="mr-2 flex-1" role="presentation">
             <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">2. DATA AWAK KAPAL</button>
           </li>
           <li class="mr-2  flex-1" role="presentation">
@@ -345,17 +353,17 @@
                 <div class="p-6 space-y-6">
                   <div>Bongkar/Muat</div>
                   <div class="grid grid-cols-3 gap-3">
-                    <div class="flex-nowrap">
-                      <label class="text-left">Type Perusahaan</label>
-                      <input type="text" class="w-full bg-white rounded px-3 py-2 ring-1 ring-black mr-3">
+                    <div class="mb-6">
+                      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type Perusahaan</label>
+                      <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
                     </div>
-                    <div class="flex-nowrap">
-                      <label class="text-left">Nama Perusahaan</label>
-                      <input type="text" class="w-full bg-white rounded px-3 py-2 ring-1 ring-black mr-3">
+                    <div class="mb-6">
+                      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Perusahaan</label>
+                      <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
                     </div>
-                    <div class="flex-nowrap">
-                      <label class="text-left">Kegiatan</label>
-                      <input type="text" class="w-full bg-white rounded px-3 py-2 ring-1 ring-black mr-3">
+                    <div class="mb-6">
+                      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kegiatan</label>
+                      <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
                     </div>
                   </div>
                 </div>
@@ -380,28 +388,58 @@
             </thead>
             <tbody>
               <tr class="border-solid border-2 border-slate-800">
-                <td>1</td>
+                <td class="text-center">1</td>
                 <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, facilis.</td>
-                <td>
-                  <button class="mr-3 py-2 px-5 bg-cyan-800 text-white font-semibold rounded-xl shadow-xl hover:opacity-70">Upload Dokumen</button>
+                <td class="py-2">
+                  <center>
+                    <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
+                  </center>
                 </td>
-                <td></td>
+                <td class="p-2">
+                  <center>
+                    <a href="#">
+                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
+                      </svg>
+                    </a>
+                  </center>
+                </td>
               </tr>
               <tr class="border-solid border-2 border-slate-800">
-                <td>2</td>
+                <td class="text-center">2</td>
                 <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, facilis.</td>
-                <td>
-                  <button class="mr-3 py-2 px-5 bg-cyan-800 text-white font-semibold rounded-xl shadow-xl hover:opacity-70">Upload Dokumen</button>
+                <td class="py-2">
+                  <center>
+                    <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
+                  </center>
                 </td>
-                <td></td>
+                <td class="p-2">
+                  <center>
+                    <a href="#">
+                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
+                      </svg>
+                    </a>
+                  </center>
+                </td>
               </tr>
               <tr class="border-solid border-2 border-slate-800">
-                <td>3</td>
+                <td class="text-center">3</td>
                 <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, facilis.</td>
-                <td>
-                  <button class="mr-3 py-2 px-5 bg-cyan-800 text-white font-semibold rounded-xl shadow-xl hover:opacity-70">Upload Dokumen</button>
+                <td class="py-2">
+                  <center>
+                    <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
+                  </center>
                 </td>
-                <td></td>
+                <td class="p-2">
+                  <center>
+                    <a href="#">
+                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
+                      </svg>
+                    </a>
+                  </center>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -444,8 +482,8 @@
                     <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download Excel</a>
                   </div>
                   <div class="flex-nowrap">
-                    <label class="text-left">File Crew List</label>
-                    <button class="mr-3 py-2 px-5 bg-cyan-800 text-white font-semibold rounded-xl shadow-xl hover:opacity-70">Upload Dokumen</button>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">File Crew List</label>
+                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                   </div>
                 </div>
                 <!-- Modal footer -->
@@ -488,9 +526,9 @@
 
           <div>
             <div class="grid grid-cols-2">
-              <div class="text-left">Manifest Kargo</div>
+              <h3 class="text-left mt-5 font-semibold">Manifest Kargo</h3>
               <div class="align-items-end">
-                <button data-modal-target="modal-mani-kargo" data-modal-toggle="modal-mani-kargo" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buat data</button>
+                <button data-modal-target="modal-mani-kargo" data-modal-toggle="modal-mani-kargo" class="float-right text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buat data</button>
 
                 <!-- Main modal -->
                 <div id="modal-mani-kargo" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -516,8 +554,8 @@
                           <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download Excel</a>
                         </div>
                         <div class="flex-nowrap">
-                          <label class="text-left">File Manifest Kargo</label>
-                          <button class="mr-3 py-2 px-5 bg-cyan-800 text-white font-semibold rounded-xl shadow-xl hover:opacity-70">Upload Dokumen</button>
+                          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">File Crew List</label>
+                          <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                         </div>
                       </div>
                       <!-- Modal footer -->
@@ -555,9 +593,9 @@
 
           <div class="mt-8">
             <div class="grid grid-cols-2">
-              <div class="text-left">Manifest Kontainer</div>
+              <div class="text-left font-semibold mt-4">Manifest Kontainer</div>
               <div class="align-items-end">
-                <button data-modal-target="modal-mani-kontainer" data-modal-toggle="modal-mani-kontainer" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buat data</button>
+                <button data-modal-target="modal-mani-kontainer" data-modal-toggle="modal-mani-kontainer" class="float-right text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buat data</button>
 
                 <!-- Main modal -->
                 <div id="modal-mani-kontainer" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -583,8 +621,8 @@
                           <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download Excel</a>
                         </div>
                         <div class="flex-nowrap">
-                          <label class="text-left">File Manifest Kontainer</label>
-                          <button class="mr-3 py-2 px-5 bg-cyan-800 text-white font-semibold rounded-xl shadow-xl hover:opacity-70">Upload Dokumen</button>
+                          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">File Manifest Kontainer</label>
+                          <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                         </div>
                       </div>
                       <!-- Modal footer -->
@@ -621,7 +659,7 @@
 
           <div class="mt-8">
             <div class="grid grid-cols-2">
-              <div class="text-left">Manifest Penumpang</div>
+              <div class="text-left font-semibold">Manifest Penumpang</div>
             </div>
             <table class="border-solid border-2 border-slate-800 w-full mt-1">
               <thead>
@@ -641,9 +679,9 @@
 
           <div class="mt-8">
             <div class="grid grid-cols-2">
-              <div class="text-left">Manifest Barang Berbahaya</div>
+              <div class="text-left font-semibold mt-4">Manifest Barang Berbahaya</div>
               <div class="align-items-end">
-                <button data-modal-target="modal-mani-bahaya" data-modal-toggle="modal-mani-bahaya" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buat data</button>
+                <button data-modal-target="modal-mani-bahaya" data-modal-toggle="modal-mani-bahaya" class="float-right text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buat data</button>
 
                 <!-- Main modal -->
                 <div id="modal-mani-bahaya" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -669,8 +707,8 @@
                           <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download Excel</a>
                         </div>
                         <div class="flex-nowrap">
-                          <label class="text-left">File Manifest Barang Berbahaya</label>
-                          <button class="mr-3 py-2 px-5 bg-cyan-800 text-white font-semibold rounded-xl shadow-xl hover:opacity-70">Upload Dokumen</button>
+                          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">File Manifest Barang Berbahaya</label>
+                          <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                         </div>
                       </div>
                       <!-- Modal footer -->
@@ -708,109 +746,112 @@
 
           <div class="mt-8">
             <div class="grid grid-cols-2">
-              <div class="text-left">Manifest Bongkar/Muat Barang Tercemar</div>
+              <div class="text-left font-semibold">Manifest Bongkar/Muat Barang Tercemar</div>
             </div>
-          <table class="border-solid border-2 border-slate-800 w-full mt-1">
-            <thead>
-              <tr class="border-solid border-2 border-slate-800 bg-gray-300 to-primary text-slate-900">
-                <th class="py-2" rowspan="2">NO</th>
-                  <th rowspan="2">JENIS</th>
-                  <th colspan="2">KAPASITAS</th>
-                  <th colspan="2">BONGKAR</th>
-                  <th colspan="2">SIMPAN</th>
-                </tr>
-                <tr class="border-solid border-2 border-slate-800 bg-gray-300 to-primary text-slate-900">
-                  <th>KG</th>
-                  <th>M3</th>
-                  <th>KG</th>
-                  <th>M3</th>
-                  <th>KG</th>
-                  <th>M3</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>ANNEX I : Limbah berupa minyak bekas atau campuran minyak dan air</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>ANNEX II : Limbah berupa material cair berbahaya dalam bentuk curah</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>ANNEX III : Limbah berupa barang berbahaya dalam kemasan</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>ANNEX IV : Limbah berupa kotoran, limbah cair domestik</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>ANNEX V : Limbah berupa sampah</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>ANNEX VI : Limbah berupa perusak ozon</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>Sampah Elektronik</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>Attachment</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="">
+              <table class="border-solid border-2 border-slate-800 w-full mt-1">
+                <thead>
+                  <tr class="border-solid border-2 border-slate-800 bg-gray-300 to-primary text-slate-900">
+                    <th class="py-2" rowspan="2">NO</th>
+                    <th class="w-[700px]" rowspan="2">JENIS</th>
+                    <th colspan="2">KAPASITAS</th>
+                    <th colspan="2">BONGKAR</th>
+                    <th colspan="2">SIMPAN</th>
+                  </tr>
+                  <tr class="border-solid border-2 border-slate-800 bg-gray-300 to-primary text-slate-900">
+                    <th>KG</th>
+                    <th>M3</th>
+                    <th>KG</th>
+                    <th>M3</th>
+                    <th>KG</th>
+                    <th>M3</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b-2 border-solid border-slate-200">
+                    <td class="text-center">1</td>
+                    <td style="width: 200px;">ANNEX I : Limbah berupa minyak bekas atau campuran minyak dan air</td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  </tr>
+                  <tr class="border-b-2 border-solid border-slate-200">
+                    <td class="text-center">2</td>
+                    <td>ANNEX II : Limbah berupa material cair berbahaya dalam bentuk curah</td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  </tr>
+                  <tr class="border-b-2 border-solid border-slate-200">
+                    <td class="text-center">3</td>
+                    <td>ANNEX III : Limbah berupa barang berbahaya dalam kemasan</td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  </tr>
+                  <tr class="border-b-2 border-solid border-slate-200">
+                    <td class="text-center">4</td>
+                    <td>ANNEX IV : Limbah berupa kotoran, limbah cair domestik</td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  </tr>
+                  <tr class="border-b-2 border-solid border-slate-200">
+                    <td class="text-center">5</td>
+                    <td>ANNEX V : Limbah berupa sampah</td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  </tr>
+                  <tr class="border-b-2 border-solid border-slate-200">
+                    <td class="text-center">6</td>
+                    <td>ANNEX VI : Limbah berupa perusak ozon</td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  </tr>
+                  <tr class="border-b-2 border-solid border-slate-200">
+                    <td class="text-center">7</td>
+                    <td>Sampah Elektronik</td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">8</td>
+                    <td>Attachment</td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
           </div>
 
 
@@ -824,34 +865,39 @@
             <h3>PELABUHAN ASAL / TUJUAN</h3>
             <center>
 
-            <table class="border-solid border-2 border-slate-800 mt-1">
-              <thead>
-                <tr class="border-solid border-2 border-slate-800 bg-gray-300 to-primary text-slate-900">
-                  <th class="py-2">NO</th>
+              <table class="border-solid border-2 border-slate-800 mt-1">
+                <thead>
+                  <tr class="border-solid border-2 border-slate-800 bg-gray-300 to-primary text-slate-900">
+                    <th class="py-2">NO</th>
                     <th>JENIS INFORMASI</th>
                     <th>DATA INFORMASI</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
+                    <td class="text-center">1</td>
                     <td>PENGAJUAN ASAL</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                   </tr>
                   <tr>
+                    <td class="text-center">2</td>
                     <td>WAKTU TIBA</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                   </tr>
                   <tr>
+                    <td class="text-center">3</td>
                     <td>WAKTU KEBERANGKATAN</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                   </tr>
                   <tr>
+                    <td class="text-center">4</td>
                     <td>PERMINTAAN LOKASI LAMBAT DAN LABUH</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                   </tr>
                   <tr>
+                    <td class="text-center">5</td>
                     <td>PANDU</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[150px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                   </tr>
                 </tbody>
               </table>

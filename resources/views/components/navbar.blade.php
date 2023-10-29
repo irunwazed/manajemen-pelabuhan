@@ -235,7 +235,7 @@
           <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Lahan Dan Bangunan</a>
         </li>
         <li>
-          <a href="{{url('admin/aneka-usaha/permohonan-sewa-bunker')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Bunker</a>
+          <a href="#{{url('admin/aneka-usaha/permohonan-sewa-bunker')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Bunker</a>
         </li>
       </ul>
     </div>
