@@ -10,14 +10,11 @@
 
   <script>
     tailwind.config = {
-      content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
-      ],
+      content: [],
       theme: {
         extend: {
           colors: {
+            'primary-awal': '#211c5c',
             primary: '#1d184f',
             warning: '#E65F2B',
             info: '#06b6d4',
@@ -30,31 +27,16 @@
       plugins: [],
     }
   </script>
-  <style type="text/tailwindcss">
-
-    .form-control {
-      @apply w-full px-3 py-1 mt-0 mb-5 border-solid border-b-2 border-black focus:outline-none focus:ring-2 focus:border-none focus:ring-black placeholder:text-slate-400 placeholder:text-sm text-secondary text-base;
-    }
-
-    .btn {
-      @apply font-semibold  py-1 px-6 rounded-md hover:opacity-80;
-    }
-
-    .link {
-        @apply underline italic hover:text-info;
-    }
-
-    .menu > li > a.active {
-        @apply underline text-black;
-    }
-
-    .menu-bot {
-        @apply absolute top-5 left-1 bg-cyan-700 text-cyan-100 w-32 h-32 text-center rounded-full opacity-0
-    }
-
-  </style>
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+<style>
+body {
+  font-family: "Montserrat", sans-serif;
+}
+</style>
+  
 </head>
-
 <body class="bg-white">
   <div class="">
     <div class="w-full flex mt-6">
@@ -75,18 +57,25 @@
                 </g>
               </svg>
               <input class="bg-gray-200 rounded-full py-2 px-3 w-full pl-10" name="search" type="text">
-              <button type="submit" class="absolute right-0 py-2 px-8 bg-black text-white rounded-xl">Search</button>
+              <button type="submit" class="absolute right-0 pt-2 pb-[9px] px-8 bg-black text-white rounded-xl">Search</button>
             </form>
           </div>
         </div>
       </div>
       <div class="flex-1">
-        <div class="flex flex-wrap float-right mr-6 bg-white rounded-lg shadow-xl py-1 px-12 hover:opacity-80">
+        <div class="flex flex-wrap float-right mr-6 bg-white rounded-lg shadow-xl py-1 px-12 " data-dropdown-toggle="setting">
           <div>
             <img class="w-7 h-7 rounded-full bg-yellow-700" src="{{URL::asset('assets/img/avatar.png')}}" alt="">
           </div>
           <div class="ml-3">
             Labverse
+          </div>
+          <div id="setting" class="z-10 hidden font-normal  bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+              <li>
+                <a href="{{url('/')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Keluar</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -94,7 +83,7 @@
 
     <div class="mx-16 mt-5 lg:mx-24">
       @include('components/navbar')
-      <div class="mt-6 px-6 md:px-2">
+      <div class="mt-6 px-6 md:px-2 overflow-x-scroll lg:overflow-auto">
         @yield('content')
       </div>
     </div>

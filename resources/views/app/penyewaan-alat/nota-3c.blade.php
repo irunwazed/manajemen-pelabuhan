@@ -10,10 +10,7 @@
                     <label>No Form 1C</label>
                 </div>
                 <div>
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
+                    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
             </div>
             <div class="text-start w-full">
@@ -21,10 +18,7 @@
                     <label>No Form 2C</label>
                 </div>
                 <div>
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
+                    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
             </div>
             <div class="text-start w-full">
@@ -32,15 +26,12 @@
                     <label>No Nota 3C</label>
                 </div>
                 <div>
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
+                    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
             </div>
             <div class="text-start">
                 <div>
-                    <button class="btn mt-8 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
+                    <button class="text-white mt-6 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Search</button>
                 </div>
             </div>
         </div>
@@ -49,7 +40,7 @@
         <div class="text-center mb-3 mt-5">
             <div>
                 <table class="mt-5 w-full border-solid border-2 border-slate-800">
-                    <thead class=" bg-gradient-to-r from-cyan-700 to-cyan-800 text-white py-5">
+                    <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white py-5">
                     <tr>
                         <th class="py-5 px-3">No</th>
                         <th>No Form 1C</th>
@@ -68,9 +59,9 @@
                         <td>xxxx</td>
                         <td>Lorem ipsum dolor sit amet consectetur</td>
                         <td>Titanic</td>
-                        <td>
-                            <button class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">View</button>
-                            <a href="{{url('admin/penyewaan-alat/create-nota-3c')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Create Nota 3C</a>
+                        <td class="py-2 flex flex-wrap gap-1 justify-center ">
+                            <a href="#" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
+                            <a href="{{url('admin/penyewaan-alat/create-nota-3c')}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create Nota 3C</a>
                         </td>
                     </tr>
                     </tbody>

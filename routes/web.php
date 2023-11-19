@@ -48,10 +48,10 @@ Route::post('/login', function () {
 
     if(in_array(@$_POST['username'], $users) && @$_POST['password'] == "testing"){
         // print_r($_POST);
-        header('Location: ' . "/".$_POST['username']);
+        header('Location: ' .url('/'.$_POST['username']));
         die();
     }else{
-        header('Location: ' . "/login");
+        header('Location: ' . url('/login?message=Username dan Password salah!'));
         die();
     }
 
@@ -86,34 +86,63 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     });
 });
 
-Route::prefix('/admin/pelayanan-barang')->group(function () {
-    Route::get('/', function () {
-        return view('app/pelayanan-barang');
+Route::prefix('/{user}/pelayanan-barang')->group(function () {
+    Route::get('/', function ($user) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/pelayanan-barang', $data);
     });
-    Route::get('/{menu}', function ($menu) {
-        return view('app/pelayanan-barang/'.$menu);
-    });
-});
-
-Route::prefix('/admin/penyewaan-alat')->group(function () {
-    Route::get('/', function () {
-        return view('app/penyewaan-alat');
-    });
-    Route::get('/{menu}', function ($menu) {
-        return view('app/penyewaan-alat/'.$menu);
+    Route::get('/{menu}', function ($user, $menu) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/pelayanan-barang/'.$menu, $data);
     });
 });
 
-Route::prefix('/admin/aneka-usaha')->group(function () {
-    Route::get('/', function () {
-        return view('app/aneka-usaha');
+Route::prefix('/{user}/penyewaan-alat')->group(function () {
+    Route::get('/', function ($user) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/penyewaan-alat', $data);
     });
-    Route::get('/{menu}', function ($menu) {
-        return view('app/aneka-usaha/'.$menu);
+    Route::get('/{menu}', function ($user, $menu) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/penyewaan-alat/'.$menu, $data);
+    });
+});
+
+Route::prefix('/{user}/aneka-usaha')->group(function () {
+    Route::get('/', function ($user) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/aneka-usaha', $data);
+    });
+    Route::get('/{menu}', function ($user, $menu) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/aneka-usaha/'.$menu, $data);
     });
 });
 
 
-Route::get('/{user}', function () {
-    return view('pages/admin');
+Route::get('/{user}', function ($user) {
+    $data = [
+        "user" => $user
+    ];
+    return view('pages/admin', $data);
 });
+
+Route::get('/{user}', function ($user) {
+    $data = [
+        "user" => $user
+    ];
+    return view('pages/admin', $data);
+});
+

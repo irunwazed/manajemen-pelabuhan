@@ -7,18 +7,20 @@
 
 <div class="">
 
-  <div class="text-2xl ">Pelayanan Kapal / Verifikasi SPM</div>
+  <div class="text-2xl ">Pelayanan Kapal / SPB / Verifikasi</div>
   <hr class="border-b-2 border-black border-solid">
 
   <div class=" mb-3 py-8">
-    <h2 class="text-2xl font-bold mt-4 mb-7 text-center">FORM VERIFIKASI SPM</h2>
+    <h2 class="text-2xl font-bold mt-10 mb-7">FORM VERIFIKASI SURAT PERSETUJUAN BERLAYAR</h2>
 
     <div class="px-8 py-5 border-2 border-solid border-slate-800 bg-white mx-2">
 
-      <h3 class="my-3 text-lg font-bold">No PKK</h3>
+      <div>No LAYANAN/PKK</div>
+      <div>RPKRO</div>
+      <div>No PKK</div>
       <div class="grid grid-cols-2">
         <div>
-          <h3 class="my-3 text-lg font-bold">Data Kapal</h3>
+          <h3 class="my-3 text-lg font-bold">DATA KAPAL</h3>
           <div class="mb-3">TANDA PENDAFTARAN KAPAL</div>
           <div>NAMA KAPAL</div>
           <div>BIODATA</div>
@@ -62,7 +64,7 @@
           <div class="mt-5">DATA TRAYEK</div>
           <div>JENIS TRAYEK</div>
           <div>NO TRAYEK</div>
-          <div>UNTASAN</div>
+          <div>LINTASAN</div>
         </div>
       </div>
 
@@ -272,6 +274,7 @@
           </tbody>
         </table>
       </div>
+
     </div>
 
 

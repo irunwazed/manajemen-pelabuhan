@@ -61,10 +61,10 @@
 
         <div class="text-center mb-3 mt-5">
             <div>
-                <table class="mt-5 w-full border-solid border-2 text-white border-slate-800">
-                    <thead class=" bg-gradient-to-r from-cyan-700 to-cyan-800  py-5">
+                <table class="mt-5 w-full border-solid border-2 border-slate-800">
+                    <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white  py-2">
                         <tr>
-                            <th class="py-5 px-3">No</th>
+                            <th class="py-2 px-3">No</th>
                             <th>Pemakaian</th>
                             <th>Jangka Waktu</th>
                             <th>Luas M2</th>
@@ -92,8 +92,8 @@
         </div>
         <div>Terbilang</div>
         <div class="text-start">
-            <a class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Create</a>
-            <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Kembali</a>
+            <a class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Create</a>
+            <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Kembali</a>
         </div>
     </div>
 @endsection

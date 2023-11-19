@@ -40,20 +40,20 @@
             </div>
             <div class="text-start">
                 <div>
-                    <button class="btn mt-8 bg-blue-600 text-blue-100 hover:bg-purple-600">Search</button>
+                    <button  class="text-white mt-7 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Search</button>
                 </div>
             </div>
         </div>
 
         <div class="text-end pt-5">
-            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="btn btn-lg text-2xl bg-blue-600 text-blue-100 hover:bg-purple-600">Buat Data</a>
+            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Buat Data</a>
         </div>
         <div class="text-center mb-3 mt-5">
             <div>
                 <table class="mt-5 w-full border-solid border-2 border-slate-800">
-                    <thead class=" bg-gradient-to-r from-cyan-700 to-cyan-800 text-white py-5">
+                    <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white py-5">
                     <tr>
-                        <th class="py-5 px-3">No</th>
+                        <th class="py-2 px-3">No</th>
                         <th>Tahun/No Kontrak</th>
                         <th>Tanggal Permohonan</th>
                         <th>Perusahaan</th>
@@ -66,11 +66,12 @@
                         <td>2023</td>
                         <td>2023-10-25</td>
                         <td>Jaya Sakti</td>
-                        <td>
-                            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">View</a>
-                            <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Edit</a>
-                            <a href="{{url('admin/aneka-usaha/pranota-permohonan-sewa-lahan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Pranota</a>
-                            <a href="{{url('admin/aneka-usaha/nota-4e')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Nota 4E</a>
+                        <td class="py-3">
+                            
+              <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Edit</a>
+              <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
+              <a href="{{url('admin/aneka-usaha/pranota-permohonan-sewa-lahan')}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Pranota</a>
+              <a href="#{{url('admin/aneka-usaha/nota-4e')}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Nota 4E</a>
                         </td>
                     </tr>
                     </tbody>
