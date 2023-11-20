@@ -7,6 +7,9 @@
   <title>Admin - @yield('title')</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <link href="{{ asset('plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css"/>
+  <link href="{{ asset('plugins/custom/fancybox/jquery.fancybox.css') }}" rel="stylesheet" type="text/css"/>
+
 
   <script>
     tailwind.config = {
@@ -265,6 +268,9 @@ body {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="{{ asset('plugins/custom/datatables/datatables.bundle.js') }}"></script>
+  <script src="{{ asset('plugins/custom/fancybox/jquery.fancybox.js') }}"></script>
+
   <script>
     let path = window.location.href;
     let pathname = window.location.pathname
