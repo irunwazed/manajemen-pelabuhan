@@ -27,16 +27,36 @@
       plugins: [],
     }
   </script>
-<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
-<style>
-body {
-  font-family: "Montserrat", sans-serif;
-}
-</style>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .table {
+      font-size: 13px;
+      border: 1px solid #CCCCCC;
+    }
+
+    .table>thead>tr>th {
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 15px;
+      padding: 20px;
+    }
+
+    .table>tbody>tr>td {
+      padding: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding: 1em;
+    }
+  </style>
+
 </head>
+
 <body class="bg-white">
   <div class="">
     <div class="w-full flex mt-6">
@@ -81,7 +101,7 @@ body {
       </div>
     </div>
 
-    <div class="mx-16 mt-5 lg:mx-24">
+    <div class="mx-16 mt-5 mb-16 lg:mx-24">
       @include('components/navbar')
       <div class="mt-6 px-6 md:px-2 overflow-x-scroll lg:overflow-auto">
         @yield('content')
@@ -265,6 +285,7 @@ body {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script>
     let path = window.location.href;
     let pathname = window.location.pathname
@@ -285,6 +306,133 @@ body {
       $("#" + pathArr[2]).addClass("active")
 
     });
+
+    
+    function sendAjax(url, data, type = 'get', loading = null) {
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+      });
+      return $.ajax({
+        url: url,
+        type: type,
+        data: data,
+        dataType: "JSON",
+        beforeSend: function() {
+          if (loading != null) setLoading(loading, true);
+        },
+        success: function(result) {
+          console.log(result);
+        },
+        error: function(err) {
+          if (err.responseJSON != undefined) {
+
+            if (err.responseJSON.status) {
+              pesanSweet('Peringatan!', err.responseJSON.pesan, 'warning');
+            } else {
+              pesanSweet('ERROR!', 'Terjadi masalah, silahkan hubungi admin.', 'error');
+            }
+          }
+          console.log(err);
+          // 
+          // $('#my-error').html(err.responseText);
+          // $("Terjadi error : ");
+        },
+        complete: function() {
+          // setTimeout(function(){ if(loading!=null)setLoading(loading, false); }, 3000);
+          if (loading != null) setLoading(loading, false);
+        },
+      });
+    }
+
+    function sendAjaxUpload(url, data, type = 'POST', loading = null) {
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+      });
+
+      let btn = false;
+      if (type == 'get') {
+        btn = true;
+      }
+
+      return $.ajax({
+        url: url,
+        type: type,
+        data: data,
+        contentType: false,
+        processData: false,
+        beforeSend: function() {
+          if (loading != null) setLoading(loading, true, '', btn);
+        },
+        success: function(result) {
+          console.log(result);
+        },
+        error: function(err) {
+          console.log(err);
+          pesanSweet('ERROR!', 'Gagal Terhubung Pada Server.', 'error');
+          // $("Terjadi error : ");
+        },
+        complete: function() {
+          if (loading != null) setLoading(loading, false, '', btn);
+        },
+      });
+    }
+
+    function setLoading(name, status, style = '', btn = false) {
+      // console.log(name);
+      if (status) {
+        // $(name).block({
+        // 	message: '<div style="'+style+'"><h4><i class="spinner-border text-primary"></i>  Silahkan tunggu...</h4></div>',
+        // 	overlayCSS: {
+        // 			backgroundColor: '#FFF',
+        // 			opacity: 0.9,
+        // 			cursor: 'wait'
+        // 	},
+        // 	css: {
+        // 			border: 0,
+        // 			padding: 0,
+        // 			backgroundColor: 'transparent'
+        // 	}
+        // });
+        $(name).addClass('prevent-click');
+        $(name).css("display", "none");
+        $(name).before('<div class="loading-view" style=" ' + style +
+          '"><h4><i class="spinner-border text-primary"></i>  Silahkan tunggu...</h4></div>');
+
+        // tambahan
+        if (btn) {
+          $('#btn-form-data').hide();
+        }
+      } else {
+        // $(name).unblock();
+        $(name).removeClass('prevent-click');
+        $(".loading-view").remove();
+        $(name).css("display", "block");
+
+        // tambahan
+        if (btn) {
+          $('#btn-form-data').show();
+        }
+      }
+    }
+
+    
+	function pesanSweet(judul, isi, status = 'success') {
+		// swalInit(
+		// 	judul,
+		// 	isi,
+		// 	status,
+		// ); 
+		swal({
+			icon: status,
+			title: judul,
+			text: isi,
+			// footer: '<a href>Why do I have this issue?</a>'
+		});
+	}
   </script>
 
   @yield('script')

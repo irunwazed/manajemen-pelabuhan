@@ -78,6 +78,11 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
         ];
         return view('app/pelayanan-kapal', $data);
     });
+    Route::get('/simlala', 'PelayananKapal\SimlalaController@show');
+    Route::get('/warta', 'PelayananKapal\WartaController@show');
+    Route::get('/pengajuan-pkk', 'PelayananKapal\PengajuanPKKController@show');
+
+    
     Route::get('/{menu}', function ($user, $menu) {
         $data = [
             "user" => $user

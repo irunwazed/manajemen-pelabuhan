@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::get('/pelayanan-kapal/pengajuan-pkk/get/pbm', 'PelayananKapal\PengajuanPKKController@getPBM');
+Route::post('/pelayanan-kapal/pengajuan-pkk/save/pbm', 'PelayananKapal\PengajuanPKKController@savePBM');

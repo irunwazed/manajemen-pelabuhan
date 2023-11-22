@@ -44,7 +44,7 @@
       <tr class="border-solid border-2 border-slate-800 bg-gradient-to-r from-[#211c5c] to-primary text-white">
         <th>NO</th>
         <th>NO PELAYANAN/PPK</th>
-        <th>NO PERMOHONAN</th>
+        <th>NO RPKRO</th>
         <th>NAMA AGEN</th>
         <th>NAMA KAPAL</th>
         <th class="px-5 py-2">AKSI</th>

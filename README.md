@@ -16,6 +16,7 @@
 install vendor
 ```
 composer install
+composer dump-autoload
 ```
 install package
 ```
