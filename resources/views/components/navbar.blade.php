@@ -62,7 +62,7 @@
           <a href="{{ url(@$user.'/pelayanan-kapal/verifikasi-pkk') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PKK</a>
         </li>
         <li>
-          <a href="{{ url(@$user.'/pelayanan-kapal/spm') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPM</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/verifikasi-spm') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPM</a>
         </li>
         <li>
           <a href="{{ url(@$user.'/pelayanan-kapal/rkbm-lala') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RKBM</a>
@@ -90,7 +90,7 @@
       @endif
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
         <li>
-          <a href="{{ url(@$user.'/pelayanan-kapal/spm') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPM</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/verifikasi-spm') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPM</a>
         </li>
         <li>
           <a href="{{ url(@$user.'/pelayanan-kapal/syah-spog') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPOG</a>

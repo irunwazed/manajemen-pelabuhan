@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class VerifikasiPKKController
+class VerifikasiSPMController
 {
     public function __construct(){
-        $this->view = 'app.pelayanan-kapal.pkk.';
+        $this->view = 'app.pelayanan-kapal.spm.';
     }
 
     public function index(Request $request, $user){
@@ -42,7 +42,7 @@ class VerifikasiPKKController
         "totalPage" => (ceil($total / $perPage)),
         ];
 
-        return view($this->view.'permohonan-pkk', $result);
+        return view($this->view.'spm', $result);
     }
 
     public function form($user, $pelayanan_kapal_id){
@@ -61,7 +61,7 @@ class VerifikasiPKKController
             $dataTrayek = DB::table('mt_simlala_rpk')->where("kode_kapal", "=", $data[0]->kode_kapal)->get();
         }
         
-        return view($this->view.'persetujuan-pkk', [
+        return view($this->view.'verifikasi-spm', [
             "data" => $data,
             "dataRkbmBarang" => $dataRkbmBarang,
             "dataTrayek" => $dataTrayek,
@@ -99,18 +99,16 @@ class VerifikasiPKKController
         $updateData = DB::table('t_pelayanan_kapal')
         ->where('pelayanan_kapal_id', $id)
         ->update([
-            "flag" => "2",
-            "flag_spm" => "1",
-            "no_spm" => "SPM".$request->id
+            "flag_spm" => "2"
         ]);
 
         $updateDataMonitoring = DB::table('t_monitoring_pelayanan_kapal')
         ->where('pelayanan_kapal_id', $id)
         ->update([
-            "pkk" => 2,
-            "spm" => 1
+            "rkbm" => 1,
+            "spm" => 2
         ]);
-        return redirect($user."/pelayanan-kapal/verifikasi-pkk")->with('success', 'Berhasil Disetujui');
+        return redirect($user."/pelayanan-kapal/verifikasi-spm")->with('success', 'Berhasil Disetujui');
     }
 
     public function tolak(Request $request){
@@ -119,9 +117,9 @@ class VerifikasiPKKController
         $updateData = DB::table('t_pelayanan_kapal')
         ->where('pelayanan_kapal_id', $id)
         ->update([
-            "flag" => "R",
+            "flag_spm" => "R",
         ]);
-        return redirect($user."/pelayanan-kapal/verifikasi-pkk")->with('success', 'Berhasil Ditolak'); 
+        return redirect($user."/pelayanan-kapal/verifikasi-spm")->with('success', 'Berhasil Ditolak'); 
     }
 
 }
