@@ -85,6 +85,13 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
 
 
     Route::post('/pengajuan-pkk/upload/manifest-penumpang', 'PelayananKapal\PengajuanPKKController@manifestPenumpang');
+
+    //Verifikasi PKK
+    Route::get('/verifikasi-pkk', 'PelayananKapal\VerifikasiPKKController@index');
+    Route::get('/verifikasi-pkk/form/{pelayanan_kapal_id}', 'PelayananKapal\VerifikasiPKKController@form');
+    Route::get('/verifikasi-pkk/detail/{pelayanan_kapal_id}', 'PelayananKapal\VerifikasiPKKController@detail');
+    Route::post('/verifikasi-pkk/setuju', 'PelayananKapal\VerifikasiPKKController@setuju');
+    Route::post('/verifikasi-pkk/tolak', 'PelayananKapal\VerifikasiPKKController@tolak');
     
     
     Route::get('/{menu}', function ($user, $menu) {
