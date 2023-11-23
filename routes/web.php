@@ -155,3 +155,6 @@ Route::get('/{user}', function ($user) {
     return view('pages/admin', $data);
 });
 
+// Route App
+require 'aneka-usaha/index.php';
+
