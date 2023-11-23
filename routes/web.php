@@ -80,8 +80,12 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     });
     Route::get('/simlala', 'PelayananKapal\SimlalaController@show');
     Route::get('/warta', 'PelayananKapal\WartaController@show');
+    Route::post('/generate-pkk', 'PelayananKapal\WartaController@generatePengajuanPKK');
     Route::get('/pengajuan-pkk', 'PelayananKapal\PengajuanPKKController@show');
 
+
+    Route::post('/pengajuan-pkk/upload/manifest-penumpang', 'PelayananKapal\PengajuanPKKController@manifestPenumpang');
+    
     
     Route::get('/{menu}', function ($user, $menu) {
         $data = [

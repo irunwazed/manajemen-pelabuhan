@@ -29,7 +29,7 @@
           <tr>
             <td>Tanda Pendaftaran Kapal</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->tanda_pendaftaran_kapal }}" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->tanda_pendaftaran_kapal }}" disabled></td>
           </tr>
           <tr>
             <td colspan="3" class="h-6"></td>
@@ -37,42 +37,42 @@
           <tr>
             <td>NAMA KAPAL</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->nama_kapal }}" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->nama_kapal }}" disabled></td>
           </tr>
           <tr>
             <td>BENDERA</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->bendera }}" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->bendera }}" disabled></td>
           </tr>
           <tr>
             <td>JENIS TRAYEK</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->jenis_trayek }}" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->jenis_trayek }}" disabled></td>
           </tr>
           <tr>
             <td>NOMOR TRAYEK</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->no_trayek }}" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="" disabled></td>
           </tr>
           <tr>
             <td>CALL SIGN</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->call_sign }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->call_sign }}"></td>
           </tr>
           <tr>
-            <td>GT</td>
+            <td>GRT</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->grt }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->grt_kapal }}"></td>
           </tr>
           <tr>
             <td>LOA</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->loa }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->loa_kapal }}"></td>
           </tr>
           <tr>
             <td>DWT</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->dwt }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->dwt_kapal }}"></td>
           </tr>
           <tr>
             <td colspan="3" class="h-6"></td>
@@ -83,42 +83,42 @@
           <tr>
             <td>GROSS TONNAGE</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->gros_tonase }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->gros_tonase }}"></td>
           </tr>
           <tr>
             <td>DEADWEIGHT TONNAGE</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->deadweight_tonase }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->deadweight_tonase }}"></td>
           </tr>
           <tr>
             <td>DRAFT DEPAN</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->draft_muka }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->draft_muka }}"></td>
           </tr>
           <tr>
             <td>DRAFT MAKSIMUM</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->draft_maksimum }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->draft_maksimum }}"></td>
           </tr>
           <tr>
             <td>DRAFT BELAKANG</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->draft_belakang }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->draft_belakang }}"></td>
           </tr>
           <tr>
             <td>KETINGGIAN UDARA</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->ketinggian_udara }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->ketinggian_udara }}"></td>
           </tr>
           <tr>
             <td>LENGTH OVER ALL</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->panjang_kapal }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->panjang_kapal }}"></td>
           </tr>
           <tr>
             <td>LEBAR KAPAL</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->lebar_kapal }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->lebar_kapal }}"></td>
           </tr>
           <tr>
             <td colspan="3" class="h-6"></td>
@@ -129,12 +129,12 @@
           <tr>
             <td>NAMA</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->nama_cso }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->nama_cso }}"></td>
           </tr>
           <tr>
             <td>NO TELEPON</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->no_telp_cso }}"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->no_telp_cso }}"></td>
           </tr>
         </table>
       </div>
@@ -144,22 +144,22 @@
           <tr>
             <td>NAMA</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->perusahaan_pemilik_kapal }}" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->perusahaan_pemilik_kapal }}" disabled></td>
           </tr>
           <tr>
             <td>PENANGGUNG JAWAB</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->penanggung_jawab }}" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->penanggung_jawab }}" disabled></td>
           </tr>
           <tr>
             <td>SIUPAL PEMILIK</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->siupal_pemilik }}" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->siupal_pemilik }}" disabled></td>
           </tr>
           <tr>
             <td>ALAMAT</td>
             <td>:</td>
-            <td><input type="text" disabled class="w-full py-10 bg-gray-100 rounded-2xl px-3 border-gray-300 mr-3" value="{{ @$dataRPK->alamat }}" /></td>
+            <td><input type="text" disabled class="w-full py-10 bg-gray-100 rounded-2xl px-3 border-gray-300 mr-3" value="{{ @$data->alamat }}" /></td>
           </tr>
           <tr>
             <td colspan="3" class="h-6"></td>
@@ -170,22 +170,22 @@
           <tr>
             <td>NAMA</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->nama_agen }}" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->nama_agen }}" disabled></td>
           </tr>
           <tr>
             <td>PENANGGUNG JAWAB</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->penanggung_jawab_agen }}" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->penanggung_jawab_agen }}" disabled></td>
           </tr>
           <tr>
             <td>DOKUMEN KEGIATAN</td>
             <td>:</td>
-            <td><input type="file" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$dataRPK->alamat }}" >  </td>
+            <td><input type="file" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->alamat }}" >  </td>
           </tr>
           <tr>
             <td>ALAMAT</td>
             <td>:</td>
-            <td><input type="text" disabled class="w-full py-10 bg-gray-100 rounded-2xl px-3 border-gray-300 mr-3" value="{{ @$dataRPK->alamat_agen }}" /></td>
+            <td><input type="text" disabled class="w-full py-10 bg-gray-100 rounded-2xl px-3 border-gray-300 mr-3" value="{{ @$data->alamat_agen }}" /></td>
           </tr>
           <tr>
             <td colspan="3" class="h-6"></td>
@@ -211,7 +211,7 @@
       <h2 class="bg-blue-300 py-2 pl-3 my-3 font-semibold">PERUSAHAAN BONGKAR MUAT</h2>
 
       <!-- MODAL -->
-      <button data-modal-target="modal-pmb" data-modal-toggle="modal-pmb" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+      <button  data-modal-toggle="modal-pmb" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
         Tambah
       </button>
 
@@ -333,56 +333,6 @@
 
           <h2 class="font-bold mt-6 mb-4">UPLOAD FILE MANIFEST KAPAL</h2>
 
-          <!-- MODAL -->
-          <button data-modal-target="modal-manifest" data-modal-toggle="modal-manifest" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-            UPLOAD MANIFEST
-          </button>
-
-          <!-- Main modal -->
-          <div id="modal-manifest" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-            <div class="relative w-full max-w-2xl max-h-full">
-              <!-- Modal content -->
-              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <!-- Modal header -->
-                <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Tambah PBM/JPT
-                  </h3>
-                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="modal-manifest">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                  </button>
-                </div>
-                <!-- Modal body -->
-                <div class="p-6 space-y-6">
-                  <div>Bongkar/Muat</div>
-                  <div class="grid grid-cols-3 gap-3">
-                    <div class="mb-6">
-                      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type Perusahaan</label>
-                      <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
-                    </div>
-                    <div class="mb-6">
-                      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Perusahaan</label>
-                      <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
-                    </div>
-                    <div class="mb-6">
-                      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kegiatan</label>
-                      <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
-                    </div>
-                  </div>
-                </div>
-                <!-- Modal footer -->
-                <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                  <button data-modal-hide="modal-manifest" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</button>
-                  <button data-modal-hide="modal-manifest" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Batal</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- . MODAL -->
-
           <table class="border-solid border-2 border-slate-800 w-full mt-1">
             <thead>
               <tr class="border-solid border-2 border-slate-800 bg-gray-300 to-primary text-slate-900">
@@ -395,10 +345,13 @@
             <tbody>
               <tr class="border-solid border-2 border-slate-800">
                 <td class="text-center">1</td>
-                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, facilis.</td>
+                <td>DOKUMEN MANIFEST PENUMPANG</td>
                 <td class="py-2">
                   <center>
-                    <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
+                    <form action="./pengajuan-pkk/upload/manifest-penumpang" method="post" enctype="multipart/form-data">
+                      <input type="file" name="files">
+                      <button type="submit"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
+                    </form>
                   </center>
                 </td>
                 <td class="p-2">
@@ -413,7 +366,7 @@
               </tr>
               <tr class="border-solid border-2 border-slate-800">
                 <td class="text-center">2</td>
-                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, facilis.</td>
+                <td>DOKUMEN MANIFEST BONGKAR MUAT</td>
                 <td class="py-2">
                   <center>
                     <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
@@ -431,7 +384,25 @@
               </tr>
               <tr class="border-solid border-2 border-slate-800">
                 <td class="text-center">3</td>
-                <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam, facilis.</td>
+                <td>DOKUMEN MANIFEST BARANG BERBAHAYA</td>
+                <td class="py-2">
+                  <center>
+                    <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
+                  </center>
+                </td>
+                <td class="p-2">
+                  <center>
+                    <a href="#">
+                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
+                      </svg>
+                    </a>
+                  </center>
+                </td>
+              </tr>
+              <tr class="border-solid border-2 border-slate-800">
+                <td class="text-center">3</td>
+                <td>DOKUMEN MANIFEST BARANG KHUSUS</td>
                 <td class="py-2">
                   <center>
                     <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
@@ -1384,14 +1355,30 @@
     loadPBM()
 
   });
-
-
+  
+  let pelayanan_kapal_id = '{{ @$_GET["id"] }}';
   // PMB
   $('#form-pbm').submit(function(e) {
     e.preventDefault();
     let data = $('#form-pbm').serializeArray();
+    data.push({
+      name: "pelayanan_kapal_id",
+      value: pelayanan_kapal_id
+    })
+    console.log("data", data)
     $.when(sendAjax('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/save/pbm', data, 'post', '#form-pbm')).done(function(res) {
       if (res.status) {
+        // $('#modal-pmb').hide();
+        // $("body > div[modal-backdrop]")?.remove()
+        // $("body > div[modal-backdrop]")?.addClass("hidden")
+        // $('body').removeClass("overflow-hidden")
+        // $('#modal-pmb').removeClass("flex")
+        // $('#modal-pmb').addClass("hidden")
+        pesanSweet('Berhasil', res.message);
+        loadPBM()
+        // setTimeout(function(){
+        //   window.location.reload(1);
+        // }, 2000);
 
       } else {
         pesanSweet('Gagal!', res.pesan, 'warning');
@@ -1401,24 +1388,23 @@
 
   function loadPBM() {
 
-    $.when(sendAjax('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/get/pbm', {}, 'get')).done(function(res) {
+    $.when(sendAjax('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/get/pbm', {pelayanan_kapal_id:pelayanan_kapal_id}, 'get')).done(function(res) {
       if (res.status) {
 
         console.log("e", res.data)
-
+        $('#table-pbm > tbody ').empty();
         for(let i = 0; i < res.data.length; i++){
           
         $('#table-pbm > tbody ').append("<tr><td class='text-center'>"+(i+1)+"</td><td>"+res.data[i]["nama_perusahaan"]+"</td><td>"+res.data[i]["type_pbm"]+"</td><td>"+res.data[i]["kegiatan"]+"</td><td class='p-2'>"+
         `
         <center>
-                <a href="#" onClick="removePBM('${res.data[i]["pelayanan_kapal_pbm_id"]}')">
+                <a href="javascript:void(0);" onClick="removePBM('${res.data[i]["pelayanan_kapal_pbm_id"]}')">
                   <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                     <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
                   </svg>
                 </a>
               </center>
         `
-        
         +"</td></tr>")
         }
       } else {
@@ -1427,18 +1413,53 @@
     });
   }
 
-  function removePBM(id){
+  async function removePBM(id){
     console.log("id",id)
-    $.when(sendAjax('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/delete/pbm/'+id, data, 'get')).done(function(res) {
-      if (res.status) {
-        
-      } else {
-        pesanSweet('Gagal!', res.pesan, 'warning');
-      }
-    });
+    await init_hapus('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/delete/pbm/'+id);
+    loadPBM()
   }
-
   // . PMB
+
+
+  // upload DOKUMEN MANIFEST PENUMPANG
+
+  // $('#form-upload-manifest-penumpang').submit(function(e) {
+  //   e.preventDefault();
+  //   let data = $('#form-upload-manifest-penumpang').serializeArray();
+  //   data.push({
+  //     name: "pelayanan_kapal_id",
+  //     value: pelayanan_kapal_id
+  //   })
+  //   console.log("data", data)
+  //   $.when(sendAjax('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/save/pbm', data, 'post', '#form-pbm')).done(function(res) {
+  //     if (res.status) {
+  //       // $('#modal-pmb').hide();
+  //       // $("body > div[modal-backdrop]")?.remove()
+  //       // $("body > div[modal-backdrop]")?.addClass("hidden")
+  //       // $('body').removeClass("overflow-hidden")
+  //       // $('#modal-pmb').removeClass("flex")
+  //       // $('#modal-pmb').addClass("hidden")
+  //       pesanSweet('Berhasil', res.message);
+  //       loadPBM()
+  //       // setTimeout(function(){
+  //       //   window.location.reload(1);
+  //       // }, 2000);
+
+  //     } else {
+  //       pesanSweet('Gagal!', res.pesan, 'warning');
+  //     }
+  //   });
+  // })
+
+  
+  // . upload DOKUMEN MANIFEST PENUMPANG
+
+
+
+
+
+
+
 </script>
 
 

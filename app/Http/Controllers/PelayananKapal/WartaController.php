@@ -44,4 +44,59 @@ class WartaController extends Controller
     return view('app.pelayanan-kapal.warta', $result);
   }
 
+  
+  function generatePengajuanPKK(Request $request){
+
+    // get ID
+    $lastData = DB::table('t_pelayanan_kapal')->orderBy("pelayanan_kapal_id", "DESC")->first();
+    $pelayanan_kapal_id = 1;
+    if(@$lastData->pelayanan_kapal_id){
+      $pelayanan_kapal_id = $lastData->pelayanan_kapal_id +1;
+    }
+
+    
+    $jenis = @$request->input('jenis');
+    $noRpk = @$request->input('no_rpk');
+
+    
+    $dataRPK = DB::table('mt_simlala_rpk')
+    // ->leftJoin("m_kapal", "m_kapal.kode_kapal", "mt_simlala_rpk.kode_kapal");
+      ->where("no_rpk", $noRpk);
+
+      if(@$jenis != ""){
+        $dataRPK = $dataRPK->where("jenis_trayek", $jenis);
+      }
+      $dataRPK = $dataRPK->first();
+      echo "<pre>";
+      print_r($dataRPK);
+      echo "</pre>";
+
+      if(@$dataRPK){
+        
+        $savePBM = DB::table('t_pelayanan_kapal')->insert([
+          "pelayanan_kapal_id" => $pelayanan_kapal_id,
+          "kode_kapal" => @$dataRPK->kode_kapal?$dataRPK->kode_kapal:"",
+          "nama_kapal" => @$dataRPK->nama_kapal?@$dataRPK->nama_kapal:"",
+          "tanda_pendaftaran_kapal" => $dataRPK->tanda_pendaftaran_kapal,
+          "grt_kapal" => $dataRPK->grt,
+          "loa_kapal" => $dataRPK->loa,
+          "dwt_kapal" => $dataRPK->dwt,
+          "draft_muka" => 0,
+          "jumlah_palka" => 0,
+          "gros_tonase" => 0,
+          "deadweight_tonase" => 0,
+          "ketinggian_udara" => 0,
+          "draft_maksimum" => 0,
+          "draft_belakang" => 0,
+          "panjang_kapal" => 0,
+          "lebar_kapal" => 0,
+          "flag" => "0",
+        ]);
+        return redirect()->back()->with('success', 'Berhasil ajukan PKK');   
+      }else{  
+        return redirect()->back()->withErrors(['msg' => 'Data Simlala tidak ditemukan!']);
+      }
+    
+  }
+
 }

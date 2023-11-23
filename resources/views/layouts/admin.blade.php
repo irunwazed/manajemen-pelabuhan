@@ -382,21 +382,7 @@
     }
 
     function setLoading(name, status, style = '', btn = false) {
-      // console.log(name);
       if (status) {
-        // $(name).block({
-        // 	message: '<div style="'+style+'"><h4><i class="spinner-border text-primary"></i>  Silahkan tunggu...</h4></div>',
-        // 	overlayCSS: {
-        // 			backgroundColor: '#FFF',
-        // 			opacity: 0.9,
-        // 			cursor: 'wait'
-        // 	},
-        // 	css: {
-        // 			border: 0,
-        // 			padding: 0,
-        // 			backgroundColor: 'transparent'
-        // 	}
-        // });
         $(name).addClass('prevent-click');
         $(name).css("display", "none");
         $(name).before('<div class="loading-view" style=" ' + style +
@@ -433,6 +419,41 @@
 			// footer: '<a href>Why do I have this issue?</a>'
 		});
 	}
+
+  
+	async function init_hapus(url, dataTable = null) {
+
+await swal({
+    title: "Apakah anda yakin?",
+    text: "Data yang terhapus tidak dapat dikembalikan!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then(async (willDelete) => {
+    if (willDelete) {
+      // swal("Poof! Your imaginary file has been deleted!", {
+      // 	icon: "success",
+      // });
+      await $.when(sendAjax(url, {})).done(function(res) {
+        if (res.status) {
+          swal("Data anda berhasil terhapus!", {
+            icon: "success",
+          });
+          if (dataTable != null) dataTable.ajax.reload();
+        } else {
+
+          swal("Server sedang bermasalah!", {
+            icon: "warning",
+          });
+        }
+      });
+    } else {
+      swal("Data anda batal terhapus!");
+    }
+  });
+
+}
   </script>
 
   @yield('script')
