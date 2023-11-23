@@ -10,7 +10,6 @@ class PengeluaranBarang2B2 extends Model
     protected $table = 't_pbau_pengeluaran_2b2';
     protected $fillable = [
         'pbau_pengeluaran_2b2_id',
-        'pbau_pengeluaran_2b2_id',
         'pbau_penumpukan_2b1' ,
         'no_form_2b2' ,
         'tgl_2b2' ,

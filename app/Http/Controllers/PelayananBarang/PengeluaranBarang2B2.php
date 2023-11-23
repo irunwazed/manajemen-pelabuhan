@@ -10,20 +10,15 @@ class PengeluaranBarang2B2 extends Controller
 {
     public function show(Request $request, $user)
     {
-        $search = $request->input('search');
-
-
         $page = @$request->input('page') ? $request->input('page') : 1;
         $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
 
+        $query = ModelsPengeluaranBarang2B2::when(request()->filled('no_form_2b2'), function ($q) {
+            $q->where('no_form_2b2', request('no_form_2b2'));
+        })->when(request()->filled('pbau_pengeluaran_2b2_id'), function ($q) {
+            $q->where('pbau_pengeluaran_2b2_id', request('pbau_pengeluaran_2b2_id'));
+        });
 
-        $query = ModelsPengeluaranBarang2B2::where(
-            function ($query) use ($search) {
-                return $query
-                    ->where('no_form_2b2', 'like', '%' . $search . '%')
-                    ->orWhere('pbau_penumpukan_2b1', 'like', '%' . $search . '%');
-            }
-        );
         $total = $query->count();
         $data = $query->skip(($page - 1) * $perPage)->take($perPage)
             ->get();
