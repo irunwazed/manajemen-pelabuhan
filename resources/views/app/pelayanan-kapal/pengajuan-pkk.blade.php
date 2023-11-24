@@ -1357,6 +1357,7 @@
   });
   
   let pelayanan_kapal_id = '{{ @$_GET["id"] }}';
+  
   // PMB
   $('#form-pbm').submit(function(e) {
     e.preventDefault();
