@@ -23,3 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/pelayanan-kapal/pengajuan-pkk/get/pbm', 'PelayananKapal\PengajuanPKKController@getPBM');
 Route::post('/pelayanan-kapal/pengajuan-pkk/save/pbm', 'PelayananKapal\PengajuanPKKController@savePBM');
 Route::get('/pelayanan-kapal/pengajuan-pkk/delete/pbm/{id}', 'PelayananKapal\PengajuanPKKController@deletePBM');
+Route::post('/pelayanan-kapal/pengajuan-pkk/save', 'PelayananKapal\PengajuanPKKController@save');
+
+Route::get('/get/pelabuhan/{pelabuhan}/dermaga', 'ApiController@getDermagaByPelabuhan');
+
