@@ -137,8 +137,6 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
 });
 
 Route::prefix('/{user}/eksport-import')->group(function () {
-    print_r("aku");
-    Route::post('upload/save/import','EksportImport\EksportImportController@saveImportHeader');
     
     Route::get('/', function ($user) {
         $data = [
@@ -169,8 +167,6 @@ Route::get('/{user}', function ($user) {
     ];
     return view('pages/admin', $data);
 });
-
-
 
 // Route App
 require 'aneka-usaha/index.php';

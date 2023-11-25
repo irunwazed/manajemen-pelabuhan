@@ -23,7 +23,7 @@ Route::post('/pelayanan-kapal/pengajuan-pkk/save/pbm', 'PelayananKapal\Pengajuan
 Route::get('/pelayanan-kapal/pengajuan-pkk/delete/pbm/{id}', 'PelayananKapal\PengajuanPKKController@deletePBM');
 
 //Route post Import
-Route::post('/upload-form', 'EksportImport\EksportImportController@saveImportHeader');
+Route::post('/upload/save/import','EksportImport\EksportImportController@saveImportHeader');
 Route::post('/upload-entitas', 'EksportImport\EksportImportController@saveEntitas');
 Route::post('/dokumen-pendukung', 'EksportImport\EksportImportController@saveDokumenPendukung');
 Route::post('/data-pengangkutan', 'EksportImport\EksportImportController@saveDataPengangkutan');

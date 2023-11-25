@@ -111,21 +111,21 @@
         formData.append("pib", pib);
         formData.append("import", import);
         formData.append("pembayaran", pembayaran);
-        
-        fetch("{{ url('admin/eksport-import/upload/save/import') }}", {
-            method: "POST",
-            body: formData,
-            headers: {
-                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
+
+        $.ajax({
+            url: '/upload/save/import',
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                // Handle the response from the API
+                console.log(response);
             },
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("result").innerHTML = data.message;
-        })
-        .catch(error => {
-            console.error("Error:", error);
+            error: function(error) {
+                // Handle errors
+                console.log(error);
+            }
         });
+        
     }
 </script>
 @endsection

@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\EksportImport;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller\EksportImport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-// use App\User;
+
 
 class EksportImportController extends Controller
 {
 
   public function saveImportHeader(Request $request)
   {
-    die("a");exit;
+    
     $no_pengajuan = $request->input('pengajuan');
     $pelabuhan = $request->input('pelabuhan');
     $Kepebaenan = $request->input('Kepebaenan');
