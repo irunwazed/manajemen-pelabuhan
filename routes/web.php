@@ -19,43 +19,9 @@ Route::get('/', function () {
     die();
 });
 
-Route::get('/login', function () {
-    return view('pages/login');
-});
+Route::get('/login', 'LoginController@login');
 
-Route::post('/login', function () {
-//     1. agen-kapal
-// 2. petugas-lala
-// 3. pbm
-// 4. bup
-// 5. syahbandar
-// 6. Pelindo-kapal
-// 7. Pelindo-pbau
-// 8. Pelindo-keuangan
-// 9. admin
-
-    $users = [
-       "agen-kapal",
-       "petugas-lala",
-       "pbm",
-       "bup",
-       "syahbandar",
-       "Pelindo-kapal",
-       "Pelindo-pbau",
-       "Pelindo-keuangan",
-       "admin"
-    ];
-
-    if(in_array(@$_POST['username'], $users) && @$_POST['password'] == "testing"){
-        // print_r($_POST);
-        header('Location: ' .url('/'.$_POST['username']));
-        die();
-    }else{
-        header('Location: ' . url('/login?message=Username dan Password salah!'));
-        die();
-    }
-
-});
+Route::post('/login', 'LoginController@doLogin');
 
 
 Route::get('/admin/menu', function () {
@@ -82,10 +48,10 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::get('/warta', 'PelayananKapal\WartaController@show');
     Route::post('/generate-pkk', 'PelayananKapal\WartaController@generatePengajuanPKK');
     Route::get('/pengajuan-pkk', 'PelayananKapal\PengajuanPKKController@show');
+    Route::get('/detail-pkk', 'PelayananKapal\PengajuanPKKController@detail');
 
 
     Route::post('/pengajuan-pkk/upload/manifest-penumpang', 'PelayananKapal\PengajuanPKKController@manifestPenumpang');
-
     Route::get('/pengajuan-pkk/{id}/delete/manifest-penumpang', 'PelayananKapal\PengajuanPKKController@deleteManifestPenumpang');
 
     Route::post('/pengajuan-pkk/upload/manifest-bb', 'PelayananKapal\PengajuanPKKController@manifestBB');
@@ -94,7 +60,6 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::post('/pengajuan-pkk/upload/manifest-bk', 'PelayananKapal\PengajuanPKKController@manifestBK');
     Route::get('/pengajuan-pkk/{id}/delete/manifest-bk', 'PelayananKapal\PengajuanPKKController@deleteManifestBK');
 
-    
     Route::post('/pengajuan-pkk/crew-list/import', 'PelayananKapal\PengajuanPKKController@importCrewList');
     Route::get('/pengajuan-pkk/{pelayanan_kapal_id}/crew-list/delete/{kode}', 'PelayananKapal\PengajuanPKKController@deleteCrewList');
     
@@ -109,6 +74,10 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     
     Route::post('/pengajuan-pkk/manifest-barang-tercemar/save', 'PelayananKapal\PengajuanPKKController@saveBrgTercemar');
 
+    Route::post('/pengajuan-pkk/dokumen-kapal/save', 'PelayananKapal\PengajuanPKKController@saveDokumenKapal');
+    Route::get('/pengajuan-pkk/{pelayanan_kapal_id}/dokumen-kapal/delete/{kode}', 'PelayananKapal\PengajuanPKKController@deleteDokumenKapal');
+
+    Route::post('/pengajuan-pkk/bongkar-muat/save', 'PelayananKapal\PengajuanPKKController@saveBongkarMuat');
 
     //Verifikasi PKK
     Route::get('/verifikasi-pkk', 'PelayananKapal\VerifikasiPKKController@index');
@@ -124,6 +93,26 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::post('/verifikasi-spm/setuju', 'PelayananKapal\VerifikasiSPMController@setuju');
     Route::post('/verifikasi-spm/tolak', 'PelayananKapal\VerifikasiSPMController@tolak');
 
+
+    // RKBM
+    Route::get('/rkbm', 'PelayananKapal\RKBMController@show');
+    Route::get('/form-rkbm', 'PelayananKapal\RKBMController@form');
+    Route::post('/rkbm', 'PelayananKapal\RKBMController@saveRKBM');
+
+    Route::get('/rkbm/barang', 'PelayananKapal\RKBMBarangController@show');
+    Route::post('/rkbm/barang', 'PelayananKapal\RKBMBarangController@save');
+    Route::get('/rkbm/barang/delete/{id}', 'PelayananKapal\RKBMBarangController@delete');
+    
+    Route::get('/rkbm/tkbm', 'PelayananKapal\RKBMController@tkbm');
+    Route::post('/rkbm/tkbm', 'PelayananKapal\RKBMController@saveTKBM');
+    Route::get('/rkbm/kirim', 'PelayananKapal\RKBMController@kirim');
+    
+    Route::get('/rkbm/verifikasi', 'PelayananKapal\RKBMController@verifikasi');
+    Route::get('/rkbm/verifikasi/do', 'PelayananKapal\RKBMController@doVerifikasi');
+    Route::get('/rkbm/verifikasi/{id}', 'PelayananKapal\RKBMController@verifikasiDetail');
+
+    // RPKRO
+    Route::get('/rpkro', 'PelayananKapal\RPKROController@list');
     
     
     Route::get('/{menu}', function ($user, $menu) {

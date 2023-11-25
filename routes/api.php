@@ -24,6 +24,7 @@ Route::get('/pelayanan-kapal/pengajuan-pkk/get/pbm', 'PelayananKapal\PengajuanPK
 Route::post('/pelayanan-kapal/pengajuan-pkk/save/pbm', 'PelayananKapal\PengajuanPKKController@savePBM');
 Route::get('/pelayanan-kapal/pengajuan-pkk/delete/pbm/{id}', 'PelayananKapal\PengajuanPKKController@deletePBM');
 Route::post('/pelayanan-kapal/pengajuan-pkk/save', 'PelayananKapal\PengajuanPKKController@save');
+Route::post('/pelayanan-kapal/pengajuan-pkk/kirim', 'PelayananKapal\PengajuanPKKController@kirim');
 
 Route::get('/get/pelabuhan/{pelabuhan}/dermaga', 'ApiController@getDermagaByPelabuhan');
 

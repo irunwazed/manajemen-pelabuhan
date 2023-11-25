@@ -13,26 +13,12 @@
   <div class=" mb-3 mt-5">
 
 
-    @if($errors->any())
-    <div class="alert alert-success bg-red-800 text-red-100 rounded-md text-center py-4 font-semibold text-lg">
-      {{$errors->first()}}
-
-    </div>
-    @endif
-    @if(session()->has('success'))
-    <div class="alert alert-success bg-green-800 text-green-100 rounded-md text-center py-4 font-semibold text-lg">
-      {{ session()->get('success') }}
-    </div>
-    @endif
-
     <div class="relative -bottom-20 left-6 z-1 bg-white w-[250px] px-6 font-bold text-lg">
       Pengajuan Keagenan
     </div>
     <div class="flex flex-wrap place-content-end my-2">
 
       <a href="warta" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">KEMBALI</a>
-      <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onclick="save()">SIMPAN</button>
-      <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onclick="kirim()">KIRIM</button>
     </div>
 
 
@@ -187,12 +173,12 @@
           <tr>
             <td>NAMA</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->nama_agen?$data->nama_agen:session()->get('agen_nama_perusahaan') }}" name="nama_agen" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->nama_agen?$data->nama_agen:session()->get('nama_perusahaan') }}" name="nama_agen" disabled></td>
           </tr>
           <tr>
             <td>PENANGGUNG JAWAB</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->penanggung_jawab_agen?@$data->penanggung_jawab_agen:session()->get('agen_pic') }}" name="penanggung_jawab_agen" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->penanggung_jawab_agen?@$data->penanggung_jawab_agen:session()->get('pic') }}" name="penanggung_jawab_agen" disabled></td>
           </tr>
           <tr>
             <td>DOKUMEN KEGIATAN</td>
@@ -203,7 +189,7 @@
             <td>ALAMAT</td>
             <td>:</td>
             <td>
-              <textarea name="alamat_agen" class="w-full py-10 rounded-2xl px-3 border-gray-300 mr-3" cols="30" rows="3">{{ @$data->alamat_agen?$data->alamat_agen:session()->get('agen_alamat_perusahaan') }}</textarea>
+              <textarea name="alamat_agen" class="w-full py-10 rounded-2xl px-3 border-gray-300 mr-3" cols="30" rows="3">{{ @$data->alamat_agen?$data->alamat_agen:session()->get('alamat_perusahaan') }}</textarea>
             </td>
           </tr>
           <tr>
@@ -229,71 +215,6 @@
     <div class="mt-5">
       <h2 class="bg-blue-300 py-2 pl-3 my-3 font-semibold">PERUSAHAAN BONGKAR MUAT</h2>
 
-      <!-- MODAL -->
-      <button data-modal-toggle="modal-pmb" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-        Tambah
-      </button>
-
-      <!-- Main modal -->
-      <div id="modal-pmb" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative w-full max-w-2xl max-h-full">
-          <!-- Modal content -->
-          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                Tambah PBM/JPT
-              </h3>
-              <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="modal-pmb">
-                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                </svg>
-                <span class="sr-only">Close modal</span>
-              </button>
-            </div>
-            <!-- Modal body -->
-            <div class="p-6 space-y-6">
-              <div>Bongkar/Muat</div>
-              <form action="" id="form-pbm">
-                <div class="grid grid-cols-3 gap-3">
-                  <div class="flex-nowrap">
-                    <label class="text-left">Type Perusahaan</label>
-                    <select name="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                      <option value="">-= Pilih Type Perusahaan =-</option>
-                      <option value="PBM">PBM</option>
-                      <option value="JPT">JPT</option>
-                    </select>
-                  </div>
-                  <div class="flex-nowrap">
-                    <label class="text-left">Nama Perusahaan</label>
-                    <select name="perusahaan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                      <option value="">-= Pilih Perusahaan =-</option>
-                      @foreach(@$dataPerusahaan as $rowPerusahaan)
-                      <option value="{{ @$rowPerusahaan->perusahaan_id }}">{{ @$rowPerusahaan->nama_perusahaan }}</option>
-                      @endforeach
-                    </select>
-                  </div>
-                  <div class="flex-nowrap">
-                    <label class="text-left">Kegiatan</label>
-                    <select name="kegiatan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                      <option value="">-= Pilih Kegiatan =-</option>
-                      <option value="BONGKAR">BONGKAR</option>
-                      <option value="MUAT">MUAT</option>
-                      <option value="BONGKAR DAN MUAT">BONGKAR DAN MUAT</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <!-- Modal footer -->
-            <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-              <button type="submit" form="form-pbm" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</button>
-              <button data-modal-hide="modal-pmb" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Batal</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- . MODAL -->
       <table class="border-solid border-2 border-slate-800 w-[700px] mt-1" id="table-pbm">
         <thead>
           <tr class="bg-gray-300 to-primary text-slate-900">
@@ -301,25 +222,9 @@
             <th>NAMA PERUSAHAAN</th>
             <th>TYPE PERUSAHAAN</th>
             <th>KEGIATAN</th>
-            <th>AKSI</th>
           </tr>
         </thead>
         <tbody>
-          <!-- <tr class="">
-            <td class="text-center">1</td>
-            <td>PT</td>
-            <td>PBM</td>
-            <td>B</td>
-            <td class="p-2">
-              <center>
-                <a href="#">
-                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                    <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                  </svg>
-                </a>
-              </center>
-            </td>
-          </tr> -->
         </tbody>
       </table>
     </div>
@@ -370,11 +275,7 @@
                     @if(@$data->file_manifest_penumpang)
                     <a target="_blank|_self|_parent|_top|framename" href="{{ url('/') }}/{{ $data->file_manifest_penumpang }}" class="py-2 px-4 rounded-md hover:opacity-90 bg-orange-400 text-orange-100">Download</a>
                     @else
-                    <form action="./pengajuan-pkk/upload/manifest-penumpang" method="post" enctype="multipart/form-data">
-                      <input type="hidden" name="pelayanan_kapal_id" value="{{ @$_GET['id'] }}">
-                      <input type="file" name="files">
-                      <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
-                    </form>
+                    <span>Tidak ada</span>
                     @endif
                   </center>
                 </td>
@@ -396,11 +297,7 @@
                     @if(@$data->file_manifest_bongkar_muat)
                     <a target="_blank|_self|_parent|_top|framename" href="{{ url('/') }}/{{ $data->file_manifest_bongkar_muat }}" class="py-2 px-4 rounded-md hover:opacity-90 bg-orange-400 text-orange-100">Download</a>
                     @else
-                    <form action="./pengajuan-pkk/upload/manifest-bm" method="post" enctype="multipart/form-data">
-                      <input type="hidden" name="pelayanan_kapal_id" value="{{ @$_GET['id'] }}">
-                      <input type="file" name="files">
-                      <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
-                    </form>
+                    <span>Tidak ada</span>
                     @endif
                   </center>
                 </td>
@@ -422,11 +319,7 @@
                     @if(@$data->file_manifest_barang_berbahaya)
                     <a target="_blank|_self|_parent|_top|framename" href="{{ url('/') }}/{{ $data->file_manifest_barang_berbahaya }}" class="py-2 px-4 rounded-md hover:opacity-90 bg-orange-400 text-orange-100">Download</a>
                     @else
-                    <form action="./pengajuan-pkk/upload/manifest-bb" method="post" enctype="multipart/form-data">
-                      <input type="hidden" name="pelayanan_kapal_id" value="{{ @$_GET['id'] }}">
-                      <input type="file" name="files">
-                      <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
-                    </form>
+                    <span>Tidak ada</span>
                     @endif
                   </center>
                 </td>
@@ -448,11 +341,7 @@
                     @if(@$data->file_manifest_barang_khusus)
                     <a target="_blank|_self|_parent|_top|framename" href="{{ url('/') }}/{{ $data->file_manifest_barang_khusus }}" class="py-2 px-4 rounded-md hover:opacity-90 bg-orange-400 text-orange-100">Download</a>
                     @else
-                    <form action="./pengajuan-pkk/upload/manifest-bk" method="post" enctype="multipart/form-data">
-                      <input type="hidden" name="pelayanan_kapal_id" value="{{ @$_GET['id'] }}">
-                      <input type="file" name="files">
-                      <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Upload Dokumen</button>
-                    </form>
+                    <span>Tidak ada</span>
                     @endif
                   </center>
                 </td>
@@ -478,51 +367,6 @@
           <!-- DATA AWAK KAPAL -->
           <h2 class="font-bold mt-6 mb-4">DATA AWAK KAPAL</h2>
 
-          <!-- MODAL -->
-          <button data-modal-target="modal-crew" data-modal-toggle="modal-crew" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-            IMPORT CREW LIST
-          </button>
-
-          <!-- Main modal -->
-          <div id="modal-crew" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-            <div class="relative w-full max-w-2xl max-h-full">
-              <!-- Modal content -->
-              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <!-- Modal header -->
-                <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Upload File Excel Crew List Kapal
-                  </h3>
-                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="modal-crew">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                  </button>
-                </div>
-                <form action="./pengajuan-pkk/crew-list/import" method="post" enctype="multipart/form-data">
-                  <!-- Modal body -->
-                  <div class="p-6 space-y-6">
-                    <div>
-                      <span>Berikut ini format excel crew list</span>
-                      <a target="_blank" href="{{ url('/') }}/files/templates/template_crew_list.xlsx" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download Excel</a>
-                    </div>
-                    <input type="hidden" name="pelayanan_kapal_id" value="{{ @$_GET['id'] }}">
-                    <div class="flex-nowrap">
-                      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">File Crew List</label>
-                      <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" name="files" type="file" required>
-                    </div>
-                  </div>
-                  <!-- Modal footer -->
-                  <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</button>
-                    <button data-modal-hide="modal-crew" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Batal</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          <!-- . MODAL -->
 
           <table class="table  w-full mt-1">
             <thead>
@@ -536,7 +380,6 @@
                 <th>NO BUKU PELAUT</th>
                 <th>TGL EXPIRED</th>
                 <th>JABATAN</th>
-                <th>AKSI</th>
               </tr>
             </thead>
             <tbody>
@@ -551,15 +394,6 @@
                 <td>{{ @$rowCrew->no_buku_pelaut }}</td>
                 <td>{{ @$rowCrew->tgl_expired_sertifikasi }}</td>
                 <td>{{ @$rowCrew->jabatan }}</td>
-                <td>
-                  <center>
-                    <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/crew-list/delete/{{ @$rowCrew->kode_pelaut }}">
-                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                      </svg>
-                    </a>
-                  </center>
-                </td>
               </tr>
               @endforeach
             </tbody>
@@ -576,50 +410,7 @@
           <div>
             <div class="grid grid-cols-2">
               <h3 class="text-left mt-5 font-semibold">Manifest Kargo</h3>
-              <div class="align-items-end">
-                <button data-modal-target="modal-mani-kargo" data-modal-toggle="modal-mani-kargo" class="float-right text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buat data</button>
-
-                <!-- Main modal -->
-                <div id="modal-mani-kargo" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                  <div class="relative w-full max-w-2xl max-h-full">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                      <!-- Modal header -->
-                      <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                          Upload File Excel Manifest Kargo
-                        </h3>
-                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="modal-mani-kargo">
-                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                          </svg>
-                          <span class="sr-only">Close modal</span>
-                        </button>
-                      </div>
-                      <form action="./pengajuan-pkk/kargo/import" method="post" enctype="multipart/form-data">
-                        <!-- Modal body -->
-                        <div class="p-6 space-y-6">
-                          <div>
-                            <span>Berikut ini format excel Manifest Kargo</span>
-                            <a href="{{ url('/') }}/files/templates/template_kargo.xlsx" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download Excel</a>
-                          </div>
-                          <input type="hidden" name="pelayanan_kapal_id" value="{{ @$_GET['id'] }}">
-                          <div class="flex-nowrap">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">File Kargo</label>
-                            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" name="files" type="file" required>
-                          </div>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</button>
-                          <button data-modal-hide="modal-mani-kargo" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Batal</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <!-- . MODAL -->
-              </div>
+              
             </div>
             <table class="table w-full mt-1">
               <thead>
@@ -632,7 +423,6 @@
                   <th>JLH SATUAN TON</th>
                   <th>JLH SATUAN M3</th>
                   <th>No BL</th>
-                  <th>AKSI</th>
                 </tr>
               </thead>
               <tbody>
@@ -646,15 +436,6 @@
                   <td>{{ @$rowKargo->jlh_satuan_ton }}</td>
                   <td>{{ @$rowKargo->jlh_satuan_metrik }}</td>
                   <td>{{ @$rowKargo->no_bl }}</td>
-                  <td>
-                    <center>
-                      <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/kargo/delete/{{ @$rowKargo->pelayanan_kapal_bm_kargo_id }}">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                          <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                        </svg>
-                      </a>
-                    </center>
-                  </td>
                 </tr>
                 @endforeach
               </tbody>
@@ -666,50 +447,7 @@
           <div class="mt-8">
             <div class="grid grid-cols-2">
               <div class="text-left font-semibold mt-4">Manifest Kontainer</div>
-              <div class="align-items-end">
-                <button data-modal-target="modal-mani-kontainer" data-modal-toggle="modal-mani-kontainer" class="float-right text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buat data</button>
-
-                <!-- Main modal -->
-                <div id="modal-mani-kontainer" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                  <div class="relative w-full max-w-2xl max-h-full">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                      <!-- Modal header -->
-                      <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                          Upload File Excel Manifest Kontainer
-                        </h3>
-                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="modal-mani-kontainer">
-                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                          </svg>
-                          <span class="sr-only">Close modal</span>
-                        </button>
-                      </div>
-                      <form action="./pengajuan-pkk/kontainer/import" method="post" enctype="multipart/form-data">
-                        <!-- Modal body -->
-                        <div class="p-6 space-y-6">
-                          <div>
-                            <span>Berikut ini format excel Manifest Kontainer</span>
-                            <a href="{{ url('/') }}/files/templates/template_kontainer.xlsx" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download Excel</a>
-                          </div>
-                          <input type="hidden" name="pelayanan_kapal_id" value="{{ @$_GET['id'] }}">
-                          <div class="flex-nowrap">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">File Manifest Kontainer</label>
-                            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file" name="files" required>
-                          </div>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</button>
-                          <button data-modal-hide="modal-mani-kontainer" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Batal</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <!-- . MODAL -->
-              </div>
+              
             </div>
             <table class="table w-full mt-1">
               <thead>
@@ -723,7 +461,6 @@
                   <th>JUMLAH</th>
                   <th>SATUAN TON</th>
                   <th>No BOL</th>
-                  <th>AKSI</th>
                 </tr>
               </thead>
               <tbody>
@@ -738,15 +475,6 @@
                   <td>{{ @$rowKontainer->jlh_satuan_unit }}</td>
                   <td>{{ @$rowKontainer->jlh_satuan_ton }}</td>
                   <td>{{ @$rowKontainer->no_bl }}</td>
-                  <td>
-                    <center>
-                      <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/kontainer/delete/{{ @$rowKontainer->pelayanan_kapal_bm_kontainer_id }}">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                          <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                        </svg>
-                      </a>
-                    </center>
-                  </td>
                 </tr>
                 @endforeach
               </tbody>
@@ -791,50 +519,7 @@
           <div class="mt-8">
             <div class="grid grid-cols-2">
               <div class="text-left font-semibold mt-4">Manifest Barang Berbahaya</div>
-              <div class="align-items-end">
-                <button data-modal-target="modal-mani-bahaya" data-modal-toggle="modal-mani-bahaya" class="float-right text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buat data</button>
-
-                <!-- Main modal -->
-                <div id="modal-mani-bahaya" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                  <div class="relative w-full max-w-2xl max-h-full">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                      <!-- Modal header -->
-                      <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                          Upload File Excel Manifest Barang Berbahaya
-                        </h3>
-                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="modal-mani-bahaya">
-                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                          </svg>
-                          <span class="sr-only">Close modal</span>
-                        </button>
-                      </div>
-                      <form action="./pengajuan-pkk/barang-berbahaya/import" method="post" enctype="multipart/form-data">
-                        <!-- Modal body -->
-                        <div class="p-6 space-y-6">
-                          <div>
-                            <span>Berikut ini format excel Manifest Barang Berbahaya</span>
-                            <a href="{{ url('/') }}/files/templates/template_barang_berbahaya.xlsx" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download Excel</a>
-                          </div>
-                          <input type="hidden" name="pelayanan_kapal_id" value="{{ @$_GET['id'] }}">
-                          <div class="flex-nowrap">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">File Manifest Barang Berbahaya</label>
-                            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" name="files" type="file" required>
-                          </div>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</button>
-                          <button data-modal-hide="modal-mani-bahaya" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Batal</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <!-- . MODAL -->
-              </div>
+              
             </div>
             <table class="table w-full mt-1">
               <thead>
@@ -849,7 +534,6 @@
                   <th>SATUAN</th>
                   <th>JENIS</th>
                   <th>TYPE</th>
-                  <th>AKSI</th>
                 </tr>
               </thead>
               <tbody>
@@ -865,15 +549,6 @@
                   <td>{{ @$rowBrgBerbahaya->satuan }}</td>
                   <td>{{ @$rowBrgBerbahaya->nama_jenis_barang }}</td>
                   <td>{{ @$rowBrgBerbahaya->nama_type_barang }}</td>
-                  <td>
-                    <center>
-                      <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/barang-berbahaya/delete/{{ @$rowBrgBerbahaya->pelayanan_kapal_bm_brgberbahaya_id }}">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                          <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                        </svg>
-                      </a>
-                    </center>
-                  </td>
                 </tr>
                 @endforeach
               </tbody>
@@ -1083,81 +758,7 @@
           <div class="mt-8">
             <div class="grid grid-cols-2">
               <div class="text-left">Dokumen Kapal</div>
-              <div class="align-items-end">
-                <button data-modal-target="modal-dokumen-kapal" data-modal-toggle="modal-dokumen-kapal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buat data</button>
-
-                <!-- Main modal -->
-                <div id="modal-dokumen-kapal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                  <div class="relative w-full max-w-4xl max-h-full">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                      <!-- Modal header -->
-                      <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                          DOKUMEN KAPAL
-                        </h3>
-                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="modal-dokumen-kapal">
-                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                          </svg>
-                          <span class="sr-only">Close modal</span>
-                        </button>
-                      </div>
-
-                      <form action="./pengajuan-pkk/dokumen-kapal/save" method="post" enctype="multipart/form-data">
-                        <!-- Modal body -->
-                        <div class="p-6 space-y-6">
-                          <div class="grid grid-cols-2 gap-3">
-                            <input type="hidden" name="pelayanan_kapal_id" value="{{ @$_GET['id'] }}">
-                            <div>
-                              <label class="text-left">NAMA DOKUMEN</label>
-                              <input type="text" name="nama_dokumen" class="w-full rounded border-1 border-slate-200">
-                            </div>
-                            <div>
-                              <label class="text-left">KODE JENIS DOKUMEN</label>
-                              <input type="text" name="jenis_dokumen" class="w-full rounded border-1 border-slate-200">
-                            </div>
-                            <div>
-                              <label class="text-left">NOMOR DOKUMEN</label>
-                              <input type="text" name="no_dokumen" class="w-full rounded border-1 border-slate-200">
-                            </div>
-                            <div>
-                              <label class="text-left">TEMPAT DIKELUARKAN</label>
-                              <input type="text" name="tempat_dikeluarkan" class="w-full rounded border-1 border-slate-200">
-                            </div>
-                          </div>
-
-                          <div class="grid grid-cols-2 gap-3">
-
-                            <div>
-                              <label class="text-left">TANGGAL DIKELUARKAN</label>
-                              <input type="date" name="tgl_dikeluarkan" class="w-full rounded border-1 border-slate-200">
-                            </div>
-                            <div>
-                              <label class="text-left">TANGGAL ENDORSMEN</label>
-                              <input type="date" name="tgl_endorsment" class="w-full rounded border-1 border-slate-200">
-                            </div>
-                            <div>
-                              <label class="text-left">TANGGAL BERAKHIR</label>
-                              <input type="date" name="tanggal_expired" class="w-full rounded border-1 border-slate-200">
-                            </div>
-                            <div>
-                              <label class="text-left">DOKUMEN</label>
-                              <input type="file" name="files" class="w-full rounded border-1 border-slate-200">
-                            </div>
-                          </div>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</button>
-                          <button data-modal-hide="modal-dokumen-kapal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Batal</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <!-- . MODAL -->
-              </div>
+              
             </div>
             <table class="border-solid border-2 border-slate-800 mt-1 w-full">
               <thead>
@@ -1168,7 +769,6 @@
                   <th>TEMPAT DIKELUARKAN</th>
                   <th>TANGGAL DOKUMEN</th>
                   <th>NAMA DOKUMEN</th>
-                  <th>AKSI</th>
                 </tr>
               </thead>
               <tbody>
@@ -1180,15 +780,6 @@
                   <td>{{ @$rowDokumen->tempat_dikeluarkan }}</td>
                   <td>{{ @$rowDokumen->tgl_dikeluarkan }}</td>
                   <td>{{ @$rowDokumen->nama_dokumen }}</td>
-                  <td>
-                    <center>
-                      <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/dokumen-kapal/delete/{{ @$rowDokumen->pelayanan_kapal_dokumen_id }}">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                          <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                        </svg>
-                      </a>
-                    </center>
-                  </td>
                 </tr>
                 @endforeach
               </tbody>
@@ -1215,9 +806,6 @@
                   <option value="{{ @$rowBarang->ref_barang_id }}" {{ @$dataMuat->jenis_barang_mayoritas==@$rowBarang->ref_barang_id?"selected":"" }}>{{ @$rowBarang->detail_data }}</option>
                   @endforeach
                 </select>
-              </div>
-              <div class="float-right">
-                <button type="submit" class=" text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Simpan</button>
               </div>
             </div>
             <div class="h-20">
@@ -1584,40 +1172,12 @@
 
 
 <script>
+  let pelayanan_kapal_id = '{{ @$_GET["id"] }}';
   $(document).ready(function() {
     loadPBM()
 
   });
 
-  let pelayanan_kapal_id = '{{ @$_GET["id"] }}';
-  // PMB
-  $('#form-pbm').submit(function(e) {
-    e.preventDefault();
-    let data = $('#form-pbm').serializeArray();
-    data.push({
-      name: "pelayanan_kapal_id",
-      value: pelayanan_kapal_id
-    })
-
-    $.when(sendAjax('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/save/pbm', data, 'post', '#form-pbm')).done(function(res) {
-      if (res.status) {
-        // $('#modal-pmb').hide();
-        // $("body > div[modal-backdrop]")?.remove()
-        // $("body > div[modal-backdrop]")?.addClass("hidden")
-        // $('body').removeClass("overflow-hidden")
-        // $('#modal-pmb').removeClass("flex")
-        // $('#modal-pmb').addClass("hidden")
-        pesanSweet('Berhasil', res.message);
-        loadPBM()
-        // setTimeout(function(){
-        //   window.location.reload(1);
-        // }, 2000);
-
-      } else {
-        pesanSweet('Gagal!', res.pesan, 'warning');
-      }
-    });
-  })
 
   function loadPBM() {
 
@@ -1628,18 +1188,7 @@
 
         $('#table-pbm > tbody ').empty();
         for (let i = 0; i < res.data.length; i++) {
-
-          $('#table-pbm > tbody ').append("<tr><td class='text-center'>" + (i + 1) + "</td><td>" + res.data[i]["nama_perusahaan"] + "</td><td>" + res.data[i]["type_pbm"] + "</td><td>" + res.data[i]["kegiatan"] + "</td><td class='p-2'>" +
-            `
-        <center>
-                <a href="javascript:void(0);" onClick="removePBM('${res.data[i]["pelayanan_kapal_pbm_id"]}')">
-                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                    <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                  </svg>
-                </a>
-              </center>
-        ` +
-            "</td></tr>")
+          $('#table-pbm > tbody ').append("<tr><td class='text-center'>" + (i + 1) + "</td><td>" + res.data[i]["nama_perusahaan"] + "</td><td>" + res.data[i]["type_pbm"] + "</td><td>" + res.data[i]["kegiatan"] + "</td></tr>")
         }
       } else {
         pesanSweet('Gagal!', res.pesan, 'warning');
@@ -1647,137 +1196,8 @@
     });
   }
 
-  async function removePBM(id) {
-    await init_hapus('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/delete/pbm/' + id);
-    loadPBM()
-  }
   // . PMB
 
-
-  function save(message = true) {
-
-    let data = {};
-    data['pelayanan_kapal_id'] = pelayanan_kapal_id;
-    data['no_layanan_kapal'] = $('input[name="no_layanan_kapal"]').val();
-    data['no_pkk'] = $('input[name="no_pkk"]').val();
-    data['tanggal_registrasi_permohonan'] = $('input[name="tanggal_registrasi_permohonan"]').val();
-    data['kode_kapal'] = $('input[name="kode_kapal"]').val();
-    data['tanda_pendaftaran_kapal'] = $('input[name="tanda_pendaftaran_kapal"]').val();
-    data['nama_kapal'] = $('input[name="nama_kapal"]').val();
-    data['imo'] = $('input[name="imo"]').val();
-    data['call_sign'] = $('input[name="call_sign"]').val();
-    data['bendera'] = $('input[name="bendera"]').val();
-    data['perusahaan_pemilik_kapal'] = $('input[name="perusahaan_pemilik_kapal"]').val();
-    data['penanggung_jawab'] = $('input[name="penanggung_jawab"]').val();
-    data['alamat'] = $('textarea[name="alamat"]').val();
-    data['keperluan'] = $('input[name="keperluan"]').val();
-    data['mata_uang'] = $('input[name="mata_uang"]').val();
-    data['keterangan'] = $('input[name="keterangan"]').val();
-    data['grt_kapal'] = $('input[name="grt_kapal"]').val();
-    data['loa_kapal'] = $('input[name="loa_kapal"]').val();
-    data['dwt_kapal'] = $('input[name="dwt_kapal"]').val();
-    data['draft_muka'] = $('input[name="draft_muka"]').val();
-    data['jumlah_palka'] = $('input[name="jumlah_palka"]').val();
-    data['jenis_kapal_id'] = $('input[name="jenis_kapal_id"]').val();
-    data['jenis_kapal'] = $('input[name="jenis_kapal"]').val();
-    data['nama_cso'] = $('input[name="nama_cso"]').val();
-    data['no_telp_cso'] = $('input[name="no_telp_cso"]').val();
-    data['no_voyage'] = $('input[name="no_voyage"]').val();
-    data['tenaga_pendorong'] = $('input[name="tenaga_pendorong"]').val();
-    data['gros_tonase'] = $('input[name="gros_tonase"]').val();
-    data['deadweight_tonase'] = $('input[name="deadweight_tonase"]').val();
-    data['ketinggian_udara'] = $('input[name="ketinggian_udara"]').val();
-    data['draft_maksimum'] = $('input[name="draft_maksimum"]').val();
-    data['draft_belakang'] = $('input[name="draft_belakang"]').val();
-    data['panjang_kapal'] = $('input[name="panjang_kapal"]').val();
-    data['lebar_kapal'] = $('input[name="lebar_kapal"]').val();
-    data['kode_agen'] = $('input[name="kode_agen"]').val();
-    data['nama_agen'] = $('input[name="nama_agen"]').val();
-    data['penanggung_jawab_agen'] = $('input[name="penanggung_jawab_agen"]').val();
-    data['siupal_pemilik'] = $('input[name="siupal_pemilik"]').val();
-    data['alamat_agen'] = $('textarea[name="alamat_agen"]').val();
-    data['pelabuhan_asal'] = $('select[name="pelabuhan_asal"]').val();
-    data['waktu_tiba'] = $('input[name="waktu_tiba"]').val();
-    data['waktu_berangkat'] = $('input[name="waktu_berangkat"]').val();
-    data['permintaan_lokasi_tambat'] = $('input[name="permintaan_lokasi_tambat"]').val();
-    data['pelabuhan_tujuan'] = $('select[name="pelabuhan_tujuan"]').val();
-    data['waktu_aktual_kedatangan'] = $('input[name="waktu_aktual_kedatangan"]').val();
-    data['waktu_aktual_berangkat'] = $('input[name="waktu_aktual_berangkat"]').val();
-    data['lokasi_tambat_terakhir'] = $('input[name="lokasi_tambat_terakhir"]').val();
-
-    data['waktu_tiba'] = data['waktu_tiba'].replace("T", " ");
-    data['waktu_berangkat'] = data['waktu_berangkat'].replace("T", " ");
-
-    $.when(sendAjax('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/save', data, 'post')).done(function(res) {
-      if (res.status) {
-        if (message) pesanSweet('Berhasil!', res.message);
-      } else {
-        if (message) pesanSweet('Gagal!', res.message, 'warning');
-      }
-    });
-  }
-
-  function kirim() {
-
-    let data = {};
-    data['pelayanan_kapal_id'] = pelayanan_kapal_id;
-    $.when(sendAjax('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/kirim', data, 'post')).done(function(res) {
-      if (res.status) {
-        pesanSweet('Berhasil!', res.message);
-        setTimeout(function() {
-          window.location = "./warta";
-        }, 2000);
-      } else {
-        pesanSweet('Gagal!', res.message, 'warning');
-      }
-    });
-  }
-
-  function getDermagaByPelabuhan(pelabuhan) {
-    $.when(sendAjax('{{ URL::to("") }}/api/get/Pelabuhan/' + pelabuhan + '/dermaga', data, 'get')).done(function(res) {
-      if (res.status) {
-        $('select[name="permintaan_lokasi_tambat"]').empty();
-        for (let i = 0; i < res.data.length; i++) {
-          $('select[name="permintaan_lokasi_tambat"]').append('<option value="' + res.data[i].lokasi_dermaga_id + '">' + res.data[i].nama_dermaga + '</option>');
-        }
-      } else {
-        pesanSweet('Gagal!', res.message, 'warning');
-      }
-    });
-  }
-
-  function checkPelabuhan() {
-
-    let pelabuhan_asal = $('select[name="pelabuhan_asal"]').val();
-    let waktu_tiba = $('input[name="waktu_tiba"]').val();
-    let waktu_berangkat = $('input[name="waktu_berangkat"]').val();
-    let permintaan_lokasi_tambat = $('input[name="permintaan_lokasi_tambat"]').val();
-    let pelabuhan_tujuan = $('select[name="pelabuhan_tujuan"]').val();
-
-    if (pelabuhan_asal != "" && waktu_tiba != "" && waktu_berangkat != "" && permintaan_lokasi_tambat != "" && pelabuhan_tujuan != "") {
-      save(false);
-    }
-  }
-
-  $('select[name="pelabuhan_asal"]').on("change", function() {
-    checkPelabuhan();
-  })
-
-  $('input[name="waktu_tiba"]').on("change", function() {
-    checkPelabuhan();
-  })
-
-  $('input[name="waktu_berangkat"]').on("change", function() {
-    checkPelabuhan();
-  })
-
-  $('input[name="permintaan_lokasi_tambat"]').on("change", function() {
-    checkPelabuhan();
-  })
-
-  $('select[name="pelabuhan_tujuan"]').on("change", function() {
-    checkPelabuhan();
-  })
 </script>
 
 

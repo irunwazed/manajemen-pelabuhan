@@ -50,6 +50,31 @@
       </tr>
     </thead>
     <tbody>
+      @foreach(@$data as $row)
+      @if(($loop->index) %2 == 0)
+      <tr class="border-solid border-1 border-slate-800 hover:bg-slate-300">
+        @else
+      <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
+        @endif
+        <td class="text-center">{{ $loop->index+1 }}</td>
+        <td>{{@$row->no_layanan_kapal }}</td>
+        <td>{{@$row->no_pkk }}</td>
+        <td>{{@$row->no_rpkro }}</td>
+        <td>{{@$row->nama_kapal }}</td>
+        <td>{{@$row->nama_dermaga }}</td>
+        <td>{{ changeDateFormate(@$row->waktu_rencana) }}</td>
+        <td class="py-2 flex flex-wrap gap-1 justify-center ">
+          @if(@@$row->rkbm_flag == "0" || @@$row->rkbm_flag == NULL)
+          <a href="form-rkbm?id={{@$row->pelayanan_kapal_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">RKBM</a>
+          @if(@@$row->pelayanan_kapal_rkbm_id)
+          <a href="rkbm/barang?id={{ @$row->pelayanan_kapal_rkbm_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">BARANG</a>
+          <a href="rkbm/tkbm?id={{ @$row->pelayanan_kapal_rkbm_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">TKBM</a>
+          <a href="rkbm/kirim?id={{ @$row->pelayanan_kapal_rkbm_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">KIRIM</a>
+          @endif
+          @endif
+        </td>
+      </tr>
+      @endforeach
       <tr>
         <td class="text-center">1</td>
         <td>xxxx</td>
@@ -67,6 +92,7 @@
       </tr>
     </tbody>
   </table>
+  @include('components.pagination')
 
 </div>
 

@@ -65,7 +65,7 @@
           <a href="{{ url(@$user.'/pelayanan-kapal/verifikasi-spm') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPM</a>
         </li>
         <li>
-          <a href="{{ url(@$user.'/pelayanan-kapal/rkbm-lala') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RKBM</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/rkbm/verifikasi') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RKBM</a>
         </li>
         <li>
           <a href="{{ url(@$user.'/pelayanan-kapal/ppk') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">PPK</a>
