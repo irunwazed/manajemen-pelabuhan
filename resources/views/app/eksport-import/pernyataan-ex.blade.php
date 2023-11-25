@@ -6,15 +6,15 @@
             <hr class="border-b-2 border-black border-solid">
             <nav>
                 <ul>
-                    <li><a href="{{url('admin/eksport-import/header')}}">HEADER</a></li>
-                    <li><a href="{{url('admin/eksport-import/entitas')}}">ENTITAS</a></li>
-                    <li><a href="{{url('admin/eksport-import/dokumen-pendukung')}}">DOKUMEN PENDUKUNG</a></li>
-                    <li><a href="{{url('admin/eksport-import/pengangkutan')}}">DATA PENGANGKUTAN</a></li>
-                    <li><a href="{{url('admin/eksport-import/kemasan-kontainer')}}">KEMASAN DAN KONTAINER</a></li>
-                    <li><a href="{{url('admin/eksport-import/transaksi')}}">DATA TRANSAKSI</a></li>
-                    <li><a href="{{url('admin/eksport-import/data-barang')}}">DATA BARANG</a></li>
-                    <li><a href="{{url('admin/eksport-import/pungutan')}}">PUNGUTAN</a></li>
-                    <li><a href="{{url('admin/eksport-import/pernyataan')}}">PERNYATAAN</a></li>
+                <li><a href="{{url('admin/eksport-import/header-ex')}}">HEADER</a></li>
+            <li><a href="{{url('admin/eksport-import/entitas-ex')}}">ENTITAS</a></li>
+            <li><a href="{{url('admin/eksport-import/dokumen-pendukung-ex')}}">DOKUMEN PENDUKUNG</a></li>
+            <li><a href="{{url('admin/eksport-import/pengangkutan-ex')}}">DATA PENGANGKUTAN</a></li>
+            <li><a href="{{url('admin/eksport-import/kemasan-kontainer-ex')}}">KEMASAN DAN KONTAINER</a></li>
+            <li><a href="{{url('admin/eksport-import/transaksi-ex')}}">DATA TRANSAKSI</a></li>
+            <li><a href="{{url('admin/eksport-import/data-barang-ex')}}">DATA BARANG</a></li>
+            <li><a href="{{url('admin/eksport-import/pungutan-ex')}}">PUNGUTAN</a></li>
+            <li><a href="{{url('admin/eksport-import/pernyataan-ex')}}">PERNYATAAN</a></li>
                 </ul>
             </nav>
         </div>

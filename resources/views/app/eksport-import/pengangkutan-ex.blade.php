@@ -6,15 +6,15 @@
             <hr class="border-b-2 border-black border-solid">
             <nav>
                 <ul>
-                    <li><a href="{{url('admin/eksport-import/header')}}">HEADER</a></li>
-                    <li><a href="{{url('admin/eksport-import/entitas')}}">ENTITAS</a></li>
-                    <li><a href="{{url('admin/eksport-import/dokumen-pendukung')}}">DOKUMEN PENDUKUNG</a></li>
-                    <li><a href="{{url('admin/eksport-import/pengangkutan')}}">DATA PENGANGKUTAN</a></li>
-                    <li><a href="{{url('admin/eksport-import/kemasan-kontainer')}}">KEMASAN DAN KONTAINER</a></li>
-                    <li><a href="{{url('admin/eksport-import/transaksi')}}">DATA TRANSAKSI</a></li>
-                    <li><a href="{{url('admin/eksport-import/data-barang')}}">DATA BARANG</a></li>
-                    <li><a href="{{url('admin/eksport-import/pungutan')}}">PUNGUTAN</a></li>
-                    <li><a href="{{url('admin/eksport-import/pernyataan')}}">PERNYATAAN</a></li>
+                    <li><a href="{{url('admin/eksport-import/header-ex')}}">HEADER</a></li>
+                    <li><a href="{{url('admin/eksport-import/entitas-ex')}}">ENTITAS</a></li>
+                    <li><a href="{{url('admin/eksport-import/dokumen-pendukung-ex')}}">DOKUMEN PENDUKUNG</a></li>
+                    <li><a href="{{url('admin/eksport-import/pengangkutan-ex')}}">DATA PENGANGKUTAN</a></li>
+                    <li><a href="{{url('admin/eksport-import/kemasan-kontainer-ex')}}">KEMASAN DAN KONTAINER</a></li>
+                    <li><a href="{{url('admin/eksport-import/transaksi-ex')}}">DATA TRANSAKSI</a></li>
+                    <li><a href="{{url('admin/eksport-import/data-barang-ex')}}">DATA BARANG</a></li>
+                    <li><a href="{{url('admin/eksport-import/pungutan-ex')}}">PUNGUTAN</a></li>
+                    <li><a href="{{url('admin/eksport-import/pernyataan-ex')}}">PERNYATAAN</a></li>
                 </ul>
             </nav>
         </div>
@@ -23,42 +23,42 @@
         <div>
             <table class="w-full">
                 <tr class="text-start">
-                    <td>BC1.1</td>
+                    <td>Tempat Penimbunan</td>
                     <td></td>
                     <td class="py-1">
                         <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
-                    <td>Tanggal BC1.1/1.2</td>
+                    <td>Pelabuhan Muat Asal</td>
                     <td></td>
                     <td class="py-1">
                         <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start">
-                    <td>No Post</td>
+                    <td>Pelabuhan Muat Ekspor</td>
                     <td></td>
                     <td class="py-1">
                         <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start">
-                    <td>Cara Pengangkutan</td>
+                    <td>Pelabuhan Bongkar</td>
                     <td></td>
                     <td class="py-1">
                         <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start">
-                    <td>Nama Sarana Pengangkutan</td>
+                    <td>Negara Tujuan Ekspor</td>
                     <td></td>
                     <td class="py-1">
                         <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start">
-                    <td>No Voyage</td>
+                    <td>Tanggal Perkiraan Ekspor</td>
                     <td></td>
                     <td class="py-1">
                         <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
@@ -69,42 +69,14 @@
         <div>
             <table class="w-full">
                 <tr class="text-start">
-                    <td>Bendera</td>
+                    <td>Lokasi Pemeriksaan</td>
                     <td></td>
                     <td class="py-1">
                         <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
-                    <td>Perkiraan Tanggal Tiba</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Pelabuhan Muat</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Pelabuhan Transit</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Pelabuhan Tujuan</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Tempat Penimbunan</td>
+                    <td>Tanggal Periksa</td>
                     <td></td>
                     <td class="py-1">
                         <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">

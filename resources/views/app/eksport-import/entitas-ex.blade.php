@@ -6,15 +6,15 @@
         <hr class="border-b-2 border-black border-solid">
         <nav>
             <ul>
-                <li><a href="{{url('admin/eksport-import/header')}}">HEADER</a></li>
-                <li><a href="{{url('admin/eksport-import/entitas')}}">ENTITAS</a></li>
-                <li><a href="{{url('admin/eksport-import/dokumen-pendukung')}}">DOKUMEN PENDUKUNG</a></li>
-                <li><a href="{{url('admin/eksport-import/pengangkutan')}}">DATA PENGANGKUTAN</a></li>
-                <li><a href="{{url('admin/eksport-import/kemasan-kontainer')}}">KEMASAN DAN KONTAINER</a></li>
-                <li><a href="{{url('admin/eksport-import/transaksi')}}">DATA TRANSAKSI</a></li>
-                <li><a href="{{url('admin/eksport-import/data-barang')}}">DATA BARANG</a></li>
-                <li><a href="{{url('admin/eksport-import/pungutan')}}">PUNGUTAN</a></li>
-                <li><a href="{{url('admin/eksport-import/pernyataan')}}">PERNYATAAN</a></li>
+                <li><a href="{{url('admin/eksport-import/header-ex')}}">HEADER</a></li>
+                <li><a href="{{url('admin/eksport-import/entitas-ex')}}">ENTITAS</a></li>
+                <li><a href="{{url('admin/eksport-import/dokumen-pendukung-ex')}}">DOKUMEN PENDUKUNG</a></li>
+                <li><a href="{{url('admin/eksport-import/pengangkutan-ex')}}">DATA PENGANGKUTAN</a></li>
+                <li><a href="{{url('admin/eksport-import/kemasan-kontainer-ex')}}">KEMASAN DAN KONTAINER</a></li>
+                <li><a href="{{url('admin/eksport-import/transaksi-ex')}}">DATA TRANSAKSI</a></li>
+                <li><a href="{{url('admin/eksport-import/data-barang-ex')}}">DATA BARANG</a></li>
+                <li><a href="{{url('admin/eksport-import/pungutan-ex')}}">PUNGUTAN</a></li>
+                <li><a href="{{url('admin/eksport-import/pernyataan-ex')}}">PERNYATAAN</a></li>
             </ul>
         </nav>
     </div>
@@ -53,84 +53,13 @@
                     >
                 </td>
             </tr>
-            <tr class="text-start">
-                <td>NIB</td>
-                <td></td>
-                <td class="py-1">
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
-                </td>
-            </tr>
-            <tr class="text-start">
-                <td>Status</td>
-                <td></td>
-                <td class="py-1">
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
-                </td>
-            </tr>
         </table>
     </div>
     <div class="border-2">
         <table class="w-full text-center">
-            <tr><td colspan="4" style="padding-top:20px;padding-bottom:20px;"><div><span class="font-bold text-2xl text-start">PEMILIK BARANG</span></div><td></tr>
-            <tr class="text-start mb-4">
-                <td>Npwp (Nomor Indentitas)</td>
-                <td></td>
-                <td class="py-1">
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
-                </td>
-            </tr>
+            <tr><td colspan="4" style="padding-top:20px;padding-bottom:20px;"><div><span class="font-bold text-2xl text-start">PENERIMA</span></div><td></tr>
             <tr class="text-start mb-4">
                 <td>Nama</td>
-                <td></td>
-                <td class="py-1">
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
-                </td>
-            </tr>
-            <tr class="text-start mb-4">
-                <td>Alamat</td>
-                <td></td>
-                <td class="py-1">
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
-                </td>
-            </tr>
-            <tr><td colspan="4" style="padding-top:20px;padding-bottom:20px;"><div><span class="font-bold text-2xl text-start">PENGIRIM</span></div><td></tr>
-            <tr class="text-start mb-4">
-                <td>Npwp (Nomor Indentitas)</td>
-                <td></td>
-                <td class="py-1">
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
-                </td>
-            </tr>
-            <tr class="text-start mb-4">
-                <td>Nama</td>
-                <td></td>
-                <td class="py-1">
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
-                </td>
-            </tr>
-            <tr class="text-start mb-4">
-                <td>Alamat</td>
                 <td></td>
                 <td class="py-1">
                     <input
@@ -149,13 +78,23 @@
                     >
                 </td>
             </tr>
+            <tr class="text-start mb-4">
+                <td>Alamat</td>
+                <td></td>
+                <td class="py-1">
+                    <input
+                        type="text"
+                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                    >
+                </td>
+            </tr>
         </table>
     </div>
     <div class="border-2">
         <table class="w-full text-center">
-            <tr><td colspan="4" style="padding-top:20px;padding-bottom:20px;"><div><span class="font-bold text-2xl text-start">NPWP PEMUSATAN</span></div><td></tr>
+            <tr><td colspan="4" style="padding-top:20px;padding-bottom:20px;"><div><span class="font-bold text-2xl text-start">PEMBELI</span></div><td></tr>
             <tr class="text-start mb-4">
-                <td>Npwp (Nomor Indentitas)</td>
+                <td>NAMA</td>
                 <td></td>
                 <td class="py-1">
                     <input
@@ -165,38 +104,7 @@
                 </td>
             </tr>
             <tr class="text-start mb-4">
-                <td>Nama</td>
-                <td></td>
-                <td class="py-1">
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
-                </td>
-            </tr>
-            <tr class="text-start mb-4">
-                <td>Alamat</td>
-                <td></td>
-                <td class="py-1">
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
-                </td>
-            </tr>
-            <tr><td colspan="4" style="padding-top:20px;padding-bottom:20px;"><div><span class="font-bold text-2xl text-start">PENJUAL</span></div><td></tr>
-            <tr class="text-start mb-4">
-                <td>Npwp (Nomor Indentitas)</td>
-                <td></td>
-                <td class="py-1">
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
-                </td>
-            </tr>
-            <tr class="text-start mb-4">
-                <td>Nama</td>
+                <td>NEGARA</td>
                 <td></td>
                 <td class="py-1">
                     <input
@@ -207,16 +115,6 @@
             </tr>
             <tr class="text-start mb-4">
                 <td>Alamat</td>
-                <td></td>
-                <td class="py-1">
-                    <input
-                        type="text"
-                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                    >
-                </td>
-            </tr>
-            <tr class="text-start mb-4">
-                <td>Negara</td>
                 <td></td>
                 <td class="py-1">
                     <input
