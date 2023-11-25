@@ -112,7 +112,7 @@
         formData.append("import", import);
         formData.append("pembayaran", pembayaran);
         
-        fetch("{{ url('/upload-form') }}", {
+        fetch("{{ url('admin/eksport-import/upload/save/import') }}", {
             method: "POST",
             body: formData,
             headers: {

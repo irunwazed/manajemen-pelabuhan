@@ -33,3 +33,5 @@ Route::post('/data-transaksi', 'EksportImport\EksportImportController@saveDataTr
 Route::post('/data-barang', 'EksportImport\EksportImportController@saveDataBarang');
 Route::post('/punguntan', 'EksportImport\EksportImportController@saveDataPunguntan');
 
+//Route post Eksport
+

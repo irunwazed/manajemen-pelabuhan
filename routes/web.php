@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EksportImport\EksportImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/login', function () {
 });
 
 Route::post('/login', function () {
-//     1. agen-kapal
+// 1. agen-kapal
 // 2. petugas-lala
 // 3. pbm
 // 4. bup
@@ -65,11 +66,6 @@ Route::get('/admin/menu', function () {
 Route::get('/tes', function () {
     return view('temp/res');
 });
-
-
-// Route::get('/admin/pelayanan-kapal', function () {
-//     return view('app/pelayanan-kapal');
-// });
 
 Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::get('/', function ($user) {
@@ -140,9 +136,9 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
     });
 });
 
-
-
 Route::prefix('/{user}/eksport-import')->group(function () {
+    print_r("aku");
+    Route::post('upload/save/import','EksportImport\EksportImportController@saveImportHeader');
     
     Route::get('/', function ($user) {
         $data = [
@@ -173,6 +169,8 @@ Route::get('/{user}', function ($user) {
     ];
     return view('pages/admin', $data);
 });
+
+
 
 // Route App
 require 'aneka-usaha/index.php';
