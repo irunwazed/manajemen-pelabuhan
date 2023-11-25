@@ -253,7 +253,7 @@
           <a href="{{url('admin/eksport-import/pemberitahuan-import-barang')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pemberitahuan Import Barang</a>
         </li>
         <li>
-          <a href="{{url('admin/eksport-import/permohonan-eksport-barang')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pemberitahuan Export Barang</a>
+          <a href="{{url('admin/eksport-import/pemberitahuan-eksport-barang')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pemberitahuan Export Barang</a>
         </li>
         <li>
           <a href="{{url('admin/eksport-import/manifest-pengangkut')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Manifest Pengangkut</a>
