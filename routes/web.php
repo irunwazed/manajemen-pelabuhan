@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PelayananBarang\PengeluaranBarang2B2;
+use App\Http\Controllers\PelayananBarang\PenumpukanBarang2B1;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -105,6 +106,16 @@ Route::prefix('/{user}/pelayanan-barang')->group(function () {
 
     Route::prefix('/pengeluaran-2b2')->group(function () {
         Route::get('/', [PengeluaranBarang2B2::class, 'show'])->name('get-2b2');
+        Route::get('/form-create/{pelayanan_kapal_id}', [PengeluaranBarang2B2::class, 'form_create'])->name('form-2b2');
+        Route::post('/create2B2', [PengeluaranBarang2B2::class, 'create2B2'])->name('create2B2');
+    });
+
+    Route::prefix('/penumpukan-2b1')->group(function () {
+        Route::get('/', [PenumpukanBarang2B1::class, 'show'])->name('get-2b1');
+        Route::get('/form-create/{pelayanan_kapal_id}', [PenumpukanBarang2B1::class, 'form_create'])->name('form-2b1');
+        Route::post('/form-barang', [PenumpukanBarang2B1::class, 'getBarang'])->name('get-Barang');
+        Route::post('/update-barang', [PenumpukanBarang2B1::class, 'updateBarang'])->name('update-Barang');
+        Route::post('/create-2B1', [PenumpukanBarang2B1::class, 'create2B1'])->name('create-2B1');
     });
 
     Route::get('/{menu}', function ($user, $menu) {

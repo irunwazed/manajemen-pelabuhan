@@ -70,21 +70,25 @@
                                 <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
                             @endif
                             <td class="text-center">{{ $loop->index + 1 }}</td>
+                            <td>{{ $row->no_pkk }}</td>
+                            <td>{{ $row->pelayanan_kapal_rkbm_id }}</td>
+                            <td>{{ $row->no_form2b1 }}</td>
                             <td>{{ $row->no_form_2b2 }}</td>
-                            <td></td>
-                            <td>{{ $row->pbau_penumpukan_2b1 }}</td>
-                            <td>{{ $row->no_form_2b2 }}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $row->nama_perusahaan }}</td>
+                            <td>{{ $row->nama_agen }}</td>
+                            <td>{{ $row->nama_kapal }}</td>
                             <td class="py-2 flex flex-wrap gap-1 justify-center ">
-                                <a href="{{ url('admin/pelayanan-barang/create-2b2') }}"
-                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create
-                                    2B2</a>
-                                <a href="#"
-                                    class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
-                                <a href="#"
-                                    class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Edit</a>
+                                @if ($row->no_form2b1)
+                                    <a href="{{ route('form-2b2', ['user' => $user, 'pelayanan_kapal_id' => $row->pelayanan_kapal_id]) }}"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create
+                                        2B2</a>
+                                @endif
+                                @if ($row->no_form_2b2)
+                                    <a href="#"
+                                        class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
+                                    <a href="#"
+                                        class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Edit</a>
+                                @endif
                             </td>
                             </tr>
                         @endforeach
