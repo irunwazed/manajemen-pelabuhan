@@ -133,7 +133,7 @@
                         <tr class="font-bold">
                             <td></td>
                             <td class="text-end">Total Biaya</td>
-                            <td>{{ $head_form->total_biaya_dermaga + $head_form->total_biaya_penumpukan + (($head_form->total_biaya_dermaga + $head_form->total_biaya_penumpukan) * 0.1) }}
+                            <td>{{ $head_form->total_biaya_dermaga + $head_form->total_biaya_penumpukan +10000+ (($head_form->total_biaya_dermaga + $head_form->total_biaya_penumpukan) * 0.1) }}
                             </td>
                         </tr>
                     </tbody>
