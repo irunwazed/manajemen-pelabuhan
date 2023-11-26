@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PelayananBarang\Nota3B;
+use App\Http\Controllers\PelayananBarang\Nota4B;
 use App\Http\Controllers\PelayananBarang\PengeluaranBarang2B2;
 use App\Http\Controllers\PelayananBarang\PenumpukanBarang2B1;
 use Illuminate\Support\Facades\Route;
@@ -108,6 +110,18 @@ Route::prefix('/{user}/pelayanan-barang')->group(function () {
         Route::get('/', [PengeluaranBarang2B2::class, 'show'])->name('get-2b2');
         Route::get('/form-create/{pelayanan_kapal_id}', [PengeluaranBarang2B2::class, 'form_create'])->name('form-2b2');
         Route::post('/create2B2', [PengeluaranBarang2B2::class, 'create2B2'])->name('create2B2');
+    });
+
+    Route::prefix('/nota-3b')->group(function () {
+        Route::get('/', [Nota3B::class, 'show'])->name('nota-3b');
+        Route::get('/form-create/{pelayanan_kapal_id}', [Nota3B::class, 'form_create'])->name('form-2b2');
+        Route::post('/create3B', [Nota3B::class, 'create3B'])->name('create3B');
+    });
+
+    Route::prefix('/nota-4b')->group(function () {
+        Route::get('/', [Nota4B::class, 'show'])->name('nota-4b');
+        Route::get('/form-create/{pelayanan_kapal_id}', [Nota4B::class, 'form_create'])->name('form4B');
+        Route::post('/create4B', [Nota4B::class, 'create4B'])->name('create4B');
     });
 
     Route::prefix('/penumpukan-2b1')->group(function () {
