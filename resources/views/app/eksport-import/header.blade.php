@@ -96,9 +96,6 @@
                 </td>
             </tr>
         </table>
-        <?php
-        // print_r($data_pelabuhan);
-        ?>
         <div class="text-left pt-16 pb-9">
             <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
         </div>

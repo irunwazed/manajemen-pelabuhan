@@ -21,4 +21,24 @@ class ImportController extends Controller
     ]);
     return redirect('admin/eksport-import/header');
   }
+  public function savePengangkutan(Request $request)
+  {
+    // insert data ke table
+    $simpan_data = DB::table('t_pengangkutan_pib')->insert([
+      'header_pib_id' => $request->header_pib,
+      'no_bc11_pib' => $request->no_bc11_pib,
+      'no_post_bc11_pib' => $request->no_post_bc11_pib,
+      'cara_pengangkutan_pib' => $request->cara_pengangkutan_pib,
+      'nama_sarana_pengangkut' => $request->nama_sarana_pengangkut,
+      'no_voyage' => $request->no_voyage,
+      'bendera' => $request->bendera,
+      'perkiraan_tgl_tiba' => $request->perkiraan_tgl_tiba,
+      'pelabuhan_muat' => $request->pelabuhan_muat,
+      'pelabuhan_transit' => $request->pelabuhan_transit,
+      'tempat_penimbunan' => $request->tempat_penimbunan,
+      'tanggal_bc11_pib' => $request->tanggal_bc11_pib,
+      'pelabuhan_tujuan' => $request->pelabuhan
+    ]);
+    return redirect('admin/eksport-import/pengangkutan');
+  }
 }

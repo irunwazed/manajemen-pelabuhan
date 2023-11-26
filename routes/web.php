@@ -154,6 +154,7 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         $data_cara_dagang = DB::table('m_cara_dagang')->get();
         $data_kemasan = DB::table('m_kemasan')->get();
         $data_hs_code = DB::table('m_hs_code')->get();
+        $data_header_pib = DB::table('t_header_pib')->get();
         $data = [
             "user" => $user,
             "data_pelabuhan" => $data_pelabuhan,
@@ -163,7 +164,8 @@ Route::prefix('/{user}/eksport-import')->group(function () {
             "kategori_ekspor"=> $kategori_ekspor,
             "data_cara_dagang"=> $data_cara_dagang,
             "data_kemasan"=> $data_kemasan,
-            "data_hs_code"=> $data_hs_code
+            "data_hs_code"=> $data_hs_code,
+            "data_header_pib"=> $data_header_pib
         ];
         return view('app/eksport-import/'.$menu, $data);
     });
@@ -185,6 +187,7 @@ Route::get('/{user}', function ($user) {
 
 // Route post Import
 Route::post('/import/save_header','EksportImport\ImportController@saveHeader');
+Route::post('/import/save_pengangkutan','EksportImport\ImportController@savePengangkutan');
 
 //Route post export
 Route::post('/Eksport/save_header','EksportImport\EksportController@saveHeader');
