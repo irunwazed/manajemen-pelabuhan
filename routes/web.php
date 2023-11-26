@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnekaUsaha\LahanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -131,14 +132,23 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
         ];
         return view('app/aneka-usaha', $data);
     });
+
     Route::get('/{menu}', function ($user, $menu) {
         $data = [
             "user" => $user
         ];
         return view('app/aneka-usaha/' . $menu, $data);
-        Route::get('/{menu}', 'LahanController@listSewaLahan');
+
+        Route::get('/', [LahanController::class, 'listSewaLahan'])->name('lisLahan');
+        Route::get('/listlahan', 'AnekaUsaha\LahanController@listSewaLahan')->name('listsewalahan');
+        // Route::get('/', [LahanController::class, 'AddSewaLahan'])->name('addSLahan');
+        // Route::get('/', [LahanController::class, 'UpSewaLahan'])->name('UpdSLahan');
+        // Route::get('/', [LahanController::class, 'DelSewaLahan'])->name('DelSLahan');
+        // Route::get('/', [LahanController::class, 'detailSewaLahan'])->name('detSLahan');
     });
 });
+
+
 
 
 Route::get('/{user}', function ($user) {
