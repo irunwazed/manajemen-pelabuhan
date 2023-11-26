@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\AnekaUsaha;
 
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\SewaLahan;
 use App\Services\AnekaUsaha\LahanService;
+use Exception;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use PDF;
@@ -26,15 +28,45 @@ class LahanController
 
     public function listSewaLahan(Request $request, $user)
     {
-        $data = DB::table('t_au_lahan as b')
-            ->select(
-                'b.nama_perusahaan',
-                'b.no_kontrak',
-                'b.tgl_kontrak',
+
+        $search = $request->input('search');
+        $page = @$request->input('page') ? $request->input('page') : 1;
+        $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
+
+
+        $query = DB::table('mt_simlala_rpk')
+            ->where(
+                function ($query) use ($search) {
+                    return $query
+
+                        ->where('nama_perusahaan', 'like', '%' . $search . '%');
+                }
             );
 
-        return view('app.aneka-usaha.create-permohonan-sewa-lahan', ['data' => $data]);
+        // $query = DB::table('t_au_lahan')
+        //     ->where(
+        //         function ($query) use ($search) {
+        //             return $query
+        //                 ->where('nama_perusahaan', 'like', '%' . $search . '%')
+        //         }
+        //     );
+        $total = $query->count();
+        $data = $query->skip(($page - 1) * $perPage)->take($perPage)
+            ->get();
+
+        $result = [
+            "user" => $user,
+            "request" => $request->input(),
+            "data" => $data,
+            "page" => $page,
+            "perPage" => $perPage,
+            "total" => $total,
+            "totalPage" => (ceil($total / $perPage)),
+        ];
+
+        return view('app.permohonan-sewa-lahan', $result);
     }
+
 
     public function detailSewaLahan(Request $request)
     {
@@ -65,10 +97,10 @@ class LahanController
                 'b.tarif',
                 'b.status_lunsum'
             );
-        return view('app.aneka-usaha.detail-permohonan-sewa-lahan');
+        return view('app.aneka-usaha.detail-permohonan-sewa-lahan', $detaillahan);
     }
 
-    public function addPerLahan()
+    public function AddSewaLahan()
     {
         $data = [
             'no_kontrak' => '',
@@ -83,27 +115,33 @@ class LahanController
             'jenis_properti' => '',
             'luas_lahan' => '',
             'jangka_waktu' => '',
-            'periode_pakai_mulai' => now(),
-            'periode_pakai_selesai' => now(),
+            'periode_pakai_mulai' => '',
+            'periode_pakai_selesai' => '',
             'keterangan' => '',
             'tarif' => '',
             'biaya_sewa' => '',
             'flag' => '',
             'no_pranota' => '',
-            'tgl_pranota' => now(),
+            'tgl_pranota' => '',
             'no_nota4e' => '',
-            'tgl_nota4e' => now(),
+            'tgl_nota4e' => '',
             'kode_rek' => '',
             'status_lunsum' => ''
         ];
         SewaLahan::create($data);
         return redirect()->route('aneka-usaha.create-permohonan-sewa-lahan');
     }
-    public function updLahan()
+    public function UpSewaLahan()
     {
     }
-    public function delLahan()
+
+    public function DelSewaLahan($id)
     {
+        try {
+            DB::table('t_au_lahan')->where('id', $id)->delete();
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
     }
 
     public function exportPdf()
