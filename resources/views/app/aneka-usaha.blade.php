@@ -13,10 +13,16 @@ array_push($navigations, [
   "name" => "SEWA LAHAN & BANGUNAN",
   "url" => "/" . @$user . "/aneka-usaha/create-permohonan-sewa-lahan",
 ]);
+
 array_push($navigations, [
   "name" => "SEWA BUNKER",
   "url" => "/" . @$user . "/aneka-usaha/create-permohonan-sewa-bunker",
 ]);
+array_push($navigations, [
+  "name" => "LIST SEWA LAHAN",
+  "url" => "/" . @$user . "/aneka-usaha/permohonan-sewa-lahan",
+]);
+
 
 ?>
 

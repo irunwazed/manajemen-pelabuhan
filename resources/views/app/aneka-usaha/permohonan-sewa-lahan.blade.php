@@ -46,7 +46,7 @@
 
     <div class="text-center mb-3 mt-5">
         <div>
-            <table class="mt-5 w-full border-solid border-2 border-slate-800">
+            <table id="perusahan" class="mt-5 w-full border-solid border-2 border-slate-800 ">
                 <thead class=" bg-gradient-to-r from-cyan-700 to-cyan-800 text-white py-5">
                     <tr>
                         <th class="py-5 px-3">No</th>
@@ -57,22 +57,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($data as $dat)
                     <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                        <td>{{$dat->nama_perusahaan}} </td>
                         <td>1</td>
-                        <td>2023</td>
-                        <td>2023-10-25</td>
-                        <td>Jaya Sakti</td>
+                        <td>asfsda</td>
+                        <td>adfasf</td>
+                        <td>asdfdsaf</td>
                         <td>
                             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"> <a href="{{url('admin/aneka-usaha/detail-permohonan-sewa-lahan')}}">View<a /></button>
                             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><a href="{{url('admin/aneka-usaha/edit-permohonan-sewa-lahan')}}">Edit<a /></button>
                             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><a href="{{url('admin/aneka-usaha/pranota-permohonan-sewa-lahan')}}">Pranota<a /></button>
                             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><a href="{{url('admin/aneka-usaha/nota-4g')}}"> Nota4G<a /></button>
-
-                            <!--<a href="{{url('admin/aneka-usaha/edit-permohonan-sewa-lahan')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">
-                            <a href="{{url('admin/aneka-usaha/nota-4g')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Pranota</a>
-                            <a href="{{url('admin/aneka-usaha/nota-4g')}}" class="btn bg-blue-600 text-blue-100 hover:bg-purple-600">Nota 4E</a>-->
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -80,4 +79,33 @@
 </div>
 @endsection
 
-@section(' script') @endsection
+@section(' script')
+<!-- <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+        });
+
+        function editData(data) {
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('get-Barang', 'admin') }}",
+                data: {
+                    pelayanan_kapal_rkbm_id: data,
+                },
+                success: function(response) {
+                    $("#nama_barang").val(response.nama_barang);
+                    $("#no_bl").val(response.no_bl);
+                    $("#jenis_kegiatan").val(response.jenis_kegiatan);
+                    $("#sistem_penyaluran").val(response.sistem_penyaluran);
+                    $("#tulag").val(response.tulag);
+                    $("#trf_dermaga").val(response.nama_trf_dermaga);
+                    $("#trf_penumpukan").val(response.nama_trf_penumpukan);
+                    $("#jlh_brg_trf").val(response.jlh_brg_trf);
+                    $("#pelayanan_kapal_rkbm_barang_id").val(response.pelayanan_kapal_rkbm_barang_id)
+                }
+            });
+        }
+    </script> -->
+@endsection

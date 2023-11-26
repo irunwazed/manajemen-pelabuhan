@@ -5,7 +5,7 @@
     <div class="text-2xl ">Aneka Usaha / Permohonan Sewa Tanah Dan Bangunan</div>
     <hr class="border-b-2 border-black border-solid">
     <div class="font-bold text-2xl text-center pt-5">FORM PERMOHONAN SEWA TANAH & BANGUNAN</div>
-    <!-- <div class="font-bold text-2xl text-center pt-5">Entry Data</div> -->
+    <div class="font-bold text-2xl text-center pt-5">Entry Data</div>
 
     <div class="font-bold text-2xl text-start pt-5">Form Kontrak</div>
     <div class="h-56 grid grid-cols-2 gap-4 content-center border-2">
@@ -245,19 +245,8 @@
                         <input type="text" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
-
             </table>
-
         </div>
-        <br>
-        <a href="{{ url('aneka-usaha/export-pdf') }}" target="_blank">
-            <!-- <button style="align-content: center;" class=" btn bg-blue-600 text-blue-100 hover:bg-purple-600">Cetak </button> -->
-            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">CETAK</button>
-
-        </a>
-        <br>
-
-
     </div>
     <br>
     <br>
