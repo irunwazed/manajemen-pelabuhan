@@ -60,7 +60,6 @@
                 <td>Kantor Kepebaenan Muat Ekspor</td>
                 <td></td>
                 <td class="py-1">
-
                     <input
                     type="text"
                     class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="muatekspor" name="muatekspor"
@@ -71,7 +70,7 @@
                 <td>Jenis Eksport</td>
                 <td></td>
                 <td class="py-1">
-                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="jns_ekspor_id" name="jns_ekspor_id" required>
                         <option value="">-- Pilih --</option>
                         <?php
                         foreach ($data_jenis_ekspor as $key => $value) {
@@ -85,7 +84,7 @@
                 <td>Kategori Eksport</td>
                 <td></td>
                 <td class="py-1">
-                <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="kategori_ekspor_id" name="kategori_ekspor_id" required>
                     <option value="">-- Pilih --</option>
                         <?php
                         foreach ($kategori_ekspor as $key => $value) {
@@ -99,7 +98,7 @@
                 <td>Cara bayar</td>
                 <td></td>
                 <td class="py-1">
-                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="cara_bayar_id" name="cara_bayar_id" required>
                     <option value="">-- Pilih --</option>
                         <?php
                         foreach ($data_cara_bayar as $key => $value) {
@@ -113,7 +112,7 @@
                 <td>Cara Dagang</td>
                 <td></td>
                 <td class="py-1">
-                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="cara_dagang_id" name="cara_dagang_id" required>
                     <option value="">-- Pilih --</option>
                         <?php
                         foreach ($data_cara_dagang as $key => $value) {

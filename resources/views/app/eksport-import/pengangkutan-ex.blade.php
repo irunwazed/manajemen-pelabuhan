@@ -33,14 +33,7 @@
                     <td>Pelabuhan Muat Asal</td>
                     <td></td>
                     <td class="py-1">
-                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
-                            <option value="">-- Pilih --</option>
-                            <?php
-                            foreach ($data_pelabuhan as $key => $value) {
-                                echo'<option value="'.$value->pelabuhan_id.'">'.$value->nama_pelabuhan.'</option>';
-                            }
-                            ?>
-                        </select>
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start">
