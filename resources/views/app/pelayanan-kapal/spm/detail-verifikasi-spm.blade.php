@@ -320,30 +320,6 @@
 
   </div>
 
-  <div class=" ml-10 mb-10">
-    {{-- <div class="flex-none">
-      <div>
-        <label>Alasan :</label>
-      </div>
-      <textarea class="rounded w-[400px] border-slate-300 focus:border-none" rows="3"></textarea>
-    </div> --}}
-    <div class="flex gap-4">
-      <form action="{{url($user.'/pelayanan-kapal/verifikasi-spm/setuju')}}" method="POST">
-        @csrf
-        <input type="hidden" name="id" value="{{@$data[0]->pelayanan_kapal_id}}">
-        <input type="hidden" name="user" value="{{@$user}}">
-        <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-1 rounded hover:opacity-80">Setuju</button>
-      </form>
-      
-      {{-- <button class="text-base bg-orange-600 text-orange-100 px-6 py-1 rounded hover:opacity-80">Revisi</button> --}}
-      <form action="{{url($user.'/pelayanan-kapal/verifikasi-spm/tolak')}}" method="POST">
-        @csrf
-        <input type="hidden" name="id" value="{{@$data[0]->pelayanan_kapal_id}}">
-        <input type="hidden" name="user" value="{{@$user}}">
-        <button class="text-base bg-red-600 text-red-100 px-6 py-1 rounded hover:opacity-80">Tolak</button>
-      </form>
-    </div>
-  </div>
 
 
 
