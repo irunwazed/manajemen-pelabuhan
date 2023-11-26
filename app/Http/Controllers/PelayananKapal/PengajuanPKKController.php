@@ -301,7 +301,7 @@ class PengajuanPKKController extends Controller
 
     $savePBM = DB::table('t_pelayanan_kapal_pbm')->insert([
       "pelayanan_kapal_id" => $pelayanan_kapal_id,
-      "pelayanan_kapal_pbm_id" => $idPBM,
+      "pelayanan_kapal_pbm_id" => $dataPerusahaan->perusahaan_id,
       "kode_pbm" => @$dataPerusahaan->perusahaan_id,
       "nama_perusahaan" => @$dataPerusahaan->nama_perusahaan,
       "type_pbm" => $type,

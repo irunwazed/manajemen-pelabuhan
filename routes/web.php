@@ -113,7 +113,14 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
 
     // RPKRO
     Route::get('/rpkro', 'PelayananKapal\RPKROController@list');
-    
+    Route::get('/rpkro/form', 'PelayananKapal\RPKROController@form');
+    Route::post('/rpkro/form', 'PelayananKapal\RPKROController@save');
+    Route::get('/rpkro/kirim', 'PelayananKapal\RPKROController@kirim');
+
+    //PPK
+    Route::get('/ppk', 'PelayananKapal\RPKROController@viewPPK');
+    Route::get('/ppk/detail', 'PelayananKapal\RPKROController@detailPPK');
+    Route::post('/ppk/detail', 'PelayananKapal\RPKROController@verifikasiPPK');
     
     Route::get('/{menu}', function ($user, $menu) {
         $data = [

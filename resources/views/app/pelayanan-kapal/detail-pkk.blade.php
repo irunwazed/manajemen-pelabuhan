@@ -263,7 +263,6 @@
                 <th class="py-2">NO</th>
                 <th>UPLOAD</th>
                 <th>NAMA FILE</th>
-                <th>AKSI</th>
               </tr>
             </thead>
             <tbody>
@@ -279,15 +278,6 @@
                     @endif
                   </center>
                 </td>
-                <td class="p-2">
-                  <center>
-                    <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/delete/manifest-penumpang">
-                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                      </svg>
-                    </a>
-                  </center>
-                </td>
               </tr>
               <tr class="hover:bg-slate-200">
                 <td class="text-center">2</td>
@@ -299,15 +289,6 @@
                     @else
                     <span>Tidak ada</span>
                     @endif
-                  </center>
-                </td>
-                <td class="p-2">
-                  <center>
-                    <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/delete/manifest-bm">
-                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                      </svg>
-                    </a>
                   </center>
                 </td>
               </tr>
@@ -323,15 +304,6 @@
                     @endif
                   </center>
                 </td>
-                <td class="p-2">
-                  <center>
-                    <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/delete/manifest-bb">
-                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                      </svg>
-                    </a>
-                  </center>
-                </td>
               </tr>
               <tr class="hover:bg-slate-200">
                 <td class="text-center">4</td>
@@ -343,15 +315,6 @@
                     @else
                     <span>Tidak ada</span>
                     @endif
-                  </center>
-                </td>
-                <td class="p-2">
-                  <center>
-                    <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/delete/manifest-bk">
-                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                      </svg>
-                    </a>
                   </center>
                 </td>
               </tr>
@@ -498,17 +461,12 @@
                 <tr>
                   <td class="text-center w-[10px]">1</td>
                   <td>Jumlah Dewasa</td>
-                  <td><input type="text" value="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  <td><input type="text" value="{{ @$data->jlh_penumpang_dewasa }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                 </tr>
                 <tr>
                   <td class="text-center">2</td>
-                  <td>Jumlah Remaja</td>
-                  <td><input type="text" value="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
-                </tr>
-                <tr>
-                  <td class="text-center">3</td>
                   <td>Jumlah Anak</td>
-                  <td><input type="text" value="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  <td><input type="text" value="{{ @$data->jlh_penumpang_anak }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                 </tr>
               </tbody>
             </table>
