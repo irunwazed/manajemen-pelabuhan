@@ -125,7 +125,14 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
     });
 });
 
+
+
 Route::prefix('/{user}/aneka-usaha')->group(function () {
+
+    Route::prefix('/permohonan-sewa-lahan')->group(function () {
+        Route::get('/', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
+    });
+
     Route::get('/', function ($user) {
         $data = [
             "user" => $user
@@ -138,13 +145,6 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
             "user" => $user
         ];
         return view('app/aneka-usaha/' . $menu, $data);
-
-        Route::get('/', [LahanController::class, 'listSewaLahan'])->name('lisLahan');
-        Route::get('/listlahan', 'AnekaUsaha\LahanController@listSewaLahan')->name('listsewalahan');
-        // Route::get('/', [LahanController::class, 'AddSewaLahan'])->name('addSLahan');
-        // Route::get('/', [LahanController::class, 'UpSewaLahan'])->name('UpdSLahan');
-        // Route::get('/', [LahanController::class, 'DelSewaLahan'])->name('DelSLahan');
-        // Route::get('/', [LahanController::class, 'detailSewaLahan'])->name('detSLahan');
     });
 });
 
