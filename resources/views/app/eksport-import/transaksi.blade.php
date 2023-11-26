@@ -19,96 +19,98 @@
             </nav>
         </div>
     </div>
-    <div class="h-56 grid grid-cols-2 gap-4">
-        <div>
-            <table class="w-full">
-                <tr class="text-start">
-                    <td>Valuta</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start mb-4">
-                    <td>NDPBM</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Jenis Transaksi</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Biaya Tambahan</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Diskon</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-            </table>
+    <form action="/import/save_transaksi" method="POST" enctype="multipart/form-data">
+        <div class="h-56 grid grid-cols-2 gap-4">
+            <div>
+                <table class="w-full">
+                    <tr class="text-start">
+                        <td>Valuta</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="valuta_pib" maxlength="100" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start mb-4">
+                        <td>NDPBM</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="ndpbm_pib" maxlength="20" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Jenis Transaksi</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="jenis_transaksi" maxlength="100" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Biaya Tambahan</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="biaya_tambahan" maxlength="20" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Diskon</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="diskon" maxlength="20" required>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="w-full">
+                    <tr class="text-start">
+                        <td>Freight</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="freight" maxlength="20" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start mb-4">
+                        <td>Asuransi</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="asuransi" maxlength="20" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Voluntary Declaration</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="voluntary_declaration" maxlength="100" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Rupiah</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="rupiah" maxlength="20" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Berat Kotor</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="berat_kotor" maxlength="11" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Berat Bersih</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="berat_bersih" maxlength="11" required>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div>
-            <table class="w-full">
-                <tr class="text-start">
-                    <td>Freight</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start mb-4">
-                    <td>Asuransi</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Voluntary Declaration</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Rupiah</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Berat Kotor</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Berat Bersih</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                    </td>
-                </tr>
-            </table>
+        <div class="text-left pt-16 mt-16 pb-9">
+            <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
         </div>
-    </div>
-    <div class="text-left pt-16 mt-16 pb-9">
-        <a href="#" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</a>
-    </div>
+    </form>
 @endsection
 
 @section('script')
