@@ -137,8 +137,6 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
 });
 
 Route::prefix('/{user}/eksport-import')->group(function () {
-    $pegawai = DB::table('pegawai')->get();
-    
     Route::get('/', function ($user) {
         $data = [
             "user" => $user
