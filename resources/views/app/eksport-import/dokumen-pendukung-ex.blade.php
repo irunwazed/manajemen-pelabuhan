@@ -76,68 +76,70 @@
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <div class="mt-5 grid grid-cols-1 gap-2">
-                        <table class="w-full">
-                            <tr class="text-start">
-                                <td>Seri</td>
-                                <td>:</td>
-                                <td class="py-1">
-                                <input
-                                    type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                                >
-                                </td>
-                            </tr>
-                            <tr class="text-start mb-4">
-                                <td>Jenis</td>
-                                <td>:</td>
-                                <td class="py-1">
-                                <input
-                                    type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                                >
-                                </td>
-                            </tr>
-                            <tr class="text-start">
-                                <td>Nomor</td>
-                                <td>:</td>
-                                <td class="py-1">
-                                <input
-                                    type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                                >    
-                                </td>
-                            </tr>
-                            <tr class="text-start">
-                                <td>Izin</td>
-                                <td>:</td>
-                                <td class="py-1">
-                                <input
-                                    type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                                >    
-                                </td>
-                            </tr>
-                            <tr class="text-start">
-                                <td>Tanggal</td>
-                                <td>:</td>
-                                <td class="py-1">
-                                <input
-                                    type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                                >    
-                                </td>
-                            </tr>
-                            <tr class="text-start">
-                                <td>Browser</td>
-                                <td>:</td>
-                                <td class="py-1">
-                                <input
-                                    type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
-                                >    
-                                </td>
-                            </tr>
-                        </table>
+                        <form id="uploadForm" action="/Eksport/save_entitas" method="POST" enctype="multipart/form-data">
+                            <table class="w-full">
+                                <tr class="text-start">
+                                    <td>Seri</td>
+                                    <td>:</td>
+                                    <td class="py-1">
+                                    <input
+                                        type="text"
+                                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="seri" name="seri"
+                                    >
+                                    </td>
+                                </tr>
+                                <tr class="text-start mb-4">
+                                    <td>Jenis</td>
+                                    <td>:</td>
+                                    <td class="py-1">
+                                    <input
+                                        type="text"
+                                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="jenis" name="jenis"
+                                    >
+                                    </td>
+                                </tr>
+                                <tr class="text-start">
+                                    <td>Nomor</td>
+                                    <td>:</td>
+                                    <td class="py-1">
+                                    <input
+                                        type="text"
+                                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="nomor" name="nomor"
+                                    >    
+                                    </td>
+                                </tr>
+                                <tr class="text-start">
+                                    <td>Izin</td>
+                                    <td>:</td>
+                                    <td class="py-1">
+                                    <input
+                                        type="text"
+                                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="izin" name="izin"
+                                    >    
+                                    </td>
+                                </tr>
+                                <tr class="text-start">
+                                    <td>Tanggal</td>
+                                    <td>:</td>
+                                    <td class="py-1">
+                                    <input
+                                        type="text"
+                                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="tanggal" name="tanggal"
+                                    >    
+                                    </td>
+                                </tr>
+                                <tr class="text-start">
+                                    <td>Browser</td>
+                                    <td>:</td>
+                                    <td class="py-1">
+                                    <input
+                                        type="text"
+                                        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="browser" name="browser"
+                                    >    
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
                     </div>
                 </div>
                 <!-- Modal footer -->

@@ -136,7 +136,8 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
 });
 
 Route::prefix('/{user}/eksport-import')->group(function () {
-    $pegawai = DB::table('pegawai')->get();
+
+    //$pegawai = DB::table('pegawai')->get();
     
     Route::get('/', function ($user) {
         $data = [
@@ -170,6 +171,24 @@ Route::get('/{user}', function ($user) {
 
 // Route post Import
 Route::post('/import/save_header','EksportImport\ImportController@saveHeader');
+
+//Route post export
+Route::post('/Eksport/save_header','EksportImport\EksportController@saveHeader');
+Route::post('/Eksport/save_entitas','EksportImport\EksportController@saveEntitas');
+Route::post('/Eksport/save_pemilik','EksportImport\EksportController@savePemilikBarang');
+Route::post('/Eksport/save_dokumen_pendukung','EksportImport\EksportController@saveDokumenPendukung');
+Route::post('/Eksport/save_data_pengangkut','EksportImport\EksportController@saveDataPengangkut');
+Route::post('/Eksport/save_sarana_angkut','EksportImport\EksportController@saveSaranaAngkut');
+Route::post('/Eksport/save_kemasan','EksportImport\EksportController@saveKemasan');
+Route::post('/Eksport/save_kontainer','EksportImport\EksportController@saveKontainer');
+Route::post('/Eksport/save_data_transaksi','EksportImport\EksportController@saveTransaksi');
+Route::post('/Eksport/save_bank_devisa','EksportImport\EksportController@saveDevisa');
+Route::post('/Eksport/save_data_barang','EksportImport\EksportController@saveDataBarang');
+Route::post('/Eksport/save_laras','EksportImport\EksportController@saveLartas');
+Route::post('/Eksport/save_pernyataan','EksportImport\EksportController@savePernyataan');
+
+//Route manfest pengangkut
+
 
 // Route App
 require 'aneka-usaha/index.php';

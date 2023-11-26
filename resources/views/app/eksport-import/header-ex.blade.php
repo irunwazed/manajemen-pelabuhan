@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="h-56 grid grid-cols-2 gap-4">
-    <form id="uploadForm" enctype="multipart/form-data">
+    <form id="uploadForm" action="/Eksport/save_header" method="POST" enctype="multipart/form-data">
         <table class="w-full">
             <tr class="text-start mb-4">
                 <td>No Pengajuan</td>
@@ -38,7 +38,7 @@
                 <td class="py-1">
                     <input
                     type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pabeanasal" name="pabeanasal"
                 >
                 </td>
             </tr>
@@ -49,7 +49,7 @@
 
                     <input
                     type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="kepebaenan" name="kepebaenan"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pabeanekspor" name="pabeanekspor"
                 >
                 </td>
             </tr>
@@ -60,7 +60,7 @@
 
                     <input
                     type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pib" name="pib"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="muatekspor" name="muatekspor"
                 >
                 </td>
             </tr>
@@ -70,7 +70,7 @@
                 <td class="py-1">
                     <input
                     type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="importData" name="importData"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="eksport" name="eksport"
                 >
                 </td>
             </tr>
@@ -80,7 +80,7 @@
                 <td class="py-1">
                     <input
                     type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="importData" name="importData"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="cateksport" name="cateksport"
                 >
                 </td>
             </tr>
@@ -100,7 +100,7 @@
                 <td class="py-1">
                     <input
                     type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pembayaran" name="pembayaran"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="dagang" name="dagang"
                 >
                 </td>
             </tr>
@@ -110,7 +110,7 @@
                 <td class="py-1">
                     <input
                     type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pembayaran" name="pembayaran"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="komoditi" name="komoditi"
                 >
                 </td>
             </tr>
@@ -120,7 +120,7 @@
                 <td class="py-1">
                     <input
                     type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pembayaran" name="pembayaran"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="curah" name="curah"
                 >
                 </td>
             </tr>
@@ -132,40 +132,4 @@
     </div>
 @endsection
 @section('script')
-
-
-<script>
-  // PMB
-  function submitForm() {
-        var pengajuan = document.getElementById("pengajuan").value;
-        var pelabuhan = document.getElementById("pelabuhan").value;
-        var kepebaenan = document.getElementById("kepebaenan").value;
-        var pib = document.getElementById("pib").value;
-        var importData = document.getElementById("importData").value;
-        var pembayaran = document.getElementById("pembayaran").value;
-
-        var formData = new FormData();
-        formData.append("pengajuan", pengajuan);
-        formData.append("pelabuhan", pelabuhan);
-        formData.append("kepebaenan", kepebaenan);
-        formData.append("pib", pib);
-        formData.append("import", importData);
-        formData.append("pembayaran", pembayaran);
-
-        $.ajax({
-            url: '/upload/save/import',
-            type: 'get',
-            data: formData,
-            success: function(response) {
-                // Handle the response from the API
-                console.log(response);
-            },
-            error: function(error) {
-                // Handle errors
-                console.log(error);
-            }
-        });
-        
-    }
-</script>
 @endsection
