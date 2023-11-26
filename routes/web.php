@@ -137,6 +137,7 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
 });
 
 Route::prefix('/{user}/eksport-import')->group(function () {
+    
     Route::get('/', function ($user) {
         $data = [
             "user" => $user
@@ -147,12 +148,18 @@ Route::prefix('/{user}/eksport-import')->group(function () {
     Route::get('/{menu}', function ($user, $menu) {
         $data_pelabuhan = DB::table('m_pelabuhan')->get();
         $data_jenis_impor = DB::table('m_jenis_impor')->get();
+        $data_jenis_ekspor = DB::table('m_jenis_ekspor')->get();
         $data_cara_bayar = DB::table('m_cara_bayar')->get();
+        $kategori_ekspor = DB::table('m_kategroi_ekspor')->get();
+        $data_cara_dagang = DB::table('m_cara_dagang')->get();
         $data = [
             "user" => $user,
             "data_pelabuhan" => $data_pelabuhan,
             "data_jenis_impor" => $data_jenis_impor,
-            "data_cara_bayar" => $data_cara_bayar
+            "data_cara_bayar" => $data_cara_bayar,
+            "data_jenis_ekspor" => $data_jenis_ekspor,
+            "kategori_ekspor"=> $kategori_ekspor,
+            "data_cara_dagang"=> $data_cara_dagang,
         ];
         return view('app/eksport-import/'.$menu, $data);
     });
@@ -191,7 +198,10 @@ Route::post('/Eksport/save_laras','EksportImport\EksportController@saveLartas');
 Route::post('/Eksport/save_pernyataan','EksportImport\EksportController@savePernyataan');
 
 //Route manfest pengangkut
-
+Route::post('/Manifest/data_umum','EksportImport\EksportController@data_umum');
+Route::post('/Manifest/bill_landing','EksportImport\EksportController@bill_landing');
+Route::post('/Manifest/lampiran','EksportImport\EksportController@lampiran');
+Route::post('/Manifest/hs_code','EksportImport\EksportController@hscode');
 
 // Route App
 require 'aneka-usaha/index.php';

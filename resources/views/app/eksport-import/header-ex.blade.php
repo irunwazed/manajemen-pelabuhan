@@ -46,11 +46,14 @@
                 <td>Pelabuhan Muat Ekspor</td>
                 <td></td>
                 <td class="py-1">
-
-                    <input
-                    type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pabeanekspor" name="pabeanekspor"
-                >
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                        <option value="">-- Pilih --</option>
+                        <?php
+                        foreach ($data_pelabuhan as $key => $value) {
+                            echo'<option value="'.$value->pelabuhan_id.'">'.$value->nama_pelabuhan.'</option>';
+                        }
+                        ?>
+                    </select>
                 </td>
             </tr>
             <tr class="text-start">
@@ -68,40 +71,56 @@
                 <td>Jenis Eksport</td>
                 <td></td>
                 <td class="py-1">
-                    <input
-                    type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="eksport" name="eksport"
-                >
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                        <option value="">-- Pilih --</option>
+                        <?php
+                        foreach ($data_jenis_ekspor as $key => $value) {
+                            echo'<option value="'.$value->jenis_ekspor_id.'">'.$value->jenis_ekspor.'</option>';
+                        }
+                        ?>
+                    </select>   
                 </td>
             </tr>
             <tr class="text-start">
                 <td>Kategori Eksport</td>
                 <td></td>
                 <td class="py-1">
-                    <input
-                    type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="cateksport" name="cateksport"
-                >
+                <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                    <option value="">-- Pilih --</option>
+                        <?php
+                        foreach ($kategori_ekspor as $key => $value) {
+                            echo'<option value="'.$value->kategori_ekspor_id.'">'.$value->kategori_ekspor.'</option>';
+                        }
+                        ?>
+                    </select>  
                 </td>
             </tr>
             <tr class="text-start">
                 <td>Cara bayar</td>
                 <td></td>
                 <td class="py-1">
-                    <input
-                    type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pembayaran" name="pembayaran"
-                >
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                    <option value="">-- Pilih --</option>
+                        <?php
+                        foreach ($data_cara_bayar as $key => $value) {
+                            echo'<option value="'.$value->cara_bayar_id.'">'.$value->cara_bayar.'</option>';
+                        }
+                        ?>
+                    </select>
                 </td>
             </tr>
             <tr class="text-start">
                 <td>Cara Dagang</td>
                 <td></td>
                 <td class="py-1">
-                    <input
-                    type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="dagang" name="dagang"
-                >
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                    <option value="">-- Pilih --</option>
+                        <?php
+                        foreach ($data_cara_dagang as $key => $value) {
+                            echo'<option value="'.$value->cara_dagang_id.'">'.$value->cara_dagang.'</option>';
+                        }
+                        ?>
+                    </select>
                 </td>
             </tr>
             <tr class="text-start">
