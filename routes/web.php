@@ -128,10 +128,7 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
 
 
 Route::prefix('/{user}/aneka-usaha')->group(function () {
-
-    Route::prefix('/permohonan-sewa-lahan')->group(function () {
-        Route::get('/', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
-    });
+    Route::get('/permohonan-sewa-lahan', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
 
     Route::get('/', function ($user) {
         $data = [
