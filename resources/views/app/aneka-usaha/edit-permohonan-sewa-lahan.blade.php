@@ -2,7 +2,7 @@
 @section('title', 'Aneka Usaha')
 @section('content')
 <div class="">
-    <div class="text-2xl ">Aneka Usaha / Permohonan Sewa Tanah Dan Bangunan</div>
+    <div class="text-2xl ">Aneka Usaha / Edit Sewa Tanah & Bangunan</div>
     <hr class="border-b-2 border-black border-solid">
     <div class="font-bold text-2xl text-center pt-5">FORM PERMOHONAN SEWA TANAH & BANGUNAN</div>
     <div class="font-bold text-2xl text-center pt-5">Entry Data</div>

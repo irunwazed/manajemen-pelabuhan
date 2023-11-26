@@ -11,6 +11,7 @@ Route::group(
 
     function () {
         // Lahan
+        Route::get('/', [LahanController::class, 'createPerlahan'])->name('create-permohonan-sewa-lahan');
         Route::get('/lahan', [LahanController::class, 'index'])->name('lahan.index');
         Route::post('/lahan/list-sewa', [LahanController::class, 'listSewaLahan'])->name('lahan.list-sewa');
 

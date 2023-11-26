@@ -10,12 +10,12 @@
 $navigations = [];
 
 array_push($navigations, [
-  "name" => "SEWA LAHAN DAN BANGUNAN",
-  "url" => "/aneka-usaha/lahan",
+  "name" => "SEWA LAHAN & BANGUNAN",
+  "url" => "/" . @$user . "/aneka-usaha/create-permohonan-sewa-lahan",
 ]);
 array_push($navigations, [
   "name" => "SEWA BUNKER",
-  "url" => "/" . @$user . "/aneka-usaha/#sewa-bunker",
+  "url" => "/" . @$user . "/aneka-usaha/create-permohonan-sewa-bunker",
 ]);
 
 ?>
