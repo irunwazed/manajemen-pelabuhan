@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers\EksportImport;
 
-use App\Http\Controllers\Controller\EksportImport;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 
-class EksportImportController extends Controller
+class EksportController extends Controller
 {
 
-  public function saveImportHeader(Request $request)
+  public function saveHeader(Request $request)
   {
     
     $no_pengajuan = $request->input('pengajuan');
     $pelabuhan = $request->input('pelabuhan');
     $Kepebaenan = $request->input('Kepebaenan');
-    $pib = $request->input('pib');
-    $import = $request->input('import');
+    $peb = $request->input('peb');
+    $eksport = $request->input('eksport');
     $pembayaran = $request->input('pembayaran');
 
     // $lastPBM = DB::table('t_pelayanan_kapal_pbm')->orderBy("pelayanan_kapal_pbm_id", "DESC")->first();
@@ -28,11 +28,11 @@ class EksportImportController extends Controller
     //   $idPBM = $lastPBM->pelayanan_kapal_pbm_id + 1;
     // }
 
-    $saveImport = DB::table('t_header_pib')->insert([
+    $saveImport = DB::table('t_header_peb')->insert([
       "no_pengajuan" => $no_pengajuan,
       "pelabuhan_tujuan" => $pelabuhan,
-      "jenis_pib" => $pib,
-      "jenis_import" => @$import,
+      "jenis_peb" => $peb,
+      "jenis_eksport" => $eksport,
       "cara_bayar" => $pembayaran,
       "flag" => "0",
     ]);
@@ -54,8 +54,8 @@ class EksportImportController extends Controller
     $no_pengajuan = $request->input('pengajuan');
     $pelabuhan = $request->input('pelabuhan');
     $Kepebaenan = $request->input('Kepebaenan');
-    $pib = $request->input('pib');
-    $import = $request->input('import');
+    $peb = $request->input('peb');
+    $eksport = $request->input('eksport');
     $pembayaran = $request->input('pembayaran');
 
     // $lastPBM = DB::table('t_pelayanan_kapal_pbm')->orderBy("pelayanan_kapal_pbm_id", "DESC")->first();
@@ -67,11 +67,11 @@ class EksportImportController extends Controller
     // }
 
 
-    $saveImport = DB::table('t_entitas_pib')->insert([
+    $saveImport = DB::table('t_entitas_peb')->insert([
       "no_pengajuan" => $no_pengajuan,
       "pelabuhan_tujuan" => $pelabuhan,
-      "jenis_pib" => $pib,
-      "jenis_import" => @$import,
+      "jenis_peb" => $peb,
+      "jenis_eksport" => @$eksport,
       "cara_bayar" => $pembayaran,
       "flag" => "0",
     ]);
@@ -94,15 +94,15 @@ class EksportImportController extends Controller
     $no_pengajuan = $request->input('pengajuan');
     $pelabuhan = $request->input('pelabuhan');
     $Kepebaenan = $request->input('Kepebaenan');
-    $pib = $request->input('pib');
-    $import = $request->input('import');
+    $peb = $request->input('peb');
+    $eksport = $request->input('eksport');
     $pembayaran = $request->input('pembayaran');
 
-    $saveImport = DB::table('t_entitas_pib')->insert([
+    $saveImport = DB::table('t_entitas_peb')->insert([
       "no_pengajuan" => $no_pengajuan,
       "pelabuhan_tujuan" => $pelabuhan,
-      "jenis_pib" => $pib,
-      "jenis_import" => @$import,
+      "jenis_peb" => $peb,
+      "jenis_eksport" => @$eksport,
       "cara_bayar" => $pembayaran,
       "flag" => "0",
     ]);

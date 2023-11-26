@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EksportImport\EksportImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -137,6 +136,7 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
 });
 
 Route::prefix('/{user}/eksport-import')->group(function () {
+    $pegawai = DB::table('pegawai')->get();
     
     Route::get('/', function ($user) {
         $data = [
@@ -168,6 +168,8 @@ Route::get('/{user}', function ($user) {
     return view('pages/admin', $data);
 });
 
+// Route post Import
+Route::post('/import/save_header','EksportImport\ImportController@saveHeader');
+
 // Route App
 require 'aneka-usaha/index.php';
-

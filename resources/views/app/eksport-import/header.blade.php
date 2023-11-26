@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="h-56 grid grid-cols-2 gap-4">
-    <form id="uploadForm" enctype="multipart/form-data">
+    <form id="uploadForm" action="/import/save_header" method="POST" enctype="multipart/form-data">
         <table class="w-full">
             <tr class="text-start mb-4">
                 <td>No Pengajuan</td>
@@ -28,7 +28,7 @@
                 <td class="py-1">
                     <input
                     type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pengajuan" name="pengajuan"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="no_pengajuan" name="no_pengajuan"
                 >
                 </td>
             </tr>
@@ -86,7 +86,7 @@
             </tr>
         </table>
         <div class="text-left pt-16 mt-16 pb-9">
-            <button type="submit" onclick="submitForm()" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
+            <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
         </div>
     </form>
     </div>
@@ -95,37 +95,36 @@
 
 
 <script>
-  // PMB
-  function submitForm() {
-        var pengajuan = document.getElementById("pengajuan").value;
-        var pelabuhan = document.getElementById("pelabuhan").value;
-        var kepebaenan = document.getElementById("kepebaenan").value;
-        var pib = document.getElementById("pib").value;
-        var importData = document.getElementById("importData").value;
-        var pembayaran = document.getElementById("pembayaran").value;
+    // function submitForm() {
+    //     var pengajuan = document.getElementById("pengajuan").value;
+    //     var pelabuhan = document.getElementById("pelabuhan").value;
+    //     var kepebaenan = document.getElementById("kepebaenan").value;
+    //     var pib = document.getElementById("pib").value;
+    //     var importData = document.getElementById("importData").value;
+    //     var pembayaran = document.getElementById("pembayaran").value;
 
-        var formData = new FormData();
-        formData.append("pengajuan", pengajuan);
-        formData.append("pelabuhan", pelabuhan);
-        formData.append("kepebaenan", kepebaenan);
-        formData.append("pib", pib);
-        formData.append("import", importData);
-        formData.append("pembayaran", pembayaran);
+    //     var formData = new FormData();
+    //     formData.append("pengajuan", pengajuan);
+    //     formData.append("pelabuhan", pelabuhan);
+    //     formData.append("kepebaenan", kepebaenan);
+    //     formData.append("pib", pib);
+    //     formData.append("import", importData);
+    //     formData.append("pembayaran", pembayaran);
 
-        $.ajax({
-            url: '/upload/save/import',
-            type: 'get',
-            data: formData,
-            success: function(response) {
-                // Handle the response from the API
-                console.log(response);
-            },
-            error: function(error) {
-                // Handle errors
-                console.log(error);
-            }
-        });
+    //     $.ajax({
+    //         url: '/upload/save/import',
+    //         type: 'get',
+    //         data: formData,
+    //         success: function(response) {
+    //             // Handle the response from the API
+    //             console.log(response);
+    //         },
+    //         error: function(error) {
+    //             // Handle errors
+    //             console.log(error);
+    //         }
+    //     });
         
-    }
+    // }
 </script>
 @endsection
