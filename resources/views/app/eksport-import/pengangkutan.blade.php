@@ -19,128 +19,128 @@
             </nav>
         </div>
     </div>
-    <form id="uploadForm" action="/import/save_pengangkutan" method="POST" enctype="multipart/form-data">
-    <div class="grid grid-cols-2 gap-4">
-        <div>
-            <table class="w-full">
-                <tr class="text-start">
-                    <td>Header PIB</td>
-                    <td></td>
-                    <td class="py-1">
-                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_pib" name="header_pib" required>
-                            <option value="">-- Pilih --</option>
-                            <?php
-                            foreach ($data_header_pib as $key => $value) {
-                                echo'<option value="'.$value->header_pib_id.'">'.$value->no_pengajuan.'</option>';
-                            }
-                            ?>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>BC1.1</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_bc11_pib" maxlength="20" required>
-                    </td>
-                </tr>
-                <tr class="text-start mb-4">
-                    <td>Tanggal BC1.1/1.2</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="tanggal_bc11_pib" required>
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>No Post</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_post_bc11_pib" maxlength="20" required>
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Cara Pengangkutan</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="cara_pengangkutan_pib" maxlength="5" required>
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Nama Sarana Pengangkutan</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="nama_sarana_pengangkut" maxlength="200" required>
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>No Voyage</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_voyage" maxlength="20" required>
-                    </td>
-                </tr>
-            </table>
+    <form action="/import/save_pengangkutan" method="POST" enctype="multipart/form-data">
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <table class="w-full">
+                    <tr class="text-start">
+                        <td>Header PIB</td>
+                        <td></td>
+                        <td class="py-1">
+                            <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_pib" name="header_pib" required>
+                                <option value="">-- Pilih --</option>
+                                <?php
+                                foreach ($data_header_pib as $key => $value) {
+                                    echo'<option value="'.$value->header_pib_id.'">'.$value->no_pengajuan.'</option>';
+                                }
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>BC1.1</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_bc11_pib" maxlength="20" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start mb-4">
+                        <td>Tanggal BC1.1/1.2</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="tanggal_bc11_pib" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>No Post</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_post_bc11_pib" maxlength="20" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Cara Pengangkutan</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="cara_pengangkutan_pib" maxlength="5" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Nama Sarana Pengangkutan</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="nama_sarana_pengangkut" maxlength="200" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>No Voyage</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_voyage" maxlength="20" required>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="w-full">
+                    <tr class="text-start">
+                        <td>Bendera</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="bendera" maxlength="100" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start mb-4">
+                        <td>Perkiraan Tanggal Tiba</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="perkiraan_tgl_tiba" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Pelabuhan Muat</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="pelabuhan_muat" maxlength="100" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Pelabuhan Transit</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="pelabuhan_transit" maxlength="100" required>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Pelabuhan Tujuan</td>
+                        <td></td>
+                        <td class="py-1">
+                            <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                                <option value="">-- Pilih --</option>
+                                <?php
+                                foreach ($data_pelabuhan as $key => $value) {
+                                    echo'<option value="'.$value->pelabuhan_id.'">'.$value->nama_pelabuhan.'</option>';
+                                }
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="text-start">
+                        <td>Tempat Penimbunan</td>
+                        <td></td>
+                        <td class="py-1">
+                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="tempat_penimbunan" maxlength="100" required>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div>
-            <table class="w-full">
-                <tr class="text-start">
-                    <td>Bendera</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="bendera" maxlength="100" required>
-                    </td>
-                </tr>
-                <tr class="text-start mb-4">
-                    <td>Perkiraan Tanggal Tiba</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="perkiraan_tgl_tiba" required>
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Pelabuhan Muat</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="pelabuhan_muat" maxlength="100" required>
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Pelabuhan Transit</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="pelabuhan_transit" maxlength="100" required>
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Pelabuhan Tujuan</td>
-                    <td></td>
-                    <td class="py-1">
-                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
-                            <option value="">-- Pilih --</option>
-                            <?php
-                            foreach ($data_pelabuhan as $key => $value) {
-                                echo'<option value="'.$value->pelabuhan_id.'">'.$value->nama_pelabuhan.'</option>';
-                            }
-                            ?>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="text-start">
-                    <td>Tempat Penimbunan</td>
-                    <td></td>
-                    <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="tempat_penimbunan" maxlength="100" required>
-                    </td>
-                </tr>
-            </table>
+        <div class="text-left pt-16 pb-9">
+            <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
+            <!-- <a href="#" class="text-base bg-yellow-600 text-yellow-100 px-6 py-2.5 rounded hover:opacity-80">Reset</a>
+            <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="text-base text-gray-900 bg-white border border-gray-300 px-6 py-2.5 rounded hover:opacity-80">Batal</a>
+                </div> -->
         </div>
-    </div>
-    <div class="text-left pt-16 pb-9">
-        <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
-        <!-- <a href="#" class="text-base bg-yellow-600 text-yellow-100 px-6 py-2.5 rounded hover:opacity-80">Reset</a>
-        <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="text-base text-gray-900 bg-white border border-gray-300 px-6 py-2.5 rounded hover:opacity-80">Batal</a>
-            </div> -->
-    </div>
     </form>
 @endsection
 

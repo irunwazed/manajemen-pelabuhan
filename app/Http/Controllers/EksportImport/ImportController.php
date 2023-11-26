@@ -41,4 +41,22 @@ class ImportController extends Controller
     ]);
     return redirect('admin/eksport-import/pengangkutan');
   }
+  public function saveTransaksi(Request $request)
+  {
+    // insert data ke table
+    $simpan_data = DB::table('t_data_transaksi_pib')->insert([
+      'valuta_pib' => $request->valuta_pib,
+      'ndpbm_pib' => $request->ndpbm_pib,
+      'jenis_transaksi' => $request->jenis_transaksi,
+      'biaya_tambahan' => $request->biaya_tambahan,
+      'diskon' => $request->diskon,
+      'freight' => $request->freight,
+      'asuransi' => $request->asuransi,
+      'voluntary_declaration' => $request->voluntary_declaration,
+      'rupiah' => $request->rupiah,
+      'berat_kotor' => $request->berat_kotor,
+      'berat_bersih' => $request->berat_bersih
+    ]);
+    return redirect('admin/eksport-import/transaksi');
+  }
 }

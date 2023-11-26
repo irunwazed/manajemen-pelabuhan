@@ -188,6 +188,7 @@ Route::get('/{user}', function ($user) {
 // Route post Import
 Route::post('/import/save_header','EksportImport\ImportController@saveHeader');
 Route::post('/import/save_pengangkutan','EksportImport\ImportController@savePengangkutan');
+Route::post('/import/save_transaksi','EksportImport\ImportController@saveTransaksi');
 
 //Route post export
 Route::post('/Eksport/save_header','EksportImport\EksportController@saveHeader');
