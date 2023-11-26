@@ -26,7 +26,7 @@ class EksportController extends Controller
         'kantor_pabean_muat_asal'=> $request->pabeanasal,
         'pelabuhan_muat_ekspor'=> $request->pabeanasal,
       ]);
-      // return redirect('');
+      return redirect('admin/eksport-import/header-ex');
   }
 
   public function saveEntitas(Request $request){
@@ -44,7 +44,7 @@ class EksportController extends Controller
         'negara_penerima' => $request->nama,
         'alamat_penerima' => 1,
       ]);
-      // return redirect('');
+      return redirect('admin/eksport-import/entitas-ex');
   }
 
   public function savePemilikBarang(Request $request){
@@ -56,7 +56,7 @@ class EksportController extends Controller
         'alamat' => $request->alamat,
         'nama' => $request->alamat,
       ]);
-      // return redirect('');
+      return redirect('admin/eksport-import/entitas-ex');
   }
 
   public function saveDokumenPendukung(Request $request){
@@ -71,7 +71,7 @@ class EksportController extends Controller
         'tgl_dokumen' => $request->alamat,
         'nama_file' => $request->alamat,
       ]);
-      // return redirect('');
+      return redirect('admin/eksport-import/dokumen-pendukung-ex');
   }
 
   public function saveDataPengangkut(Request $request){
@@ -91,7 +91,7 @@ class EksportController extends Controller
         'tgl_pemeriksaan'
         'kantor_pemeriksa'
       ]);
-      // return redirect('');
+      return redirect('admin/eksport-import/pengangkutan-ex');
   }
 
   public function saveSaranaAngkut(Request $request){
@@ -104,7 +104,7 @@ class EksportController extends Controller
         'nama_pengangkut' => $request->alamat,
         'bendera' => $request->alamat,
       ]);
-      // return redirect('');
+      return redirect('admin/eksport-import/pengangkutan-ex');
   }
 
   public function saveKemasan(Request $request){
@@ -117,7 +117,7 @@ class EksportController extends Controller
         'jenis_kemasan' => $request->alamat,
         'merk_kemasan' => $request->alamat,
       ]);
-      // return redirect('');
+      return redirect('admin/eksport-import/kemasan-ex');
   }
 
   public function saveKontainer(Request $request){
@@ -130,7 +130,7 @@ class EksportController extends Controller
         'ukuran_kontainer' => $request->alamat,
         'type_kontainer' => $request->alamat,
       ]);
-      // return redirect('');
+      return redirect('admin/eksport-import/kontainer-ex');
   }
 
   public function saveTransaksi(Request $request){
@@ -151,7 +151,7 @@ class EksportController extends Controller
       'berat_kotor'
       'berat_bersih'
     ]);
-    // return redirect('');
+    return redirect('admin/eksport-import/transaksi-ex');
   }
 
   public function saveDevisa(Request $request){
@@ -163,7 +163,7 @@ class EksportController extends Controller
       'kode_bank' => $request->alamat,
       'nama_bank'
     ]);
-    // return redirect('');
+    return redirect('admin/eksport-import/transaksi-ex');
   }
 
   public function saveDataBarang(Request $request){
@@ -190,8 +190,7 @@ class EksportController extends Controller
       'berat_bersih'
       'harga_satuan_fob'
     ]);
-    // return redirect('');
-  }
+    return redirect('admin/eksport-import/data-barang-ex');
 
   public function saveLartas(Request $request){
     // insert data ke table
@@ -206,7 +205,7 @@ class EksportController extends Controller
       'izin'
       'nama_file'
     ]);
-    // return redirect('');
+    return redirect('admin/eksport-import/data-barang-ex');
   }
 
   public function savePernyataan(Request $request){
@@ -219,7 +218,7 @@ class EksportController extends Controller
         'nama' => $request->alamat,
         'jabatan' => $request->alamat,
       ]);
-      // return redirect('');
+      return redirect('admin/eksport-import/pernyataan-ex');
   }
 
 }

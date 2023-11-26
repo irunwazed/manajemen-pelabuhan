@@ -152,6 +152,8 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         $data_cara_bayar = DB::table('m_cara_bayar')->get();
         $kategori_ekspor = DB::table('m_kategroi_ekspor')->get();
         $data_cara_dagang = DB::table('m_cara_dagang')->get();
+        $data_kemasan = DB::table('m_kemasan')->get();
+        $data_hs_code = DB::table('m_hs_code')->get();
         $data = [
             "user" => $user,
             "data_pelabuhan" => $data_pelabuhan,
@@ -160,6 +162,8 @@ Route::prefix('/{user}/eksport-import')->group(function () {
             "data_jenis_ekspor" => $data_jenis_ekspor,
             "kategori_ekspor"=> $kategori_ekspor,
             "data_cara_dagang"=> $data_cara_dagang,
+            "data_kemasan"=> $data_kemasan,
+            "data_hs_code"=> $data_hs_code
         ];
         return view('app/eksport-import/'.$menu, $data);
     });

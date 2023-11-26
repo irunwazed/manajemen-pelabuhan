@@ -65,7 +65,14 @@
                     <td>HS Code</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                         <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                        <option value="">-- Pilih --</option>
+                            <?php
+                            foreach ($data_hs_code as $key => $value) {
+                                echo'<option value="'.$value->hs_code_id.'">'.$value->hs_code.'</option>';
+                            }
+                            ?>
+                        </select>    
                     </td>
                 </tr>
                 <tr class="text-start">
@@ -139,7 +146,14 @@
                     <td>Kemasan</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                        <option value="">-- Pilih --</option>
+                            <?php
+                            foreach ($data_kemasan as $key => $value) {
+                                echo'<option value="'.$value->m_kemasan_id.'">'.$value->kemasan.'</option>';
+                            }
+                            ?>
+                        </select>
                     </td>
                 </tr>
                 <tr class="text-start">

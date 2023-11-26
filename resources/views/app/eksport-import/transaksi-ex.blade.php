@@ -40,7 +40,14 @@
                     <td>Cara Pembayaran</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                        <option value="">-- Pilih --</option>
+                            <?php
+                            foreach ($data_cara_bayar as $key => $value) {
+                                echo'<option value="'.$value->cara_bayar_id.'">'.$value->cara_bayar.'</option>';
+                            }
+                            ?>
+                        </select>
                     </td>
                 </tr>
                 <tr class="text-start">
@@ -62,7 +69,7 @@
         <div>
             <table class="w-full">
                 <tr class="text-start">
-                    <td>Asuaransi</td>
+                    <td>Asuransi</td>
                     <td></td>
                     <td class="py-1">
                         <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
