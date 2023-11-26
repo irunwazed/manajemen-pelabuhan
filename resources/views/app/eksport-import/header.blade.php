@@ -28,7 +28,7 @@
                 <td class="py-1">
                     <input
                     type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="no_pengajuan" name="no_pengajuan"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="no_pengajuan" name="no_pengajuan" maxlength="20" required
                 >
                 </td>
             </tr>
@@ -36,20 +36,23 @@
                 <td>Pelabuhan Tujuan</td>
                 <td></td>
                 <td class="py-1">
-                    <input
-                    type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan"
-                >
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                        <option value="">-- Pilih --</option>
+                        <?php
+                        foreach ($data_pelabuhan as $key => $value) {
+                            echo'<option value="'.$value->pelabuhan_id.'">'.$value->nama_pelabuhan.'</option>';
+                        }
+                        ?>
+                    </select>
                 </td>
             </tr>
             <tr class="text-start">
                 <td>Kantor Kepebaenan</td>
                 <td></td>
                 <td class="py-1">
-
                     <input
                     type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="kepebaenan" name="kepebaenan"
+                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="kepebaenan" name="kepebaenan" maxlength="100" required
                 >
                 </td>
             </tr>
@@ -57,35 +60,46 @@
                 <td>Jenis PIB</td>
                 <td></td>
                 <td class="py-1">
-
-                    <input
-                    type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pib" name="pib"
-                >
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="jenis_pib" name="jenis_pib" required>
+                        <option value="">-- Pilih --</option>
+                        <option value="BIASA">BIASA</option>
+                        <option value="BERKALA">BERKALA</option>
+                    </select>
                 </td>
             </tr>
             <tr class="text-start">
                 <td>Jenis Import</td>
                 <td></td>
                 <td class="py-1">
-                    <input
-                    type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="importData" name="importData"
-                >
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="jenis_impor" name="jenis_impor" required>
+                        <option value="">-- Pilih --</option>
+                        <?php
+                        foreach ($data_jenis_impor as $key => $value) {
+                            echo'<option value="'.$value->jenis_import_id.'">'.$value->jenis_import.'</option>';
+                        }
+                        ?>
+                    </select>
                 </td>
             </tr>
             <tr class="text-start">
                 <td>Cara Pembayaran</td>
                 <td></td>
                 <td class="py-1">
-                    <input
-                    type="text"
-                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pembayaran" name="pembayaran"
-                >
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="cara_bayar" name="cara_bayar" required>
+                        <option value="">-- Pilih --</option>
+                        <?php
+                        foreach ($data_cara_bayar as $key => $value) {
+                            echo'<option value="'.$value->cara_bayar_id.'">'.$value->cara_bayar.'</option>';
+                        }
+                        ?>
+                    </select>
                 </td>
             </tr>
         </table>
-        <div class="text-left pt-16 mt-16 pb-9">
+        <?php
+        // print_r($data_pelabuhan);
+        ?>
+        <div class="text-left pt-16 pb-9">
             <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
         </div>
     </form>
