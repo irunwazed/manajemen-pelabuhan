@@ -20,7 +20,7 @@ class ImportController extends Controller
       'cara_bayar_id' => $request->cara_bayar
     ]);
     return redirect('admin/eksport-import/header');
-  }
+  }  
   public function savePengangkutan(Request $request)
   {
     // insert data ke table
