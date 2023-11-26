@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -136,8 +137,7 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
 });
 
 Route::prefix('/{user}/eksport-import')->group(function () {
-
-    //$pegawai = DB::table('pegawai')->get();
+    $pegawai = DB::table('pegawai')->get();
     
     Route::get('/', function ($user) {
         $data = [
@@ -147,12 +147,17 @@ Route::prefix('/{user}/eksport-import')->group(function () {
     });
 
     Route::get('/{menu}', function ($user, $menu) {
+        $data_pelabuhan = DB::table('m_pelabuhan')->get();
+        $data_jenis_impor = DB::table('m_jenis_impor')->get();
+        $data_cara_bayar = DB::table('m_cara_bayar')->get();
         $data = [
-            "user" => $user
+            "user" => $user,
+            "data_pelabuhan" => $data_pelabuhan,
+            "data_jenis_impor" => $data_jenis_impor,
+            "data_cara_bayar" => $data_cara_bayar
         ];
         return view('app/eksport-import/'.$menu, $data);
     });
-
 });
 
 Route::get('/{user}', function ($user) {

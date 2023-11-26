@@ -11,10 +11,14 @@ class ImportController extends Controller
   public function saveHeader(Request $request)
   {
     // insert data ke table
-    DB::table('t_header_pib')->insert([
-      'header_pib_id' => 1,
+    $simpan_data = DB::table('t_header_pib')->insert([
       'no_pengajuan' => $request->no_pengajuan,
+      'pelabuhan_id' => $request->pelabuhan,
+      'kantor_kepabeanan' => $request->kepebaenan,
+      'jenis_pib' => $request->jenis_pib,
+      'jenis_import_id' => $request->jenis_impor,
+      'cara_bayar_id' => $request->cara_bayar
     ]);
-    // return redirect('');
+    return redirect('admin/eksport-import/header');
   }
 }
