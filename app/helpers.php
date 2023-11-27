@@ -1,10 +1,9 @@
 <?php
 
-function changeDateFormate($tanggal)
+function changeDateFormate($_tanggal)
 {
-
   $bulan = array(
-    1 =>   'Januari',
+    'Januari',
     'Februari',
     'Maret',
     'April',
@@ -17,16 +16,19 @@ function changeDateFormate($tanggal)
     'November',
     'Desember'
   );
-  $tanggal = explode(' ', $tanggal);
+  $tanggal = explode(' ', $_tanggal);
   $pecahkan = explode('-', $tanggal[0]);
 
-  if(count($pecahkan) < 3) return "";
+  if(count($pecahkan) < 3) return $_tanggal;
+  
 
   return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
 }
 
 function generateNumberToCode($number)
 {
+  if(!@$number) $number = 1;
+
   if ($number > 9999) return $number;
   if ($number > 999) return "0" . $number;
   if ($number > 99) return "00" . $number;

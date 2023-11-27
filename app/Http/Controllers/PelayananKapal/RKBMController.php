@@ -11,7 +11,9 @@ class RKBMController extends Controller
 
   public function show(Request $request, $user)
   {
-    $search = $request->input('search');
+    $nama_agen = @$request->input('nama_agen');
+    $no_pkk = @$request->input('no_pkk');
+    $nama_kapal = @$request->input('nama_kapal');
 
     $page = @$request->input('page') ? $request->input('page') : 1;
     $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
@@ -25,14 +27,9 @@ class RKBMController extends Controller
       ])
       ->leftJoin("t_pelayanan_kapal_pbm", "t_pelayanan_kapal_pbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
       ->leftJoin("t_pelayanan_kapal_rkbm", "t_pelayanan_kapal_rkbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
-      ->where(
-        function ($query) use ($search) {
-          return $query
-            ->where('t_pelayanan_kapal.no_layanan_kapal', 'like', '%' . $search . '%')
-            ->orWhere('t_pelayanan_kapal.no_pkk', 'like', '%' . $search . '%')
-            ->orWhere('t_pelayanan_kapal.nama_kapal', 'like', '%' . $search . '%');
-        }
-      )
+      ->where("t_pelayanan_kapal.nama_agen", 'like', '%' . $nama_agen . '%')
+      ->where("t_pelayanan_kapal.no_pkk", 'like', '%' . $no_pkk . '%')
+      ->where("t_pelayanan_kapal.nama_kapal", 'like', '%' . $nama_kapal . '%')
       ->where("t_pelayanan_kapal.flag", "2")
       ->where("t_pelayanan_kapal.flag_spm", "2")
       ->where("t_pelayanan_kapal_pbm.pelayanan_kapal_pbm_id", session()->get("pbm_id"));
@@ -98,7 +95,9 @@ class RKBMController extends Controller
 
   public function verifikasi(Request $request, $user)
   {
-    $search = $request->input('search');
+    $nama_agen = @$request->input('nama_agen');
+    $no_pkk = @$request->input('no_pkk');
+    $nama_kapal = @$request->input('nama_kapal');
 
     $page = @$request->input('page') ? $request->input('page') : 1;
     $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
@@ -112,17 +111,11 @@ class RKBMController extends Controller
       ])
       ->leftJoin("t_pelayanan_kapal_pbm", "t_pelayanan_kapal_pbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
       ->leftJoin("t_pelayanan_kapal_rkbm", "t_pelayanan_kapal_rkbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
-      ->where(
-        function ($query) use ($search) {
-          return $query
-            ->where('t_pelayanan_kapal.no_layanan_kapal', 'like', '%' . $search . '%')
-            ->orWhere('t_pelayanan_kapal.no_pkk', 'like', '%' . $search . '%')
-            ->orWhere('t_pelayanan_kapal.nama_kapal', 'like', '%' . $search . '%');
-        }
-      )
+      ->where("t_pelayanan_kapal.nama_agen", 'like', '%' . $nama_agen . '%')
+      ->where("t_pelayanan_kapal.no_pkk", 'like', '%' . $no_pkk . '%')
+      ->where("t_pelayanan_kapal.nama_kapal", 'like', '%' . $nama_kapal . '%')
       ->where("t_pelayanan_kapal.flag", "2")
-      ->where("t_pelayanan_kapal.flag_spm", "2")
-      ->where("t_pelayanan_kapal_rkbm.flag", "1");
+      ->where("t_pelayanan_kapal.flag_spm", "2");
     $total = $query->count();
     $data = $query->skip(($page - 1) * $perPage)->take($perPage)
       ->get();
@@ -211,7 +204,16 @@ class RKBMController extends Controller
         ->where("pelayanan_kapal_rkbm_id", $check->pelayanan_kapal_rkbm_id)
         ->update($data);
     } else {
+
+      $getId = DB::table('t_pelayanan_kapal_rkbm')
+        ->orderBy("pelayanan_kapal_rkbm_id", "DESC")->first();
+      $lastId = 1;
+      if (@$getId) {
+        $lastId = @$getId->pelayanan_kapal_rkbm_id + 1;
+      }
+
       $data['pelayanan_kapal_id'] = $pelayanan_kapal_id;
+      $data['no_rkbm'] = "RKBM.".generateNumberToCode($lastId);
 
       $status = DB::table('t_pelayanan_kapal_rkbm')->insert($data);
     }
@@ -277,6 +279,13 @@ class RKBMController extends Controller
     
     $pelayanan_kapal_rkbm_id = $request->input("id");
 
+    //ubah monitor
+    $rkbm =  DB::table('t_pelayanan_kapal_rkbm')->where("pelayanan_kapal_rkbm_id", $pelayanan_kapal_rkbm_id)->first();
+    $status = DB::table('t_monitoring_pelayanan_kapal')->where("pelayanan_kapal_id", @$rkbm->pelayanan_kapal_id)->update([
+      "rkbm" => 1,
+    ]);
+
+
     $status = DB::table('t_pelayanan_kapal_rkbm')->where("pelayanan_kapal_rkbm_id", $pelayanan_kapal_rkbm_id)->update([
       "flag" => "1",
     ]);
@@ -290,6 +299,11 @@ class RKBMController extends Controller
   public function doVerifikasi(Request $request){
     $status = @$request->verifikasi=="setuju"?true:false;
     $id = @$request->id;
+
+    // monitoring
+    $status = DB::table('t_monitoring_pelayanan_kapal')->where("pelayanan_kapal_id", $id)->update([
+      "rkbm" => 2,
+    ]);
 
     $status = DB::table('t_pelayanan_kapal_rkbm')->where("pelayanan_kapal_id", $id)->update([
       "flag" => @$status?"2":"R",

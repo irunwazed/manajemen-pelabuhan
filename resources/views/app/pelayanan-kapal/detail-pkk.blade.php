@@ -181,11 +181,6 @@
             <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->penanggung_jawab_agen?@$data->penanggung_jawab_agen:session()->get('pic') }}" name="penanggung_jawab_agen" disabled></td>
           </tr>
           <tr>
-            <td>DOKUMEN KEGIATAN</td>
-            <td>:</td>
-            <td><input type="file" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"> </td>
-          </tr>
-          <tr>
             <td>ALAMAT</td>
             <td>:</td>
             <td>
@@ -215,7 +210,7 @@
     <div class="mt-5">
       <h2 class="bg-blue-300 py-2 pl-3 my-3 font-semibold">PERUSAHAAN BONGKAR MUAT</h2>
 
-      <table class="border-solid border-2 border-slate-800 w-[700px] mt-1" id="table-pbm">
+      <table class="table w-[700px] mt-1" id="table-pbm">
         <thead>
           <tr class="bg-gray-300 to-primary text-slate-900">
             <th class="py-2">NO</th>
@@ -263,7 +258,6 @@
                 <th class="py-2">NO</th>
                 <th>UPLOAD</th>
                 <th>NAMA FILE</th>
-                <th>AKSI</th>
               </tr>
             </thead>
             <tbody>
@@ -279,15 +273,6 @@
                     @endif
                   </center>
                 </td>
-                <td class="p-2">
-                  <center>
-                    <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/delete/manifest-penumpang">
-                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                      </svg>
-                    </a>
-                  </center>
-                </td>
               </tr>
               <tr class="hover:bg-slate-200">
                 <td class="text-center">2</td>
@@ -299,15 +284,6 @@
                     @else
                     <span>Tidak ada</span>
                     @endif
-                  </center>
-                </td>
-                <td class="p-2">
-                  <center>
-                    <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/delete/manifest-bm">
-                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                      </svg>
-                    </a>
                   </center>
                 </td>
               </tr>
@@ -323,15 +299,6 @@
                     @endif
                   </center>
                 </td>
-                <td class="p-2">
-                  <center>
-                    <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/delete/manifest-bb">
-                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                      </svg>
-                    </a>
-                  </center>
-                </td>
               </tr>
               <tr class="hover:bg-slate-200">
                 <td class="text-center">4</td>
@@ -343,15 +310,6 @@
                     @else
                     <span>Tidak ada</span>
                     @endif
-                  </center>
-                </td>
-                <td class="p-2">
-                  <center>
-                    <a href="./pengajuan-pkk/{{ @$_GET['id'] }}/delete/manifest-bk">
-                      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                      </svg>
-                    </a>
                   </center>
                 </td>
               </tr>
@@ -498,17 +456,12 @@
                 <tr>
                   <td class="text-center w-[10px]">1</td>
                   <td>Jumlah Dewasa</td>
-                  <td><input type="text" value="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  <td><input type="text" value="{{ @$data->jlh_penumpang_dewasa }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                 </tr>
                 <tr>
                   <td class="text-center">2</td>
-                  <td>Jumlah Remaja</td>
-                  <td><input type="text" value="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
-                </tr>
-                <tr>
-                  <td class="text-center">3</td>
                   <td>Jumlah Anak</td>
-                  <td><input type="text" value="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                  <td><input type="text" value="{{ @$data->jlh_penumpang_anak }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                 </tr>
               </tbody>
             </table>
@@ -561,9 +514,6 @@
               <!-- <div class="text-left font-semibold">Manifest Bongkar/Muat Barang Tercemar</div> -->
 
               <div class="text-left font-semibold mt-4">Manifest Barang Tercemar</div>
-              <div class="align-items-end">
-                <button type="submit" form="form-manifest-barang-tercemar" class="float-right text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Simpan</button>
-              </div>
             </div>
             <div class="">
               <form action="./pengajuan-pkk/manifest-barang-tercemar/save" method="post" enctype="multipart/form-data" id="form-manifest-barang-tercemar">
@@ -664,7 +614,6 @@
                       <td colspan="6">
                         <div class="flex">
 
-                          <input type="file" name="files" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[400px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                           @if(@$dataBrgTercemar->nama_file)
                           <div class="pt-5">
 
