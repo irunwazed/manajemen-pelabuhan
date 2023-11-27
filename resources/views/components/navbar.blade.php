@@ -47,7 +47,7 @@
           <a href="{{ url(@$user.'/pelayanan-kapal/spb') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPB</a>
         </li>
         <li>
-          <a href="{{ url(@$user.'/pelayanan-kapal') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/monitor') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
         </li>
       </ul>
       @endif
@@ -77,7 +77,7 @@
           <a href="{{ url(@$user.'/pelayanan-kapal/lk3') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">LK3</a>
         </li>
         <li>
-          <a href="{{ url(@$user.'/pelayanan-kapal') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/monitor') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
         </li>
       </ul>
       @endif
@@ -102,7 +102,7 @@
           <a href="{{ url(@$user.'/pelayanan-kapal/spb') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SPB</a>
         </li>
         <li>
-          <a href="{{ url(@$user.'/pelayanan-kapal') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/monitor') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
         </li>
       </ul>
       @endif
@@ -117,7 +117,7 @@
           <a href="{{ url(@$user.'/pelayanan-kapal/rkbm') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">RKBM</a>
         </li>
         <li>
-          <a href="{{ url(@$user.'/pelayanan-kapal') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/monitor') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
         </li>
       </ul>
       @endif
@@ -142,7 +142,7 @@
           <a href="{{ url(@$user.'/pelayanan-kapal') }}/nota4a" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nota4A</a>
         </li>
         <li>
-          <a href="{{ url(@$user.'/pelayanan-kapal') }}/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
+          <a href="{{ url(@$user.'/pelayanan-kapal/monitor') }}/" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring</a>
         </li>
       </ul>
       @endif
