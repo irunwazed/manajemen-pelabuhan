@@ -1,21 +1,14 @@
-@extends('layouts.admin')
+@extends('layouts.print')
 @section('title', 'Penyewaan Alat')
 @section('content')
-    <div class="">
-        <div class="text-2xl ">
-            Penyewaan Alat /
-            <a href="{{url('admin/penyewaan-alat/nota-4c')}}"> Nota 4C </a>
-            / Create Nota 4C
-        </div>
 
-        <hr class="border-b-2 border-black border-solid">
-        <div class="font-bold text-2xl text-center pt-5 ">NOTA PENJUALAN JASA PELABUHAN</div>
-
-        <div class="h-56 grid grid-cols-2 gap-4 content-center pt-16">
+    <div class="text-[12px]">
+        <div class="font-bold text-2xl text-center pt-5">NOTA PENJUALAN JASA PELABUHAN</div>
+        <div class="h-56 grid grid-cols-2 gap-4 content-center pt-5">
             <div>
                 <table class="w-full">
-                    <tr  class="text-start mb-4">
-                        <td class="w-3/12 ">DEBITUR</td>
+                    <tr class="text-start mb-4">
+                        <td class="w-3/12">DEBITUR</td>
                         <td style="width:2%">:</td>
                         <td class="w-8/12"></td>
                     </tr>
@@ -107,45 +100,7 @@
                     </table>
                 </div>
             </div>
-            <div class="text-start mt-10">
-                <button type="submit" class="submit-nota-4c text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create</button>
-                <a href="{{url('admin/penyewaan-alat/nota-4c')}}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">KEMBALI</a>
-            </div>
         </div>
     </div>
 @endsection
 
-@section('script')
-<script>
-    var pbauAlat1cId = '{{ $data->pbau_alat_1c_id }}';
-    var nonota3c     = '{{ $data->nonota3c }}'
-
-    $(document).on('click', '.submit-nota-4c', function (e) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-
-        var formData = $(this).serializeArray();
-        formData.push({ name: 'id', value: pbauAlat1cId });
-        formData.push({ name: 'nota4c', value: nonota3c + "-inv" });
-
-        var url      = '{{ url("admin/penyewaan-alat/submit-nota-4c/") }}' + '/{{ $data->pbau_alat_1c_id }}';
-
-        $.ajax({
-            type: 'POST',
-            url: url, 
-            data: formData,
-            success: function (response) {
-                var inv = "{{url('admin/penyewaan-alat/nota-4c/invoice/')}}" + '/{{ $data->pbau_alat_1c_id }}';
-                window.open(inv,'Invoice', 'width=800, height=700');
-                return false;
-            },
-            error: function (error) {
-                $('.msg-api').html('<p class="text-red-500">Error submitting the form</p>').show();
-                setTimeout(function(){
-                    $('.msg-api').fadeOut();
-                },1200);
-            }
-        });
-    });
-</script>
-@endsection
