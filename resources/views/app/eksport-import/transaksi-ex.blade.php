@@ -169,7 +169,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="seri"
                                 >
                                 </td>
                             </tr>
@@ -179,7 +179,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="kode_bank"
                                 >
                                 </td>
                             </tr>
@@ -189,7 +189,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="nama_bank"
                                 >    
                                 </td>
                             </tr>

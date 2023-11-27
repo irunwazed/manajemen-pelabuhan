@@ -148,7 +148,7 @@ class EksportController extends Controller
   public function saveDevisa(Request $request){
      // insert data ke table
      DB::table('t_data_transaksi_peb_bank_devisa')->insert([
-      'data_transaksi_peb_bank_devisa_id' => 1,
+      //'data_transaksi_peb_bank_devisa_id' => 1,
       'data_transaksi_peb_id' => $request->npwp,
       'no_seri' => $request->nama,
       'kode_bank' => $request->alamat,
@@ -160,56 +160,59 @@ class EksportController extends Controller
   public function saveDataBarang(Request $request){
      // insert data ke table
      DB::table('t_data_barang_peb')->insert([
-      'data_barang_peb_id' => 1,
-      'header_peb_id' => $request->npwp,
-      'no_seri' => $request->nama,
-      'hs_code' => $request->alamat,
-      'lartas'
-      'kode'
-      'uraian'
-      'merk'
-      'type'
-      'ukuran'
-      'negara_asal_barang'
-      'daerah_asal_barang'
-      'satuan_id'
-      'satuan'
-      'kemasan_id'
-      'kemasan'
-      'harga_fob'
-      'volume'
-      'berat_bersih'
-      'harga_satuan_fob'
+      //'data_barang_peb_id' => 1,
+      'header_peb_id' => $request->header_peb_id,
+      'no_seri' => $request->no_seri,
+      'hs_code' => $request->hs_code,
+      'lartas' => $request->lartas,
+      'kode'  => $request->kode,
+      'uraian'  => $request->uraian,
+      'merk'  => $request->merk,
+      'type'  => $request->type,
+      'ukuran'  => $request->ukuran,
+      'negara_asal_barang' => $request->negara_asal_barang,
+      'daerah_asal_barang' => $request->daerah_asal_barang,
+      //'satuan_id'  => $request->satuan_id,
+      'satuan' => $request->satuan,
+      'kemasan_id'  => $request->kemasan_id,
+      'kemasan'  => $request->kemasan,
+      'harga_fob' => $request->harga_fob,
+      'volume' => $request->volume,
+      'berat_bersih'  => $request->berat_bersih,
+      'harga_satuan_fob'  => $request->harga_satuan_fob,
     ]);
     return redirect('admin/eksport-import/data-barang-ex');
+  
+  }
 
-  // public function saveLartas(Request $request){
-  //   // insert data ke table
-  //   DB::table('t_data_barang_peb_dok_fasilitas_lartas')->insert([
-  //     'data_barang_peb_dok_fasilitas_lartas_id' => 1,
-  //     'data_barang_peb_id' => $request->npwp,
-  //     'no_seri' => $request->nama,
-  //     'jenis' => $request->alamat,
-  //     'nomor'
-  //     'tanggal_dok'
-  //     'fasilitas'
-  //     'izin'
-  //     'nama_file'
-  //   ]);
-  //   return redirect('admin/eksport-import/data-barang-ex');
-  // }
 
-  // public function savePernyataan(Request $request){
-  //     // insert data ke table
-  //     DB::table('t_pernyataan_peb')->insert([
-  //       'pernyataan_peb_id' => 1,
-  //       'header_peb_id' => $request->npwp,
-  //       'tempat' => $request->nama,
-  //       'tanggal' => $request->alamat,
-  //       'nama' => $request->alamat,
-  //       'jabatan' => $request->alamat,
-  //     ]);
-  //     return redirect('admin/eksport-import/pernyataan-ex');
-  // }
+  public function saveLartas(Request $request){
+    // insert data ke table
+    DB::table('t_data_barang_peb_dok_fasilitas_lartas')->insert([
+      //'data_barang_peb_dok_fasilitas_lartas_id' => 1,
+      'data_barang_peb_id' => $request->data_barang_peb_id,
+      'no_seri' => $request->no_seri,
+      'jenis' => $request->jenis,
+      'nomor' => $request->nomor,
+      'tanggal_dok' => $request->tanggal_dok,
+      'fasilitas' => $request->fasilitas,
+      'izin'=> $request->izin,
+      'nama_file'=> $request->nama_file,
+    ]);
+    return redirect('admin/eksport-import/data-barang-ex');
+  }
+
+  public function savePernyataan(Request $request){
+      // insert data ke table
+      DB::table('t_pernyataan_peb')->insert([
+        //'pernyataan_peb_id' => 1,
+        'header_peb_id' => $request->header_peb_id,
+        'tempat' => $request->tempat,
+        'tanggal' => $request->tanggal,
+        'nama' => $request->nama,
+        'jabatan' => $request->jabatan,
+      ]);
+      return redirect('admin/eksport-import/pernyataan-ex');
+  }
 
 }
