@@ -67,7 +67,7 @@ array_push($navigations, [
 ]);
 array_push($navigations, [
   "name" => "Monitoring",
-  "url" => "/" . @$user . "/pelayanan-kapal",
+  "url" => "/" . @$user . "/pelayanan-kapal/monitor",
 ]);
 
 // dd($navigations);
