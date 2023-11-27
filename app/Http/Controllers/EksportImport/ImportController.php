@@ -20,7 +20,7 @@ class ImportController extends Controller
       'cara_bayar_id' => $request->cara_bayar
     ]);
     return redirect('admin/eksport-import/header');
-  }  
+  }
   public function savePengangkutan(Request $request)
   {
     // insert data ke table
@@ -58,5 +58,17 @@ class ImportController extends Controller
       'berat_bersih' => $request->berat_bersih
     ]);
     return redirect('admin/eksport-import/transaksi');
+  }
+  public function savePernyataan(Request $request)
+  {
+    // insert data ke table
+    $simpan_data = DB::table('t_pernyataan_pib')->insert([
+      'header_pib_id' => $request->header_pib_id,
+      'tempat_pernyataan' => $request->tempat_pernyataan,
+      'tanggal_pernyataan' => $request->tanggal_pernyataan,
+      'nama_pernyataan' => $request->nama_pernyataan,
+      'jabatan_pernyataan' => $request->jabatan_pernyataan
+    ]);
+    return redirect('admin/eksport-import/pernyataan');
   }
 }
