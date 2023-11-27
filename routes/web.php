@@ -153,6 +153,8 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::get('/spb/detail', 'PelayananKapal\SPBController@detail');
     Route::get('/spb/verifikasi', 'PelayananKapal\SPBController@verifikasi');
     
+    Route::get('/monitor', 'PelayananKapal\MonitorController@show');
+    
     Route::get('/{menu}', function ($user, $menu) {
         $data = [
             "user" => $user
