@@ -145,6 +145,13 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
 
     // LK3
     Route::get('/lk3', 'PelayananKapal\LK3Controller@list');
+
+
+
+    // SPB
+    Route::get('/spb', 'PelayananKapal\SPBController@list');
+    Route::get('/spb/detail', 'PelayananKapal\SPBController@detail');
+    Route::get('/spb/verifikasi', 'PelayananKapal\SPBController@verifikasi');
     
     Route::get('/{menu}', function ($user, $menu) {
         $data = [
