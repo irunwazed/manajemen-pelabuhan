@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnekaUsaha\LahanController;
+use App\Http\Controllers\AnekaUsaha\pranotaLahan;
+use App\Http\Controllers\AnekaUsaha\sewaLahancreate;
 
 /*
 |--------------------------------------------------------------------------
@@ -124,17 +126,24 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
         return view('app/penyewaan-alat/' . $menu, $data);
     });
 });
-
-
+Route::get('/perusahaan/{id}', [LahanController::class, 'companyinfoById']);
+Route::get('/perusahaan-lokasi/{id}', [LahanController::class, 'lahaninfoById']);
 
 Route::prefix('/{user}/aneka-usaha')->group(function () {
     Route::get('/permohonan-sewa-lahan', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
+    Route::get('/create-permohonan-sewa-lahan', [LahanController::class, 'companyInfo'])->name('companyInfo');
+    Route::get('/pranota-permohonan-sewa-lahan', [pranotaLahan::class, 'praNota'])->name('praNota');
+
+
+
 
     Route::get('/', function ($user) {
         $data = [
             "user" => $user
         ];
-        return view('app/aneka-usaha', $data);
+        Route::post('/create-permohonan-sewa-lahan', [LahanController::class, 'Lahancreate'])->name('Lahancreate');
+
+        return view('app/aneka-usaha/', $data);
     });
 
     Route::get('/{menu}', function ($user, $menu) {

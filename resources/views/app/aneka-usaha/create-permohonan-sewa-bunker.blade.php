@@ -225,26 +225,5 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
     });
-
-    function editData(data) {
-        $.ajax({
-            type: 'POST',
-            url: "{{ route('AddSewaLahan', 'admin') }}",
-            data: {
-                pelayanan_kapal_rkbm_id: data,
-            },
-            success: function(response) {
-                $("#nama_barang").val(response.nama_barang);
-                $("#no_bl").val(response.no_bl);
-                $("#jenis_kegiatan").val(response.jenis_kegiatan);
-                $("#sistem_penyaluran").val(response.sistem_penyaluran);
-                $("#tulag").val(response.tulag);
-                $("#trf_dermaga").val(response.nama_trf_dermaga);
-                $("#trf_penumpukan").val(response.nama_trf_penumpukan);
-                $("#jlh_brg_trf").val(response.jlh_brg_trf);
-                $("#pelayanan_kapal_rkbm_barang_id").val(response.pelayanan_kapal_rkbm_barang_id)
-            }
-        });
-    }
 </script>
 @endsection

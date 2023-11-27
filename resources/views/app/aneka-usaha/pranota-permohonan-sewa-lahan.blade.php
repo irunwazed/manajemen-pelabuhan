@@ -74,6 +74,7 @@
                     </tr>
                 </thead>
                 <tbody>
+
                     <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
                         <td>1</td>
                         <td>2</td>
@@ -90,10 +91,10 @@
             </table>
         </div>
     </div>
-    <div>Terbilang</div>
-    <div class="text-start">
-        <a class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Create</a>
-        <a href="{{url('admin/aneka-usaha/permohonan-sewa-bunker')}}" class="btn mt-6 bg-blue-600 text-blue-100 hover:bg-purple-600">Kembali</a>
+    <div>Terbilang</div><br>
+    <div class="text-start" style="align-content:center ;">
+        <a><button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"> Create</button></a>
+        <a href="{{url('admin/aneka-usaha/permohonan-sewa-bunker')}}"><button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Kembali</button></a>
     </div>
 </div>
 @endsection
