@@ -76,42 +76,42 @@
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <div class="mt-5 grid grid-cols-1 gap-2">
-                        <form id="uploadForm" action="/Eksport/save_entitas" method="POST" enctype="multipart/form-data">
+                        <form id="uploadForm" action="/Eksport/save_dokumen_pendukung" method="POST" enctype="multipart/form-data">
                             <table class="w-full">
                                 <tr class="text-start">
                                     <td>Seri</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="no_seri" name="no_seri">
                                     </td>
                                 </tr>
                                 <tr class="text-start mb-4">
                                     <td>Jenis</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="jenis_dokumen" name="jenis_dokumen">
                                     </td>
                                 </tr>
                                 <tr class="text-start">
                                     <td>Nomor</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="izin" name="izin">
                                     </td>
                                 </tr>
                                 <tr class="text-start">
                                     <td>Izin</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="nomor_dokumen" name="nomor_dokumen">
                                     </td>
                                 </tr>
                                 <tr class="text-start">
                                     <td>Tanggal</td>
                                     <td class="py-1">
-                                        <input type="date" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                        <input type="date" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="tgl_dokumen" name="tgl_dokumen">
                                     </td>
                                 </tr>
                                 <tr class="text-start">
                                     <td>Browse</td>
                                     <td class="py-1">
-                                        <input type="file" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                        <input type="file" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="nama_file" name="nama_file">
                                     </td>
                                 </tr>
                             </table>

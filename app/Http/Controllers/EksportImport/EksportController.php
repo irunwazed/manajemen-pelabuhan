@@ -44,150 +44,144 @@ class EksportController extends Controller
       return redirect('admin/eksport-import/entitas-ex');
   }
 
-  // public function savePemilikBarang(Request $request){
-  //     // insert data ke table
-  //     DB::table('t_entitas_peb_pemilik_barang')->insert([
-  //       'entitas_peb_pemilik_barang_id' => 1,
-  //       'entitas_peb_id' => $request->npwp,
-  //       'no_identitas' => $request->nama,
-  //       'alamat' => $request->alamat,
-  //       'nama' => $request->alamat,
-  //     ]);
-  //     return redirect('admin/eksport-import/entitas-ex');
-  // }
+  public function savePemilikBarang(Request $request){
+      // insert data ke table
+      DB::table('t_entitas_peb_pemilik_barang')->insert([
+        'entitas_peb_id' => $request->entitas_peb_id,
+        'no_identitas' => $request->no_identitas,
+        'alamat' => $request->alamat,
+        'nama' => $request->nama,
+      ]);
+      return redirect('admin/eksport-import/entitas-ex');
+  }
 
-  // public function saveDokumenPendukung(Request $request){
-  //     // insert data ke table
-  //     DB::table('t_dokument_pendukung_peb')->insert([
-  //       'dokumen_pendukung_peb_id' => 1,
-  //       'header_peb_id' => $request->npwp,
-  //       'no_seri' => $request->nama,
-  //       'jenis_dokumen' => $request->alamat,
-  //       'izin' => $request->npwp,
-  //       'nomor_dokumen' => $request->nama,
-  //       'tgl_dokumen' => $request->alamat,
-  //       'nama_file' => $request->alamat,
-  //     ]);
-  //     return redirect('admin/eksport-import/dokumen-pendukung-ex');
-  // }
+  public function saveDokumenPendukung(Request $request){
+      // insert data ke table
+      DB::table('t_dokument_pendukung_peb')->insert([
+        'header_peb_id' => $request->header_peb_id,
+        'no_seri' => $request->no_seri,
+        'jenis_dokumen' => $request->jenis_dokumen,
+        'izin' => $request->izin,
+        'nomor_dokumen' => $request->nomor_dokumen,
+        'tgl_dokumen' => $request->tgl_dokumen,
+        'nama_file' => $request->nama_file,
+      ]);
+      return redirect('admin/eksport-import/dokumen-pendukung-ex');
+  }
 
-  // public function saveDataPengangkut(Request $request){
-  //     // insert data ke table
-  //     DB::table('t_pengangkutan_peb')->insert([
-  //       'pengangkutan_peb_id' => 1,
-  //       'tempat_penimbunan' => $request->npwp,
-  //       'pelabuhan_muat_asal_id' => $request->nama,
-  //       'pelabuhan_muat_asal' => $request->alamat,
-  //       'pelabuhan_muat_ekspor_id'
-  //       'pelabuhan_muat_ekspor'
-  //       'pelabuhan_muat_bongkar'
-  //       'negara_tujuan_ekspor'
-  //       'pelabuhan_muat_tujuan'
-  //       'tanggal_perkiraan_ekspor'
-  //       'lokasi_pemeriksaan'
-  //       'tgl_pemeriksaan'
-  //       'kantor_pemeriksa'
-  //     ]);
-  //     return redirect('admin/eksport-import/pengangkutan-ex');
-  // }
+  public function saveDataPengangkut(Request $request){
+      // insert data ke table
+      DB::table('t_pengangkutan_peb')->insert([
+        'pengangkutan_peb_id' => 1,
+        'tempat_penimbunan' => $request->tempat_penimbunan,
+        'pelabuhan_muat_asal_id' => $request->pelabuhan_muat_asal_id,
+        'pelabuhan_muat_asal' => $request->pelabuhan_muat_asal,
+        'pelabuhan_muat_ekspor_id'=> $request->pelabuhan_muat_ekspor_id,
+        'pelabuhan_muat_bongkar'=> $request->pelabuhan_muat_bongkar,
+        'negara_tujuan_ekspor'=> $request->negara_tujuan_ekspor,
+        //'pelabuhan_muat_tujuan'=> $request->alamat,
+        'tanggal_perkiraan_ekspor'=> $request->tanggal_perkiraan_ekspor,
+        'lokasi_pemeriksaan'=> $request->lokasi_pemeriksaan,
+        'tgl_pemeriksaan'=> $request->tgl_pemeriksaan,
+        'kantor_pemeriksa'=> $request->kantor_pemeriksa,
+      ]);
+      return redirect('admin/eksport-import/pengangkutan-ex');
+  }
 
-  // public function saveSaranaAngkut(Request $request){
-  //     // insert data ke table
-  //     DB::table('t_pengangkutan_peb_sarana')->insert([
-  //       'pengangkutan_peb_sarana_id' => 1,
-  //       'pengangkutan_peb_id' => $request->npwp,
-  //       'no_seri' => $request->nama,
-  //       'no_pengangkut' => $request->alamat,
-  //       'nama_pengangkut' => $request->alamat,
-  //       'bendera' => $request->alamat,
-  //     ]);
-  //     return redirect('admin/eksport-import/pengangkutan-ex');
-  // }
+  public function saveSaranaAngkut(Request $request){
+      // insert data ke table
+      DB::table('t_pengangkutan_peb_sarana')->insert([  
+        'pengangkutan_peb_id' => $request->pengangkutan_peb_id,
+        'no_seri' => $request->no_seri,
+        'no_pengangkut' => $request->no_pengangkut,
+        'nama_pengangkut' => $request->nama_pengangkut,
+        'bendera' => $request->bendera,
+      ]);
+      return redirect('admin/eksport-import/pengangkutan-ex');
+  }
 
-  // public function saveKemasan(Request $request){
-  //     // insert data ke table
-  //     DB::table('t_kemasan_peb')->insert([
-  //       'kemasan_peb_id' => 1,
-  //       'header_peb_id' => $request->npwp,
-  //       'seri_kemasan' => $request->nama,
-  //       'jumlah_kemasan' => $request->alamat,
-  //       'jenis_kemasan' => $request->alamat,
-  //       'merk_kemasan' => $request->alamat,
-  //     ]);
-  //     return redirect('admin/eksport-import/kemasan-ex');
-  // }
+  public function saveKemasan(Request $request){
+      // insert data ke table
+      DB::table('t_kemasan_peb')->insert([
+        //'header_peb_id' => $request->header_peb_id,
+        'seri_kemasan' => $request->seri_kemasan,
+        'jumlah_kemasan' => $request->jumlah_kemasan,
+        'jenis_kemasan' => $request->jenis_kemasan,
+        'merk_kemasan' => $request->merk_kemasan,
+      ]);
+      return redirect('admin/eksport-import/kemasan-ex');
+  }
 
-  // public function saveKontainer(Request $request){
-  //      // insert data ke table
-  //      DB::table('t_kontainer_peb')->insert([
-  //       'kontainer_peb_id' => 1,
-  //       'header_peb_id' => $request->npwp,
-  //       'seri_kontainer' => $request->nama,
-  //       'no_kontainer' => $request->alamat,
-  //       'ukuran_kontainer' => $request->alamat,
-  //       'type_kontainer' => $request->alamat,
-  //     ]);
-  //     return redirect('admin/eksport-import/kontainer-ex');
-  // }
+  public function saveKontainer(Request $request){
+       // insert data ke table
+       DB::table('t_kontainer_peb')->insert([
+        //'header_peb_id' => $request->npwp,
+        'seri_kontainer' => $request->seri_kontainer,
+        'no_kontainer' => $request->no_kontainer,
+        'ukuran_kontainer' => $request->ukuran_kontainer,
+        'type_kontainer' => $request->type_kontainer,
+      ]);
+      return redirect('admin/eksport-import/kontainer-ex');
+  }
 
-  // public function saveTransaksi(Request $request){
-  //     // insert data ke table
-  //     DB::table('t_data_transaksi_peb')->insert([
-  //     'data_transaksi_peb_id' => 1,
-  //     'header_peb_id' => $request->npwp,
-  //     'valuta' => $request->nama,
-  //     'ndpbm' => $request->alamat,
-  //     'cara_pembayaran_id' => 1,
-  //     'cara_pembayaran' => $request->npwp,
-  //     'nilai_ekspor' => $request->nama,
-  //     'freight' => $request->alamat,
-  //     'asuransi'
-  //     'nilai_maklan'
-  //     'nilai_bea_keluar'
-  //     'ppn'
-  //     'berat_kotor'
-  //     'berat_bersih'
-  //   ]);
-  //   return redirect('admin/eksport-import/transaksi-ex');
-  // }
+  public function saveTransaksi(Request $request){
+      // insert data ke table
+      DB::table('t_data_transaksi_peb')->insert([
+      //'data_transaksi_peb_id' => 1,
+      //'header_peb_id' => $request->npwp,
+      'valuta' => $request->valuta,
+      'ndpbm' => $request->ndpbm,
+      'cara_pembayaran_id' => $request->cara_pembayaran_id,
+      //'cara_pembayaran' => $request->cara_pembayaran,
+      'nilai_ekspor' => $request->nilai_ekspor,
+      'freight' => $request->freight,
+      'asuransi' => $request->asuransi,
+      'nilai_maklan' => $request->nilai_maklan,
+      'nilai_bea_keluar'=> $request->nilai_bea_keluar,
+      'ppn' => $request->ppn,
+      'berat_kotor' => $request->berat_kotor,
+      'berat_bersih'=> $request->berat_bersih,
+    ]);
+    return redirect('admin/eksport-import/transaksi-ex');
+  }
 
-  // public function saveDevisa(Request $request){
-  //    // insert data ke table
-  //    DB::table('t_data_transaksi_peb_bank_devisa')->insert([
-  //     'data_transaksi_peb_bank_devisa_id' => 1,
-  //     'data_transaksi_peb_id' => $request->npwp,
-  //     'no_seri' => $request->nama,
-  //     'kode_bank' => $request->alamat,
-  //     'nama_bank'
-  //   ]);
-  //   return redirect('admin/eksport-import/transaksi-ex');
-  // }
+  public function saveDevisa(Request $request){
+     // insert data ke table
+     DB::table('t_data_transaksi_peb_bank_devisa')->insert([
+      'data_transaksi_peb_bank_devisa_id' => 1,
+      'data_transaksi_peb_id' => $request->npwp,
+      'no_seri' => $request->nama,
+      'kode_bank' => $request->alamat,
+      'nama_bank'
+    ]);
+    return redirect('admin/eksport-import/transaksi-ex');
+  }
 
-  // public function saveDataBarang(Request $request){
-  //    // insert data ke table
-  //    DB::table('t_data_barang_peb')->insert([
-  //     'data_barang_peb_id' => 1,
-  //     'header_peb_id' => $request->npwp,
-  //     'no_seri' => $request->nama,
-  //     'hs_code' => $request->alamat,
-  //     'lartas'
-  //     'kode'
-  //     'uraian'
-  //     'merk'
-  //     'type'
-  //     'ukuran'
-  //     'negara_asal_barang'
-  //     'daerah_asal_barang'
-  //     'satuan_id'
-  //     'satuan'
-  //     'kemasan_id'
-  //     'kemasan'
-  //     'harga_fob'
-  //     'volume'
-  //     'berat_bersih'
-  //     'harga_satuan_fob'
-  //   ]);
-  //   return redirect('admin/eksport-import/data-barang-ex');
+  public function saveDataBarang(Request $request){
+     // insert data ke table
+     DB::table('t_data_barang_peb')->insert([
+      'data_barang_peb_id' => 1,
+      'header_peb_id' => $request->npwp,
+      'no_seri' => $request->nama,
+      'hs_code' => $request->alamat,
+      'lartas'
+      'kode'
+      'uraian'
+      'merk'
+      'type'
+      'ukuran'
+      'negara_asal_barang'
+      'daerah_asal_barang'
+      'satuan_id'
+      'satuan'
+      'kemasan_id'
+      'kemasan'
+      'harga_fob'
+      'volume'
+      'berat_bersih'
+      'harga_satuan_fob'
+    ]);
+    return redirect('admin/eksport-import/data-barang-ex');
 
   // public function saveLartas(Request $request){
   //   // insert data ke table

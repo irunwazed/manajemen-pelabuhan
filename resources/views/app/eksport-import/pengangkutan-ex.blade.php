@@ -19,6 +19,7 @@
             </nav>
         </div>
     </div>
+    <form action="/Eksport/save_data_pengangkut" method="POST" enctype="multipart/form-data">
     <div class="h-56 grid grid-cols-2 gap-4">
         <div>
             <table class="w-full">
@@ -26,21 +27,28 @@
                     <td>Tempat Penimbunan</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="tempat_penimbunan" name="tempat_penimbunan">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Pelabuhan Muat Asal</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan_muat_asal_id" name="pelabuhan_muat_asal_id" required>
+                            <option value="">-- Pilih --</option>
+                            <?php
+                            foreach ($data_pelabuhan as $key => $value) {
+                                echo'<option value="'.$value->pelabuhan_id.'">'.$value->nama_pelabuhan.'</option>';
+                            }
+                            ?>
+                        </select>
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>Pelabuhan Muat Ekspor</td>
                     <td></td>
                     <td class="py-1">
-                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
+                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan_muat_ekspor_id" name="pelabuhan_muat_ekspor_id" required>
                             <option value="">-- Pilih --</option>
                             <?php
                             foreach ($data_pelabuhan as $key => $value) {
@@ -54,28 +62,21 @@
                     <td>Pelabuhan Bongkar</td>
                     <td></td>
                     <td class="py-1">
-                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan" name="pelabuhan" required>
-                            <option value="">-- Pilih --</option>
-                            <?php
-                            foreach ($data_pelabuhan as $key => $value) {
-                                echo'<option value="'.$value->pelabuhan_id.'">'.$value->nama_pelabuhan.'</option>';
-                            }
-                            ?>
-                        </select>   
-                    </td>
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="pelabuhan_muat_bongkar" name="pelabuhan_muat_bongkar">
+                    </td> 
                 </tr>
                 <tr class="text-start">
                     <td>Negara Tujuan Ekspor</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="negara_tujuan_ekspor" name="negara_tujuan_ekspor">
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>Tanggal Perkiraan Ekspor</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="tanggal_perkiraan_ekspor" name="tanggal_perkiraan_ekspor">
                     </td>
                 </tr>
             </table>
@@ -86,29 +87,31 @@
                     <td>Lokasi Pemeriksaan</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="lokasi_pemeriksaan" name="lokasi_pemeriksaan">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Tanggal Periksa</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="tgl_pemeriksaan" name="tgl_pemeriksaan">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Kantor Periksa</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="kantor_pemeriksa" name="kantor_pemeriksa">
                     </td>
                 </tr>
             </table>
         </div>
     </div>
+   
     <div class="text-left pt-16 mt-16 pb-9">
-        <a href="#" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</a>
+        <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
     </div>
+    </form>                    
     <div class="grid grid-cols-2">
         <div><span class="font-bold text-2xl text-start">Sarana Angkut</span></div>
         <div><button data-modal-toggle="defaultModal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">TAMBAH</button></div>
@@ -154,6 +157,7 @@
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <div class="mt-5 grid grid-cols-1 gap-2">
+                    <form action="/Eksport/save_sarana_angkut" method="POST" enctype="multipart/form-data">
                         <table class="w-full">
                             <tr class="text-start">
                                 <td>Seri</td>
@@ -161,7 +165,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_seri"
                                 >
                                 </td>
                             </tr>
@@ -171,7 +175,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_pengangkut"
                                 >
                                 </td>
                             </tr>
@@ -181,7 +185,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="nama_pengangkut"
                                 >    
                                 </td>
                             </tr>
@@ -191,16 +195,17 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="bendera"
                                 >    
                             </td>
                             </tr>
                         </table>
+                    </form>
                     </div>
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="defaultModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
+                    <button type="submit" data-modal-hide="defaultModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
                     <button data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">BATAL</button>
                 </div>
             </div>

@@ -161,6 +161,7 @@
         <div class="relative w-full max-w-2xl max-h-full">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+           
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -176,6 +177,7 @@
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <div class="mt-5 grid grid-cols-1 gap-2">
+                    <form id="uploadForm" action="/Eksport/save_pemilik" method="POST" enctype="multipart/form-data">
                         <table class="w-full">
                             <tr class="text-start">
                                 <td>Npwp (Nomor Identitas)</td>
@@ -183,7 +185,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="no_identitas" name="no_identitas"
                                 >
                                 </td>
                             </tr>
@@ -193,7 +195,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="nama" name="nama"
                                 >
                                 </td>
                             </tr>
@@ -203,7 +205,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="alamat" name="alamat"
                                 >    
                                 </td>
                             </tr>
@@ -216,6 +218,8 @@
                     <button data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">BATAL</button>
                 </div>
             </div>
+            </form>
+        
         </div>
     </div>
     <!-- . MODAL -->

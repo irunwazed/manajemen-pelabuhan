@@ -90,6 +90,7 @@
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <div class="mt-5 grid grid-cols-1 gap-2">
+                    <form id="uploadForm" action="/Eksport/save_kemasan" method="POST" enctype="multipart/form-data">
                         <table class="w-full">
                             <tr class="text-start">
                                 <td>Seri</td>
@@ -97,7 +98,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="seri_kemasan"
                                 >
                                 </td>
                             </tr>
@@ -107,7 +108,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="jumlah_kemasan"
                                 >
                                 </td>
                             </tr>
@@ -117,7 +118,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="jenis_kemasan"
                                 >    
                                 </td>
                             </tr>
@@ -126,12 +127,13 @@
                                 <td>:</td>
                                 <td class="py-1">
                                 <input
-                                    type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    type="text" 
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="merk_kemasan"
                                 >    
                             </td>
                             </tr>
                         </table>
+                    </form>
                     </div>
                 </div>
                 <!-- Modal footer -->
@@ -164,6 +166,7 @@
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <div class="mt-5 grid grid-cols-1 gap-2">
+                    <form id="uploadForm" action="/Eksport/save_kemasan" method="POST" enctype="multipart/form-data">
                         <table class="w-full">
                             <tr class="text-start">
                                 <td>Seri</td>
@@ -171,7 +174,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="seri_kontainer"
                                 >
                                 </td>
                             </tr>
@@ -181,7 +184,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_kontainer"
                                 >
                                 </td>
                             </tr>
@@ -191,7 +194,7 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="ukuran_kontainer"
                                 >    
                                 </td>
                             </tr>
@@ -201,11 +204,12 @@
                                 <td class="py-1">
                                 <input
                                     type="text"
-                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"
+                                    class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="type_kontainer"
                                 >    
                             </td>
                             </tr>
                         </table>
+                    </form>
                     </div>
                 </div>
                 <!-- Modal footer -->
