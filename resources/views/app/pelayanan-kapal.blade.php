@@ -19,7 +19,7 @@ array_push($navigations, [
 ]);
 array_push($navigations, [
   "name" => "SPM (Surat Persetujuan Masuk)",
-  "url" => "/" . @$user . "/pelayanan-kapal/spm",
+  "url" => "/" . @$user . "/pelayanan-kapal/verifikasi-spm",
 ]);
 array_push($navigations, [
   "name" => "RKBM (Rencana Kerja Bongkar Muat)",
@@ -39,7 +39,7 @@ array_push($navigations, [
 ]);
 array_push($navigations, [
   "name" => "Keberangkatan kapal",
-  "url" => "/" . @$user . "/pelayanan-kapal/simlala",
+  "url" => "/" . @$user . "/pelayanan-kapal/keberangkatan",
 ]);
 array_push($navigations, [
   "name" => "KEPELAUTAN",

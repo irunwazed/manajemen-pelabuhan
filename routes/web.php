@@ -257,14 +257,14 @@ Route::get('/{user}', function ($user) {
     ];
     return view('pages/admin', $data);
 });
-
+/*
 Route::get('/{user}', function ($user) {
     $data = [
         "user" => $user
     ];
     return view('pages/admin', $data);
 });
-
+*/
 // Route App
 require 'aneka-usaha/index.php';
 
