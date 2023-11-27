@@ -120,7 +120,31 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     //PPK
     Route::get('/ppk', 'PelayananKapal\RPKROController@viewPPK');
     Route::get('/ppk/detail', 'PelayananKapal\RPKROController@detailPPK');
-    Route::post('/ppk/detail', 'PelayananKapal\RPKROController@verifikasiPPK');
+    Route::get('/ppk/detail/verifikasi', 'PelayananKapal\RPKROController@verifikasiPPK');
+    
+    //SPOG
+    Route::get('/spog', 'PelayananKapal\SPOGController@list');
+    Route::get('/spog/detail', 'PelayananKapal\SPOGController@detail');
+    Route::post('/spog/detail', 'PelayananKapal\SPOGController@save');
+    Route::get('/spog/kirim', 'PelayananKapal\SPOGController@kirim');
+    Route::get('/spog/detail/verifikasi', 'PelayananKapal\SPOGController@detailVeri');
+    Route::get('/spog/detail/verifikasi/do', 'PelayananKapal\SPOGController@verifikasi');
+    Route::get('/spog/verifikasi', 'PelayananKapal\SPOGController@verifikasi');
+
+    //  KEBERANGKATAN
+    Route::get('/keberangkatan', 'PelayananKapal\KeberangkatanController@list');
+    Route::get('/keberangkatan/crew', 'PelayananKapal\KeberangkatanController@crew');
+    Route::post('/keberangkatan/crew', 'PelayananKapal\KeberangkatanController@importCrewList');
+    Route::get('/keberangkatan/{pelayanan_kapal_id}/crew-list/delete/{kode}', 'PelayananKapal\KeberangkatanController@deleteCrewList');
+    Route::get('/keberangkatan/kirim', 'PelayananKapal\KeberangkatanController@kirim');
+    
+    // KEPELAUTAN
+    Route::get('/kepelautan/list', 'PelayananKapal\KepelautanController@list');
+    Route::get('/kepelautan/detail', 'PelayananKapal\KepelautanController@detail');
+    Route::get('/kepelautan/verifikasi', 'PelayananKapal\KepelautanController@verifikasi');
+
+    // LK3
+    Route::get('/lk3', 'PelayananKapal\LK3Controller@list');
     
     Route::get('/{menu}', function ($user, $menu) {
         $data = [

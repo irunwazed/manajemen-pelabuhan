@@ -41,7 +41,7 @@
         </div>
         <div>
 
-        <table class="w-full">
+          <table class="w-full">
             <tbody>
               <tr>
                 <td class="w-40">DWT/GRT</td>
@@ -79,18 +79,18 @@
             </tr>
           </thead>
           <tbody>
-          
-              @foreach(@$dataBongkar as $row)
-              <tr class="hover:bg-slate-200">
-                <td class="text-center py-4">{{ $loop->index+1 }}</td>
-                <td class="text-center">{{ @$row->npwp_shipper_pbm_jpt }}</td>
-                <td>{{ @$row->jenis_kegiatan }}</td>
-                <td>{{ @$row->nama_barang }}</td>
-                <td>{{ @$row->jlh_satuan_unit." Unit" }} / {{ @$row->jlh_satuan_ton." Ton" }} / {{ @$row->jlh_satuan_metrik." Metrik" }}</td>
-                <td>{{ @$row->sistem_penyaluran }}</td>
-                <td>{{ @$row->jlh_buruh }}</td>
-              </tr>
-              @endforeach
+
+            @foreach(@$dataBongkar as $row)
+            <tr class="hover:bg-slate-200">
+              <td class="text-center py-4">{{ $loop->index+1 }}</td>
+              <td class="text-center">{{ @$row->npwp_shipper_pbm_jpt }}</td>
+              <td>{{ @$row->jenis_kegiatan }}</td>
+              <td>{{ @$row->nama_barang }}</td>
+              <td>{{ @$row->jlh_satuan_unit." Unit" }} / {{ @$row->jlh_satuan_ton." Ton" }} / {{ @$row->jlh_satuan_metrik." Metrik" }}</td>
+              <td>{{ @$row->sistem_penyaluran }}</td>
+              <td>{{ @$row->jlh_buruh }}</td>
+            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
@@ -110,17 +110,17 @@
             </tr>
           </thead>
           <tbody>
-              @foreach(@$dataMuat as $row)
-              <tr class="hover:bg-slate-200">
-                <td class="text-center py-4">{{ $loop->index+1 }}</td>
-                <td class="text-center">{{ @$row->npwp_shipper_pbm_jpt }}</td>
-                <td>{{ @$row->jenis_kegiatan }}</td>
-                <td>{{ @$row->nama_barang }}</td>
-                <td>{{ @$row->jlh_satuan_unit." Unit" }} / {{ @$row->jlh_satuan_ton." Ton" }} / {{ @$row->jlh_satuan_metrik." Metrik" }}</td>
-                <td>{{ @$row->sistem_penyaluran }}</td>
-                <td>{{ @$row->jlh_buruh }}</td>
-              </tr>
-              @endforeach
+            @foreach(@$dataMuat as $row)
+            <tr class="hover:bg-slate-200">
+              <td class="text-center py-4">{{ $loop->index+1 }}</td>
+              <td class="text-center">{{ @$row->npwp_shipper_pbm_jpt }}</td>
+              <td>{{ @$row->jenis_kegiatan }}</td>
+              <td>{{ @$row->nama_barang }}</td>
+              <td>{{ @$row->jlh_satuan_unit." Unit" }} / {{ @$row->jlh_satuan_ton." Ton" }} / {{ @$row->jlh_satuan_metrik." Metrik" }}</td>
+              <td>{{ @$row->sistem_penyaluran }}</td>
+              <td>{{ @$row->jlh_buruh }}</td>
+            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
@@ -129,15 +129,15 @@
 
 
   </div>
-
+  @if(@$_GET['status'] == "edit")
   <div class=" ml-10 mb-10">
     <div class="flex gap-4">
-      <a href="./do?verifikasi=setuju&id={{ @$request['id'] }}"  class="text-base bg-blue-600 text-blue-100 px-6 py-1 rounded hover:opacity-80">Setuju</a>
+      <a href="./do?verifikasi=setuju&id={{ @$request['id'] }}" class="text-base bg-blue-600 text-blue-100 px-6 py-1 rounded hover:opacity-80">Setuju</a>
       <!-- <button class="text-base bg-orange-600 text-orange-100 px-6 py-1 rounded hover:opacity-80">Revisi</button> -->
       <a href="./do?verifikasi=tidak&id={{ @$request['id'] }}" class="text-base bg-red-600 text-red-100 px-6 py-1 rounded hover:opacity-80">Tolak</a>
     </div>
   </div>
-
+  @endif
 
 
 </div>

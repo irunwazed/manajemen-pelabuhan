@@ -68,10 +68,9 @@
         </div>
       </div>
 
-
       <div class="mt-8">
         <h3 class="text-md font-bold">DETAIL OPERASI RPKRO</h3>
-        <table class="w-full">
+        <table class="table w-full">
           <thead>
             <tr class="bg-gray-300 text-black">
               <th>NO</th>
@@ -86,14 +85,29 @@
             </tr>
           </thead>
           <tbody>
+            @foreach(@$dataRPKRO as $row)
+            @if(($loop->index) %2 == 0)
+            <tr class="border-solid border-1 border-slate-800 hover:bg-slate-300">
+              @else
+            <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
+              @endif
+              <td class="text-center">{{ $loop->index+1 }}</td>
+              <td>{{ @$row->nama_barang }}</td>
+              <td>{{ @$row->jenis_kegiatan }}</td>
+              <td>{{ @$row->jlh_satuan_unit }} Unit / {{ @$row->jlh_satuan_ton }} Ton / {{ @$row->jlh_satuan_metrik }} Metrik</td>
+              <td>{{ @$row->no_bl }}</td>
+              <td>{{ @$row->npwp_shipper_pbm_jpt }}</td>
+              <td>{{ @$row->consigne }}</td>
+              <td>{{ @$row->jenis_kegiatan=="BONGKAR"?"B":"M" }}</td>
+            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
 
-
       <div class="mt-8">
         <h3 class="text-md font-bold">DATA BARANG</h3>
-        <table class="w-full">
+        <table class="table w-full">
           <thead>
             <tr class="bg-gray-300 text-black">
               <th>NO</th>
@@ -107,29 +121,37 @@
             </tr>
           </thead>
           <tbody>
+            @foreach(@$dataBarang as $row)
+            @if(($loop->index) %2 == 0)
+            <tr class="border-solid border-1 border-slate-800 hover:bg-slate-300">
+              @else
+            <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
+              @endif
+              <td class="text-center">{{ $loop->index+1 }}</td>
+              <td>{{ @$row->nama_barang }}</td>
+              <td>{{ @$row->jenis_kegiatan }}</td>
+              <td>{{ @$row->jlh_satuan_unit }} Unit / {{ @$row->jlh_satuan_ton }} Ton / {{ @$row->jlh_satuan_metrik }} Metrik</td>
+              <td>{{ @$row->no_bl }}</td>
+              <td>{{ @$row->npwp_shipper_pbm_jpt }}</td>
+              <td>{{ @$row->consigne }}</td>
+              <td>{{ @$row->jenis_kegiatan=="BONGKAR"?"B":"M" }}</td>
+            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
 
     </div>
-
-
   </div>
 
+  @if(@$_GET['status'] == "edit")
   <div class=" ml-10 mb-10">
-    <!-- <div class="flex-none">
-      <div>
-        <label>Alasan :</label>
-      </div>
-      <textarea class="rounded w-[400px] border-slate-300 focus:border-none" rows="3"></textarea>
-    </div> -->
     <div class="flex gap-4">
-      <button class="text-base bg-blue-600 text-blue-100 px-6 py-1 rounded hover:opacity-80">Setuju</button>
-      <!-- <button class="text-base bg-orange-600 text-orange-100 px-6 py-1 rounded hover:opacity-80">Revisi</button> -->
-      <button class="text-base bg-red-600 text-red-100 px-6 py-1 rounded hover:opacity-80">Tolak</button>
+      <a href="./detail/verifikasi?verifikasi=setuju&id={{ @$_GET['id'] }}"  class="text-base bg-blue-600 text-blue-100 px-6 py-1 rounded hover:opacity-80">Setuju</a>
+      <a href="./detail/verifikasi?verifikasi=tidak&id={{ @$_GET['id'] }}" class="text-base bg-red-600 text-red-100 px-6 py-1 rounded hover:opacity-80">Tolak</a>
     </div>
   </div>
-
+  @endif
 
 
 </div>

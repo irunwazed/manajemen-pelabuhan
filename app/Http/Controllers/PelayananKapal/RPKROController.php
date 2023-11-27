@@ -11,13 +11,13 @@ class RPKROController extends Controller
 
   public function list(Request $request, $user)
   {
-    $agen = @$request->input('agen');
-    $no_ppk = @$request->input('no_ppk');
-    $kapal = @$request->input('kapal');
+    $nama_agen = @$request->input('nama_agen');
+    $no_pkk = @$request->input('no_pkk');
+    $nama_kapal = @$request->input('nama_kapal');
 
     $page = @$request->input('page') ? $request->input('page') : 1;
     $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
-    
+
 
     $query = DB::table('t_pelayanan_kapal')
       ->select([
@@ -28,9 +28,9 @@ class RPKROController extends Controller
       ])
       ->leftJoin("t_pelayanan_kapal_rpkro", "t_pelayanan_kapal_rpkro.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
       ->leftJoin("t_pelayanan_kapal_rkbm", "t_pelayanan_kapal_rkbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
-      ->where("t_pelayanan_kapal.nama_agen", 'like', '%' . $agen . '%')
-      ->where("t_pelayanan_kapal.no_pkk", 'like', '%' . $no_ppk . '%')
-      ->where("t_pelayanan_kapal.nama_kapal", 'like', '%' . $kapal . '%')
+      ->where("t_pelayanan_kapal.nama_agen", 'like', '%' . $nama_agen . '%')
+      ->where("t_pelayanan_kapal.no_pkk", 'like', '%' . $no_pkk . '%')
+      ->where("t_pelayanan_kapal.nama_kapal", 'like', '%' . $nama_kapal . '%')
       ->where("t_pelayanan_kapal.flag", "2")
       ->where("t_pelayanan_kapal.flag_spm", "2")
       ->where("t_pelayanan_kapal_rkbm.flag", "2");
@@ -57,13 +57,13 @@ class RPKROController extends Controller
     $pelayanan_kapal_id = $request->input("id");
     $status = @$request->input("status");
     $data = DB::table("t_pelayanan_kapal")
-    ->select([
-      "t_pelayanan_kapal.*",
-      "t_pelayanan_kapal_rkbm.komoditi",
-      "t_pelayanan_kapal_rkbm.no_rkbm",
-    ])
-    ->leftJoin("t_pelayanan_kapal_rkbm", "t_pelayanan_kapal_rkbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
-    ->where("t_pelayanan_kapal.pelayanan_kapal_id", $pelayanan_kapal_id)->first();
+      ->select([
+        "t_pelayanan_kapal.*",
+        "t_pelayanan_kapal_rkbm.komoditi",
+        "t_pelayanan_kapal_rkbm.no_rkbm",
+      ])
+      ->leftJoin("t_pelayanan_kapal_rkbm", "t_pelayanan_kapal_rkbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
+      ->where("t_pelayanan_kapal.pelayanan_kapal_id", $pelayanan_kapal_id)->first();
 
 
     $input = DB::table("t_pelayanan_kapal_rpkro")->where("pelayanan_kapal_id", $pelayanan_kapal_id)->first();
@@ -71,22 +71,22 @@ class RPKROController extends Controller
     $dataDermaga = DB::table("m_lokasi_dermaga")->get();
 
     $dataBongkar = DB::table("t_pelayanan_kapal_rkbm")
-    ->leftJoin("t_pelayanan_kapal_pbm", "t_pelayanan_kapal_pbm.pelayanan_kapal_pbm_id", "t_pelayanan_kapal_rkbm.perusahaan_pbm_jpt_id")
-    ->leftJoin("m_lokasi_dermaga", "m_lokasi_dermaga.lokasi_dermaga_id", "t_pelayanan_kapal_rkbm.dermaga_id")
-    ->where("t_pelayanan_kapal_rkbm.pelayanan_kapal_id", $pelayanan_kapal_id)
-    ->where("t_pelayanan_kapal_pbm.kegiatan", "like", "BONGKAR%")
-    ->first();
+      ->leftJoin("t_pelayanan_kapal_pbm", "t_pelayanan_kapal_pbm.pelayanan_kapal_pbm_id", "t_pelayanan_kapal_rkbm.perusahaan_pbm_jpt_id")
+      ->leftJoin("m_lokasi_dermaga", "m_lokasi_dermaga.lokasi_dermaga_id", "t_pelayanan_kapal_rkbm.dermaga_id")
+      ->where("t_pelayanan_kapal_rkbm.pelayanan_kapal_id", $pelayanan_kapal_id)
+      ->where("t_pelayanan_kapal_pbm.kegiatan", "like", "BONGKAR%")
+      ->first();
 
     $dataMuat = DB::table("t_pelayanan_kapal_rkbm")
-    ->select([
-      "t_pelayanan_kapal_rkbm.*",
-      "m_lokasi_dermaga.nama_dermaga",
-    ])
-    ->leftJoin("m_lokasi_dermaga", "m_lokasi_dermaga.lokasi_dermaga_id", "t_pelayanan_kapal_rkbm.dermaga_id")
-    ->leftJoin("t_pelayanan_kapal_pbm", "t_pelayanan_kapal_pbm.pelayanan_kapal_pbm_id", "t_pelayanan_kapal_rkbm.perusahaan_pbm_jpt_id")
-    ->where("t_pelayanan_kapal_rkbm.pelayanan_kapal_id", $pelayanan_kapal_id)
-    ->where("t_pelayanan_kapal_pbm.kegiatan", 'like', "%MUAT")
-    ->first();
+      ->select([
+        "t_pelayanan_kapal_rkbm.*",
+        "m_lokasi_dermaga.nama_dermaga",
+      ])
+      ->leftJoin("m_lokasi_dermaga", "m_lokasi_dermaga.lokasi_dermaga_id", "t_pelayanan_kapal_rkbm.dermaga_id")
+      ->leftJoin("t_pelayanan_kapal_pbm", "t_pelayanan_kapal_pbm.pelayanan_kapal_pbm_id", "t_pelayanan_kapal_rkbm.perusahaan_pbm_jpt_id")
+      ->where("t_pelayanan_kapal_rkbm.pelayanan_kapal_id", $pelayanan_kapal_id)
+      ->where("t_pelayanan_kapal_pbm.kegiatan", 'like', "%MUAT")
+      ->first();
 
     $result = [
       "user" => $user,
@@ -98,7 +98,7 @@ class RPKROController extends Controller
       "dataMuat" => $dataMuat,
     ];
 
-    if($status == "view") return view('app.pelayanan-kapal.rpkro.view', $result);
+    if ($status == "view") return view('app.pelayanan-kapal.rpkro.view', $result);
     return view('app.pelayanan-kapal.rpkro.form', $result);
   }
 
@@ -120,16 +120,16 @@ class RPKROController extends Controller
       "komoditi" => @$request->input("komoditi"),
     ];
     $status = DB::table("t_pelayanan_kapal_rkbm")->where("pelayanan_kapal_id", $pelayanan_kapal_id)
-    ->update($dataRKBM);
+      ->update($dataRKBM);
 
     $check = DB::table("t_pelayanan_kapal_rpkro")
-    ->where("pelayanan_kapal_id", $pelayanan_kapal_id)
-    ->first();
+      ->where("pelayanan_kapal_id", $pelayanan_kapal_id)
+      ->first();
 
-    if($check){
+    if ($check) {
       $status = DB::table("t_pelayanan_kapal_rpkro")->where("pelayanan_kapal_rpkro_id", $check->pelayanan_kapal_rpkro_id)
-      ->update($data);
-    }else{
+        ->update($data);
+    } else {
 
       $getId = DB::table('t_pelayanan_kapal_rpkro')
         ->orderBy("pelayanan_kapal_rpkro_id", "DESC")->first();
@@ -140,28 +140,27 @@ class RPKROController extends Controller
       $data["pelayanan_kapal_id"] = $pelayanan_kapal_id;
       $data["pelayanan_kapal_rpkro_id"] = $lastId;
       $status = DB::table("t_pelayanan_kapal_rpkro")->insert($data);
-      
     }
 
     if ($status) {
       return redirect(session()->get("role") . "/pelayanan-kapal/rpkro")->with('success', 'Berhasil simpan data!');
     }
     return redirect(session()->get("role") . "/pelayanan-kapal/rpkro")->withErrors(['msg' => 'Gagal simpan data!']);
-
   }
-  
 
-  public function kirim(Request $request){
-    
+
+  public function kirim(Request $request)
+  {
+
     $pelayanan_kapal_id = $request->input("id");
 
-    
+
     $status = DB::table('t_monitoring_pelayanan_kapal')->where("pelayanan_kapal_id", $pelayanan_kapal_id)->update([
-      "rpkro" => 1,
+      "rpkro" => 2,
     ]);
 
     $status = DB::table('t_pelayanan_kapal_rpkro')->where("pelayanan_kapal_id", $pelayanan_kapal_id)->update([
-      "flag" => "1",
+      "flag" => "2",
     ]);
 
     if ($status) {
@@ -170,14 +169,15 @@ class RPKROController extends Controller
     return redirect()->back()->withErrors(['msg' => 'Gagal kirim data!']);
   }
 
-  public function viewPPK(Request $request, $user){
+  public function viewPPK(Request $request, $user)
+  {
     $agen = @$request->input('agen');
     $no_ppk = @$request->input('no_ppk');
     $kapal = @$request->input('kapal');
 
     $page = @$request->input('page') ? $request->input('page') : 1;
     $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
-    
+
 
     $query = DB::table('t_pelayanan_kapal')
       ->select([
@@ -194,7 +194,7 @@ class RPKROController extends Controller
       ->where("t_pelayanan_kapal.flag", "2")
       ->where("t_pelayanan_kapal.flag_spm", "2")
       ->where("t_pelayanan_kapal_rkbm.flag", "2")
-      ->where("t_pelayanan_kapal_rpkro.flag", "1");
+      ->where("t_pelayanan_kapal_rpkro.flag", "2");
 
     $total = $query->count();
     $data = $query->skip(($page - 1) * $perPage)->take($perPage)
@@ -213,35 +213,62 @@ class RPKROController extends Controller
     return view('app.pelayanan-kapal.rpkro.ppk', $result);
   }
 
-  public function detailPPK(Request $request, $user){
-    
+  public function detailPPK(Request $request, $user)
+  {
+
     $pelayanan_kapal_id = $request->input("id");
     $status = @$request->input("status");
     $data = DB::table("t_pelayanan_kapal")
-    ->select([
-      "t_pelayanan_kapal.*",
-      "t_pelayanan_kapal_rpkro.*",
-      "p_asal.nama_pelabuhan as nama_pelabuhan_asal",
-      "p_asal.lokasi_pelabuhan as lokasi_pelabuhan_asal",
-      "p_tujuan.nama_pelabuhan as nama_pelabuhan_tujuan",
-      "p_tujuan.lokasi_pelabuhan as lokasi_pelabuhan_tujuan",
-    ])
-    ->leftJoin("t_pelayanan_kapal_rpkro", "t_pelayanan_kapal_rpkro.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
-    ->leftJoin("m_pelabuhan as p_asal", "p_asal.pelabuhan_id", "t_pelayanan_kapal.pelabuhan_asal")
-    ->leftJoin("m_pelabuhan as p_tujuan", "p_tujuan.pelabuhan_id", "t_pelayanan_kapal.pelabuhan_tujuan")
-    ->where("t_pelayanan_kapal.pelayanan_kapal_id", $pelayanan_kapal_id)->first();
+      ->select([
+        "t_pelayanan_kapal.*",
+        "t_pelayanan_kapal_rpkro.*",
+        "p_asal.nama_pelabuhan as nama_pelabuhan_asal",
+        "p_asal.lokasi_pelabuhan as lokasi_pelabuhan_asal",
+        "p_tujuan.nama_pelabuhan as nama_pelabuhan_tujuan",
+        "p_tujuan.lokasi_pelabuhan as lokasi_pelabuhan_tujuan",
+      ])
+      ->leftJoin("t_pelayanan_kapal_rpkro", "t_pelayanan_kapal_rpkro.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
+      ->leftJoin("m_pelabuhan as p_asal", "p_asal.pelabuhan_id", "t_pelayanan_kapal.pelabuhan_asal")
+      ->leftJoin("m_pelabuhan as p_tujuan", "p_tujuan.pelabuhan_id", "t_pelayanan_kapal.pelabuhan_tujuan")
+      ->where("t_pelayanan_kapal.pelayanan_kapal_id", $pelayanan_kapal_id)->first();
 
-    // dd($data);
+    $dataBarang = DB::table("t_pelayanan_kapal_rkbm_barang")
+      ->leftJoin("t_pelayanan_kapal_rkbm", "t_pelayanan_kapal_rkbm.pelayanan_kapal_rkbm_id", "t_pelayanan_kapal_rkbm_barang.pelayanan_kapal_rkbm_id")
+      ->where("t_pelayanan_kapal_rkbm.pelayanan_kapal_id", $pelayanan_kapal_id)
+      ->get();
+
+    $dataRPKRO = [];
 
     $result = [
       "user" => $user,
       "data" => $data,
+      "dataBarang" => $dataBarang,
+      "dataRPKRO" => $dataRPKRO,
     ];
 
-    if($status == "edit") return view('app.pelayanan-kapal.rpkro.ppk-detail', $result);
+    if ($status == "edit") return view('app.pelayanan-kapal.rpkro.ppk-detail', $result);
 
     return view('app.pelayanan-kapal.rpkro.ppk-detail', $result);
-    
   }
 
+  public function verifikasiPPK(Request $request){
+    $status = @$request->verifikasi=="setuju"?true:false;
+    $id = @$request->id;
+
+    // monitoring
+    $status = DB::table('t_monitoring_pelayanan_kapal')->where("pelayanan_kapal_id", $id)->update([
+      "ppk" => 2,
+    ]);
+
+    $check = DB::table('t_pelayanan_kapal_rpkro')->where("pelayanan_kapal_id", $id)->first();
+    $status = DB::table('t_pelayanan_kapal_rpkro')->where("pelayanan_kapal_id", $id)->update([
+      "flag_ppk" => @$status?"2":"R",
+      "no_ppk" => "PPK.".generateNumberToCode(@$check->pelayanan_kapal_rpkro_id)
+    ]);
+
+    if ($status) {
+      return redirect(session()->get("role") . "/pelayanan-kapal/ppk")->with('success', 'Berhasil verifikasi data!');
+    }
+    return redirect(session()->get("role") . "/pelayanan-kapal/ppk")->withErrors(['msg' => 'Gagal verifikasi data!']);
+  }
 }

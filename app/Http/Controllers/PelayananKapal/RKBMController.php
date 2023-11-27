@@ -11,7 +11,9 @@ class RKBMController extends Controller
 
   public function show(Request $request, $user)
   {
-    $search = $request->input('search');
+    $nama_agen = @$request->input('nama_agen');
+    $no_pkk = @$request->input('no_pkk');
+    $nama_kapal = @$request->input('nama_kapal');
 
     $page = @$request->input('page') ? $request->input('page') : 1;
     $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
@@ -25,14 +27,9 @@ class RKBMController extends Controller
       ])
       ->leftJoin("t_pelayanan_kapal_pbm", "t_pelayanan_kapal_pbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
       ->leftJoin("t_pelayanan_kapal_rkbm", "t_pelayanan_kapal_rkbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
-      ->where(
-        function ($query) use ($search) {
-          return $query
-            ->where('t_pelayanan_kapal.no_layanan_kapal', 'like', '%' . $search . '%')
-            ->orWhere('t_pelayanan_kapal.no_pkk', 'like', '%' . $search . '%')
-            ->orWhere('t_pelayanan_kapal.nama_kapal', 'like', '%' . $search . '%');
-        }
-      )
+      ->where("t_pelayanan_kapal.nama_agen", 'like', '%' . $nama_agen . '%')
+      ->where("t_pelayanan_kapal.no_pkk", 'like', '%' . $no_pkk . '%')
+      ->where("t_pelayanan_kapal.nama_kapal", 'like', '%' . $nama_kapal . '%')
       ->where("t_pelayanan_kapal.flag", "2")
       ->where("t_pelayanan_kapal.flag_spm", "2")
       ->where("t_pelayanan_kapal_pbm.pelayanan_kapal_pbm_id", session()->get("pbm_id"));
@@ -98,7 +95,9 @@ class RKBMController extends Controller
 
   public function verifikasi(Request $request, $user)
   {
-    $search = $request->input('search');
+    $nama_agen = @$request->input('nama_agen');
+    $no_pkk = @$request->input('no_pkk');
+    $nama_kapal = @$request->input('nama_kapal');
 
     $page = @$request->input('page') ? $request->input('page') : 1;
     $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
@@ -112,17 +111,11 @@ class RKBMController extends Controller
       ])
       ->leftJoin("t_pelayanan_kapal_pbm", "t_pelayanan_kapal_pbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
       ->leftJoin("t_pelayanan_kapal_rkbm", "t_pelayanan_kapal_rkbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
-      ->where(
-        function ($query) use ($search) {
-          return $query
-            ->where('t_pelayanan_kapal.no_layanan_kapal', 'like', '%' . $search . '%')
-            ->orWhere('t_pelayanan_kapal.no_pkk', 'like', '%' . $search . '%')
-            ->orWhere('t_pelayanan_kapal.nama_kapal', 'like', '%' . $search . '%');
-        }
-      )
+      ->where("t_pelayanan_kapal.nama_agen", 'like', '%' . $nama_agen . '%')
+      ->where("t_pelayanan_kapal.no_pkk", 'like', '%' . $no_pkk . '%')
+      ->where("t_pelayanan_kapal.nama_kapal", 'like', '%' . $nama_kapal . '%')
       ->where("t_pelayanan_kapal.flag", "2")
-      ->where("t_pelayanan_kapal.flag_spm", "2")
-      ->where("t_pelayanan_kapal_rkbm.flag", "1");
+      ->where("t_pelayanan_kapal.flag_spm", "2");
     $total = $query->count();
     $data = $query->skip(($page - 1) * $perPage)->take($perPage)
       ->get();

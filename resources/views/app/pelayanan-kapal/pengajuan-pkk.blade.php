@@ -294,7 +294,7 @@
         </div>
       </div>
       <!-- . MODAL -->
-      <table class="border-solid border-2 border-slate-800 w-[700px] mt-1" id="table-pbm">
+      <table class="table w-[700px] mt-1" id="table-pbm">
         <thead>
           <tr class="bg-gray-300 to-primary text-slate-900">
             <th class="py-2">NO</th>
