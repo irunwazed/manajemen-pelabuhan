@@ -44,17 +44,26 @@
       </tr>
     </thead>
     <tbody>
+      @foreach(@$data as $key => $row)
+      @if((@$loop->index) %2 == 0)
+      <tr class="border-solid border-1 border-slate-800 hover:bg-slate-300">
+        @else
+      <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
+        @endif
       <tr>
-        <td class="text-center">1</td>
-        <td>xxxx</td>
-        <td>xxxx</td>
-        <td>xxxx</td>
-        <td>xxxx</td>
+        <td class="text-center">{{@$key + 1}}</td>
+        <td>{{$row->no_pkk}}</td>
+        <td>{{$row->nama_agen}}</td>
+        <td>{{$row->nama_kapal}}</td>
+        <td>{{$row->tanggal_registrasi_permohonan}}</td>
         <td class="py-3">
-          <a href="#" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
-          <a href="lk3-verifikasi" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Verifikasi</a>
+          <a href="./lk3/detail?id={{ @$row->pelayanan_kapal_id }}" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
+          @if(@$row->flag_lk3 == 1 || @$row->flag_lk3 == 0 || @$row->flag_lk3 == NULL)
+          <a href="./lk3/detail?id={{ @$row->pelayanan_kapal_id }}&status=edit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Verifikasi</a>
+          @endif
         </td>
       </tr>
+      @endforeach
     </tbody>
   </table>
 

@@ -22,37 +22,37 @@
             <td class="w-[30px]">1</td>
             <td class="w-[200px]">No Layanan/PKK</td>
             <td>:</td>
-            <td></td>
+            <td>{{@$data->no_layanan_kapal}}</td>
           </tr>
           <tr>
             <td>2</td>
             <td>Nama Kapal</td>
             <td>:</td>
-            <td></td>
+            <td>{{ @$data->nama_kapal }}</td>
           </tr>
           <tr>
             <td>3</td>
             <td>Bendara/IMO/Call Sign</td>
             <td>:</td>
-            <td></td>
+            <td>{{ @$data->bendera }}/{{ @$data->imo }}/{{ @$data->call_sign }}</td>
           </tr>
           <tr>
             <td>4</td>
             <td>Nama Pemilik</td>
             <td>:</td>
-            <td></td>
+            <td>{{ @$data->siupal_pemilik }}</td>
           </tr>
           <tr>
             <td>5</td>
             <td>DWT/GT/Jenis Kapal</td>
             <td>:</td>
-            <td></td>
+            <td>{{ @$data->dwt_kapal }}</td>
           </tr>
           <tr>
             <td>6</td>
             <td>Trayek</td>
             <td>:</td>
-            <td></td>
+            <td>{{ @$data->trayek }}</td>
           </tr>
           <tr>
             <td>7</td>
@@ -150,19 +150,15 @@
 
   </div>
 
+  @if(@$_GET['status'] == "edit")
   <div class=" ml-10 mb-10">
-    <div class="flex-none">
-      <div>
-        <label>Alasan :</label>
-      </div>
-      <textarea class="rounded w-[400px] border-slate-300 focus:border-none" rows="3"></textarea>
-    </div>
     <div class="flex gap-4">
-      <a href="#" class="text-base bg-blue-600 text-blue-100 px-6 py-1 rounded hover:opacity-80">Setuju</a>
+      <a href="./verifikasi?verifikasi=setuju&id={{ @$request['id'] }}" class="text-base bg-blue-600 text-blue-100 px-6 py-1 rounded hover:opacity-80">Setuju</a>
       <!-- <button class="text-base bg-orange-600 text-orange-100 px-6 py-1 rounded hover:opacity-80">Revisi</button> -->
-      <button class="text-base bg-red-600 text-red-100 px-6 py-1 rounded hover:opacity-80">Tolak</button>
+      <a href="./verifikasi?verifikasi=tidak&id={{ @$request['id'] }}" class="text-base bg-red-600 text-red-100 px-6 py-1 rounded hover:opacity-80">Tolak</a>
     </div>
   </div>
+  @endif
 
 
 

@@ -145,6 +145,8 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
 
     // LK3
     Route::get('/lk3', 'PelayananKapal\LK3Controller@list');
+    Route::get('/lk3/detail', 'PelayananKapal\LK3Controller@detail');
+    Route::get('/lk3/verifikasi', 'PelayananKapal\LK3Controller@verifikasi');
 
 
 
