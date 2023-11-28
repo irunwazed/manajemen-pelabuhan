@@ -17,9 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SewaLahan extends Model
 {
-    use HasFactory;
     protected $table = 't_au_lahan';
-    protected $primaryKey = 'au_lahan_id';
+    // protected $primaryKey = 'au_lahan_id';
     public $timestamps = false;
     // Set to false if you don't have created_at and updated_at columns
     protected $fillable = [
@@ -45,7 +44,7 @@ class SewaLahan extends Model
         'tgl_pranota',
         'no_nota4e',
         'tgl_nota4e',
-        'kode_rek',
         'status_lunsum',
+        'kode_rek'
     ];
 }

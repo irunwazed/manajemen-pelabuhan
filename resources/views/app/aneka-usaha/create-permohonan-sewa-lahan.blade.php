@@ -6,7 +6,7 @@
     <hr class="border-b-2 border-black border-solid">
     <div class="font-bold text-2xl text-center pt-5">FORM PERMOHONAN SEWA TANAH & BANGUNAN</div>
     <div class="font-bold text-2xl text-center pt-5">Entry Data</div>
-    <form action="{{ route('lahanCreate', ['user' => $user]) }}" method="post">
+    <form action="{{route('lahanCreate', $user)}}" method="post">
         @csrf
 
         <div class="font-bold text-2xl text-start pt-5">Form Kontrak</div>
@@ -20,10 +20,10 @@
                         <td class="py-1">
                             <div class="grid grid-cols-2 gap-1">
                                 <div class="">
-                                    <input type="text" name="nomor" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                    <input type="text" required name="nomor" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                                 </div>
                                 <div class="">
-                                    <input type="date" name="tgl_kontrak" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                    <input type="date" required name="tanggal_kontrak" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                                 </div>
                             </div>
                         </td>
@@ -32,12 +32,15 @@
                         <td>Nama Perusahaan</td>
                         <td>:</td>
                         <td class="py-1">
-                            <select id="barang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select id="barang" required name="perusahaan_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option value="">-- Pilih Perusahaan --</option>
                                 @foreach ($companyInfo as $dat)
                                 <option value="{{$dat->perusahaan_id}}">{{$dat->nama_perusahaan}}</option>
+
                                 @endforeach
                             </select>
+                            <input type="hidden" name="nama_perusahaan" id="nama_perusahaan" class=" mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+
                         </td>
                     </tr>
                     <tr class="text-start">
@@ -55,7 +58,7 @@
                         <td>Telephone</td>
                         <td>:</td>
                         <td class="py-1">
-                            <input type="text" name="telepon" id="telepone" value="" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                            <input type="text" name="telepone" id="telepone" value="" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                         </td>
                     </tr>
                     <tr class="text-start mb-4">
@@ -97,14 +100,15 @@
                         <td>Jenis Properti</td>
                         <td>:</td>
                         <td class="py-1">
-                            <input id="jenis_properti" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input id="jenis_properti" name="jenis_properti" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </td>
                     </tr>
                     <tr class="text-start">
                         <td>Lokasi</td>
                         <td>:</td>
                         <td class="py-1">
-                            <select id="lokasi" name="lokasi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select required id="lokasi" name="lokasi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="">-- Pilih Lokasi --</option>
                                 @foreach ($lokasiInfo as $dat)
                                 <option value="{{$dat->au_lahan_bangunan_id}}">{{$dat->nama_lahan_bangunan}}</option>
                                 @endforeach
@@ -117,7 +121,7 @@
                         <td class="py-1">
                             <div class="grid grid-cols-5">
                                 <div class="col-span-4">
-                                    <input type="number" name="luas_lahan" id="luas_lahan" value="" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                    <input required type="number" name="luas_lahan" id="luas_lahan" value="" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                                 </div>
                                 <div>
                                     <span class=" small font-bold text-center">M2</span>
@@ -131,11 +135,11 @@
                         <td class="py-1">
                             <div class="grid grid-cols-5">
                                 <div class="col-span-2">
-                                    <input name="tgl_mulai" id="tanggal1" type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                    <input required name="tgl_mulai" id="tanggal1" type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                                 </div>
                                 <div class="inline-block align-middle text-center font-bold">S/D</div>
                                 <div class="col-span-2">
-                                    <input type="date" name="tgl_selesai" id="tanggal2" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                    <input required type="date" name="tgl_selesai" id="tanggal2" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                                 </div>
                             </div>
                         </td>
@@ -163,7 +167,7 @@
                             <div class="grid grid-cols-9">
                                 <div> Rp</div>
                                 <div class="col-span-4">
-                                    <input name="tarif" id="tarif" type="text" value="" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                    <input required name="tarif" id="tarif" type="text" value="" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                                 </div>
                                 <div class="col-span-4"> <span class="text-sm">/ Meter2-satuan jangka waktu</span></div>
                             </div>
@@ -196,35 +200,35 @@
                         <td class="py-1">
                             <input type="number" disabled name="biaya_sewa" id="biaya_sewa" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
 
-                            </input>
+                            <input type="hidden" name="jangka_waktu" id="jangka_waktu" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                         </td>
                     </tr>
                     <tr class="text-start mb-4">
                         <td>Biaya PBB</td>
                         <td>:</td>
                         <td class="py-1">
-                            <input type="number" name="biaya_pbb" id="biaya_pbb" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                            <input required type="number" name="biaya_pbb" value="0" id="biaya_pbb" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                         </td>
                     </tr>
                     <tr class="text-start mb-4">
                         <td>PPN (11%)</td>
                         <td>:</td>
                         <td class="py-1">
-                            <input type="number" id="ppn" name="ppn" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                            <input required type="number" id="ppn" name="ppn" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                         </td>
                     </tr>
                     <tr class="text-start mb-4">
                         <td>Biaya Administrasi</td>
                         <td>:</td>
                         <td class="py-1">
-                            <input type="number" name="biaya_adm" id="biaya_adm" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                            <input required type="number" name="biaya_adm" value="0" id="biaya_adm" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                         </td>
                     </tr>
                     <tr class="text-start mb-4">
                         <td>Biaya Lainya</td>
                         <td>:</td>
                         <td class="py-1">
-                            <input type="number" name="biaya_lain" id="biaya_lain" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                            <input type="number" name="biaya_lain" value="0" id="biaya_lain" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                         </td>
                     </tr>
                     <tr class="text-start mb-4">
@@ -239,6 +243,13 @@
                         <td>:</td>
                         <td class="py-1">
                             <input type="number" name="pembulatan" id="pembulatan" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        </td>
+                    </tr>
+                    <tr class="text-start mb-4">
+                        <td>No Rek </td>
+                        <td>:</td>
+                        <td class="py-1">
+                            <input type="text" required name="norek" id="norek" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                         </td>
                     </tr>
                 </table>
@@ -256,7 +267,7 @@
     </form>
     <div class="text-center mb-3 mt-5">
         <div>
-            <table class="mt-5 w-full border-solid border-2 border-slate-800 ">
+            <table class="mt-5 w-full border-solid border-2 border-slate-800 " style="white-space:nowrap;">
                 <thead class=" bg-gradient-to-r from-cyan-700 to-cyan-800 text-white py-5">
                     <tr>
                         <th class="py-5 px-3">No</th>
@@ -269,6 +280,7 @@
                 <tbody>
                     @foreach ($companyInfo as $dat)
                     @if(($loop->index) %2 == 0)
+
                     <tr class="border-solid border-1 border-slate-800 hover:bg-slate-300">
                         @else
                     <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
@@ -310,7 +322,6 @@
                 url: `{{asset('/perusahaan/')}}/${id}`,
                 contentType: 'application/json',
                 success: function(res) {
-
                     if (!res.err) {
                         let data = res.data;
                         $('#alamat').val(data.alamat);
@@ -318,6 +329,9 @@
                         $('#pic').val(data.pic);
                         $('#pic_phone').val(data.no_tel_pic);
                         $('#npwp').val(data.npwp);
+                        $('#nama_perusahaan').val(data.nama_perusahaan);
+
+
                     }
                 },
                 error: function(e) {
@@ -331,6 +345,7 @@
 
     $('#lokasi').on('change', function() {
         lokasi_info();
+
     })
 
     function lokasi_info() {
@@ -344,11 +359,13 @@
                 url: `{{asset('/perusahaan-lokasi/')}}/${lokasi_id}`,
                 contentType: 'application/json',
                 success: function(res) {
-
+                    console.log(res);
                     if (!res.err) {
                         let data = res.data;
+                        console.log(data);
                         $('#jenis_properti').val(data.jenis_properti);
                         $('#tarif').val(data.trf_permeter);
+                        $('#norek').val(data.kode_rekening);
                     }
                 },
                 error: function(e) {
@@ -460,7 +477,6 @@
             bulan = parseInt(jlmhhari / 30) + 1;
         }
 
-
         var tarif = document.querySelector('#tarif').value;
 
         if (luas != '' && bulan != 0 && tarif != '') {
@@ -468,6 +484,7 @@
         }
 
 
+        $('#jangka_waktu').val(bulan);
         $('#biaya_sewa').val(biaya_sewa);
         var ppn = (11 / 100) * biaya_sewa;
         $('#ppn').val(ppn);

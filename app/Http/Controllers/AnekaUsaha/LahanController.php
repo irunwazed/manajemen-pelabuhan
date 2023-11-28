@@ -10,7 +10,6 @@ use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Exception;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use Yajra\DataTables\Html\Editor\Fields\Select;
 
 class LahanController
 {
@@ -93,8 +92,8 @@ class LahanController
 
     public function companyInfo(Request $request, $user)
     {
-        $companyInfo = DB::table('m_perusahaan as a')
-            ->join('t_au_lahan as b', 'a.nama_perusahaan', 'b.au_lahan_id')
+        $companyInfo = DB::table('m_au_lahan_bangunan as a')
+            ->join('t_au_lahan as b', 'a.au_lahan_bangunan_id', 'b.au_lahan_id')
             ->join('m_perusahaan as c', 'b.nama_perusahaan', 'c.nama_perusahaan')
             ->leftJoin('m_lokasi_penumpukan as d', 'b.lokasi_id', 'd.lokasi_penumpukan_id')
             ->select(
@@ -125,8 +124,7 @@ class LahanController
                 'b.biaya_sewa',
                 'b.tarif',
                 'b.status_lunsum'
-            )
-            ->get();
+            )->get();
         $lokasi = DB::table('m_au_lahan_bangunan')->get()->toArray();
 
         $data = array(
@@ -134,6 +132,10 @@ class LahanController
             'lokasiInfo'  => $lokasi,
             'user' => $user
         );
+        // echo "<pre>";
+        // print_r($companyInfo);
+        // die;
+        // return view('app.aneka-usaha.create-permohonan-sewa-lahan', $data);
         return view('app.aneka-usaha.create-permohonan-sewa-lahan', $data);
     }
 
@@ -159,6 +161,14 @@ class LahanController
         return $res;
     }
 
+    public function companyInfoId($id)
+    {
+        $info = DB::table('m_perusahaan as a')->select('a.*')
+            ->where('a.perusahaan_id', $id)->get()->toArray();
+
+        return (array) $info[0];
+    }
+
 
     public function lahaninfoById($id)
     {
@@ -182,84 +192,79 @@ class LahanController
 
     public function Lahancreate(Request $request, $user)
     {
+        $post = $request->post();
+
+        $p = $this->companyInfoId($post['perusahaan_id']);
+
         // Validate the incoming request data
-        $user = $user;
-        $request->validate([
-            'nomor_kontrak' => 'required',
-            'tanggal_kontrak' => 'required',
-        ]);
-        try {
-            // Create a new instance of your model
+        // $request->validate([
+        //     'nomor' => 'required',
+        //     'tanggal_kontrak' => 'required',
+        // ]);
+        // try {
+        // Create a new instance of your model
 
-            $data = new SewaLahan();
+        // echo "<pre>";
+        // print_r($request->post());
+        // die;
+        $data = new SewaLahan();
+        // Assign values from the request to the model attributes
+        $data->no_kontrak       = trim($request->post('nomor'));
+        $data->tgl_kontrak      = date('Y-m-d', strtotime($request->post('tanggal_kontrak')));
+        $data->nama_perusahaan  = $p['nama_perusahaan'];
+        $data->npwp_perusahaan  = $request->post('npwp');
+        $data->kode_perusahaan  = '';
+        $data->alamat           = $p['alamat'];
+        $data->telephone        = $request->post('telepone');
+        $data->contact_person   = '';
+        $data->lokasi_id        = $request->post('lokasi');
+        $data->jenis_properti   = $request->post('jenis_properti');
+        $data->luas_lahan       = $request->post('luas_lahan');
+        $data->jangka_waktu     = $request->post('jangka_waktu');
+        $data->periode_pakai_mulai      = date('Y-m-d', strtotime($request->post('tgl_mulai')));
+        $data->periode_pakai_selesai    = date('Y-m-d', strtotime($request->post('tgl_selesai')));
+        $data->keterangan       = $request->post('keterangan');
+        $data->tarif            = $request->post('tarif');
+        $data->biaya_sewa       = $request->post('pembulatan');
+        $data->flag             = '1';
+        $data->no_pranota       = '';
+        $data->tgl_pranota      = date('Y-m-d');
+        $data->no_nota4e        = '';
+        $data->tgl_nota4e       = date('Y-m-d');
+        $data->status_lunsum    = $request->post('lumpsium') == 0 ? 'N' : 'Y';
+        $data->kode_rek         = $request->post('norek');
+        $data->save();
 
-            // Assign values from the request to the model attributes
-            $data->nomor_kontrak = $request->input('nomor');
-            $data->tanggal_kontrak = $request->input('tanggal_kontrak');
-            $data->jenis_usaha = $request->input('jenis_usaha');
-            $data->lokasi = $request->input('lokasi');
-            $data->luas_lahan = $request->input('luas_lahan');
-            $data->periode_pakai_mulai = $request->input('tgl_mulai');
-            $data->periode_pakai_selesai = $request->input('tgl_selesai');
-            $data->tarif = $request->input('tarif');
-            $data->keterangan = $request->input('keterangan');
-            $data->biaya = $request->input('biaya');
-            $data->biaya_pbb = $request->input('biaya_pbb');
-            $data->ppn = $request->input('ppn');
-            $data->biaya_adm = $request->input('biaya_adm');
-            $data->biaya_lain = $request->input('biaya_lain');
-            $data->total_biaya = $request->input('total_biaya');
-            $data->biaya_sewa = $request->input('pembulatan');
-            $data->status_lunsum = $request->input('lumpsium');
-            $data->telepon = $request->input('telepone');
-            $data->save();
-
-            //return view('app.aneka-usaha.create-permohonan-sewa-lahan', compact('user'));
-            return redirect()->back()->with('success', 'Insert Data Berhasil');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Insert Data Gagal: ' . $e->getMessage());
-        }
+        return redirect("$user/aneka-usaha/create-permohonan-sewa-lahan");
+        // echo "<pre>";
+        // print_r($save);
+        // die;
+        // return view('app.aneka-usaha.create-permohonan-sewa-lahan', $user);
+        //return redirect()->back()->with('success', 'Insert Data Berhasil');
+        // } catch (\Exception $e) {
+        //     return redirect()->back()->with('error', 'Insert Data Gagal: ' . $e->getMessage());
+        // }
     }
 
-    public function listLahan(Request $request, $user)
+    // public function listLahan(Request $request)
+    // {
+    //     $listLahan = DB::table('m_au_lahan_bangunan')->where('au_lahan_bangunan_id')->first();
+
+    //     return view('app.aneka-usaha.create-permohonan-sewa-lahan', ['companyInfo' => $listLahan]);
+    // }
+
+    public function sewaList(Request $request, $user)
     {
-        $listLahan = DB::table('m_au_lahan_bangunan')->where('au_lahan_bangunan_id')->first();
 
-        return view('app.aneka-usaha.create-permohonan-sewa-lahan', ['companyInfo' => $listLahan]);
+        $sewaList = DB::table('t_au_lahan')->select();
+        $res = [
+            'sewaList' => $sewaList,
+            'user' => $user
+        ];
+        return view('app.aneka-usaha.create-permohonan-sewa-lahan', ['sewaList' => $res]);
     }
 
-    public function LahanDetail(Request $request)
-    {
-        dd('test');
-        $detaillahan = DB::table('m_au_lahan_bangunan as a')
-            ->join('t_au_lahan as b', 'a.au_lahan_bangunan_id', 'b.au_lahan_id')
-            ->join('m_perusahaan as c', 'b.nama_perusahaan', 'c.nama_perusahaan')
-            ->leftJoin('m_lokasi_penumpukan as d', 'b.lokasi_id', 'd.lokasi_penumpukan_id')
-            ->select(
-                'b.no_pranota',
-                'c.nama_perusahaan',
-                'c.npwp',
-                'c.no_telp_kantor',
-                'c.alamat',
-                'c.pic',
-                'c.no_tel_pic',
-                'c.perusahaan_id',
-                'c.jenis_usaha',
-                'a.nama_lahan_bangunan',
-                'b.no_kontrak',
-                'b.tgl_kontrak',
-                'b.kode_perusahaan',
-                'd.nama_lokasi',
-                'd.luas_lokasi',
-                'b.periode_pakai_mulai',
-                'b.periode_pakai_selesai',
-                'b.keterangan',
-                'b.biaya_sewa',
-                'b.tarif',
-                'b.status_lunsum'
-            )->get();
-        return view('app.aneka-usaha.detail-permohonan-sewa-lahan', $detaillahan);
-    }
+
 
 
     public function LahanEdit(Request $request)

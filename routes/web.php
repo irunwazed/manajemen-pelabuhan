@@ -154,30 +154,32 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
 //     Route::get('/perusahaan-sewa-detail', [pranotaLahan::class, 'praNota'])->name('praNota');
 //     Route::post('/{user}/perusahaan-lahan-create', [LahanController::class, 'Lahancreate'])->name('lahanCreate');
 // });
-Route::prefix('/{user}/aneka-usaha')->group(function () {
+
+Route::get('/perusahaan/{id}', [LahanController::class, 'companyinfoById'])->name('companyinfoById');
+Route::get('/perusahaan-lokasi/{id}', [LahanController::class, 'lahaninfoById'])->name('lahaninfoById');
+//Route::get('/pranota-permohonan-sewa-lahan', [pranotaLahan::class, 'praNota'])->name('praNota');
+
+
+Route::prefix('/{user}/aneka-usaha/')->group(function () {
+    Route::get('/permohonan-sewa-lahan', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
+    Route::post('/perusahaan-lahan-create', [LahanController::class, 'Lahancreate'])->name('lahanCreate');
+    Route::get('/create-permohonan-sewa-lahan', [LahanController::class, 'companyInfo'])->name('companyInfo');
+    Route::get('/list-permohonan-sewa-lahan', [LahanController::class, 'res'])->name('res');
+
     Route::get('/', function ($user) {
         $data = [
             "user" => $user
         ];
         return view('app/aneka-usaha', $data);
     });
+
     Route::get('/{menu}', function ($user, $menu) {
         $data = [
             "user" => $user
         ];
         return view('app/aneka-usaha/' . $menu, $data);
     });
-    Route::get('/permohonan-sewa-lahan', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
-    Route::get('/create-permohonan-sewa-lahan', [LahanController::class, 'companyInfo'])->name('companyInfo');
-    Route::get('/pranota-permohonan-sewa-lahan', [pranotaLahan::class, 'praNota'])->name('praNota');
-    Route::get('/perusahaan/{id}', [LahanController::class, 'companyinfoById']);
-    Route::get('/perusahaan-lokasi/{id}', [LahanController::class, 'lahaninfoById']);
-    Route::get('/perusahaan-sewa-detail', [pranotaLahan::class, 'praNota'])->name('praNota');
-    Route::post('/{user}/perusahaan-lahan-create', [LahanController::class, 'Lahancreate'])->name('lahanCreate');
 });
-
-
-
 
 
 Route::get('/{user}', function ($user) {

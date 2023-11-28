@@ -11,7 +11,7 @@ Route::group(
 
     function () {
         // Lahan
-        //Route::get('/', [LahanController::class, 'createPerlahan'])->name('create-permohonan-sewa-lahan');
+        Route::get('/', [LahanController::class, 'createPerlahan'])->name('create-permohonan-sewa-lahan');
         Route::get('/lahan', [LahanController::class, 'index'])->name('lahan.index');
         Route::get('/LahanController', [LahanController::class, 'listSewaLahan'])->name('lahan.permohonan-sewa-lahan');
 
