@@ -283,6 +283,7 @@
     var subName  = '{{$subName}}';
     if(subName === "Buat"){
         $('.alat-form').hide();
+        $('.edit-1c').hide();
         $('.tambah-1c').show();
     } else {
         $('.tambah-1c').hide();

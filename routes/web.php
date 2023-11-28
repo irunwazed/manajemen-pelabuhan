@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\DB;
-use App\Models\PenumpukanBarang2B1;
-use App\Models\PengeluaranBarang2B2;
+//use App\Models\PenumpukanBarang2B1;
+//use App\Models\PengeluaranBarang2B2;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PelayananBarang\Nota3B;
 use App\Http\Controllers\PelayananBarang\Nota4B;
 use App\Http\Controllers\Alat\PbauAlatController;
+use App\Http\Controllers\PelayananBarang\PenumpukanBarang2B1;
+use App\Http\Controllers\PelayananBarang\PengeluaranBarang2B2;
+
 
 /*
 |--------------------------------------------------------------------------
