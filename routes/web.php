@@ -54,6 +54,9 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::post('/pengajuan-pkk/upload/manifest-penumpang', 'PelayananKapal\PengajuanPKKController@manifestPenumpang');
     Route::get('/pengajuan-pkk/{id}/delete/manifest-penumpang', 'PelayananKapal\PengajuanPKKController@deleteManifestPenumpang');
 
+    Route::post('/pengajuan-pkk/upload/manifest-bm', 'PelayananKapal\PengajuanPKKController@manifestBM');
+    Route::get('/pengajuan-pkk/{id}/delete/manifest-bm', 'PelayananKapal\PengajuanPKKController@deleteManifestBM');
+
     Route::post('/pengajuan-pkk/upload/manifest-bb', 'PelayananKapal\PengajuanPKKController@manifestBB');
     Route::get('/pengajuan-pkk/{id}/delete/manifest-bb', 'PelayananKapal\PengajuanPKKController@deleteManifestBB');
 
