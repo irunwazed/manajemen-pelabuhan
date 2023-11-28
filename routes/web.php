@@ -271,12 +271,9 @@ Route::prefix('/{user}/keuangan')->group(function () {
         ];
         return view('app/keuangan', $data);
     });
-    Route::get('/{menu}', function ($user, $menu) {
-        $data = [
-            "user" => $user
-        ];
-        return view('app/keuangan/'.$menu, $data);
-    });
+
+    Route::get('/penerimaan', 'Keuangan\PenerimaanController@index');
+    Route::get('/penerimaan/create', 'Keuangan\PenerimaanController@create');
 });
 
 
@@ -296,5 +293,4 @@ Route::get('/{user}', function ($user) {
 
 // Route App
 require 'aneka-usaha/index.php';
-require 'keuangan/index.php';
 
