@@ -40,6 +40,21 @@
       </form>
     </center>
   </div>
+
+
+  @if($errors->any())
+    <div class="alert alert-success bg-red-800 text-red-100 rounded-md text-center py-4 font-semibold text-lg my-4">
+      {{$errors->first()}}
+
+    </div>
+    @endif
+    @if(session()->has('success'))
+    <div class="alert alert-success bg-green-800 text-green-100 rounded-md text-center py-4 font-semibold text-lg my-4">
+      {{ session()->get('success') }}
+    </div>
+    @endif
+
+
   <table class="table w-full">
     <thead>
       <tr class="border-solid border-2 border-slate-800 bg-gradient-to-r from-[#211c5c] to-primary text-white">
