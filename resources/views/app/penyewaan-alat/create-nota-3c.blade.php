@@ -46,8 +46,10 @@
                             <td class="font-bold">NOMOR</td>
                             <td>:</td>
                             <td>
+                                @if(empty($data->nonota3c)) 
                                 <input type="text" class="mt-1 mb-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" placeholder="Nomor" id="nota3c" name="nota3c" value="">
                                 <div class="msg"></div> 
+                                @else {{ $data->nonota3c }} @endif
                             </td>
                         </tr>
                         <tr>
@@ -179,7 +181,9 @@
             <div class="msg-api float-right text-right mr-8 ">
                 <p class="text-green-500"></p>
             </div>
-            <button type="submit" class="submit-nota-c3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create</button>
+            @if(empty($data->nonota3c)) 
+                <button type="submit" class="submit-nota-c3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create</button>
+            @endif
             <a href="{{url('admin/penyewaan-alat/nota-3c')}}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">KEMBALI</a>
         </div>
         </div>
