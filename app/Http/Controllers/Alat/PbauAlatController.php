@@ -342,6 +342,7 @@ class PbauAlatController extends Controller
         ->when($noForm3C, function ($query) use ($noForm3C) {
             $query->where('nonota3c', 'LIKE', "%$noForm3C%");
         })
+        ->whereNotNull("noform_2c")
         ->orderBy("pbau_alat_1c_id", "desc")
         ->paginate(10);
 
@@ -517,6 +518,8 @@ class PbauAlatController extends Controller
         ->when($noForm3C, function ($query) use ($noForm3C) {
             $query->where('nonota3c', 'LIKE', "%$noForm3C%");
         })
+        ->whereNotNull("noform_2c")
+        ->whereNotNull("nonota3c")
         ->orderBy("pbau_alat_1c_id", "desc")
         ->paginate(10);
 
