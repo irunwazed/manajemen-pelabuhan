@@ -97,17 +97,20 @@
                             <td>{{ $item->nama_kapal }}</td>
                             <td>{{ $item->keperluan }}</td>
                             <td class="py-2 flex flex-wrap gap-1 justify-center">
-                                <a href="{{url('admin/penyewaan-alat/edit-permohonan-1c').'/'.$item->pbau_alat_1c_id }}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Edit</a>
-                                <a
-                                    href="{{ url('admin/penyewaan-alat/create-nota-3c').'/'.$item->pbau_alat_1c_id }}"
-                                    class="focus:outline-none text-white bg-blue-800 hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-blue-900"
-                                    @if(empty($item->noform_2c) || empty($item->noform_1c)) 
-                                        disabled="disabled" 
-                                        onclick="return false;"
-                                    @endif
-                                >
-                                    Create Nota 3C
-                                </a>
+                                @if(empty($item->nonota3c))
+                                    <a
+                                        href="{{ url('admin/penyewaan-alat/create-nota-3c').'/'.$item->pbau_alat_1c_id }}"
+                                        class="focus:outline-none text-white bg-blue-800 hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-blue-900"
+                                        @if(empty($item->noform_2c) || empty($item->noform_1c)) 
+                                            disabled="disabled" 
+                                            onclick="return false;"
+                                        @endif
+                                    >
+                                        Create Nota 3C
+                                    </a>
+                                @else
+                                    <a href="{{ url('admin/penyewaan-alat/create-nota-3c').'/'.$item->pbau_alat_1c_id }}" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

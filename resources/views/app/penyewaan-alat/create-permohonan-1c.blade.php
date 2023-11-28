@@ -67,7 +67,7 @@
     <div class="text-2xl ">
         Penyewaan Alat /
         <a href="{{url('admin/penyewaan-alat/permohonan-1c')}}"> Permohonan 1C </a>
-        / {{$subName}} Data
+        / @if(empty($data->tgl_noform_2c)) {{ $subName }}  @else View @endif Data
     </div>
     <hr class="border-b-2 border-black border-solid">
     <div class="font-bold text-2xl text-center pt-5">FORM PERMOHONAN 1C - PENYEWAAN ALAT</div>
@@ -246,7 +246,7 @@
                         <th>Tgl/Jam Mulai</th>
                         <th>Tgl/Jam Selesai</th>
                         <th>Harga</th>
-                        <th>Aksi</th>
+                        <th @if(empty($data->tgl_noform_2c)) "" @else style='display:none' @endif >Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -273,6 +273,7 @@
     });
 
     var pbauAlat1cId       = '{{$data->pbau_alat_1c_id ?? null}}';
+    var tglNoForm2c       = '{{$data->tgl_noform_2c ?? null}}';
     var pbauAlat1cIdDetail = null;
     var alatId             = null;
 
@@ -289,6 +290,11 @@
         $('.tambah-1c').hide();
         $('.edit-1c').show();
         $('.simpan-bottom').hide();
+    }
+
+    if(tglNoForm2c !== ""){
+        $('.simpan-bottom, .tambah-1c, .edit-1c, .tambah-alat, .edit-alat').hide();
+        $('input,select').prop("disabled",true);
     }
 
     // Handle pagination link clicks
@@ -571,6 +577,7 @@
                 if(data.data.length >= 1){
                     // Populate the table with the retrieved data
                     $.each(data.data, function (index, item) {
+                        var styleDiv = @if(empty($data->tgl_noform_2c)) "" @else "style=display:none" @endif ;
                         var row = '<tr class="border-solid border-2 border-slate-800 bg-slate-200 hover:bg-slate-300">';
                         row += '<td>' + item.kode_alat + '</td>';
                         row += '<td>' + item.nama_alat + '</td>';
@@ -581,7 +588,7 @@
                         row += '<td>' + item.tgl_mulai_mohon + '</td>';
                         row += '<td>' + item.tgl_selesai_mohon + '</td>';
                         row += '<td>' + (item.tarif_alat * item.minimal_pakai) + '</td>';
-                        row += '<td class="py-2 flex flex-wrap gap-1 justify-center ">' +
+                        row += '<td '+styleDiv+' class="py-2 flex flex-wrap gap-1 justify-center ">' +
                                 '<button data-record-id="'+item.pbau_alat_1c_detail+'" class="edit-button focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Edit</a>' +
                                 '<button data-record-id="'+item.pbau_alat_1c_detail+'" class="delete-button focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Delete</button>' +
                             '</td>';
