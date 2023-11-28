@@ -129,7 +129,7 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
     Route::get('/create-nota-4c/{id}', 'Alat\PbauAlatController@createNota4C');
     Route::get('/nota-4c/invoice/{id}', 'Alat\PbauAlatController@generateInvoice');
     Route::post('/submit-nota-4c/{id}', 'Alat\PbauAlatController@submitNota4c');
-    
+
 
     /*Route::resource('permohonan-1c', Alat\PbauAlatController::class)->parameters([
         'pbau-alat' => 'pbau_alat_1c_id',
@@ -157,6 +157,18 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
         ];
         return view('app/aneka-usaha/'.$menu, $data);
     });
+});
+
+Route::prefix('/{user}/keuangan')->group(function () {
+    Route::get('/', function ($user) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/keuangan', $data);
+    });
+
+    Route::get('/penerimaan', 'Keuangan\PenerimaanController@index');
+    Route::get('/penerimaan/create', 'Keuangan\PenerimaanController@create');
 });
 
 
