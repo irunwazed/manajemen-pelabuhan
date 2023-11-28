@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Ekspor Import')
+@section('title', 'GROUP PENGGUNA')
 
 
 @section('content')
@@ -10,16 +10,12 @@
 $navigations = [];
 
 array_push($navigations, [
-  "name" => "PEMBERITAHUAN IMPORT BARANG (PIB)",
-  "url" => "/" . @$user . "/eksport-import/pemberitahuan-import-barang",
+  "name" => "PENGGUNA",
+  "url" => "/" . @$user . "/management-user/user",
 ]);
 array_push($navigations, [
-  "name" => "PEMBERITAHUAN EKSPORT BARANG (PEB)",
-  "url" => "/" . @$user . "/eksport-import/pemberitahuan-eksport-barang",
-]);
-array_push($navigations, [
-  "name" => "MANIFEST PENGANGKUTAN",
-  "url" => "/" . @$user . "/eksport-import/manifest-pengangkut",
+  "name" => "AKSES PENGGUNA",
+  "url" => "/" . @$user . "/management-user/group-user",
 ]);
 
 
@@ -30,9 +26,9 @@ array_push($navigations, [
   <div class="ml-6">
     <div class="flex flex-wrap gap-2 ">
       <embed class="" width="30" src="{{URL::asset('assets/svg/kapal.svg')}}" />
-      <h1 class="font-bold text-4xl ">EKSPORT - IMPORT </h1>
+      <h1 class="font-bold text-4xl ">MANAJEMEN PENGGUNA </h1>
     </div>
-    <div class="mt-1 text-slate-700">Pendataan Pelayanan Dokumen Eksport-Import</div>
+    <div class="mt-1 text-slate-700">Pendataan pengguna Sistem Port Simulator</div>
   </div>
 
   <div class="mt-8 grid grid-cols-3 gap-6">

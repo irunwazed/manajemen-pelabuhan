@@ -231,6 +231,46 @@ Route::post('/Manifest/bill_landing','EksportImport\EksportController@bill_landi
 Route::post('/Manifest/lampiran','EksportImport\EksportController@lampiran');
 Route::post('/Manifest/hs_code','EksportImport\EksportController@hscode');
 
+//route warehousing
+Route::prefix('/{user}/warehousing')->group(function () {
+    Route::get('/', function ($user) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/warehousing', $data);
+    });
+    Route::get('/{menu}', function ($user, $menu) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/warehousing/'.$menu, $data);
+    });
+});
+
+
+//route untuk usermanagement
+Route::prefix('/{user}/management-user')->group(function () {
+
+    Route::get('/', function ($user) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/management-user', $data);
+    });
+
+    Route::get('/user', 'User\UserController@user');
+    Route::get('/user/filter', 'User\UserController@user');
+    Route::get('/add-user', 'User\UserController@userForm');
+    Route::get('/edit-user/{id}', 'User\UserController@userForm');
+    Route::post('/submit-user/{id}', 'User\UserController@submitUser');
+    
+    Route::get('/group-user', 'User\UserController@groupUser');
+    Route::get('/group-user/filter', 'User\UserController@groupUser');
+    Route::get('/add-group-user', 'User\UserController@groupUserForm');
+    Route::get('/edit-group-user/{id}', 'User\UserController@groupUserForm');
+    Route::post('/submit-group-user', 'User\UserController@submitGroupUser');
+});
+
 // Route App
 require 'aneka-usaha/index.php';
 require 'pelayanan-kapal/index.php';
