@@ -84,7 +84,11 @@ class Nota4AController extends Controller
       $tgl1 = strtotime($data->waktu_berangkat); 
       $tgl2 = strtotime($data->waktu_tiba);
       $selisihHari= (strtotime($data->waktu_berangkat)-strtotime($data->waktu_tiba))/(86400);
-      $selisihHari=ceil($selisihHari);
+      if(ceil($selisihHari)==0){
+        $selisihHari=1;
+      }else{
+        ceil($selisihHari);
+      }
       //dd(ceil($selisihHari));
       //dd($trfLabuh);
       $biayaLabuh=$data->grt_kapal *  $trfLabuh[0]->trf_labuh_rp;
@@ -94,7 +98,7 @@ class Nota4AController extends Controller
       }else{
         $biayaTambat= $selisihHari * $data->grt_kapal * $trfTambat[0]->tarif_rp;
       }
-//dd($selisihHari);
+      
       $jumlah=$biayaLabuh+$biayaTambat+$dataAir[0]->biayaAir+$dataTunda[0]->biayaPandu+$dataTunda[0]->biayaTunda;
       $ppn=(11*$jumlah)/100;
       $jumlahTerhutang=$jumlah+ $ppn+10000;
@@ -110,7 +114,7 @@ class Nota4AController extends Controller
              "jumlah"=>$jumlah
             ];
 
-           // dd($result);
+      //     dd($result);
 
     return view('app.pelayanan-kapal.nota4-kapal.nota4a-terbit',  $result);
   }

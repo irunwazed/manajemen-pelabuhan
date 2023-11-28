@@ -18,7 +18,7 @@ class RKBMController extends Controller
     $page = @$request->input('page') ? $request->input('page') : 1;
     $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
 
-
+    
     $query = DB::table('t_pelayanan_kapal')
       ->select([
         "t_pelayanan_kapal.*",
@@ -32,7 +32,7 @@ class RKBMController extends Controller
       ->where("t_pelayanan_kapal.nama_kapal", 'like', '%' . $nama_kapal . '%')
       ->where("t_pelayanan_kapal.flag", "2")
       ->where("t_pelayanan_kapal.flag_spm", "2")
-      ->where("t_pelayanan_kapal_pbm.pelayanan_kapal_pbm_id", session()->get("pbm_id"));
+      ->where("t_pelayanan_kapal_pbm.kode_pbm", session()->get("pbm_id"));
     $total = $query->count();
     $data = $query->skip(($page - 1) * $perPage)->take($perPage)
       ->get();

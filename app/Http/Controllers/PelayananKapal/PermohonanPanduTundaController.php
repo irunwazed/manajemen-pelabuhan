@@ -117,7 +117,7 @@ class PermohonanPanduTundaController extends Controller
     }
 
     public function tambahDataPanduTunda(Request $request,$user){
-       $pelayanan_kapal_id = $request->pelayanan_kapal_rpkro_id;
+       $pelayanan_kapal_id = $request->pelayanan_kapal_id;
        $pelayanan_kapal_rpkro_id = $request->pelayanan_kapal_rpkro_id;
         $pandu_id = $request->pandu_id;
         $tgl_pandu_awal = $request->tgl_pandu_awal;

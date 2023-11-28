@@ -87,7 +87,7 @@ class PermohonanAirController extends Controller
     }
     
     public function tambahDataAir(Request $request,$user){
-      $pelayanan_kapal_id = $request->pelayanan_kapal_rpkro_id;
+      $pelayanan_kapal_id = $request->pelayanan_kapal_id;
       $pelayanan_kapal_rpkro_id = $request->pelayanan_kapal_rpkro_id;
        $trf_pengisian_id = $request->trf_pengisian_id;
        $tarif_air = $request->tarif_air;
