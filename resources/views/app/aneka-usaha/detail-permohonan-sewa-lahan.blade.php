@@ -11,14 +11,13 @@
     <div class="h-56 grid grid-cols-2 gap-4 content-center border-2">
         <div>
             <table class="w-full">
-                @foreach($praNota as $com)
                 <tr class="text-start mb-4">
                     <td>Nomor/Tanggal Kontrak</td>
                     <td>:</td>
                     <td class="py-1">
                         <div class="grid grid-cols-2 gap-1">
                             <div class="">
-                                <input type="text" value="{{$com->no_kontrak}}" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                             </div>
                             <!-- <div class="">
                                 <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
@@ -248,7 +247,6 @@
                 </tr>
 
             </table>
-            @endforeach
         </div>
         <br>
         <a href="{{ url('aneka-usaha/export-pdf') }}" target="_blank">
