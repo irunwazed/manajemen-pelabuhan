@@ -14,14 +14,13 @@ use Yajra\DataTables\Facades\DataTables;
 class pranotaLahan
 {
 
-    public function praNota(Request $request, $user)
+    public function praNota(Request $request)
     {
-
-
         $data = DB::table('t_au_lahan')->select();
 
         return view('app.aneka-usaha.pranota-permohonan-sewa-lahan', ['data' => $data]);
     }
+
 
     public function exportPdf()
     {

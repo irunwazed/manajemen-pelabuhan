@@ -10,6 +10,7 @@ use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Exception;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Yajra\DataTables\Html\Editor\Fields\Select;
 
 class LahanController
 {
@@ -92,8 +93,8 @@ class LahanController
 
     public function companyInfo(Request $request, $user)
     {
-        $companyInfo = DB::table('m_au_lahan_bangunan as a')
-            ->join('t_au_lahan as b', 'a.au_lahan_bangunan_id', 'b.au_lahan_id')
+        $companyInfo = DB::table('m_perusahaan as a')
+            ->join('t_au_lahan as b', 'a.nama_perusahaan', 'b.au_lahan_id')
             ->join('m_perusahaan as c', 'b.nama_perusahaan', 'c.nama_perusahaan')
             ->leftJoin('m_lokasi_penumpukan as d', 'b.lokasi_id', 'd.lokasi_penumpukan_id')
             ->select(
@@ -124,14 +125,15 @@ class LahanController
                 'b.biaya_sewa',
                 'b.tarif',
                 'b.status_lunsum'
-            )->get();
+            )
+            ->get();
         $lokasi = DB::table('m_au_lahan_bangunan')->get()->toArray();
 
         $data = array(
             'companyInfo' => $companyInfo,
-            'lokasiInfo'  => $lokasi
+            'lokasiInfo'  => $lokasi,
+            'user' => $user
         );
-        //luas_lokasi*periode*tarif
         return view('app.aneka-usaha.create-permohonan-sewa-lahan', $data);
     }
 
@@ -177,54 +179,46 @@ class LahanController
         return $res;
     }
 
-    // ambil data perusahaan
-    public function nama_perusahaan($id)
-    {
-        $nama_perusahaan = DB::table('m_perusahaan')
-            ->select(
-                'nama_perusahaan',
-                'alamat',
-                'no_telp_kantor',
-                'no_tel_pic',
-                'pic',
-                'npwp'
-            )->first();
-        return view('app.aneka-usaha.create-permohonan-sewa-lahan', $nama_perusahaan);
-    }
 
     public function Lahancreate(Request $request, $user)
     {
         // Validate the incoming request data
+        $user = $user;
         $request->validate([
             'nomor_kontrak' => 'required',
             'tanggal_kontrak' => 'required',
         ]);
+        try {
+            // Create a new instance of your model
 
-        // Create a new instance of your model
-        $data = new SewaLahan();
+            $data = new SewaLahan();
 
-        // Assign values from the request to the model attributes
-        $data->nomor_kontrak = $request->input('nomor_kontrak');
-        $data->tanggal_kontrak = $request->input('tanggal_kontrak');
-        $data->jenis_usaha = $request->input('jenis_usaha');
-        $data->lokasi = $request->input('lokasi');
-        $data->luas_lahan = $request->input('luas_lahan');
-        $data->periode_pakai_mulai = $request->input('tgl_mulai');
-        $data->periode_pakai_selesai = $request->input('tgl_selesai');
-        $data->tarif = $request->input('tarif');
-        $data->keterangan = $request->input('keterangan');
-        $data->biaya = $request->input('biaya');
-        $data->nama_perusahaan = $request->input('biaya_pbb');
-        $data->nama_perusahaan = $request->input('ppn');
-        $data->nama_perusahaan = $request->input('biaya_adm');
-        $data->nama_perusahaan = $request->input('biaya_lain');
-        $data->nama_perusahaan = $request->input('total_biaya');
-        $data->biaya_sewa = $request->input('pembulatan');
-        $data->status_lunsum = $request->input('lumpsium');
-        $data->save();
+            // Assign values from the request to the model attributes
+            $data->nomor_kontrak = $request->input('nomor');
+            $data->tanggal_kontrak = $request->input('tanggal_kontrak');
+            $data->jenis_usaha = $request->input('jenis_usaha');
+            $data->lokasi = $request->input('lokasi');
+            $data->luas_lahan = $request->input('luas_lahan');
+            $data->periode_pakai_mulai = $request->input('tgl_mulai');
+            $data->periode_pakai_selesai = $request->input('tgl_selesai');
+            $data->tarif = $request->input('tarif');
+            $data->keterangan = $request->input('keterangan');
+            $data->biaya = $request->input('biaya');
+            $data->biaya_pbb = $request->input('biaya_pbb');
+            $data->ppn = $request->input('ppn');
+            $data->biaya_adm = $request->input('biaya_adm');
+            $data->biaya_lain = $request->input('biaya_lain');
+            $data->total_biaya = $request->input('total_biaya');
+            $data->biaya_sewa = $request->input('pembulatan');
+            $data->status_lunsum = $request->input('lumpsium');
+            $data->telepon = $request->input('telepone');
+            $data->save();
 
-        // Redirect back with a success message (you can customize this part)
-        return redirect()->back()->with('success', 'Data inserted successfully');
+            //return view('app.aneka-usaha.create-permohonan-sewa-lahan', compact('user'));
+            return redirect()->back()->with('success', 'Insert Data Berhasil');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Insert Data Gagal: ' . $e->getMessage());
+        }
     }
 
     public function listLahan(Request $request, $user)
@@ -233,7 +227,8 @@ class LahanController
 
         return view('app.aneka-usaha.create-permohonan-sewa-lahan', ['companyInfo' => $listLahan]);
     }
-    public function detailSewaLahan(Request $request)
+
+    public function LahanDetail(Request $request)
     {
         dd('test');
         $detaillahan = DB::table('m_au_lahan_bangunan as a')
@@ -267,17 +262,8 @@ class LahanController
     }
 
 
-    public function UpSewaLahan()
+    public function LahanEdit(Request $request)
     {
-    }
-
-    public function DelSewaLahan($id)
-    {
-        try {
-            DB::table('t_au_lahan')->where('id', $id)->delete();
-        } catch (\Exception $e) {
-            dd($e->getMessage());
-        }
     }
 
     public function exportPdf()
