@@ -7,8 +7,8 @@
   <title>Admin - @yield('title')</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-  <link href="{{ asset('plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css"/>
-  <link href="{{ asset('plugins/custom/fancybox/jquery.fancybox.css') }}" rel="stylesheet" type="text/css"/>
+  <link href="{{ asset('plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('plugins/custom/fancybox/jquery.fancybox.css') }}" rel="stylesheet" type="text/css" />
 
 
   <script>
@@ -288,7 +288,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="{{ asset('plugins/custom/datatables/datatables.bundle.js') }}"></script>
   <script src="{{ asset('plugins/custom/fancybox/jquery.fancybox.js') }}"></script>
 
@@ -313,7 +313,7 @@
 
     });
 
-    
+
     function sendAjax(url, data, type = 'get', loading = null) {
       $.ajaxSetup({
         headers: {
@@ -411,55 +411,74 @@
       }
     }
 
-    
-	function pesanSweet(judul, isi, status = 'success') {
-		// swalInit(
-		// 	judul,
-		// 	isi,
-		// 	status,
-		// ); 
-		swal({
-			icon: status,
-			title: judul,
-			text: isi,
-			// footer: '<a href>Why do I have this issue?</a>'
-		});
-	}
 
-  
-	async function init_hapus(url, dataTable = null) {
-
-await swal({
-    title: "Apakah anda yakin?",
-    text: "Data yang terhapus tidak dapat dikembalikan!",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  })
-  .then(async (willDelete) => {
-    if (willDelete) {
-      // swal("Poof! Your imaginary file has been deleted!", {
-      // 	icon: "success",
-      // });
-      await $.when(sendAjax(url, {})).done(function(res) {
-        if (res.status) {
-          swal("Data anda berhasil terhapus!", {
-            icon: "success",
-          });
-          if (dataTable != null) dataTable.ajax.reload();
-        } else {
-
-          swal("Server sedang bermasalah!", {
-            icon: "warning",
-          });
-        }
+    function pesanSweet(judul, isi, status = 'success') {
+      // swalInit(
+      // 	judul,
+      // 	isi,
+      // 	status,
+      // ); 
+      swal({
+        icon: status,
+        title: judul,
+        text: isi,
+        // footer: '<a href>Why do I have this issue?</a>'
       });
-    } else {
-      swal("Data anda batal terhapus!");
     }
-  });
 
-}
+
+    async function init_hapus(url, dataTable = null) {
+
+      await swal({
+          title: "Apakah anda yakin?",
+          text: "Data yang terhapus tidak dapat dikembalikan!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then(async (willDelete) => {
+          if (willDelete) {
+            // swal("Poof! Your imaginary file has been deleted!", {
+            // 	icon: "success",
+            // });
+            await $.when(sendAjax(url, {})).done(function(res) {
+              if (res.status) {
+                swal("Data anda berhasil terhapus!", {
+                  icon: "success",
+                });
+                if (dataTable != null) dataTable.ajax.reload();
+              } else {
+
+                swal("Server sedang bermasalah!", {
+                  icon: "warning",
+                });
+              }
+            });
+          } else {
+            swal("Data anda batal terhapus!");
+          }
+        });
+
+    }
+
+    async function deleteWithLoadPage(url) {
+
+      await swal({
+          title: "Apakah anda yakin?",
+          text: "Data yang terhapus tidak dapat dikembalikan!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then(async (willDelete) => {
+          if (willDelete) {
+            window.location = url;
+          } else {
+            swal("Data anda batal terhapus!");
+          }
+        });
+
+    }
   </script>
 
   @yield('script')
