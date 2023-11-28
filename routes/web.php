@@ -164,6 +164,19 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
     });*/
 });
 
+Route::prefix('/{user}/management-user')->group(function () {
+    Route::get('/user', 'User\UserController@user');
+    Route::get('/user/filter', 'User\UserController@user');
+    Route::get('/add-user', 'User\UserController@userForm');
+    Route::get('/edit-user/{id}', 'User\UserController@userForm');
+    Route::post('/submit-user/{id}', 'User\UserController@submitUser');
+    
+    Route::get('/group-user', 'User\UserController@groupUser');
+    Route::get('/group-user/filter', 'User\UserController@groupUser');
+    Route::get('/add-group-user', 'User\UserController@groupUserForm');
+    Route::get('/edit-group-user/{id}', 'User\UserController@groupUserForm');
+    Route::post('/submit-group-user', 'User\UserController@submitGroupUser');
+});
 
 Route::prefix('/{user}/aneka-usaha')->group(function () {
     Route::get('/', function ($user) {
