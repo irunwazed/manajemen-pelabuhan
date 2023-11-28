@@ -49,7 +49,7 @@ Route::prefix('/{user}/pelayanan-barang')->group(function () {
         ];
         return view('app/pelayanan-barang', $data);
     });
-    
+
 
     Route::prefix('/pengeluaran-2b2')->group(function () {
         Route::get('/', [PengeluaranBarang2B2::class, 'show'])->name('get-2b2');
@@ -168,6 +168,7 @@ Route::prefix('/{user}/keuangan')->group(function () {
     });
 
     Route::get('/penerimaan', 'Keuangan\PenerimaanController@index');
+    Route::get('/penerimaan/{id}', 'Keuangan\PenerimaanController@detail');
     Route::get('/penerimaan/create', 'Keuangan\PenerimaanController@create');
 });
 
@@ -182,7 +183,7 @@ Route::get('/{user}', function ($user) {
 //route untuk export import
 
 Route::prefix('/{user}/eksport-import')->group(function () {
-    
+
     Route::get('/', function ($user) {
         $data = [
             "user" => $user
@@ -275,7 +276,7 @@ Route::prefix('/{user}/management-user')->group(function () {
     Route::get('/add-user', 'User\UserController@userForm');
     Route::get('/edit-user/{id}', 'User\UserController@userForm');
     Route::post('/submit-user/{id}', 'User\UserController@submitUser');
-    
+
     Route::get('/group-user', 'User\UserController@groupUser');
     Route::get('/group-user/filter', 'User\UserController@groupUser');
     Route::get('/add-group-user', 'User\UserController@groupUserForm');

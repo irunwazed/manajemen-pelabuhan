@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Keuangan;
 
 use App\Models\Penerimaan;
+use App\Models\PenerimaanDetail;
 use App\Models\Perusahaan;
 use App\Services\Keuangan\PenerimaanService;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -34,6 +36,18 @@ class PenerimaanController
             ->paginate(10);
 
         return view('app/keuangan.penerimaan', compact('data', 'noPenerimaan', 'namaPerusahaan'));
+    }
+
+    public function detail(Request $request)
+    {
+        $id = $request->route('id');
+        $penerimaan = Penerimaan::where('penerimaan_id', '=', $id)->first();
+        $details = PenerimaanDetail::where('penerimaan_id', '=', $id)
+                ->orderBy('penerimaan_detail_id', 'desc')
+                ->get();
+//            DB::table(app(PenerimaanDetail::class)->getTable())->where('penerimaan_id', '=', $id)->orderBy('penerimaan_detail_id', 'desc')->get();
+
+        return view('app/keuangan.penerimaan.detail', compact('penerimaan', 'details'));
     }
 
     public function create(Request $request)

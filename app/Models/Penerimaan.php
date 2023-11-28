@@ -15,6 +15,8 @@ class Penerimaan extends Model
         "perusahaan_id",
         "nama_perusahaan",
         "rekening_id",
+        "kode_rekening",
+        "nama_rekening",
         "tanggal",
         "jumlah"
     ];
