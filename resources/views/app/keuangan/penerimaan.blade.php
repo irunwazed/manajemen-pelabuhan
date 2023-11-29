@@ -63,7 +63,7 @@
             </div>
         </form>
         <div class="w-full">
-            <a href="{{url('admin/keuangan/penerimaan/create')}}" class="text-white float-right bg-green-400 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-green-400 dark:hover:bg-green-400 focus:outline-none dark:focus:bg-green-400">Terima Pembayaran</a>
+            <a data-modal-toggle="pilihPerusahaan" type="button" class="text-white float-right bg-green-400 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-green-400 dark:hover:bg-green-400 focus:outline-none dark:focus:bg-green-400">Terima Pembayaran</a>
         </div>
         <div class="text-center mb-3 mt-5">
             <div>
@@ -97,6 +97,58 @@
                     {{ $data->links() }}
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="pilihPerusahaan" tabindex="-1" aria-hidden="true"
+         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(200%-1rem)] max-h-full">
+        <div class="relative w-full max-w-4xl max-h-full relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal content -->
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    PILIH PERUSAHAAN
+                </h3>
+                <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="defaultModal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <form method="GET" action="{{url('admin/keuangan/penerimaan-baru')}}">
+                <div class="p-6 space-y-6">
+                    <div class="mt-5 grid gap-2">
+                        <div>
+                            <table class="w-full">
+                                <tr>
+                                    <td>Kode Rekening</td>
+                                    <td>:</td>
+                                    <td class="py-1">
+                                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="perusahaan_id" name="perusahaan_id" required>
+                                            <option value="">-- Pilih --</option>
+                                            <?php
+                                            foreach ($listPerusahaan as $key => $value) {
+                                                echo'<option value="'.@$value->perusahaan_id.'">'.$value->nama_perusahaan.'</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Pilih</button>
+                    <a data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cancel</a>
+                </div>
+            </form>
+            <!-- Modal footer -->
         </div>
     </div>
     <script>

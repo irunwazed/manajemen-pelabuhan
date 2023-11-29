@@ -167,9 +167,10 @@ Route::prefix('/{user}/keuangan')->group(function () {
         return view('app/keuangan', $data);
     });
 
-    Route::get('/penerimaan', 'Keuangan\PenerimaanController@index');
+    Route::get('/penerimaan', 'Keuangan\PenerimaanController@index')->name('penerimaan-list');
     Route::get('/penerimaan/{id}', 'Keuangan\PenerimaanController@detail');
-    Route::get('/penerimaan/create', 'Keuangan\PenerimaanController@create');
+    Route::get('/penerimaan-baru', 'Keuangan\PenerimaanController@create');
+    Route::post('/penerimaan-baru', 'Keuangan\PenerimaanController@save');
 });
 
 
