@@ -14,8 +14,8 @@ class WartaController extends Controller
     $search = $request->input('search');
 
 
-    $page = @$request->input('page') ? $request->input('page') : 1;
-    $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
+    $page = @$request->input('page') >= 1 ? $request->input('page') : 1;
+    $perPage = @$request->input('perPage') >= 1 ? $request->input('perPage') : 10;
 
 
     $query = DB::table('t_pelayanan_kapal')

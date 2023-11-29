@@ -40,7 +40,7 @@
         @else
       <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
         @endif
-        <td class="text-center">{{ $loop->index+1 }}</td>
+        <td class="text-center">{{ ((@$page-1)*@$perPage)+$loop->index+1 }}</td>
         <td>{{ @$row->jenis_kegiatan }}</td>
         <td>{{ @$row->nama_barang }}</td>
         <td>{{ @$row->no_bl }}</td>

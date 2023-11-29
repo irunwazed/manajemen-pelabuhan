@@ -43,16 +43,16 @@
 
 
   @if($errors->any())
-    <div class="alert alert-success bg-red-800 text-red-100 rounded-md text-center py-4 font-semibold text-lg my-4">
-      {{$errors->first()}}
+  <div class="alert alert-success bg-red-800 text-red-100 rounded-md text-center py-4 font-semibold text-lg my-4">
+    {{$errors->first()}}
 
-    </div>
-    @endif
-    @if(session()->has('success'))
-    <div class="alert alert-success bg-green-800 text-green-100 rounded-md text-center py-4 font-semibold text-lg my-4">
-      {{ session()->get('success') }}
-    </div>
-    @endif
+  </div>
+  @endif
+  @if(session()->has('success'))
+  <div class="alert alert-success bg-green-800 text-green-100 rounded-md text-center py-4 font-semibold text-lg my-4">
+    {{ session()->get('success') }}
+  </div>
+  @endif
 
 
   <table class="table w-full">
@@ -77,7 +77,7 @@
         @else
       <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
         @endif
-        <td class="text-center">{{ $loop->index+1 }}</td>
+        <td class="text-center">{{ ((@$page-1)*@$perPage)+$loop->index+1 }}</td>
         <td>{{ @$row->no_layanan_kapal }}</td>
         <td>{{ @$row->no_rpkro }}</td>
         <td>{{ @$row->no_pkk }}</td>
@@ -88,24 +88,24 @@
         <td>{{ @$row->flag_spog=="2"?"DISETUJUI":(@$row->flag_spog=="1"?"TUNGGU VERIFIKASI":(@$row->flag_spog=="R"?"DITOLAK":"DRAFT")) }}</td>
         <td class="py-2 flex flex-wrap gap-1 justify-center ">
 
-          @if(@$row->flag_spog == "1"  && (session()->get("role") == "syahbandar" || session()->get("role") == "admin"))
+          @if(@$row->flag_spog == "1" && (session()->get("role") == "syahbandar" || session()->get("role") == "admin"))
 
-            <a href="spog/detail/verifikasi?id={{ @$row->pelayanan_kapal_id }}&status=edit" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:focus:ring-yellow-900">Verifikasi</a>
+          <a href="spog/detail/verifikasi?id={{ @$row->pelayanan_kapal_id }}&status=edit" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:focus:ring-yellow-900">Verifikasi</a>
           @if(session()->get("role") != "admin")
-            <a href="spog/detail?id={{ @$row->pelayanan_kapal_id }}" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
+          <a href="spog/detail?id={{ @$row->pelayanan_kapal_id }}" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
           @endif
           @endif
           @if(session()->get("role") != "syahbandar")
-            @if(@$row->no_permohonan_spog)
-            <a href="spog/detail?id={{ @$row->pelayanan_kapal_id }}" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
-              @if(@$row->flag_spog != "1" && @$row->flag_spog != "2")
-              <a href="spog/detail?id={{ @$row->pelayanan_kapal_id }}&status=edit" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:focus:ring-yellow-900">Edit</a>
-              <a href="spog/kirim?id={{ @$row->pelayanan_kapal_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Kirim</a>
-              @endif
-            @else
-            <a href="spog/detail?id={{ @$row->pelayanan_kapal_id }}&status=edit" class="text-white float-right bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">BUAT SPOG</a>
-            @endif
-          
+          @if(@$row->no_permohonan_spog)
+          <a href="spog/detail?id={{ @$row->pelayanan_kapal_id }}" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
+          @if(@$row->flag_spog != "1" && @$row->flag_spog != "2")
+          <a href="spog/detail?id={{ @$row->pelayanan_kapal_id }}&status=edit" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:focus:ring-yellow-900">Edit</a>
+          <a href="spog/kirim?id={{ @$row->pelayanan_kapal_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Kirim</a>
+          @endif
+          @else
+          <a href="spog/detail?id={{ @$row->pelayanan_kapal_id }}&status=edit" class="text-white float-right bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">BUAT SPOG</a>
+          @endif
+
           @endif
 
         </td>

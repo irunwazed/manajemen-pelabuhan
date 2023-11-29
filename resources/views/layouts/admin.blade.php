@@ -1,3 +1,13 @@
+<?php
+
+if(!@session()->get("id")){
+  header("location: ".url('login'));
+  die();
+  // echo url('login');
+}
+
+?>
+
 <!-- <!DOCTYPE html> -->
 <html lang="en">
 
