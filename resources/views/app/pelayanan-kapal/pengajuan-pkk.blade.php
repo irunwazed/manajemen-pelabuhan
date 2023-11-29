@@ -1734,6 +1734,11 @@
       } else {
         if (message) pesanSweet('Peringatan!', "Data telah disimpan", 'warning');
       }
+      if(message){
+        setTimeout(function(){
+          window.location.reload(1);
+        }, 2000);
+      }
     });
   }
 
