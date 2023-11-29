@@ -3,6 +3,7 @@
 $navigations = [];
 array_push($navigations, [
   "name" => "PELAYANAN KAPAL",
+ // "group" => "PELAYANAN KAPAL",
   "url" => "/" . @$user . "/pelayanan-kapal",
   "svg_menu" =>'<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="110" viewBox="0 0 307.000000 407.000000" preserveAspectRatio="xMidYMid meet">
                   <g transform="translate(0.000000,407.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
@@ -303,16 +304,40 @@ array_push($navigations, [
         <div class=" md:w-1/12"></div>
         <div class=" w-full flex flex-wrap gap-4 place-content-center mt-4 md:w-10/12">
           @foreach($navigations as $navigation)
-          <a href="{{ url('').$navigation['url'] }}">
-            <div class="max-w-[200px] min-h-[290px] bg-white text-primary p-6 rounded-lg shadow-xl hover:bg-primary hover:text-white hover:scale-105  transition-all">
-              <center>
-                {!! $navigation['svg_menu'] !!}
-             
-              </center>
-              <br>
-              <div class="mt-6 font-semibold text-center">{{ $navigation['name'] }}</div>
-            </div>
-          </a>
+          @if($navigation['name']==="PELAYANAN KAPAL" && (@$user==="agen-kapal" || @$user === "bup" || @$user === "pbm" || @$user === "admin" || @$user==="petugas-lala" || @$user ==="syahbandar"))
+            <a href="{{ url('').$navigation['url'] }}">
+              <div class="max-w-[200px] min-h-[290px] bg-white text-primary p-6 rounded-lg shadow-xl hover:bg-primary hover:text-white hover:scale-105  transition-all">
+                <center>
+                  {!! $navigation['svg_menu'] !!}
+              
+                </center>
+                <br>
+                <div class="mt-6 font-semibold text-center">{{ $navigation['name'] }}</div>
+              </div>
+            </a>
+          @elseif(($navigation['name']==="PELAYANAN BARANG" || $navigation['name']==="PENYEWAAN ALAT" || $navigation['name']==="ANEKA USAHA") && (@$user==="pelindo-pbau" || @$user==="admin"))
+            <a href="{{ url('').$navigation['url'] }}">
+              <div class="max-w-[200px] min-h-[290px] bg-white text-primary p-6 rounded-lg shadow-xl hover:bg-primary hover:text-white hover:scale-105  transition-all">
+                <center>
+                  {!! $navigation['svg_menu'] !!}
+              
+                </center>
+                <br>
+                <div class="mt-6 font-semibold text-center">{{ $navigation['name'] }}</div>
+              </div>
+            </a>
+         @elseif(($navigation['name']==="MANAJEMEN PENGGUNA" || $navigation['name']==="KEUANGAN" || $navigation['name']==="WAREHOUSING")  && @$user === "admin")
+            <a href="{{ url('').$navigation['url'] }}">
+              <div class="max-w-[200px] min-h-[290px] bg-white text-primary p-6 rounded-lg shadow-xl hover:bg-primary hover:text-white hover:scale-105  transition-all">
+                <center>
+                  {!! $navigation['svg_menu'] !!}
+              
+                </center>
+                <br>
+                <div class="mt-6 font-semibold text-center">{{ $navigation['name'] }}</div>
+              </div>
+            </a>
+      @endif
           @endforeach
 
         </div>

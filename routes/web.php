@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PelayananBarang\Nota3B;
 use App\Http\Controllers\PelayananBarang\Nota4B;
 use App\Http\Controllers\Alat\PbauAlatController;
+use App\Http\Controllers\AnekaUsaha\LahanController;
 use App\Http\Controllers\PelayananBarang\PenumpukanBarang2B1;
 use App\Http\Controllers\PelayananBarang\PengeluaranBarang2B2;
 
@@ -144,7 +145,7 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
 });
 
 
-Route::prefix('/{user}/aneka-usaha')->group(function () {
+/*Route::prefix('/{user}/aneka-usaha')->group(function () {
     Route::get('/', function ($user) {
         $data = [
             "user" => $user
@@ -157,8 +158,49 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
         ];
         return view('app/aneka-usaha/'.$menu, $data);
     });
+});*/
+
+//Route untuk aneka usaha
+Route::get('/perusahaan/{id}', [LahanController::class, 'companyinfoById'])->name('companyinfoById');
+Route::get('/perusahaan-lokasi/{id}', [LahanController::class, 'lahaninfoById'])->name('lahaninfoById');
+//Route::get('/pranota-permohonan-sewa-lahan', [pranotaLahan::class, 'praNota'])->name('praNota');
+
+
+Route::prefix('/{user}/aneka-usaha/')->group(function () {
+    Route::get('/permohonan-sewa-lahan', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
+    Route::post('/perusahaan-lahan-create', [LahanController::class, 'Lahancreate'])->name('lahanCreate');
+    Route::get('/create-permohonan-sewa-lahan', [LahanController::class, 'companyInfo'])->name('companyInfo');
+    Route::get('/list-permohonan-sewa-lahan', [LahanController::class, 'res'])->name('res');
+
+    Route::get('/', function ($user) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/aneka-usaha', $data);
+    });
+
+    Route::get('/{menu}', function ($user, $menu) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/aneka-usaha/' . $menu, $data);
+    });
 });
 
+
+//Route Keuangan
+Route::prefix('/{user}/keuangan')->group(function () {
+    Route::get('/', function ($user) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/keuangan', $data);
+    });
+    Route::get('/penerimaan', 'Keuangan\PenerimaanController@index');
+    Route::get('/penerimaan/{id}', 'Keuangan\PenerimaanController@detail');
+    Route::get('/penerimaan/create', 'Keuangan\PenerimaanController@create');
+
+});
 
 Route::get('/{user}', function ($user) {
     $data = [

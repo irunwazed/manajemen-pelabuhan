@@ -11,7 +11,7 @@ $navigations = [];
 
 array_push($navigations, [
   "name" => "SEWA LAHAN DAN BANGUNAN",
-  "url" => "/aneka-usaha/lahan",
+  "url" => "/" . @$user . "/aneka-usaha/permohonan-sewa-lahan",
 ]);
 array_push($navigations, [
   "name" => "SEWA BUNKER",

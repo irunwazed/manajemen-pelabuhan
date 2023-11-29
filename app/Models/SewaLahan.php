@@ -17,9 +17,34 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SewaLahan extends Model
 {
-    use HasFactory;
-
     protected $table = 't_au_lahan';
+    // protected $primaryKey = 'au_lahan_id';
     public $timestamps = false;
-    protected $primaryKey = 'au_lahan_id';
+    // Set to false if you don't have created_at and updated_at columns
+    protected $fillable = [
+        'no_kontrak',
+        'tgl_kontrak',
+        'nama_perusahaan',
+        'npwp_perusahaan',
+        'kode_perusahaan',
+        'alamat',
+        'telephone',
+        'contact_person',
+        'lokasi_id',
+        'jenis_properti',
+        'luas_lahan',
+        'jangka_waktu',
+        'periode_pakai_mulai',
+        'periode_pakai_selesai',
+        'keterangan',
+        'tarif',
+        'biaya_sewa',
+        'flag',
+        'no_pranota',
+        'tgl_pranota',
+        'no_nota4e',
+        'tgl_nota4e',
+        'status_lunsum',
+        'kode_rek'
+    ];
 }

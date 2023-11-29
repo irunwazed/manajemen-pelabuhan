@@ -44,7 +44,7 @@ class SimlalaController extends Controller
       "total" => $total,
       "totalPage" => (ceil($total / $perPage)),
     ];
-
+    //dd(  $result);
     return view('app.pelayanan-kapal.simlala', $result);
   }
 

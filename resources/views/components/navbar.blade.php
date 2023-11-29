@@ -1,5 +1,4 @@
 <!-- user
-
 1. agen-kapal
 2. petugas-lala
 3. pbm
@@ -176,24 +175,7 @@
         <li>
           <a href="{{url('admin/pelayanan-barang/nota-4b')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nota 4B</a>
         </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan 1C</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Bukti 2C</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nota 3C</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nota 4C</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sewa Lahan dan Bangunan</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sewa Bunker</a>
-        </li>
+        
       </ul>
       @endif
     </div>
@@ -232,7 +214,7 @@
     <div id="aneka-usaha-bar" class="z-10 hidden font-normal {{ @$user=='admin'?'overflow-y-scroll max-h-[500px]':'' }} bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
         <li>
-          <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Lahan Dan Bangunan</a>
+          <a href="{{url('admin/aneka-usaha/lahan')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Lahan Dan Bangunan</a>
         </li>
         <li>
           <a href="#{{url('admin/aneka-usaha/permohonan-sewa-bunker')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Bunker</a>
@@ -241,21 +223,75 @@
     </div>
   </li>
   <li>
-    <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="#{{ URL::to('/admin/eksport-import') }}">
+    <button class="py-2 px-4 mx-2 text-gray-500 flex relative" data-dropdown-toggle="ekspot-import-bar">
       <span class="mr-0">Eksport-Import</span>
-      <embed class="absolute right-0 top-4" width="10" src="{{ URL::asset('assets/svg/arrow-down.svg') }}" />
-    </a>
+      <svg class="w-2.5 h-2.5 ml-2.5 top-4 absolute right-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+      </svg>
+    </button>
+
+    <div id="ekspot-import-bar" class="z-10 hidden font-normal {{ @$user=='admin'?'overflow-y-scroll max-h-[500px]':'' }} bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+      <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+        <li>
+          <a href="{{url(@$user.'/eksport-import/pemberitahuan-import-barang')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pemberitahuan Import Barang</a>
+        </li>
+        <li>
+          <a href="{{url(@$user.'/eksport-import/pemberitahuan-eksport-barang')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pemberitahuan Eksport Barang</a>
+        </li>
+        <li>
+          <a href="{{url(@$user.'/eksport-import/manifest-pengangkut')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Manifest Pengangkut</a>
+        </li>
+      </ul>
+    </div>
+
   </li>
   <li>
-    <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="#{{ URL::to('/admin/pelayanan-bongkar-muat') }}">
-      <span class="mr-0">Warehoushing & Inventory</span>
-      <embed class="absolute right-0 top-4" width="10" src="{{URL::asset('assets/svg/arrow-down.svg')}}" />
-    </a>
+    <button class="py-2 px-4 mx-2 text-gray-500 flex relative" data-dropdown-toggle="warehousing-bar">
+      <span class="mr-0">Warehousing</span>
+      <svg class="w-2.5 h-2.5 ml-2.5 top-4 absolute right-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+      </svg>
+    </button>
+
+    <div id="warehousing-bar" class="z-10 hidden font-normal {{ @$user=='admin'?'overflow-y-scroll max-h-[500px]':'' }} bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+      <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+        <li>
+          <a href="{{url(@$user.'/warehousing/penerimaan-barang')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penerimaan Barang</a>
+        </li>
+        <li>
+          <a href="{{url(@$user.'/warehousing/pengeluaran-barang')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pengeluaran Barang</a>
+        </li>
+        <li>
+          <a href="{{url(@$user.'/warehousing/monitoring-warehousing')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monitoring Gudang</a>
+        </li>
+      </ul>
+    </div>
+
   </li>
   <li>
     <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="#{{ URL::to('/admin/pelayanan-bongkar-muat') }}">
       <span class="mr-0">Keuangan</span>
       <embed class="absolute right-0 top-4" width="10" src="{{URL::asset('assets/svg/arrow-down.svg')}}" />
     </a>
+  </li>
+  <li>
+    <button class="py-2 px-4 mx-2 text-gray-500 flex relative" data-dropdown-toggle="pengguna-bar">
+      <span class="mr-0">Pengguna</span>
+      <svg class="w-2.5 h-2.5 ml-2.5 top-4 absolute right-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+      </svg>
+    </button>
+
+    <div id="warehousing-bar" class="z-10 hidden font-normal {{ @$user=='admin'?'overflow-y-scroll max-h-[500px]':'' }} bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+      <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+        <li>
+          <a href="{{url(@$user.'/management-user/user')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pengguna</a>
+        </li>
+        <li>
+          <a href="{{url(@$user.'/management-user/group-user')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Akses Pengguna</a>
+        </li>
+      </ul>
+    </div>
+
   </li>
 </ul>
