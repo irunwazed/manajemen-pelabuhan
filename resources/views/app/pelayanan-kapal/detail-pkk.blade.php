@@ -188,6 +188,20 @@
             </td>
           </tr>
           <tr>
+            <td colspan="3" class="h-2"></td>
+          </tr>
+          <tr>
+            <td>DOKUMEN KEGIATAN</td>
+            <td>:</td>
+            <td>
+              @if(@$data->file_dokumen_keagenan != "")
+              <a target="_blank|_self|_parent|_top|framename" href="{{ url('/') }}/{{ @$data->file_dokumen_keagenan }}" class="py-2 px-4 rounded-md hover:opacity-90 bg-orange-400 text-orange-100">Download</a>
+              @else
+                <span>Tidak ada dokumen</span>
+              @endif
+            </td>
+          </tr>
+          <tr>
             <td colspan="3" class="h-6"></td>
           </tr>
           <!-- <tr>
