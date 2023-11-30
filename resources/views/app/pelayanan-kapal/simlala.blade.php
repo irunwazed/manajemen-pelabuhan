@@ -43,12 +43,12 @@
           <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
             @endif
             <td class="text-center">{{ ((@$page-1)*@$perPage)+$loop->index+1 }}</td>
-            <td>{{ changeDateFormate($row->tanggal_rpk) }}</td>
+            <td>{{$row->tanggal_rpk }}</td>
             <td>{{$row->no_rpk }}</td>
             <td>{{$row->jenis_trayek }}</td>
             <td>{{$row->nama_perusahaan }}</td>
             <td>{{$row->nama_kapal }}</td>
-            <td>{{ changeDateFormate($row->tgl_awal__berlaku) }} - {{ changeDateFormate($row->tgl_akhir_berlaku) }}</td>
+            <td>{{ $row->tgl_awal__berlaku }} - {{ $row->tgl_akhir_berlaku }}</td>
             <td>{{$row->trayek }}</td>
             <td>{{$row->muatan }}</td>
           </tr>
