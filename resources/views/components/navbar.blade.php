@@ -246,13 +246,29 @@
       <embed class="absolute right-0 top-4" width="10" src="{{ URL::asset('assets/svg/arrow-down.svg') }}" />
     </a>
   </li>
-  <li>
+  <!--<li>
     <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="#{{ URL::to('/admin/pelayanan-bongkar-muat') }}">
-      <span class="mr-0">Warehoushing & Inventory</span>
+      <span class="mr-0">Warehousing & Inventory</span>
       <embed class="absolute right-0 top-4" width="10" src="{{URL::asset('assets/svg/arrow-down.svg')}}" />
     </a>
-  </li>
+  </li>-->
   <li>
+    <li>
+      <button class="py-2 px-4 mx-2 text-gray-500 flex relative" data-dropdown-toggle="warehousing">
+        <span class="mr-0">Warehousing & Inventory</span>
+        <svg class="w-2.5 h-2.5 ml-2.5 top-4 absolute right-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+        </svg>
+      </button>
+      <div id="warehousing" class="z-10 hidden font-normal {{ @$user=='admin'?'overflow-y-scroll max-h-[500px]':'' }} bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+          <li>
+            <a href="{{url('admin/warehousing/penerimaan-barang')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penerimaan Barang</a>
+          </li>
+          <li>
+        </ul>
+      </div>
+    </li>
     <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="#{{ URL::to('/admin/pelayanan-bongkar-muat') }}">
       <span class="mr-0">Keuangan </span>
       <embed class="absolute right-0 top-4" width="10" src="{{URL::asset('assets/svg/arrow-down.svg')}}" />

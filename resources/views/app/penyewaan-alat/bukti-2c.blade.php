@@ -103,6 +103,11 @@
                             </td>
                         </tr>
                     @endforeach
+                    @if(count($data) === 0)
+                        <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300 text-center">
+                            <td colspan="7">No Data Found</td>
+                        </tr>
+                    @endif
                     </tbody>
                 </table>
                 
