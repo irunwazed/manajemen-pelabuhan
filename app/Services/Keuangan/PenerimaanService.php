@@ -2,52 +2,64 @@
 
 namespace App\Services\Keuangan;
 
+use App\Models\Nota;
+use App\Models\Perusahaan;
+use App\Models\RekeningPiutangUsaha;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
 
 class PenerimaanService
 {
-    public function createNota($data)
+    /**
+     * @param $idPerusahaan perusahaan_id on table m_perusahaan
+     * @param $rekeningId rekening_id on table m_kode_rekening. kode_rekening format should 103.xx.xx.xx (PIUTANG USAHA)
+     * @param $jenis type of note, could be transaction type (4A, 4B, etc)
+     * @param $tanggal
+     * @param $jumlah note value, should be positif value
+     * @param $keterangan
+     * @return mixed
+     */
+    public function createNota($idPerusahaan, $rekeningId, $jenis, $tanggal, $jumlah, $keterangan)
     {
-        return DB::table(DB::raw('t_nota'))
-            ->insert($data);
+        $perusahaan = $this->getPerusahaan($idPerusahaan);
+
+        $rekening = $this->getRekening($rekeningId);
+
+        return Nota::create([
+            'perusahaan_id' => $perusahaan->perusahaan_id,
+            'nama_perusahaan' => $perusahaan->nama_perusahaan,
+            'rekening_id' => $rekening->rekening_id,
+            'jenis' => $jenis,
+            'tanggal' => $tanggal,
+            'jumlah' => abs($jumlah),
+            'terbayar' => 0,
+            'keterangan' => $keterangan
+        ]);
     }
 
-    public function list()
+    /**
+     * @param $idPerusahaan
+     * @return mixed
+     */
+    private function getPerusahaan($idPerusahaan)
     {
-        return DB::table(DB::raw('t_penerimaan'))
-            ->select(['t_penerimaan.penerimaan_id'
-                , 't_penerimaan.no_penerimaan'
-                , 'm_perusahaan.nama_perusahaan'
-                , 't_penerimaan.tanggal'
-                , 't_penerimaan.jumlah'])
-            ->leftJoin('m_perusahaan', 't_penerimaan.perusahaan_id', '=', 'm_perusahaan.perusahaan_id')
-            ->orderByDesc('t_penerimaan.tanggal')
-            ->get();
+        $perusahaan = Perusahaan::find($idPerusahaan);
+        if (!$perusahaan) {
+            throw new ModelNotFoundException("Perusahaan tidak diketemukan");
+        }
+        return $perusahaan;
     }
 
-    public function listNota($nomorMaster, $offset = 0, $limit = 20)
+    /**
+     * @param $rekeningId
+     * @return mixed
+     */
+    private function getRekening($rekeningId)
     {
-        return DB::table(DB::raw('t_nota'))
-            ->where('nomor_master', '=', $nomorMaster)
-            ->offset($offset)
-            ->limit($limit)
-            ->orderBy('tanggal', 'desc')
-            ->get();
-    }
-
-    private function selectQuery($offset, $limit)
-    {
-        return DB::table(DB::raw('t_master'))
-            ->select('nomor_master')
-            ->groupBy('nomor_master')
-            ->offset($offset)
-            ->limit($limit)
-            ->orderBy('nomor_master', 'desc');
-}
-
-    public function listMaster($offset = 0, $limit = 20)
-    {
-        return $this->selectQuery($offset, $limit)
-            ->get();
+        $rekening = RekeningPiutangUsaha::find($rekeningId);
+        if (!$rekening) {
+            throw new ModelNotFoundException("Rekening tidak diketemukan atau bukan rekening pitang usaha");
+        }
+        return $rekening;
     }
 }

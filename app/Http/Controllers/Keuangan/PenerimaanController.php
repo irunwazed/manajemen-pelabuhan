@@ -11,7 +11,6 @@ use App\Models\RekeningKas;
 use App\Services\Keuangan\PenerimaanService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
 
 class PenerimaanController
 {
@@ -128,25 +127,5 @@ class PenerimaanController
             $nota->save();
         }
         return $jumlah;
-    }
-
-    public function getMaster(Request $request)
-    {
-        try {
-            return DataTables::of(
-                $this->service->listMaster()
-            )->addColumn('action', function ($data) {
-                if ($data) {
-                    return view($this->view . 'action')
-                        ->with([
-                            'data' => $data
-                        ]);
-                } else {
-                    return '';
-                }
-            })->make(true);
-        } catch (\Exception $ex) {
-            dd($ex);
-        }
     }
 }
