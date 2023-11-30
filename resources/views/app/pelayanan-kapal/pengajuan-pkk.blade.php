@@ -44,7 +44,7 @@
           <tr>
             <td>Tanda Pendaftaran Kapal</td>
             <td>:</td>
-            <td><input type="text"  class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->tanda_pendaftaran_kapal }}" name="tanda_pendaftaran_kapal" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->tanda_pendaftaran_kapal }}" onchange="onTyping()" name="tanda_pendaftaran_kapal" disabled></td>
           </tr>
           <tr>
             <td colspan="3" class="h-6"></td>
@@ -52,12 +52,12 @@
           <tr>
             <td>NAMA KAPAL</td>
             <td>:</td>
-            <td><input type="text"  class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->nama_kapal }}" name="nama_kapal" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->nama_kapal }}" name="nama_kapal" disabled></td>
           </tr>
           <tr>
             <td>BENDERA</td>
             <td>:</td>
-            <td><input type="text"  class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->bendera }}" name="bendera" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->bendera }}" name="bendera" disabled></td>
           </tr>
           <tr>
             <td>JENIS TRAYEK</td>
@@ -72,22 +72,22 @@
           <tr>
             <td>CALL SIGN</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->call_sign }}" name="call_sign"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->call_sign }}" onchange="onTyping()" name="call_sign"></td>
           </tr>
           <tr>
             <td>GRT</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->grt_kapal }}" name="grt_kapal"></td>
+            <td><input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->grt_kapal }}" onchange="onTyping()" name="grt_kapal"></td>
           </tr>
           <tr>
             <td>LOA</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->loa_kapal }}" name="loa_kapal"></td>
+            <td><input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->loa_kapal }}" onchange="onTyping()" name="loa_kapal"></td>
           </tr>
           <tr>
             <td>DWT</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->dwt_kapal }}" name="dwt_kapal"></td>
+            <td><input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->dwt_kapal }}" onchange="onTyping()" name="dwt_kapal"></td>
           </tr>
           <tr>
             <td colspan="3" class="h-6"></td>
@@ -98,42 +98,42 @@
           <tr>
             <td>GROSS TONNAGE</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->gros_tonase }}" name="gros_tonase"></td>
+            <td><input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->gros_tonase }}" onchange="onTyping()" name="gros_tonase"></td>
           </tr>
           <tr>
             <td>DEADWEIGHT TONNAGE</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->deadweight_tonase }}" name="deadweight_tonase"></td>
+            <td><input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->deadweight_tonase }}" onchange="onTyping()" name="deadweight_tonase"></td>
           </tr>
           <tr>
             <td>DRAFT DEPAN</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->draft_muka }}" name="draft_muka"></td>
+            <td><input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->draft_muka }}" onchange="onTyping()" name="draft_muka"></td>
           </tr>
           <tr>
             <td>DRAFT MAKSIMUM</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->draft_maksimum }}" name="draft_maksimum"></td>
+            <td><input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->draft_maksimum }}" onchange="onTyping()" name="draft_maksimum"></td>
           </tr>
           <tr>
             <td>DRAFT BELAKANG</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->draft_belakang }}" name="draft_belakang"></td>
+            <td><input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->draft_belakang }}" onchange="onTyping()" name="draft_belakang"></td>
           </tr>
           <tr>
             <td>KETINGGIAN UDARA</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->ketinggian_udara }}" name="ketinggian_udara"></td>
+            <td><input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->ketinggian_udara }}" onchange="onTyping()" name="ketinggian_udara"></td>
           </tr>
           <tr>
             <td>LENGTH OVER ALL</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->panjang_kapal }}" name="panjang_kapal"></td>
+            <td><input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->panjang_kapal }}" onchange="onTyping()" name="panjang_kapal"></td>
           </tr>
           <tr>
             <td>LEBAR KAPAL</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->lebar_kapal }}" name="lebar_kapal"></td>
+            <td><input type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->lebar_kapal }}" onchange="onTyping()" name="lebar_kapal"></td>
           </tr>
           <tr>
             <td colspan="3" class="h-6"></td>
@@ -144,12 +144,12 @@
           <tr>
             <td>NAMA</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->nama_cso }}" name="nama_cso"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->nama_cso }}" onchange="onTyping()" name="nama_cso"></td>
           </tr>
           <tr>
             <td>NO TELEPON</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->no_telp_cso }}" name="no_telp_cso"></td>
+            <td><input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->no_telp_cso }}" onchange="onTyping()" name="no_telp_cso"></td>
           </tr>
         </table>
       </div>
@@ -159,17 +159,17 @@
           <tr>
             <td>NAMA</td>
             <td>:</td>
-            <td><input type="text" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->perusahaan_pemilik_kapal }}" name="perusahaan_pemilik_kapal"></td>
+            <td><input type="text" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->perusahaan_pemilik_kapal }}" onchange="onTyping()" name="perusahaan_pemilik_kapal"></td>
           </tr>
           <tr>
             <td>PENANGGUNG JAWAB</td>
             <td>:</td>
-            <td><input type="text" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->penanggung_jawab }}" name="penanggung_jawab"></td>
+            <td><input type="text" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->penanggung_jawab }}" onchange="onTyping()" name="penanggung_jawab"></td>
           </tr>
           <tr>
             <td>SIUPAL PEMILIK</td>
             <td>:</td>
-            <td><input type="text" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->siupal_pemilik }}" name="siupal_pemilik"></td>
+            <td><input type="text" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->siupal_pemilik }}" onchange="onTyping()" name="siupal_pemilik"></td>
           </tr>
           <tr>
             <td>ALAMAT</td>
@@ -187,23 +187,28 @@
           <tr>
             <td>NAMA</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->nama_agen?$data->nama_agen:session()->get('agen_nama_perusahaan') }}" name="nama_agen" disabled></td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->nama_agen?$data->nama_agen:session()->get('agen_nama_perusahaan') }}" onchange="onTyping()" name="nama_agen" disabled></td>
           </tr>
           <tr>
             <td>PENANGGUNG JAWAB</td>
             <td>:</td>
-            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->penanggung_jawab_agen?@$data->penanggung_jawab_agen:session()->get('agen_pic') }}" name="penanggung_jawab_agen" disabled></td>
-          </tr>
-          <tr>
-            <td>DOKUMEN KEGIATAN</td>
-            <td>:</td>
-            <td><input type="file" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"> </td>
+            <td><input type="text" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ @$data->penanggung_jawab_agen?@$data->penanggung_jawab_agen:session()->get('agen_pic') }}" onchange="onTyping()" name="penanggung_jawab_agen" disabled></td>
           </tr>
           <tr>
             <td>ALAMAT</td>
             <td>:</td>
             <td>
-              <textarea name="alamat_agen" class="w-full py-10 rounded-2xl px-3 border-gray-300 mr-3" cols="30" rows="3">{{ @$data->alamat_agen?$data->alamat_agen:session()->get('agen_alamat_perusahaan') }}</textarea>
+              <textarea name="alamat_agen" onchange="onTyping()" class="w-full py-10 rounded-2xl px-3 border-gray-300 mr-3" cols="30" rows="3">{{ @$data->alamat_agen?$data->alamat_agen:session()->get('agen_alamat_perusahaan') }}</textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>DOKUMEN KEGIATAN</td>
+            <td>:</td>
+            <td>
+              <input type="file" name="file_dokumen_keagenan" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"> 
+              @if(@$data->file_dokumen_keagenan != "")
+              <a target="_blank|_self|_parent|_top|framename" href="{{ url('/') }}/{{ @$data->file_dokumen_keagenan }}" class="py-2 px-4 rounded-md hover:opacity-90 bg-orange-400 text-orange-100">Download</a>
+              @endif
             </td>
           </tr>
           <tr>
@@ -987,7 +992,6 @@
                           <input type="file" name="files" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[400px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                           @if(@$dataBrgTercemar->nama_file)
                           <div class="pt-5">
-
                             <a href="{{ url('/') }}/{{ @$dataBrgTercemar->nama_file }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download</a>
                           </div>
                           @endif
@@ -1232,21 +1236,21 @@
                       <tbody>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 40 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_40_feet_isi }}" name="tonase_40_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_40_feet_isi }}" name="tonase_40_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 40 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->box_40_feet_isi }}" name="box_40_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->box_40_feet_isi }}" name="box_40_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 20 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_20_feet_isi }}" name="tonase_20_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_20_feet_isi }}" name="tonase_20_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 20 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->box_20_feet_isi }}" name="box_20_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->box_20_feet_isi }}" name="box_20_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 45 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_45_feet_isi }}" name="tonase_45_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_45_feet_isi }}" name="tonase_45_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 45 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->box_45_feet_isi }}" name="box_45_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->box_45_feet_isi }}" name="box_45_feet_isi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
 
                       </tbody>
@@ -1262,21 +1266,21 @@
                       <tbody>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 40 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_40_feet_kosong }}" name="tonase_40_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_40_feet_kosong }}" name="tonase_40_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 40 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->box_40_feet_kosong }}" name="box_40_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->box_40_feet_kosong }}" name="box_40_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 20 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_20_feet_kosong }}" name="tonase_20_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_20_feet_kosong }}" name="tonase_20_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 20 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->box_20_feet_kosong }}" name="box_20_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->box_20_feet_kosong }}" name="box_20_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 45 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_45_feet_kosong }}" name="tonase_45_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_45_feet_kosong }}" name="tonase_45_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 45 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->box_45_feet_kosong }}" name="box_45_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->box_45_feet_kosong }}" name="box_45_feet_kosong" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
 
                       </tbody>
@@ -1292,19 +1296,19 @@
                       <tbody>
                         <tr>
                           <td class="py-4">Jumlah Tonase Cargo <br> barang Campur </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_kargo_brg_campur }}" name="tonase_kargo_brg_campur" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_kargo_brg_campur }}" name="tonase_kargo_brg_campur" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Tonase Cargo <br> barang Karung </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_kargo_brg_karung }}" name="tonase_kargo_brg_karung" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_kargo_brg_karung }}" name="tonase_kargo_brg_karung" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase Cargo <br> barang Curah </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_kargo_brg_curah }}" name="tonase_kargo_brg_curah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_kargo_brg_curah }}" name="tonase_kargo_brg_curah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Tonase Cargo <br> barang Cair </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_kargo_brg_cair }}" name="tonase_kargo_brg_cair" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_kargo_brg_cair }}" name="tonase_kargo_brg_cair" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase Cargo <br> barang Berbahaya </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_kargo_brg_berbahaya }}" name="tonase_kargo_brg_berbahaya" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_kargo_brg_berbahaya }}" name="tonase_kargo_brg_berbahaya" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class=""></td>
                           <td></td>
                         </tr>
@@ -1322,27 +1326,27 @@
                       <tbody>
                         <tr>
                           <td class="py-4">RODA DUA</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->roda_dua }}" name="roda_dua" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->roda_dua }}" name="roda_dua" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">UNIT </td>
                         </tr>
                         <tr>
                           <td class="py-4">RODA EMPAT</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->roda_empat }}" name="roda_empat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->roda_empat }}" name="roda_empat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">UNIT </td>
                         </tr>
                         <tr>
                           <td class="py-4">BUS</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->bus }}" name="bus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->bus }}" name="bus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">UNIT </td>
                         </tr>
                         <tr>
                           <td class="py-4">TRUK</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->truk }}" name="truk" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->truk }}" name="truk" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">UNIT </td>
                         </tr>
                         <tr>
                           <td class="py-4">ALAT BERAT</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->alat_berat }}" name="alat_berat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->alat_berat }}" name="alat_berat" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">UNIT </td>
                         </tr>
 
@@ -1362,21 +1366,21 @@
                       <tbody>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 40 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_40_feet_isi2}}" name="tonase_40_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_40_feet_isi2}}" name="tonase_40_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 40 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->box_40_feet_isi }}" name="box_40_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->box_40_feet_isi }}" name="box_40_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 20 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_20_feet_isi }}" name="tonase_20_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_20_feet_isi }}" name="tonase_20_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 20 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->box_20_feet_isi }}" name="box_20_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->box_20_feet_isi }}" name="box_20_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 45 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_45_feet_isi }}" name="tonase_45_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_45_feet_isi }}" name="tonase_45_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 45 feet isi </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->box_45_feet_isi }}" name="box_45_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->box_45_feet_isi }}" name="box_45_feet_isi2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
 
                       </tbody>
@@ -1392,21 +1396,21 @@
                       <tbody>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 40 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_40_feet_kosong }}" name="tonase_40_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_40_feet_kosong }}" name="tonase_40_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 40 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->box_40_feet_kosong }}" name="box_40_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->box_40_feet_kosong }}" name="box_40_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 20 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_20_feet_kosong }}" name="tonase_20_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_20_feet_kosong }}" name="tonase_20_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 20 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->box_20_feet_kosong }}" name="box_20_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->box_20_feet_kosong }}" name="box_20_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase <br> kontainer 45 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_45_feet_kosong }}" name="tonase_45_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_45_feet_kosong }}" name="tonase_45_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Box <br> kontainer 45 feet kosong </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->box_45_feet_kosong }}" name="box_45_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->box_45_feet_kosong }}" name="box_45_feet_kosong2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
 
                       </tbody>
@@ -1422,19 +1426,19 @@
                       <tbody>
                         <tr>
                           <td class="py-4">Jumlah Tonase Cargo <br> barang Campur </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_kargo_brg_campur }}" name="tonase_kargo_brg_campur2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_kargo_brg_campur }}" name="tonase_kargo_brg_campur2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Tonase Cargo <br> barang Karung </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_kargo_brg_karung }}" name="tonase_kargo_brg_karung2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_kargo_brg_karung }}" name="tonase_kargo_brg_karung2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase Cargo <br> barang Curah </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_kargo_brg_curah }}" name="tonase_kargo_brg_curah2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_kargo_brg_curah }}" name="tonase_kargo_brg_curah2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">Jumlah Tonase Cargo <br> barang Cair </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_kargo_brg_cair }}" name="tonase_kargo_brg_cair2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_kargo_brg_cair }}" name="tonase_kargo_brg_cair2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase Cargo <br> barang Berbahaya </td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_kargo_brg_berbahaya }}" name="tonase_kargo_brg_berbahaya2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_kargo_brg_berbahaya }}" name="tonase_kargo_brg_berbahaya2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class=""></td>
                           <td></td>
                         </tr>
@@ -1451,27 +1455,27 @@
                       <tbody>
                         <tr>
                           <td class="py-4">RODA DUA</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->roda_dua }}" name="roda_dua2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->roda_dua }}" name="roda_dua2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">UNIT </td>
                         </tr>
                         <tr>
                           <td class="py-4">RODA EMPAT</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->roda_empat }}" name="roda_empat2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->roda_empat }}" name="roda_empat2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">UNIT </td>
                         </tr>
                         <tr>
                           <td class="py-4">BUS</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->bus }}" name="bus2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->bus }}" name="bus2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">UNIT </td>
                         </tr>
                         <tr>
                           <td class="py-4">TRUK</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->truk }}" name="truk2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->truk }}" name="truk2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">UNIT </td>
                         </tr>
                         <tr>
                           <td class="py-4">ALAT BERAT</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->alat_berat }}" name="alat_berat2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->alat_berat }}" name="alat_berat2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">UNIT </td>
                         </tr>
 
@@ -1493,27 +1497,27 @@
                       <tbody>
                         <tr>
                           <td class="py-4">Nama Jenis Barang Lain</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->jenis_brg_lain }}" name="jenis_brg_lain" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->jenis_brg_lain }}" name="jenis_brg_lain" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">TON </td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase yang dimuat</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->tonase_brg_lain }}" name="tonase_brg_lain" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->tonase_brg_lain }}" name="tonase_brg_lain" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">TON </td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Total Tonase yang dimuat</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->total_tonase_brg_lain }}" name="total_tonase_brg_lain" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->total_tonase_brg_lain }}" name="total_tonase_brg_lain" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">TON </td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Penumpang yang naik</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->jlh_penumpang }}" name="jlh_penumpang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->jlh_penumpang }}" name="jlh_penumpang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">ORANG </td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Hewan yang dimuat</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataMuat->jlh_hewan }}" name="jlh_hewan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataMuat->jlh_hewan }}" name="jlh_hewan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">EKOR </td>
                         </tr>
 
@@ -1527,27 +1531,27 @@
                       <tbody>
                         <tr>
                           <td class="py-4">Nama Jenis Barang Lain</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->jenis_brg_lain }}" name="jenis_brg_lain2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->jenis_brg_lain }}" name="jenis_brg_lain2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">TON </td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Tonase yang dimuat</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->tonase_brg_lain }}" name="tonase_brg_lain2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->tonase_brg_lain }}" name="tonase_brg_lain2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="">TON </td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Total Tonase yang dimuat</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->total_tonase_brg_lain }}" name="total_tonase_brg_lain2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->total_tonase_brg_lain }}" name="total_tonase_brg_lain2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">TON </td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Penumpang yang naik</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->jlh_penumpang }}" name="jlh_penumpang2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->jlh_penumpang }}" name="jlh_penumpang2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">ORANG </td>
                         </tr>
                         <tr>
                           <td class="py-4">Jumlah Hewan yang dimuat</td>
-                          <td><input type="number" step="0.01"  value="{{ @$dataBongkar->jlh_hewan }}" name="jlh_hewan2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
+                          <td><input type="number" step="0.01" value="{{ @$dataBongkar->jlh_hewan }}" name="jlh_hewan2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></td>
                           <td class="text-left">EKOR </td>
                         </tr>
 
@@ -1707,11 +1711,33 @@
     data['waktu_tiba'] = data['waktu_tiba'].replace("T", " ");
     data['waktu_berangkat'] = data['waktu_berangkat'].replace("T", " ");
 
-    $.when(sendAjax('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/save', data, 'post')).done(function(res) {
+
+    let formData = new FormData();
+    // console.log("files",$('input[name="file_dokumen_keagenan"]')[0].files[0])
+    if ($('input[name="file_dokumen_keagenan"]')[0].files[0]) {
+      formData.append("files", $('input[name="file_dokumen_keagenan"]')[0].files[0]);
+    }
+    for (var key in data) {
+      var obj = data[key];
+      if (data[key] != undefined && data[key] != "" && data[key] != null) {
+        formData.append(key, data[key]);
+      }
+      // console.log("key", key)
+      // console.log("obj", obj)
+      // ...
+    }
+
+
+    $.when(sendAjaxUpload('{{ URL::to("") }}/api/pelayanan-kapal/pengajuan-pkk/save', formData, 'post')).done(function(res) {
       if (res.status) {
         if (message) pesanSweet('Berhasil!', res.message);
       } else {
-        if (message) pesanSweet('Gagal!', res.message, 'warning');
+        if (message) pesanSweet('Peringatan!', "Data telah disimpan", 'warning');
+      }
+      if(message){
+        setTimeout(function(){
+          window.location.reload(1);
+        }, 2000);
       }
     });
   }
@@ -1785,6 +1811,19 @@
   $('input[name="jlh_penumpang_dewasa"]').on("change", function() {
     save(false);
   })
+
+  let isTyping = false;
+  let typingTimer = null;
+
+  function onTyping() {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(() => {
+      isTyping = false;
+      // onListPegawai(query)
+      save(false)
+      // console.log("save")
+    }, 2000);
+  }
 </script>
 
 

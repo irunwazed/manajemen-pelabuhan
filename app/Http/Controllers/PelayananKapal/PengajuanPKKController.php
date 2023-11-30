@@ -224,6 +224,18 @@ class PengajuanPKKController extends Controller
       }
     }
 
+    if ($request->file('files')) {
+      // echo "ada";
+      // print_r($request->file('files'));
+      $file = $request->file('files');
+      $filename = time() . '_' . $file->getClientOriginalName();
+
+      // File upload location
+      $location = 'files/agen/dokumen';
+      $file->move($location, $filename);
+      $data['file_dokumen_keagenan'] = $location . "/" . $filename;
+    }
+
 
 
     $status = DB::table('t_pelayanan_kapal')->where("pelayanan_kapal_id", $input['pelayanan_kapal_id'])->update($data);

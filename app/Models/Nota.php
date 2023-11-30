@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Nota extends Model
 {
-    protected $table = 'Penerimaan.php';
+    protected $table = 't_keu_nota';
     protected $primaryKey = 'nota_id';
     public $timestamps = false;
 
@@ -17,7 +17,8 @@ class Nota extends Model
         "jenis",
         "tanggal",
         "jumlah",
-        "terbayar"
+        "terbayar",
+        "keterangan"
     ];
 
 }

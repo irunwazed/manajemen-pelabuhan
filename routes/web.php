@@ -10,7 +10,7 @@ use App\Http\Controllers\Alat\PbauAlatController;
 use App\Http\Controllers\AnekaUsaha\LahanController;
 use App\Http\Controllers\PelayananBarang\PenumpukanBarang2B1;
 use App\Http\Controllers\PelayananBarang\PengeluaranBarang2B2;
-
+use App\Http\Controllers\Warehousing\PengeluaranBarangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -196,9 +196,11 @@ Route::prefix('/{user}/keuangan')->group(function () {
         ];
         return view('app/keuangan', $data);
     });
-    Route::get('/penerimaan', 'Keuangan\PenerimaanController@index');
+ 
+    Route::get('/penerimaan', 'Keuangan\PenerimaanController@index')->name('penerimaan-list');
     Route::get('/penerimaan/{id}', 'Keuangan\PenerimaanController@detail');
-    Route::get('/penerimaan/create', 'Keuangan\PenerimaanController@create');
+    Route::get('/penerimaan-baru', 'Keuangan\PenerimaanController@create');
+    Route::post('/penerimaan-baru', 'Keuangan\PenerimaanController@save');
 
 });
 
@@ -281,12 +283,26 @@ Route::prefix('/{user}/warehousing')->group(function () {
         ];
         return view('app/warehousing', $data);
     });
-    Route::get('/{menu}', function ($user, $menu) {
-        $data = [
-            "user" => $user
-        ];
-        return view('app/warehousing/'.$menu, $data);
-    });
+
+    Route::get('/pengeluaran-barang', 'Warehousing\PengeluaranBarangController@show');
+    Route::get('/pengeluaran-barang/view-pengeluaran-barang/{id_pengeluaran}', [PengeluaranBarangController::class,'viewPengeluaran']);
+    Route::get('/pengeluaran-barang/create-pengeluaran-barang/{id_pengeluaran}', [PengeluaranBarangController::class,'addPengeluaran']);
+    Route::post('/pengeluaran-barang/create-pengeluaran-barang/simpan', [PengeluaranBarangController::class,'tambahDataPengeluaran']);
+ 
+   //update ririn
+   Route::get('/penerimaan-barang', 'Warehousing\WarehousingController@index');
+   Route::get('/penerimaan-barang/filter', 'Warehousing\WarehousingController@index');
+   Route::get('/create-penerimaan-barang', 'Warehousing\WarehousingController@penerimaanBarangForm');
+   Route::get('/edit-penerimaan-barang/{id}', 'Warehousing\WarehousingController@penerimaanBarangForm');
+   Route::get('/view-penerimaan-barang/{id}', 'Warehousing\WarehousingController@viewPenerimaanBarangForm');
+   Route::get('/penerimaan-barang/delete/{id}', 'Warehousing\WarehousingController@destroy');
+   Route::delete('/penerimaan-barang-container/delete', 'Warehousing\WarehousingController@destroyContainer');
+   Route::post('/submit-penerimaan-barang/{id}', 'Warehousing\WarehousingController@submitPenerimaanBarang');
+   Route::get('/penerimaan-detail', 'Warehousing\WarehousingController@getDetail');
+   Route::get('/container-detail/edit', 'Warehousing\WarehousingController@getContainerDetail');
+   Route::post('/submit-container-detail/{id}', 'Warehousing\WarehousingController@submitPenerimaanContaner');
+
+
 });
 
 

@@ -14,9 +14,8 @@ class SimlalaController extends Controller
   {
     $search = $request->input('search');
 
-
-    $page = @$request->input('page') ? $request->input('page') : 1;
-    $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
+    $page = @$request->input('page') >= 1 ? $request->input('page') : 1;
+    $perPage = @$request->input('perPage') >= 1 ? $request->input('perPage') : 10;
 
 
     $query = DB::table('mt_simlala_rpk')
@@ -44,7 +43,7 @@ class SimlalaController extends Controller
       "total" => $total,
       "totalPage" => (ceil($total / $perPage)),
     ];
-    //dd(  $result);
+
     return view('app.pelayanan-kapal.simlala', $result);
   }
 

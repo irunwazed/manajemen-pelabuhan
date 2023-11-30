@@ -15,8 +15,8 @@ class RPKROController extends Controller
     $no_pkk = @$request->input('no_pkk');
     $nama_kapal = @$request->input('nama_kapal');
 
-    $page = @$request->input('page') ? $request->input('page') : 1;
-    $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
+    $page = @$request->input('page') >= 1 ? $request->input('page') : 1;
+    $perPage = @$request->input('perPage') >= 1 ? $request->input('perPage') : 10;
 
 
     $query = DB::table('t_pelayanan_kapal')
@@ -25,6 +25,9 @@ class RPKROController extends Controller
         "t_pelayanan_kapal_rpkro.pelayanan_kapal_rpkro_id",
         "t_pelayanan_kapal_rkbm.flag as rkbm_flag",
         "t_pelayanan_kapal_rpkro.flag as rpkro_flag",
+        "t_pelayanan_kapal_rpkro.no_rpkro",
+        "t_pelayanan_kapal_rpkro.nama_dermaga",
+        "t_pelayanan_kapal_rpkro.waktu_rencana",
       ])
       ->leftJoin("t_pelayanan_kapal_rpkro", "t_pelayanan_kapal_rpkro.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
       ->leftJoin("t_pelayanan_kapal_rkbm", "t_pelayanan_kapal_rkbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
