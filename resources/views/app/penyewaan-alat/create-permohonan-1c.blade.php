@@ -609,101 +609,101 @@
                 console.log('Error:', error);
             }
         });
-
-        function updatePaginationLinks(pagination) {
-            var linksHtml = '';
-            if (pagination.prev_page_url) {
-                linksHtml += '<a href="' + pagination.prev_page_url + '">Previous</a>';
-            }
-            for (var i = 1; i <= pagination.last_page; i++) {
-                var activeClass = (i === pagination.current_page) ? 'disabled' : '';
-                linksHtml += '<a href="' + pagination.path + '?page=' + i + '" class="' + activeClass + '">' + i + '</a>';
-            }
-            if (pagination.next_page_url) {
-                linksHtml += '<a href="' + pagination.next_page_url + '">Next</a>';
-            }
-            $('.pagination').html(linksHtml);
+    }
+    
+    function updatePaginationLinks(pagination) {
+        var linksHtml = '';
+        if (pagination.prev_page_url) {
+            linksHtml += '<a href="' + pagination.prev_page_url + '">Previous</a>';
         }
+        for (var i = 1; i <= pagination.last_page; i++) {
+            var activeClass = (i === pagination.current_page) ? 'disabled' : '';
+            linksHtml += '<a href="' + pagination.path + '?page=' + i + '" class="' + activeClass + '">' + i + '</a>';
+        }
+        if (pagination.next_page_url) {
+            linksHtml += '<a href="' + pagination.next_page_url + '">Next</a>';
+        }
+        $('.pagination').html(linksHtml);
+    }
 
-        // Add this function to handle edit button click
-        $(document).on('click', '.edit-button', function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            
-            $("tr").removeClass('selected-row');
-            $(this).parent().parent().addClass('selected-row');
-            
-            pbauAlat1cIdDetail = $(this).data('record-id');
+    // Add this function to handle edit button click
+    $(document).on('click', '.edit-button', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        
+        $("tr").removeClass('selected-row');
+        $(this).parent().parent().addClass('selected-row');
+        
+        pbauAlat1cIdDetail = $(this).data('record-id');
 
+        $.ajax({
+            url: '{{ url("admin/penyewaan-alat/get-alat-detail/edit") }}',
+            type: 'GET',
+            data: { id: pbauAlat1cIdDetail },
+            dataType: 'json',
+            success: function (data) {
+                var data = data.data;
+                $('#alat').val(data.alat_id).trigger('change'); 
+                $('#date-start').val(data.tgl_mulai_mohon.split(' ')[0]);
+                $('#time-start').val(data.tgl_mulai_mohon.split(' ')[1]);
+                $('#date-end').val(data.tgl_selesai_mohon.split(' ')[0]);
+                $('#time-end').val(data.tgl_selesai_mohon.split(' ')[1]);
+                $('#jumlah_alat').val(data.jumlah_alat);
+                $('#satuan_tarif').val(data.satuan_tarif);
+                $('#harga_alat').val(data.tarif_alat);
+
+                $('button.edit-alat').prop('disabled', false);
+                $('button.tambah-alat').prop('disabled', true);
+
+                $('html, body').animate({
+                    scrollTop: $('#permohonan-form').offset().top
+                }, 'slow');
+            },
+            error: function (error) {
+                console.log('Error:', error);
+            }
+        });
+    });
+
+    $(document).on('click', '.delete-button', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        var deleteId = $(this).data('record-id');
+        
+        if (confirm('Are you sure you want to delete this record?')) {
             $.ajax({
-                url: '{{ url("admin/penyewaan-alat/get-alat-detail/edit") }}',
-                type: 'GET',
-                data: { id: pbauAlat1cIdDetail },
-                dataType: 'json',
-                success: function (data) {
-                    var data = data.data;
-                    $('#alat').val(data.alat_id).trigger('change'); 
-                    $('#date-start').val(data.tgl_mulai_mohon.split(' ')[0]);
-                    $('#time-start').val(data.tgl_mulai_mohon.split(' ')[1]);
-                    $('#date-end').val(data.tgl_selesai_mohon.split(' ')[0]);
-                    $('#time-end').val(data.tgl_selesai_mohon.split(' ')[1]);
-                    $('#jumlah_alat').val(data.jumlah_alat);
-                    $('#satuan_tarif').val(data.satuan_tarif);
-                    $('#harga_alat').val(data.tarif_alat);
-
-                    $('button.edit-alat').prop('disabled', false);
-                    $('button.tambah-alat').prop('disabled', true);
-
-                    $('html, body').animate({
-                        scrollTop: $('#permohonan-form').offset().top
-                    }, 'slow');
+                type: 'DELETE',
+                url: '{{ url("/admin/penyewaan-alat/get-alat-detail/delete") }}',
+                data: {id: deleteId},
+                success: function(response) {
+                    fetchData(1, pbauAlat1cId);
                 },
-                error: function (error) {
-                    console.log('Error:', error);
+                error: function(xhr) {
+                    console.error(xhr.responseJSON.error);
                 }
             });
-        });
+        }
+    });
 
-        $(document).on('click', '.delete-button', function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
+    $(document).on('click', 'button.tambah-alat', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation()
+        $('button.edit-alat').prop('disabled', true);
+        $('button.tambah-alat').prop('disabled', false);
+        buttonAlat = "tambah";
+        $('#permohonan-form').submit();
+    });
 
-            var deleteId = $(this).data('record-id');
-            
-            if (confirm('Are you sure you want to delete this record?')) {
-                $.ajax({
-                    type: 'DELETE',
-                    url: '{{ url("/admin/penyewaan-alat/get-alat-detail/delete") }}',
-                    data: {id: deleteId},
-                    success: function(response) {
-                        fetchData(1, pbauAlat1cId);
-                    },
-                    error: function(xhr) {
-                        console.error(xhr.responseJSON.error);
-                    }
-                });
-            }
-        });
+    $(document).on('click', 'button.edit-alat', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation()
 
-        $(document).on('click', 'button.tambah-alat', function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation()
-            $('button.edit-alat').prop('disabled', true);
-            $('button.tambah-alat').prop('disabled', false);
-            buttonAlat = "tambah";
-            $('#permohonan-form').submit();
-        });
-
-        $(document).on('click', 'button.edit-alat', function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation()
-
-            $('button.edit-alat').prop('disabled', false);
-            $('button.tambah-alat').prop('disabled', true);
-            buttonAlat = "edit";
-            $('#permohonan-form').submit();
-        });
-    }
+        $('button.edit-alat').prop('disabled', false);
+        $('button.tambah-alat').prop('disabled', true);
+        buttonAlat = "edit";
+        $('#permohonan-form').submit();
+    });
 
 </script>
 @endsection

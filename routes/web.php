@@ -217,21 +217,11 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
 
     //sub menu 4
     Route::get('/nota-4c', 'Alat\PbauAlatController@indexNota4c');
+    Route::get('/form-4c/filter', 'Alat\PbauAlatController@indexNota4c');
     Route::get('/create-nota-4c/{id}', 'Alat\PbauAlatController@createNota4C');
     Route::get('/nota-4c/invoice/{id}', 'Alat\PbauAlatController@generateInvoice');
     Route::post('/submit-nota-4c/{id}', 'Alat\PbauAlatController@submitNota4c');
     
-
-    /*Route::resource('permohonan-1c', Alat\PbauAlatController::class)->parameters([
-        'pbau-alat' => 'pbau_alat_1c_id',
-    ])->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
-
-    /*Route::get('/{menu}', function ($user, $menu) {
-        $data = [
-            "user" => $user
-        ];
-        return view('app/penyewaan-alat/'.$menu, $data);
-    });*/
 });
 
 Route::prefix('/{user}/management-user')->group(function () {
@@ -246,6 +236,21 @@ Route::prefix('/{user}/management-user')->group(function () {
     Route::get('/add-group-user', 'User\UserController@groupUserForm');
     Route::get('/edit-group-user/{id}', 'User\UserController@groupUserForm');
     Route::post('/submit-group-user', 'User\UserController@submitGroupUser');
+});
+
+Route::prefix('/{user}/warehousing')->group(function () {
+    Route::get('/penerimaan-barang', 'Warehousing\WarehousingController@index');
+    Route::get('/penerimaan-barang/filter', 'Warehousing\WarehousingController@index');
+    Route::get('/create-penerimaan-barang', 'Warehousing\WarehousingController@penerimaanBarangForm');
+    Route::get('/edit-penerimaan-barang/{id}', 'Warehousing\WarehousingController@penerimaanBarangForm');
+    Route::get('/view-penerimaan-barang/{id}', 'Warehousing\WarehousingController@viewPenerimaanBarangForm');
+    Route::get('/penerimaan-barang/delete/{id}', 'Warehousing\WarehousingController@destroy');
+    Route::delete('/penerimaan-barang-container/delete', 'Warehousing\WarehousingController@destroyContainer');
+    Route::post('/submit-penerimaan-barang/{id}', 'Warehousing\WarehousingController@submitPenerimaanBarang');
+    Route::get('/penerimaan-detail', 'Warehousing\WarehousingController@getDetail');
+    Route::get('/container-detail/edit', 'Warehousing\WarehousingController@getContainerDetail');
+    Route::post('/submit-container-detail/{id}', 'Warehousing\WarehousingController@submitPenerimaanContaner');
+    
 });
 
 Route::prefix('/{user}/aneka-usaha')->group(function () {
