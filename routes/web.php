@@ -171,6 +171,8 @@ Route::prefix('/{user}/keuangan')->group(function () {
     Route::get('/penerimaan/{id}', 'Keuangan\PenerimaanController@detail');
     Route::get('/penerimaan-baru', 'Keuangan\PenerimaanController@create');
     Route::post('/penerimaan-baru', 'Keuangan\PenerimaanController@save');
+
+    Route::get('/neraca', 'Keuangan\NeracaController@index')->name('neraca');
 });
 
 

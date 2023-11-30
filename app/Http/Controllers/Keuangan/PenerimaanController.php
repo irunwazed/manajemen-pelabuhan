@@ -9,7 +9,6 @@ use App\Models\PenerimaanDetail;
 use App\Models\Perusahaan;
 use App\Models\Rekening;
 use App\Models\RekeningKas;
-use App\Models\RekeningPiutangUsaha;
 use App\Services\Keuangan\PenerimaanService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
