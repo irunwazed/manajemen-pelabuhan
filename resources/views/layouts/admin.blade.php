@@ -15,9 +15,10 @@ if(!@session()->get("id")){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin - @yield('title')</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
+  {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" /> --}}
   <!-- <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet" type="text/css" /> -->
   <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>  -->
+  <link href="{{ asset('plugins/custom/flowbite-1-8-1/flowbite.min.css') }}" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
   <link href="{{ asset('plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('plugins/custom/fancybox/jquery.fancybox.css') }}" rel="stylesheet" type="text/css" />
@@ -297,10 +298,13 @@ if(!@session()->get("id")){
     </div>
 
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script> --}}
+  {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> --}}
+  {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="{{ asset('plugins/custom/flowbite-1-8-1/flowbite.min.js') }}"></script>
+  <script src="{{ asset('plugins/custom/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('plugins/custom/sweetalert/sweetalert.min.js') }}"></script>
   <script src="{{ asset('plugins/custom/datatables/datatables.bundle.js') }}"></script>
   <script src="{{ asset('plugins/custom/fancybox/jquery.fancybox.js') }}"></script>
 
