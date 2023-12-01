@@ -57,7 +57,7 @@
         @else
       <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
         @endif
-        <td>{{ $loop->index+1 }}</td>
+            <td class="text-center">{{ ((@$page-1)*@$perPage)+$loop->index+1 }}</td>
         <td>{{@$row->nama_agen}}</td>
         <td>{{@$row->tanggal_registrasi_permohonan}}</td>
         <td>{{@$row->keperluan}}</td>

@@ -16,8 +16,14 @@ function changeDateFormate($_tanggal)
     'November',
     'Desember'
   );
+
+
+  return $_tanggal;
+
   $tanggal = explode(' ', $_tanggal);
   $pecahkan = explode('-', $tanggal[0]);
+
+  
 
   if(count($pecahkan) < 3) return $_tanggal;
   
