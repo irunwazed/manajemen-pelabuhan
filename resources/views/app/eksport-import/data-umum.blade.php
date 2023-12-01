@@ -21,49 +21,49 @@
                     <td>nama perusahaan</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="nama_perusahaan">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Alamat</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="alamat">
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>No Pengajuan</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_pengajuan">
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>kantor Pelayanan</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="kantor_pelayanan">
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>Nama Pengangkut</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="nama_pengangkut">
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>Tanggal Tiba</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="tgl_tiba">
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>Pelabuhan Asal</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="pelabuhan_asal">
                     </td>
                 </tr> 
             </table>
@@ -74,42 +74,42 @@
                     <td>NPWP</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="npwp_perusahaan">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>No Daftar</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_daftar">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>No Pengangkut</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_pengangkut">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Pelabuhan Bongkar</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="pelabuhan_bongkar">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Tanggal Daftar</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="tgl_daftar">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Kode negara</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="kode_negara"> 
                     </td>
                 </tr>
             </table>
