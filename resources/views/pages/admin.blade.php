@@ -326,7 +326,7 @@ array_push($navigations, [
                 <div class="mt-6 font-semibold text-center">{{ $navigation['name'] }}</div>
               </div>
             </a>
-         @elseif(($navigation['name']==="MANAJEMEN PENGGUNA" || $navigation['name']==="KEUANGAN" || $navigation['name']==="WAREHOUSING")  && @$user === "admin")
+         @elseif(($navigation['name']==="MANAJEMEN PENGGUNA" || $navigation['name']==="EKSPORT-IMPORT" || $navigation['name']==="KEUANGAN" || $navigation['name']==="WAREHOUSING")  && @$user === "admin")
             <a href="{{ url('').$navigation['url'] }}">
               <div class="max-w-[200px] min-h-[290px] bg-white text-primary p-6 rounded-lg shadow-xl hover:bg-primary hover:text-white hover:scale-105  transition-all">
                 <center>

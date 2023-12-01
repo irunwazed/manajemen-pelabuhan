@@ -130,35 +130,7 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
     Route::get('/create-nota-4c/{id}', 'Alat\PbauAlatController@createNota4C');
     Route::get('/nota-4c/invoice/{id}', 'Alat\PbauAlatController@generateInvoice');
     Route::post('/submit-nota-4c/{id}', 'Alat\PbauAlatController@submitNota4c');
-    
-
-    /*Route::resource('permohonan-1c', Alat\PbauAlatController::class)->parameters([
-        'pbau-alat' => 'pbau_alat_1c_id',
-    ])->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
-
-    /*Route::get('/{menu}', function ($user, $menu) {
-        $data = [
-            "user" => $user
-        ];
-        return view('app/penyewaan-alat/'.$menu, $data);
-    });*/
 });
-
-
-/*Route::prefix('/{user}/aneka-usaha')->group(function () {
-    Route::get('/', function ($user) {
-        $data = [
-            "user" => $user
-        ];
-        return view('app/aneka-usaha', $data);
-    });
-    Route::get('/{menu}', function ($user, $menu) {
-        $data = [
-            "user" => $user
-        ];
-        return view('app/aneka-usaha/'.$menu, $data);
-    });
-});*/
 
 //Route untuk aneka usaha
 Route::get('/perusahaan/{id}', [LahanController::class, 'companyinfoById'])->name('companyinfoById');
@@ -166,18 +138,22 @@ Route::get('/perusahaan-lokasi/{id}', [LahanController::class, 'lahaninfoById'])
 //Route::get('/pranota-permohonan-sewa-lahan', [pranotaLahan::class, 'praNota'])->name('praNota');
 
 
-Route::prefix('/{user}/aneka-usaha/')->group(function () {
-    Route::get('/permohonan-sewa-lahan', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
-    Route::post('/perusahaan-lahan-create', [LahanController::class, 'Lahancreate'])->name('lahanCreate');
-    Route::get('/create-permohonan-sewa-lahan', [LahanController::class, 'companyInfo'])->name('companyInfo');
-    Route::get('/list-permohonan-sewa-lahan', [LahanController::class, 'res'])->name('res');
-
+    Route::prefix('/{user}/aneka-usaha/')->group(function () {
+   
     Route::get('/', function ($user) {
         $data = [
             "user" => $user
         ];
         return view('app/aneka-usaha', $data);
     });
+    Route::get('/permohonan-sewa-lahan', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
+    Route::post('/perusahaan-lahan-create', [LahanController::class, 'Lahancreate'])->name('lahanCreate');
+    Route::get('/create-permohonan-sewa-lahan', [LahanController::class, 'companyInfo'])->name('companyInfo');
+    Route::get('/list-permohonan-sewa-lahan', [LahanController::class, 'res'])->name('res');
+
+
+ //routing bunker
+ Route::get('/permohonan-sewa-bunker', 'AnekaUsaha\BunkerController@show');
 
     Route::get('/{menu}', function ($user, $menu) {
         $data = [
@@ -222,33 +198,7 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         return view('app/eksport-import', $data);
     });
 
-    Route::get('/{menu}', function ($user, $menu) {
-        $data_pelabuhan = DB::table('m_pelabuhan')->get();
-        $data_jenis_impor = DB::table('m_jenis_impor')->get();
-        $data_jenis_ekspor = DB::table('m_jenis_ekspor')->get();
-        $data_cara_bayar = DB::table('m_cara_bayar')->get();
-        $kategori_ekspor = DB::table('m_kategroi_ekspor')->get();
-        $data_cara_dagang = DB::table('m_cara_dagang')->get();
-        $data_kemasan = DB::table('m_kemasan')->get();
-        $data_hs_code = DB::table('m_hs_code')->get();
-        $data_header_pib = DB::table('t_header_pib')->get();
-        $data = [
-            "user" => $user,
-            "data_pelabuhan" => $data_pelabuhan,
-            "data_jenis_impor" => $data_jenis_impor,
-            "data_cara_bayar" => $data_cara_bayar,
-            "data_jenis_ekspor" => $data_jenis_ekspor,
-            "kategori_ekspor"=> $kategori_ekspor,
-            "data_cara_dagang"=> $data_cara_dagang,
-            "data_kemasan"=> $data_kemasan,
-            "data_hs_code"=> $data_hs_code,
-            "data_header_pib"=> $data_header_pib
-        ];
-        return view('app/eksport-import/'.$menu, $data);
-    });
-});
-
-// Route post Import
+    // Route post Import
 Route::post('/import/save_header','EksportImport\ImportController@saveHeader');
 Route::post('/import/save_pengangkutan','EksportImport\ImportController@savePengangkutan');
 Route::post('/import/save_transaksi','EksportImport\ImportController@saveTransaksi');
@@ -274,6 +224,37 @@ Route::post('/Manifest/data_umum','EksportImport\EksportController@data_umum');
 Route::post('/Manifest/bill_landing','EksportImport\EksportController@bill_landing');
 Route::post('/Manifest/lampiran','EksportImport\EksportController@lampiran');
 Route::post('/Manifest/hs_code','EksportImport\EksportController@hscode');
+
+    Route::get('/{menu}', function ($user, $menu) {
+        $data_pelabuhan = DB::table('m_pelabuhan')->get();
+        $data_jenis_impor = DB::table('m_jenis_impor')->get();
+        $data_jenis_ekspor = DB::table('m_jenis_ekspor')->get();
+        $data_cara_bayar = DB::table('m_cara_bayar')->get();
+        $kategori_ekspor = DB::table('m_kategroi_ekspor')->get();
+        $data_cara_dagang = DB::table('m_cara_dagang')->get();
+        $data_kemasan = DB::table('m_kemasan')->get();
+        $data_hs_code = DB::table('m_hs_code')->get();
+        $data_header_pib = DB::table('t_header_pib')->get();
+        $data = [
+            "user" => $user,
+            "data_pelabuhan" => $data_pelabuhan,
+            "data_jenis_impor" => $data_jenis_impor,
+            "data_cara_bayar" => $data_cara_bayar,
+            "data_jenis_ekspor" => $data_jenis_ekspor,
+            "kategori_ekspor"=> $kategori_ekspor,
+            "data_cara_dagang"=> $data_cara_dagang,
+            "data_kemasan"=> $data_kemasan,
+            "data_hs_code"=> $data_hs_code,
+            "data_header_pib"=> $data_header_pib
+        ];
+        return view('app/eksport-import/'.$menu, $data);
+    });
+
+
+
+});
+
+
 
 //route warehousing
 Route::prefix('/{user}/warehousing')->group(function () {

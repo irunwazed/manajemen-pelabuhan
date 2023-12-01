@@ -11,10 +11,10 @@ use Exception;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class BunkerController
+class BunkerController extends Controller
 {
 
-    public function listSewaBunker(Request $request, $user)
+    public function show(Request $request, $user)
     {
         $search = $request->input('search');
         $page = @$request->input('page') ? $request->input('page') : 1;
@@ -68,7 +68,7 @@ class BunkerController
             "totalPage" => (ceil($total / $perPage)),
         ];
 
-        return view('app.aneka-usaha.permohonan-sewa-lahan', $result);
+        return view('app.aneka-usaha.bunker.permohonan-sewa-bunker', $result);
     }
 
 
