@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\DB;
-//use App\Models\PenumpukanBarang2B1;
-//use App\Models\PengeluaranBarang2B2;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PelayananBarang\Nota3B;
 use App\Http\Controllers\PelayananBarang\Nota4B;
@@ -198,7 +196,32 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         return view('app/eksport-import', $data);
     });
 
-    // Route post Import
+    Route::get('/{menu}', function ($user, $menu) {
+        $data_pelabuhan = DB::table('m_pelabuhan')->get();
+        $data_jenis_impor = DB::table('m_jenis_impor')->get();
+        $data_jenis_ekspor = DB::table('m_jenis_ekspor')->get();
+        $data_cara_bayar = DB::table('m_cara_bayar')->get();
+        $kategori_ekspor = DB::table('m_kategroi_ekspor')->get();
+        $data_cara_dagang = DB::table('m_cara_dagang')->get();
+        $data_kemasan = DB::table('m_kemasan')->get();
+        $data_hs_code = DB::table('m_hs_code')->get();
+        $data_header_pib = DB::table('t_header_pib')->get();
+        $data = [
+            "user" => $user,
+            "data_pelabuhan" => $data_pelabuhan,
+            "data_jenis_impor" => $data_jenis_impor,
+            "data_cara_bayar" => $data_cara_bayar,
+            "data_jenis_ekspor" => $data_jenis_ekspor,
+            "kategori_ekspor"=> $kategori_ekspor,
+            "data_cara_dagang"=> $data_cara_dagang,
+            "data_kemasan"=> $data_kemasan,
+            "data_hs_code"=> $data_hs_code,
+            "data_header_pib"=> $data_header_pib
+        ];
+        return view('app/eksport-import/'.$menu, $data);
+    });
+
+// Route post Import
 Route::post('/import/save_header','EksportImport\ImportController@saveHeader');
 Route::post('/import/save_pengangkutan','EksportImport\ImportController@savePengangkutan');
 Route::post('/import/save_transaksi','EksportImport\ImportController@saveTransaksi');
@@ -225,34 +248,23 @@ Route::post('/Manifest/bill_landing','EksportImport\EksportController@bill_landi
 Route::post('/Manifest/lampiran','EksportImport\EksportController@lampiran');
 Route::post('/Manifest/hs_code','EksportImport\EksportController@hscode');
 
-    Route::get('/{menu}', function ($user, $menu) {
-        $data_pelabuhan = DB::table('m_pelabuhan')->get();
-        $data_jenis_impor = DB::table('m_jenis_impor')->get();
-        $data_jenis_ekspor = DB::table('m_jenis_ekspor')->get();
-        $data_cara_bayar = DB::table('m_cara_bayar')->get();
-        $kategori_ekspor = DB::table('m_kategroi_ekspor')->get();
-        $data_cara_dagang = DB::table('m_cara_dagang')->get();
-        $data_kemasan = DB::table('m_kemasan')->get();
-        $data_hs_code = DB::table('m_hs_code')->get();
-        $data_header_pib = DB::table('t_header_pib')->get();
-        $data = [
-            "user" => $user,
-            "data_pelabuhan" => $data_pelabuhan,
-            "data_jenis_impor" => $data_jenis_impor,
-            "data_cara_bayar" => $data_cara_bayar,
-            "data_jenis_ekspor" => $data_jenis_ekspor,
-            "kategori_ekspor"=> $kategori_ekspor,
-            "data_cara_dagang"=> $data_cara_dagang,
-            "data_kemasan"=> $data_kemasan,
-            "data_hs_code"=> $data_hs_code,
-            "data_header_pib"=> $data_header_pib
-        ];
-        return view('app/eksport-import/'.$menu, $data);
-    });
-
-
-
 });
+
+Route::get('/{user}', function ($user) {
+    $data = [
+        "user" => $user
+    ];
+    return view('pages/admin', $data);
+});
+
+Route::get('/{user}', function ($user) {
+    $data = [
+        "user" => $user
+    ];
+    return view('pages/admin', $data);
+});
+
+
 
 
 

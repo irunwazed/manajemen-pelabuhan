@@ -5,10 +5,10 @@
         <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PIB</div>
             <hr class="border-b-2 border-black border-solid">
             <nav>
-            <ul>
-                <li><a href="{{url('admin/eksport-import/data-umum')}}">Data Umum</a></li>
-                <li><a href="{{url('admin/eksport-import/bill-landing')}}">Bill Of Landing</a></li>
-                <li><a href="{{url('admin/eksport-import/lampiran')}}">Lampiran</a></li>
+            <ul class="menu flex">
+                <li style="padding-left: 10px; padding-right: 10px; color: red;"><a href="{{url('admin/eksport-import/data-umum')}}">Data Umum</a></li>
+                <li style="padding-left: 10px; padding-right: 10px; color: green;"><a href="{{url('admin/eksport-import/bill-landing')}}">Bill Of Landing</a></li>
+                <li style="padding-left: 10px; padding-right: 10px; color: red;"><a href="{{url('admin/eksport-import/lampiran')}}">Lampiran</a></li>
             </ul>
             </nav>
         </div>

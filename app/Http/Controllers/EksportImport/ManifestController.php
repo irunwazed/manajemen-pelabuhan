@@ -13,8 +13,8 @@ class ManifestController extends Controller
   {
     // insert data ke table
     $simpan_data = DB::table('t_manifest_pengangkut_dataumum')->insert([
-      'no_pengajuan' => $request->no_pengajuan,
-      'pelabuhan_id' => $request->pelabuhan,
+      'nama_perusahaan' => $request->no_pengajuan,
+      'npwp_perusahaan' => $request->pelabuhan,
       'kantor_kepabeanan' => $request->kepebaenan,
       'jenis_pib' => $request->jenis_pib,
       'jenis_import_id' => $request->jenis_impor,

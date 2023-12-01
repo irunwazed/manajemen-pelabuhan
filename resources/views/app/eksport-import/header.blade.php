@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="h-56 grid grid-cols-2 gap-4">
-        <form action="import/save_header" method="POST" enctype="multipart/form-data">
+        <form action="/import/save_header" method="POST" enctype="multipart/form-data">
             <table class="w-full">
                 <tr class="text-start mb-4">
                     <td>No Pengajuan</td>
