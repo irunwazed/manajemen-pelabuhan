@@ -1,41 +1,49 @@
 @extends('layouts.admin')
 @section('title', 'Pelayanan Barang')
 @section('content')
-<div class="">
-    <div class="text-2xl ">Pelayanan Barang / Penumpukan 2B1</div>
-    <hr class="border-b-2 border-black border-solid">
-    <div class="text-center mb-3 mt-5">
-        <div class="grid grid-cols-4 gap-2">
-            <div class="text-start w-full">
-                <div>
-                    <label>Nama Agen</label>
+    <div class="">
+        <div class="text-2xl ">Pelayanan Barang / Penumpukan 2B1</div>
+        <hr class="border-b-2 border-black border-solid">
+        <div class="text-center mb-3 mt-5">
+            <form class="grid grid-cols-4 gap-2" action="{{ route('get-2b1', $user) }}" method="get">
+                <div class="text-start w-full">
+                    <div>
+                        <label>Nama Agen</label>
+                    </div>
+                    <div>
+                        <input type="text"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            name="nama_agen" value="{{ @$request['nama_agen'] }}">
+                    </div>
                 </div>
-                <div>
-                    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <div class="text-start w-full">
+                    <div>
+                        <label>No PPK</label>
+                    </div>
+                    <div>
+                        <input type="text"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            name="pbau_penumpukan_2b1" value="{{ @$request['pbau_penumpukan_2b1'] }}">
+                    </div>
                 </div>
-            </div>
-            <div class="text-start w-full">
-                <div>
-                    <label>No PPK</label>
+                <div class="text-start w-full">
+                    <div>
+                        <label>No Form 2B1</label>
+                    </div>
+                    <div>
+                        <input type="text"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            name="no_form2b1" value="{{ @$request['no_form2b1'] }}">
+                    </div>
                 </div>
-                <div>
-                    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <div class="text-start">
+                    <div>
+                        <button
+                            class="text-white mt-6 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Search</button>
+                        <a class="text-white mt-6 bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-puple-600 dark:hover:bg-puple-700 focus:outline-none dark:focus:ring-puple-800"
+                            href="{{ route('get-2b1', $user) }}">Reset</a>
+                    </div>
                 </div>
-            </div>
-            <div class="text-start w-full">
-                <div>
-                    <label>No Form 2B1</label>
-                </div>
-                <div>
-                    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                </div>
-            </div>
-            <div class="text-start">
-                <div>
-
-                    <button class="text-white mt-6 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Search</button>
-                </div>
-            </div>
         </div>
 
         <div>
@@ -54,42 +62,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
-                        <td>1</td>
-                        <td>xxxx</td>
-                        <td>xxxx</td>
-                        <td>xxxx</td>
-                        <td>Lorem ipsum dolor sit amet consectetur</td>
-                        <td>xxxx</td>
-                        <td>Titanic</td>
-                        <td>2 Oktober 2020</td>
+                    @foreach (@$data as $row)
+                        @if ($loop->index % 2 == 0)
+                            <tr class="border-solid border-1 border-slate-800 hover:bg-slate-300">
+                            @else
+                            <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
+                        @endif
+                        <td class="text-center">{{ $loop->index + 1 }}</td>
+                        <td>{{ $row->no_pkk }}</td>
+                        <td>{{ $row->pelayanan_kapal_rkbm_id }}</td>
+                        <td>{{ $row->no_form2b1 }}</td>
+                        <td>{{ $row->nama_perusahaan }}</td>
+                        <td>{{ $row->nama_agen }}</td>
+                        <td>{{ $row->nama_kapal }}</td>
+                        <td>{{ $row->tgl_2b1 }}</td>
+                        <td class="py-2 flex flex-wrap gap-1 justify-center ">
 
-                        <td class="py-2 flex flex-wrap gap-1 justify-center ">
-                            <a href="#" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
-                            <a href="#" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Edit</a>
-                            <a href="{{url('admin/pelayanan-barang/create-2b1')}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create 2B1</a>
+                            @if (!$row->no_form2b1)
+                                <a href="{{ route('form-2b1', ['user' => $user, 'pelayanan_kapal_id' => $row->pelayanan_kapal_id]) }}"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create
+                                    2B1</a>
+                            @else
+                                <a href="{{ route('form-2b1', ['user' => $user, 'pelayanan_kapal_id' => $row->pelayanan_kapal_id]) }}"
+                                    class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
+                                <a href="{{ route('form-2b1', ['user' => $user, 'pelayanan_kapal_id' => $row->pelayanan_kapal_id]) }}"
+                                    class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Edit</a>
+                            @endif
                         </td>
-                    </tr>
-                    <tr class="border-solid border-2 border-slate-800 bg-slate-200 hover:bg-slate-300">
-                        <td>2</td>
-                        <td>xxxx</td>
-                        <td>xxxx</td>
-                        <td>xxxx</td>
-                        <td>Lorem ipsum dolor sit amet consectetur</td>
-                        <td>xxxx</td>
-                        <td>Titanic</td>
-                        <td>2 Oktober 2020</td>
-                        <td class="py-2 flex flex-wrap gap-1 justify-center ">
-                            <a href="#" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
-                            <a href="#" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Edit</a>
-                            <a href="{{url('admin/pelayanan-barang/create-2b1')}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create 2B1</a>
-                        </td>
-                    </tr>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
+            @include('components.pagination')
         </div>
     </div>
-</div>
+    </div>
 @endsection
 
 @section('script')

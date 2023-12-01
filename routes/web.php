@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\PelayananBarang\Nota3B;
+use App\Http\Controllers\PelayananBarang\Nota4B;
+use App\Http\Controllers\PelayananBarang\PengeluaranBarang2B2;
+use App\Http\Controllers\PelayananBarang\PenumpukanBarang2B1;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +56,8 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
 
 
     Route::post('/pengajuan-pkk/upload/manifest-penumpang', 'PelayananKapal\PengajuanPKKController@manifestPenumpang');
+
+
     Route::get('/pengajuan-pkk/{id}/delete/manifest-penumpang', 'PelayananKapal\PengajuanPKKController@deleteManifestPenumpang');
 
     Route::post('/pengajuan-pkk/upload/manifest-bm', 'PelayananKapal\PengajuanPKKController@manifestBM');
@@ -65,16 +71,16 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
 
     Route::post('/pengajuan-pkk/crew-list/import', 'PelayananKapal\PengajuanPKKController@importCrewList');
     Route::get('/pengajuan-pkk/{pelayanan_kapal_id}/crew-list/delete/{kode}', 'PelayananKapal\PengajuanPKKController@deleteCrewList');
-    
+
     Route::post('/pengajuan-pkk/kargo/import', 'PelayananKapal\PengajuanPKKController@importKargo');
     Route::get('/pengajuan-pkk/{pelayanan_kapal_id}/kargo/delete/{kode}', 'PelayananKapal\PengajuanPKKController@deleteKargo');
-    
+
     Route::post('/pengajuan-pkk/kontainer/import', 'PelayananKapal\PengajuanPKKController@importKontainer');
     Route::get('/pengajuan-pkk/{pelayanan_kapal_id}/kontainer/delete/{kode}', 'PelayananKapal\PengajuanPKKController@deleteKontainer');
-    
+
     Route::post('/pengajuan-pkk/barang-berbahaya/import', 'PelayananKapal\PengajuanPKKController@importBrgBerbahaya');
     Route::get('/pengajuan-pkk/{pelayanan_kapal_id}/barang-berbahaya/delete/{kode}', 'PelayananKapal\PengajuanPKKController@deleteBrgBerbahaya');
-    
+
     Route::post('/pengajuan-pkk/manifest-barang-tercemar/save', 'PelayananKapal\PengajuanPKKController@saveBrgTercemar');
 
     Route::post('/pengajuan-pkk/dokumen-kapal/save', 'PelayananKapal\PengajuanPKKController@saveDokumenKapal');
@@ -105,11 +111,11 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::get('/rkbm/barang', 'PelayananKapal\RKBMBarangController@show');
     Route::post('/rkbm/barang', 'PelayananKapal\RKBMBarangController@save');
     Route::get('/rkbm/barang/delete/{id}', 'PelayananKapal\RKBMBarangController@delete');
-    
+
     Route::get('/rkbm/tkbm', 'PelayananKapal\RKBMController@tkbm');
     Route::post('/rkbm/tkbm', 'PelayananKapal\RKBMController@saveTKBM');
     Route::get('/rkbm/kirim', 'PelayananKapal\RKBMController@kirim');
-    
+
     Route::get('/rkbm/verifikasi', 'PelayananKapal\RKBMController@verifikasi');
     Route::get('/rkbm/verifikasi/do', 'PelayananKapal\RKBMController@doVerifikasi');
     Route::get('/rkbm/verifikasi/{id}', 'PelayananKapal\RKBMController@verifikasiDetail');
@@ -124,7 +130,7 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::get('/ppk', 'PelayananKapal\RPKROController@viewPPK');
     Route::get('/ppk/detail', 'PelayananKapal\RPKROController@detailPPK');
     Route::get('/ppk/detail/verifikasi', 'PelayananKapal\RPKROController@verifikasiPPK');
-    
+
     //SPOG
     Route::get('/spog', 'PelayananKapal\SPOGController@list');
     Route::get('/spog/detail', 'PelayananKapal\SPOGController@detail');
@@ -140,7 +146,7 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::post('/keberangkatan/crew', 'PelayananKapal\KeberangkatanController@importCrewList');
     Route::get('/keberangkatan/{pelayanan_kapal_id}/crew-list/delete/{kode}', 'PelayananKapal\KeberangkatanController@deleteCrewList');
     Route::get('/keberangkatan/kirim', 'PelayananKapal\KeberangkatanController@kirim');
-    
+
     // KEPELAUTAN
     Route::get('/kepelautan/list', 'PelayananKapal\KepelautanController@list');
     Route::get('/kepelautan/detail', 'PelayananKapal\KepelautanController@detail');
@@ -157,14 +163,14 @@ Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::get('/spb', 'PelayananKapal\SPBController@list');
     Route::get('/spb/detail', 'PelayananKapal\SPBController@detail');
     Route::get('/spb/verifikasi', 'PelayananKapal\SPBController@verifikasi');
-    
+
     Route::get('/monitor', 'PelayananKapal\MonitorController@show');
-    
+
     Route::get('/{menu}', function ($user, $menu) {
         $data = [
             "user" => $user
         ];
-        return view('app/pelayanan-kapal/'.$menu, $data);
+        return view('app/pelayanan-kapal/' . $menu, $data);
     });
 });
 
@@ -175,11 +181,38 @@ Route::prefix('/{user}/pelayanan-barang')->group(function () {
         ];
         return view('app/pelayanan-barang', $data);
     });
+
+    Route::prefix('/pengeluaran-2b2')->group(function () {
+        Route::get('/', [PengeluaranBarang2B2::class, 'show'])->name('get-2b2');
+        Route::get('/form-create/{pelayanan_kapal_id}', [PengeluaranBarang2B2::class, 'form_create'])->name('form-2b2');
+        Route::post('/create2B2', [PengeluaranBarang2B2::class, 'create2B2'])->name('create2B2');
+    });
+
+    Route::prefix('/nota-3b')->group(function () {
+        Route::get('/', [Nota3B::class, 'show'])->name('nota-3b');
+        Route::get('/form-create/{pelayanan_kapal_id}', [Nota3B::class, 'form_create'])->name('form-2b2');
+        Route::post('/create3B', [Nota3B::class, 'create3B'])->name('create3B');
+    });
+
+    Route::prefix('/nota-4b')->group(function () {
+        Route::get('/', [Nota4B::class, 'show'])->name('nota-4b');
+        Route::get('/form-create/{pelayanan_kapal_id}', [Nota4B::class, 'form_create'])->name('form4B');
+        Route::post('/create4B', [Nota4B::class, 'create4B'])->name('create4B');
+    });
+
+    Route::prefix('/penumpukan-2b1')->group(function () {
+        Route::get('/', [PenumpukanBarang2B1::class, 'show'])->name('get-2b1');
+        Route::get('/form-create/{pelayanan_kapal_id}', [PenumpukanBarang2B1::class, 'form_create'])->name('form-2b1');
+        Route::post('/form-barang', [PenumpukanBarang2B1::class, 'getBarang'])->name('get-Barang');
+        Route::post('/update-barang', [PenumpukanBarang2B1::class, 'updateBarang'])->name('update-Barang');
+        Route::post('/create-2B1', [PenumpukanBarang2B1::class, 'create2B1'])->name('create-2B1');
+    });
+
     Route::get('/{menu}', function ($user, $menu) {
         $data = [
             "user" => $user
         ];
-        return view('app/pelayanan-barang/'.$menu, $data);
+        return view('app/pelayanan-barang/' . $menu, $data);
     });
 });
 
@@ -224,7 +257,19 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
     Route::get('/create-nota-4c/{id}', 'Alat\PbauAlatController@createNota4C');
     Route::get('/nota-4c/invoice/{id}', 'Alat\PbauAlatController@generateInvoice');
     Route::post('/submit-nota-4c/{id}', 'Alat\PbauAlatController@submitNota4c');
-    
+
+
+    /*Route::resource('permohonan-1c', Alat\PbauAlatController::class)->parameters([
+        'pbau-alat' => 'pbau_alat_1c_id',
+    ])->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
+
+    /*Route::get('/{menu}', function ($user, $menu) {
+        $data = [
+            "user" => $user
+        ];
+        return view('app/penyewaan-alat/'.$menu, $data);
+    });*/
+
 });
 
 Route::prefix('/{user}/management-user')->group(function () {
@@ -233,7 +278,7 @@ Route::prefix('/{user}/management-user')->group(function () {
     Route::get('/add-user', 'User\UserController@userForm');
     Route::get('/edit-user/{id}', 'User\UserController@userForm');
     Route::post('/submit-user/{id}', 'User\UserController@submitUser');
-    
+
     Route::get('/group-user', 'User\UserController@groupUser');
     Route::get('/group-user/filter', 'User\UserController@groupUser');
     Route::get('/add-group-user', 'User\UserController@groupUserForm');
@@ -253,7 +298,7 @@ Route::prefix('/{user}/warehousing')->group(function () {
     Route::get('/penerimaan-detail', 'Warehousing\WarehousingController@getDetail');
     Route::get('/container-detail/edit', 'Warehousing\WarehousingController@getContainerDetail');
     Route::post('/submit-container-detail/{id}', 'Warehousing\WarehousingController@submitPenerimaanContaner');
-    
+
 });
 
 Route::prefix('/{user}/aneka-usaha')->group(function () {
@@ -267,7 +312,7 @@ Route::prefix('/{user}/aneka-usaha')->group(function () {
         $data = [
             "user" => $user
         ];
-        return view('app/aneka-usaha/'.$menu, $data);
+        return view('app/aneka-usaha/' . $menu, $data);
     });
 });
 
@@ -288,4 +333,3 @@ Route::get('/{user}', function ($user) {
 
 // Route App
 require 'aneka-usaha/index.php';
-
