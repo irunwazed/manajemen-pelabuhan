@@ -14,43 +14,18 @@ use Yajra\DataTables\Facades\DataTables;
 class BunkerController
 {
 
-    public function listSewaBunker(Request $request, $user)
+    public function show(Request $request, $user)
     {
         $search = $request->input('search');
         $page = @$request->input('page') ? $request->input('page') : 1;
         $perPage = @$request->input('perPage') ? $request->input('perPage') : 10;
 
-        $query = DB::table('m_au_lahan_bangunan as a')
-            ->join('t_au_lahan as b', 'a.au_lahan_bangunan_id', 'b.au_lahan_id')
-            ->join('m_perusahaan as c', 'b.nama_perusahaan', 'c.nama_perusahaan')
-            ->leftJoin('m_lokasi_penumpukan as d', 'b.lokasi_id', 'd.lokasi_penumpukan_id')
-            ->select(
-                'b.no_pranota',
-                'c.nama_perusahaan',
-                'c.npwp',
-                'c.no_telp_kantor',
-                'c.alamat',
-                'c.pic',
-                'c.no_tel_pic',
-                'c.perusahaan_id',
-                'c.jenis_usaha',
-                'a.nama_lahan_bangunan',
-                'b.no_kontrak',
-                'b.tgl_kontrak',
-                'b.kode_perusahaan',
-                'd.nama_lokasi',
-                'd.luas_lokasi',
-                'b.periode_pakai_mulai',
-                'b.periode_pakai_selesai',
-                'b.keterangan',
-                'b.biaya_sewa',
-                'b.tarif',
-                'b.status_lunsum'
-            )->where(
+        $query = DB::table('t_au_bunker as a')
+            ->where(
                 function ($query) use ($search) {
                     return $query
 
-                        ->where('c.nama_perusahaan', 'like', '%' . $search . '%');
+                        ->where('nama_perusahaan', 'like', '%' . $search . '%');
                 }
             );;
 
@@ -68,42 +43,25 @@ class BunkerController
             "totalPage" => (ceil($total / $perPage)),
         ];
 
-        return view('app.aneka-usaha.permohonan-sewa-lahan', $result);
+        return view('app.sewa-bunker.index', $result);
     }
 
-
-
-    public function detailSewaLahan(Request $request)
+    public function formCreate()
     {
-        dd('test');
-        $detaillahan = DB::table('m_au_lahan_bangunan as a')
-            ->join('t_au_lahan as b', 'a.au_lahan_bangunan_id', 'b.au_lahan_id')
-            ->join('m_perusahaan as c', 'b.nama_perusahaan', 'c.nama_perusahaan')
-            ->leftJoin('m_lokasi_penumpukan as d', 'b.lokasi_id', 'd.lokasi_penumpukan_id')
-            ->select(
-                'b.no_pranota',
-                'c.nama_perusahaan',
-                'c.npwp',
-                'c.no_telp_kantor',
-                'c.alamat',
-                'c.pic',
-                'c.no_tel_pic',
-                'c.perusahaan_id',
-                'c.jenis_usaha',
-                'a.nama_lahan_bangunan',
-                'b.no_kontrak',
-                'b.tgl_kontrak',
-                'b.kode_perusahaan',
-                'd.nama_lokasi',
-                'd.luas_lokasi',
-                'b.periode_pakai_mulai',
-                'b.periode_pakai_selesai',
-                'b.keterangan',
-                'b.biaya_sewa',
-                'b.tarif',
-                'b.status_lunsum'
-            )->get();
-        return view('app.aneka-usaha.detail-permohonan-sewa-lahan', $detaillahan);
+        $data['perusahaan'] = DB::table('m_perusahaan')->get();
+        $data['kapal'] = DB::table('m_kapal')->get();
+
+        return view('app.sewa-bunker.create-form', compact('data'));
+    }
+
+    public function getPerusahaan(Request $request)
+    {
+        try {
+            $data['perusahaan'] = DB::table('m_perusahaan')->where('perusahaan_id', $request->data)->first();
+            return response()->json($data);
+        } catch (Exception $th) {
+            return response()->json($th);
+        }
     }
 
     public function AddSewaLahan()

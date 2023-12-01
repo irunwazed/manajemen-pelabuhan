@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnekaUsaha\BunkerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnekaUsaha\LahanController;
 use App\Http\Controllers\AnekaUsaha\pranotaLahan;
@@ -67,11 +68,6 @@ Route::get('/admin/menu', function () {
 Route::get('/tes', function () {
     return view('temp/res');
 });
-
-
-// Route::get('/admin/pelayanan-kapal', function () {
-//     return view('app/pelayanan-kapal');
-// });
 
 Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::get('/', function ($user) {
@@ -165,6 +161,13 @@ Route::prefix('/{user}/aneka-usaha/')->group(function () {
     Route::post('/perusahaan-lahan-create', [LahanController::class, 'Lahancreate'])->name('lahanCreate');
     Route::get('/create-permohonan-sewa-lahan', [LahanController::class, 'companyInfo'])->name('companyInfo');
     Route::get('/list-permohonan-sewa-lahan', [LahanController::class, 'res'])->name('res');
+
+
+    Route::prefix('sewa-bunker')->group(function () {
+        Route::get('/', [BunkerController::class, 'show'])->name('showBunker');
+        Route::get('/formCreate', [BunkerController::class, 'formCreate'])->name('formCreate');
+        Route::post('/getPerusahaan', [BunkerController::class, 'getPerusahaan'])->name('getPerusahaan');
+    });
 
     Route::get('/', function ($user) {
         $data = [
