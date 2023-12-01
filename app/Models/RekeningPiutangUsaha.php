@@ -12,4 +12,8 @@ class RekeningPiutangUsaha extends Model
 
     protected $fillable = [];
 
+    protected $casts = [
+        'rekening_id' => 'string',
+    ];
+
 }

@@ -21,4 +21,8 @@ class Nota extends Model
         "keterangan"
     ];
 
+    protected $casts = [
+        'rekening_id' => 'string',
+    ];
+
 }

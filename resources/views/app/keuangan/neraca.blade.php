@@ -14,7 +14,7 @@
                         <th>Nama Rekening</th>
                         <th class="text-right">Debit</th>
                         <th class="text-right">Kredit</th>
-                        <th class="text-right">Saldo</th>
+{{--                        <th class="text-right">Saldo</th>--}}
                     </tr>
                     </thead>
                     <tbody>
@@ -24,7 +24,7 @@
                             <td>{{ $item->nama_rekening }}</td>
                             <td class="text-right">{{ number_format($item->debit, 0, ',', '.') }}</td>
                             <td class="text-right">{{ number_format($item->kredit, 0, ',', '.') }}</td>
-                            <td class="text-right">{{ number_format($item->saldo, 0, ',', '.') }}</td>
+{{--                            <td class="text-right">{{ number_format($item->saldo, 0, ',', '.') }}</td>--}}
                         </tr>
                     @endforeach
                     </tbody>
