@@ -29,10 +29,12 @@ class WarehousingController extends Controller
         ->when($pbm, function ($query) use ($pbm) {
             $query->where('nama_pbm', 'LIKE', "%$pbm%");
         })
-        ->orderBy("penerimaan_barang_id", "desc")
-        ->paginate(10);
+        ->orderBy("penerimaan_barang_id", "desc");
 
-        return view('app/warehousing.penerimaan-barang', compact('data', 'no', 'pbm'));
+        $totalData = $data->count();
+        $data = $data->paginate(10);
+
+        return view('app/warehousing.penerimaan-barang', compact('data', 'no', 'pbm', 'totalData'));
     }
 
     public function penerimaanBarangForm(Request $request, $user, $id=null)
