@@ -2,7 +2,13 @@
 @section('title', 'Management User')
 @section('content')
     <style>
-        
+        .items:hover{
+            background: green;
+            color: white;
+        }
+        input[type='checkbox'] {
+            cursor: pointer;
+        }
 
     </style>
     <div class="">
@@ -11,7 +17,7 @@
         <div class="font-bold text-2xl text-center pt-20">Form Group Akses</div>
         <form id="form-group-user" action="{{url('admin/management-user/submit-group-user')}}" method="post" class="pt-16">
             <div class="flex flex-col items-center justify-start">
-                <div class="text-start w-4/12 mb-5">
+                <div class="text-start w-8/12 mb-5">
                     <div>
                         <label for="nama" class="text-md font-medium text-gray-700">Nama Akses</label>
                     </div>
@@ -27,8 +33,8 @@
                         @foreach ($menus as $index => $menuItem)
                             @if ($menuItem['parent'] === 0)
                                 <div>
-                                    <div class="flex flex-row">
-                                        <div style="width: 40%">
+                                    <div class="flex flex-row items">
+                                        <div style="width: 90%">
                                             {{ ($index+1) .' '. $menuItem['display'] }}
                                         </div>
                                         <div>
@@ -62,7 +68,7 @@
         $result = '';
         foreach ($subMenuItems as $subMenuItem) {
             if ($subMenuItem['parent'] === $parentId) {
-                $result .= '<div class="flex flex-row"><div style="width: 40%" class="menu pl-10">';
+                $result .= '<div class="flex flex-row items"><div style="width: 90%" class="menu pl-10">';
                 $result .= $subMenuItem['display'];
                 $result .= '</div><div><input type="checkbox" name="selected_menus[]" value="'.$subMenuItem['id_menu'].'"';
 
