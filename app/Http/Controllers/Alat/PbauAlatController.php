@@ -31,10 +31,12 @@ class PbauAlatController extends Controller
         ->when($perusahaan, function ($query) use ($perusahaan) {
             $query->where('nama_perusahaan', 'LIKE', "%$perusahaan%");
         })
-        ->orderBy("pbau_alat_1c_id", "desc")
-        ->paginate(10);
+        ->orderBy("pbau_alat_1c_id", "desc");
 
-        return view('app/penyewaan-alat.permohonan-1c', compact('data', 'tahun', 'noPermohonan1C', 'perusahaan'));
+        $totalData = $data->count();
+        $data = $data->paginate(10);
+
+        return view('app/penyewaan-alat.permohonan-1c', compact('data', 'tahun', 'noPermohonan1C', 'perusahaan', 'totalData'));
     }
 
     public function create(Request $request)
@@ -103,7 +105,7 @@ class PbauAlatController extends Controller
             $query->where('pbau_alat_1c_id', $id);
         })
         ->orderBy("t_pbau_alat_1c_detail.pbau_alat_1c_detail", "desc")
-        ->paginate(10); // Adjust the number of items per page as needed
+        ->paginate(10);
 
         $pagination = [
             'total' => $data->total(),
@@ -245,10 +247,12 @@ class PbauAlatController extends Controller
         ->when($noForm2C, function ($query) use ($noForm2C) {
             $query->where('noform_2c', 'LIKE', "%$noForm2C%");
         })
-        ->orderBy("pbau_alat_1c_id", "desc")
-        ->paginate(10);
+        ->orderBy("pbau_alat_1c_id", "desc");
+        
+        $totalData = $data->count();
+        $data = $data->paginate(10);
 
-        return view('app/penyewaan-alat.bukti-2c', compact('data', 'tahun', 'noPermohonan1C', 'noForm2C'));
+        return view('app/penyewaan-alat.bukti-2c', compact('data', 'tahun', 'noPermohonan1C', 'noForm2C', 'totalData'));
     }
 
     public function realisasiBukti(Request $request, $user, $id)
@@ -343,10 +347,12 @@ class PbauAlatController extends Controller
             $query->where('nonota3c', 'LIKE', "%$noForm3C%");
         })
         ->whereNotNull("noform_2c")
-        ->orderBy("pbau_alat_1c_id", "desc")
-        ->paginate(10);
+        ->orderBy("pbau_alat_1c_id", "desc");
 
-        return view('app/penyewaan-alat.nota-3c', compact('data', 'noPermohonan1C', 'noForm2C', 'noForm3C'));
+        $totalData = $data->count();
+        $data = $data->paginate(10);
+
+        return view('app/penyewaan-alat.nota-3c', compact('data', 'noPermohonan1C', 'noForm2C', 'noForm3C', 'totalData'));
     }
 
     public function createNota3c(Request $request, $user, $id)
@@ -520,10 +526,12 @@ class PbauAlatController extends Controller
         })
         ->whereNotNull("noform_2c")
         ->whereNotNull("nonota3c")
-        ->orderBy("pbau_alat_1c_id", "desc")
-        ->paginate(10);
+        ->orderBy("pbau_alat_1c_id", "desc");
 
-        return view('app/penyewaan-alat.nota-4c', compact('data', 'noPermohonan1C', 'noForm2C', 'noForm3C'));
+        $totalData = $data->count();
+        $data = $data->paginate(10);
+
+        return view('app/penyewaan-alat.nota-4c', compact('data', 'noPermohonan1C', 'noForm2C', 'noForm3C', 'totalData'));
     }
 
     public function createNota4C(Request $request, $user, $id)
