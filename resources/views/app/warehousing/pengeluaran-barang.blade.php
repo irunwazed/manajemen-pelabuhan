@@ -63,14 +63,14 @@
                           @else
                         <tr class="border-solid border-0 border-slate-800 bg-slate-200 hover:bg-slate-300">
                           @endif
-                          <td class="text-center">{{ $loop->index+1 }}</td>
+                          <td class="text-center">{{((@$page-1)*@$perPage)+$loop->index+1 }}</td>
                           <td class="text-center">{{$row->no_penerimaan }}</td>
                           <td class="text-center">{{$row->no_pengeluaran }}</td>
                           <td class="text-center">{{$row->tanggal_masuk }}</td>
                           <td class="text-center">{{$row->tgl_keluar }}</td>
                           <td class="text-center">{{$row->nama_pbm }}</td>
                           <td class="text-center">{{$row->nama_kapal }}</td>
-                          <td class="py-2">
+                          <td class="py-3">
                             @if($row->no_pengeluaran === "" || $row->no_pengeluaran===null)
                             <a href="{{ url('/'.$user.'/warehousing/pengeluaran-barang/create-pengeluaran-barang/'.$row->penerimaan_barang_id)  }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create</a>
                            @else
@@ -82,6 +82,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                @include('components.pagination')
             </div>
         </div>
     </div>

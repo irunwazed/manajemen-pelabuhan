@@ -54,7 +54,7 @@
         @else
       <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
         @endif
-        <td class="text-center">{{ $loop->index+1 }}</td>
+        <td class="text-center">{{  ((@$page-1)*@$perPage)+$loop->index+1 }}</td>
         <td class="text-center">{{$row->no_layanan_kapal }}/{{$row->no_pkk }}</td>
         <td class="text-center">{{$row->no_nota4a }}</td>
         <td class="text-center">{{$row->nama_agen }}</td>
@@ -70,10 +70,8 @@
       @endforeach
     </tbody>
   </table>
-
+  @include('components.pagination')
 </div>
-
-
 @endsection
 
 @section('script')

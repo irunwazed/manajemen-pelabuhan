@@ -41,7 +41,7 @@
   </div>
   <table class="border-solid border-0 border-slate-800 w-full">
     <thead>
-      <tr class="border-solid border-0 border-slate-700 bg-gradient-to-r from-[#322A6D] to-primary text-white">
+      <tr class="border-solid border-2 border-slate-800 bg-gradient-to-r from-[#211c5c] to-primary text-white">
         <th class="text-center">NO</th>
         <th class="text-center">NO PELAYANAN/PPK</th>
         <th class="text-center">NO PERMOHONAN PANDU TUNDA</th>
@@ -59,13 +59,13 @@
             @else
           <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
             @endif
-            <td class="text-center">{{ $loop->index+1 }}</td>
+            <td class="text-center">{{ ((@$page-1)*@$perPage)+$loop->index+1 }}</td>
             <td class="text-center">{{$row->no_layanan_kapal }}/{{$row->no_pkk }}</td>
             <td class="text-center">{{$row->no_permohonan }}</td>
             <td class="text-center">{{$row->no_rpkro }}</td>
             <td class="text-center">{{$row->nama_agen }}</td>
             <td class="text-center">{{$row->nama_kapal }}</td>
-            <td class="py-2">
+            <td class="py-3">
               @if($row->no_permohonan == "" )
               <a href="{{ url('/admin/pelayanan-kapal/pandu-tunda/pandu-tunda-create/'.$row->pelayanan_kapal_rpkro_id)  }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create</a>
               @endif
@@ -78,6 +78,7 @@
 
     </tbody>
   </table>
+  @include('components.pagination')
 
 </div>
 

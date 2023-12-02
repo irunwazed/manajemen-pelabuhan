@@ -234,9 +234,12 @@ array_push($navigations, [
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+<!--  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 
-  <script>
+  -->
+<link href="{{asset('css/tailwind.css') }}" rel="stylesheet" type="text/css" />
+ <!-- <script> 
+    
     tailwind.config = {
       content: [
         "../../../**/**/**/*.blade.php",
@@ -255,12 +258,12 @@ array_push($navigations, [
       },
       plugins: [],
     }
-  </script>
+  </script> -->
   
 </head>
 
-<body class="bg-gradient-to-r from-slate-200 to-blue-200">
-  <div class="">
+<body class="w-full h-full bg-no-repeat bg-cover bg-center" style="background-image :url('{{URL::asset("assets/img/bg_admin_blade.jpg")}}')">
+  <div >
     <div class="w-full flex mt-6">
         <!--<div class="flex-1 ml-6">
       <a href="#" class="underline italic hover: text-info">Privasi Polisi</a> 

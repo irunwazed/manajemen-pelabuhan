@@ -281,7 +281,8 @@ Route::prefix('/{user}/warehousing')->group(function () {
     Route::get('/pengeluaran-barang/view-pengeluaran-barang/{id_pengeluaran}', [PengeluaranBarangController::class,'viewPengeluaran']);
     Route::get('/pengeluaran-barang/create-pengeluaran-barang/{id_pengeluaran}', [PengeluaranBarangController::class,'addPengeluaran']);
     Route::post('/pengeluaran-barang/create-pengeluaran-barang/simpan', [PengeluaranBarangController::class,'tambahDataPengeluaran']);
- 
+    Route::get('/monitoring-warehousing', 'Warehousing\MonitoringWareHousingController@show');
+    Route::get('/monitoring-warehousing/detail-monitoring-warehousing/{id_Gudang}', 'Warehousing\MonitoringWareHousingController@detailGudang');
    //update ririn
    Route::get('/penerimaan-barang', 'Warehousing\WarehousingController@index');
    Route::get('/penerimaan-barang/filter', 'Warehousing\WarehousingController@index');
