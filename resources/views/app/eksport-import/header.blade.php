@@ -103,39 +103,4 @@
     </div>
 @endsection
 @section('script')
-
-
-<script>
-    // function submitForm() {
-    //     var pengajuan = document.getElementById("pengajuan").value;
-    //     var pelabuhan = document.getElementById("pelabuhan").value;
-    //     var kepebaenan = document.getElementById("kepebaenan").value;
-    //     var pib = document.getElementById("pib").value;
-    //     var importData = document.getElementById("importData").value;
-    //     var pembayaran = document.getElementById("pembayaran").value;
-
-    //     var formData = new FormData();
-    //     formData.append("pengajuan", pengajuan);
-    //     formData.append("pelabuhan", pelabuhan);
-    //     formData.append("kepebaenan", kepebaenan);
-    //     formData.append("pib", pib);
-    //     formData.append("import", importData);
-    //     formData.append("pembayaran", pembayaran);
-
-    //     $.ajax({
-    //         url: '/upload/save/import',
-    //         type: 'get',
-    //         data: formData,
-    //         success: function(response) {
-    //             // Handle the response from the API
-    //             console.log(response);
-    //         },
-    //         error: function(error) {
-    //             // Handle errors
-    //             console.log(error);
-    //         }
-    //     });
-        
-    // }
-</script>
 @endsection

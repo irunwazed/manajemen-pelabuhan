@@ -232,6 +232,5 @@
     </div>
     <!-- MODAL -->
 @endsection
-
 @section('script')
 @endsection

@@ -172,6 +172,7 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         ->get();
         $data = [
             "user" => $user,
+            "id_param" => "",
             "data_pelabuhan" => $data_pelabuhan,
             "data_jenis_impor" => $data_jenis_impor,
             "data_cara_bayar" => $data_cara_bayar,
@@ -186,6 +187,13 @@ Route::prefix('/{user}/eksport-import')->group(function () {
             "data_kontainer_pib"=> $data_kontainer_pib,
             "data_kemasan_pib"=> $data_kemasan_pib,
             "data_barang_pib"=> $data_barang_pib
+        ];
+        return view('app/eksport-import/'.$menu, $data);
+    });
+    Route::get('/{menu}/{id}', function ($user, $menu, $id) {
+        $data = [
+            "id_param" => $id,
+            "user" => $user,
         ];
         return view('app/eksport-import/'.$menu, $data);
     });
@@ -213,6 +221,7 @@ Route::post('/import/save_pernyataan','EksportImport\ImportController@savePernya
 Route::post('/import/save_barang','EksportImport\ImportController@saveBarang');
 Route::post('/import/save_kemasan','EksportImport\ImportController@saveKemasan');
 Route::post('/import/save_kontainer','EksportImport\ImportController@saveKontainer');
+Route::post('/import/save_entitas','EksportImport\ImportController@saveEntitas');
 
 //Route post export
 Route::post('/Eksport/save_header','EksportImport\EksportController@saveHeader');

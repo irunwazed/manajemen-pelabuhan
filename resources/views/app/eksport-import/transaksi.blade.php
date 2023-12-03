@@ -126,6 +126,5 @@
         </div>
     </form>
 @endsection
-
 @section('script')
 @endsection

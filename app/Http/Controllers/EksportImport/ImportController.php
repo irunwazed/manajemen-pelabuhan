@@ -11,7 +11,7 @@ class ImportController extends Controller
   public function saveHeader(Request $request)
   {
     // insert data ke table
-    $simpan_data = DB::table('t_header_pib')->insert([
+    $id = DB::table('t_header_pib')->insertGetId([
       'no_pengajuan' => $request->no_pengajuan,
       'pelabuhan_id' => $request->pelabuhan,
       'kantor_kepabeanan' => $request->kepebaenan,
@@ -19,7 +19,34 @@ class ImportController extends Controller
       'jenis_import_id' => $request->jenis_impor,
       'cara_bayar_id' => $request->cara_bayar
     ]);
-    return redirect('admin/eksport-import/header');
+    return redirect('admin/eksport-import/entitas/'.$id);
+  }
+  public function saveEntitas(Request $request)
+  {
+    // insert data ke table
+    $simpan_data = DB::table('t_entitas_pib')->insert([
+      'header_pib_id' => $request->header_pib,
+      'npwp_importir' => $request->npwp_importir,
+      'nama_importir' => $request->nama_importir,
+      'alamat_importir' => $request->alamat_importir,
+      'nib_importir' => $request->nib_importir,
+      'status_importir' => $request->status_importir,
+      'npwp_pemilik_barang' => $request->npwp_pemilik_barang,
+      'nama_pemilik_barang' => $request->nama_pemilik_barang,
+      'alamat_pemilik_barang' => $request->alamat_pemilik_barang,
+      'npwp_pengirim' => $request->npwp_pengirim,
+      'nama_pengirim' => $request->nama_pengirim,
+      'alamat_pengirim' => $request->alamat_pengirim,
+      'negara_pengirim' => $request->negara_pengirim,
+      'npwp_pemusatan' => $request->npwp_pemusatan,
+      'nama_pemusatan' => $request->nama_pemusatan,
+      'alamat_pemusatan' => $request->alamat_pemusatan,
+      'npwp_penjual' => $request->npwp_penjual,
+      'alamat_penjual' => $request->alamat_penjual,
+      'negara_penjual' => $request->negara_penjual,
+      'nama_penjual' => $request->nama_penjual
+    ]);
+    return redirect('admin/eksport-import/dokumen-pendukung');
   }
   public function savePengangkutan(Request $request)
   {
@@ -39,7 +66,7 @@ class ImportController extends Controller
       'tanggal_bc11_pib' => $request->tanggal_bc11_pib,
       'pelabuhan_tujuan' => $request->pelabuhan
     ]);
-    return redirect('admin/eksport-import/pengangkutan');
+    return redirect('admin/eksport-import/kemasan-kontainer');
   }
   public function saveTransaksi(Request $request)
   {
@@ -58,7 +85,7 @@ class ImportController extends Controller
       'berat_kotor' => $request->berat_kotor,
       'berat_bersih' => $request->berat_bersih
     ]);
-    return redirect('admin/eksport-import/transaksi');
+    return redirect('admin/eksport-import/data-barang');
   }
   public function saveBarang(Request $request)
   {
@@ -90,7 +117,7 @@ class ImportController extends Controller
       'asuransi' => $request->asuransi,
       'cif_rupiah' => $request->cif_rupiah
     ]);
-    return redirect('admin/eksport-import/data-barang');
+    return redirect('admin/eksport-import/pungutan');
   }
   public function saveKontainer(Request $request)
   {
