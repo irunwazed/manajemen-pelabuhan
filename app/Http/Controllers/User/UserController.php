@@ -27,7 +27,7 @@ class UserController extends Controller
 
         $data->user = $user;
 
-        return view('app/user.users', compact('data', 'nama'));
+        return view('app/user.users', compact('data', 'nama', 'user'));
     }
 
     public function userForm(Request $request, $user, $id=null)
@@ -39,7 +39,7 @@ class UserController extends Controller
 
         $usersGroups = UserGroups::all();
 
-        return view('app/user.users-form', compact('data', 'usersGroups'));
+        return view('app/user.users-form', compact('data', 'usersGroups', 'user'));
     }
 
     public function submitUser(Request $request, $user, $id=null)
@@ -78,7 +78,7 @@ class UserController extends Controller
 
         $data->user = $user;
 
-        return view('app/user.group-users', compact('data', 'nama'));
+        return view('app/user.group-users', compact('data', 'nama', 'user'));
 
     }
 
@@ -94,10 +94,10 @@ class UserController extends Controller
 
         $menus = Menus::all();
 
-        return view('app/user.group-users-form', compact('data', 'menus', 'dataGroupUser'));
+        return view('app/user.group-users-form', compact('data', 'menus', 'dataGroupUser', 'user'));
     }
 
-    public function submitGroupUser(Request $request)
+    public function submitGroupUser(Request $request, $user)
     {
 
         $allParams = $request->input();
@@ -133,9 +133,9 @@ class UserController extends Controller
                 }
             }
 
-            return redirect('admin/management-user/group-user');
+            return redirect($user.'/management-user/group-user');
         } catch (\Exception $e) {
-            return redirect('admin/management-user/group-user');
+            return redirect($user.'/management-user/group-user');
         }
 
     }

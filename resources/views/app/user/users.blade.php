@@ -35,7 +35,7 @@
     <div class="">
         <div class="text-2xl ">Management User / Users</div>
         <hr class="border-b-2 border-black border-solid">
-        <form id="form-user" action="{{url('admin/management-user/user/filter')}}" method="get">
+        <form id="form-user" action="{{url($user.'/management-user/user/filter')}}" method="get">
             <div class="flex items-center justify-end">
                 <div class="">
                     <div class="grid grid-cols-2 gap-2 pt-16">
@@ -59,7 +59,7 @@
             </div>
         </form>
         <div class="text-start">
-            <a href="{{ url('/admin/management-user/add-user') }}" class="tambah-user text-white float-left bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 focus:outline-none">Tambah</a>
+            <a href="{{ url($user.'/management-user/add-user') }}" class="tambah-user text-white float-left bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 focus:outline-none">Tambah</a>
         </div>
 
         <div class="text-center mb-3 mt-5">
@@ -82,7 +82,7 @@
                             <td class="text-left">{{ $item->username }}</td>
                             <td class="text-left">{{ $item->nama_groups }}</td>
                             <td class="py-2 flex flex-wrap gap-1 justify-center">
-                                <a href="{{url('admin/management-user/edit-user').'/'.$item->id }}" class="focus:outline-none text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Edit</a>
+                                <a href="{{url($user.'/management-user/edit-user').'/'.$item->id }}" class="focus:outline-none text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Edit</a>
                             </td>
                         </tr>
                     @endforeach

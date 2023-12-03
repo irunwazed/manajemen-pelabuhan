@@ -36,7 +36,7 @@
         <div class="text-2xl ">Management User / Users</div>
         <hr class="border-b-2 border-black border-solid">
         <div class="font-bold text-2xl text-center pt-20">Form Tambah User</div>
-        <form id="form-user" action="{{url('admin/management-user/user/filter')}}" method="post" class="pt-16">
+        <form id="form-user" action="{{url($user.'/management-user/user/filter')}}" method="post" class="pt-16">
             <div class="flex flex-col items-center justify-start">
                 <div class="text-start w-4/12 mb-5">
                     <div>
@@ -87,7 +87,7 @@
         </form>
         <div class="flex justify-center">
             <a href="javascript:void(0)" class="tambah-user text-white float-left bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 focus:outline-none">Simpan</a>
-            <a href="{{ url('admin/management-user/user') }}" class="text-white float-left bg-black hover:bg-black-800 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 focus:outline-none ml-2">Kembali</a>
+            <a href="{{ url($user.'/management-user/user') }}" class="text-white float-left bg-black hover:bg-black-800 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 focus:outline-none ml-2">Kembali</a>
         </div>
     </div>
 @endsection
@@ -140,7 +140,7 @@
         }
         
         var formData = $("#form-user").serializeArray();
-        var url      = '{{ url("admin/management-user/submit-user/") }}' + '/{{ $data->id ?? 'noid' }}';
+        var url      = '{{ url($user."/management-user/submit-user/") }}' + '/{{ $data->id ?? 'noid' }}';
         
         $(this).prop("disabled", true);
 
@@ -149,7 +149,7 @@
             url: url, 
             data: formData,
             success: function (response) {
-                window.location.href = "{{ url('admin/management-user/user') }}";
+                window.location.href = "{{ url($user.'/management-user/user') }}";
             },
             error: function (error) {
                 $('.msg-api').html('<p class="text-red-500">Error submitting the form</p>').show();

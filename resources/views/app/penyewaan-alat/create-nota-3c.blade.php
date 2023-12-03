@@ -17,7 +17,7 @@
     <div class="">
         <div class="text-2xl ">
             Penyewaan Alat /
-            <a href="{{url('admin/penyewaan-alat/nota-3c')}}"> Nota 3C </a>
+            <a href="{{url($user.'/penyewaan-alat/nota-3c')}}"> Nota 3C </a>
             / Create Nota 3C
         </div>
 
@@ -184,7 +184,7 @@
             @if(empty($data->nonota3c)) 
                 <button type="submit" class="submit-nota-c3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create</button>
             @endif
-            <a href="{{url('admin/penyewaan-alat/nota-3c')}}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">KEMBALI</a>
+            <a href="{{url($user.'/penyewaan-alat/nota-3c')}}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">KEMBALI</a>
         </div>
         </div>
     </div>
@@ -215,14 +215,14 @@
         formData.push({ name: 'nota3c', value: $("#nota3c").val() });
         formData.push({ name: 'tglCetakNota3c', value: $(".tgl-cetak").text() });
 
-        var url      = '{{ url("admin/penyewaan-alat/submit-nota-3c/") }}' + '/{{ $data->pbau_alat_1c_id }}';
+        var url      = '{{ url($user."/penyewaan-alat/submit-nota-3c/") }}' + '/{{ $data->pbau_alat_1c_id }}';
 
         $.ajax({
             type: 'POST',
             url: url, 
             data: formData,
             success: function (response) {
-                window.location.href = "{{url('admin/penyewaan-alat/nota-3c')}}";
+                window.location.href = "{{url($user.'/penyewaan-alat/nota-3c')}}";
             },
             error: function (error) {
                 $('.msg-api').html('<p class="text-red-500">Error submitting the form</p>').show();
