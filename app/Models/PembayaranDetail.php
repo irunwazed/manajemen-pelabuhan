@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PembayaranDetail extends Model
 {
-    protected $table = 't_keu_penerimaan_detail';
-    protected $primaryKey = 'penerimaan_detail_id';
+    protected $table = 't_keu_pembayaran_detail';
+    protected $primaryKey = 'pembayaran_detail_id';
     public $timestamps = false;
 
     protected $fillable = [
@@ -17,6 +17,10 @@ class PembayaranDetail extends Model
         'nama_rekening_pengeluaran',
         'keterangan',
         'jumlah'
+    ];
+
+    protected $casts = [
+        'rekening_pengeluaran_id' => 'string',
     ];
 
 }

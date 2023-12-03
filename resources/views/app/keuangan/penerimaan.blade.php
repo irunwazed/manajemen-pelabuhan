@@ -40,7 +40,7 @@
             <div class="grid grid-cols-4 gap-2 pt-16">
                 <div class="text-start w-full">
                     <div>
-                        <label>No Pembayaran</label>
+                        <label>NO PEMBAYARAN</label>
                     </div>
                     <div>
                         <input type="text" value="{{$noPenerimaan}}" name="no_penerimaan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

@@ -13,15 +13,14 @@ class Pembayaran extends Model
     protected $fillable = [
         'no_pembayaran',
         'rekening_kas_id',
-        'kode_rekening',
-        'nama_rekening',
+        'kode_rekening_kas',
+        'nama_rekening_kas',
         'tanggal',
-        'keterangan',
         'jumlah'
     ];
 
     protected $casts = [
-        'rekening_id' => 'string',
+        'rekening_kas_id' => 'string',
     ];
 
 }

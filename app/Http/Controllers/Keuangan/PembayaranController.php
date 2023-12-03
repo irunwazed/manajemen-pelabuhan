@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Keuangan;
 
 use App\Models\Jurnal;
-use App\Models\Nota;
 use App\Models\Pembayaran;
-use App\Models\Penerimaan;
-use App\Models\PenerimaanDetail;
-use App\Models\Perusahaan;
+use App\Models\PembayaranDetail;
 use App\Models\Rekening;
+use App\Models\RekeningKas;
 use App\Models\RekeningPengeluaran;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -28,10 +26,10 @@ class PembayaranController
         $namaRekening = $request->input('nama_rekening');
 
         $data = Pembayaran::when($noPembayaran, function ($query) use ($noPembayaran) {
-            $query->where('PenerimaanController.php', 'LIKE', "%$noPembayaran%");
+            $query->where('no_pembayaran', 'LIKE', "%$noPembayaran%");
         })
             ->when($namaRekening, function ($query) use ($namaRekening) {
-                $query->where('nama_rekening', 'LIKE', "%$namaRekening%");
+                $query->where('nama_rekening_kas', 'LIKE', "%$namaRekening%");
             })
             ->orderBy("tanggal", "desc")
             ->paginate(10);
@@ -52,24 +50,23 @@ class PembayaranController
 
     public function create(Request $request)
     {
-        $perusahaan = Perusahaan::where('perusahaan_id', '=', $id)->first();
-        $rekening = RekeningPengeluaran::orderBy('nama_rekening')->get();
+        $rekeningKas = RekeningKas::orderBy('nama_rekening')->get();
+        $rekeningPengeluaran = RekeningPengeluaran::orderBy('nama_rekening')->get();
 
-        return view('app/keuangan.pembayaran.create', compact('perusahaan', 'rekening'));
+        return view('app/keuangan.pembayaran.create', compact('rekeningKas','rekeningPengeluaran'));
     }
 
     public function save(Request $request, $user)
     {
-        $rekening = $this->getRekening($request);
-        $details = Nota::find($request->input('details'));
+        $rekKas = $this->getRekening($request->input('rekening'));
 
         try {
             DB::beginTransaction();
-            $pembayaran = $this->savePembayaran($request, $rekening);
-            $jumlah = $this->savePembayaranDetail($pembayaran, $details);
+            $pembayaran = $this->savePembayaran($request, $rekKas);
+            $jumlah = $this->savePembayaranDetail($request, $pembayaran);
             $pembayaran->jumlah = $jumlah;
             $pembayaran->save();
-            $this->saveJurnal($details, $request, $pembayaran);
+            $this->saveJurnal($request, $pembayaran);
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
@@ -78,40 +75,43 @@ class PembayaranController
 
         return redirect()->route('pembayaran-list', ['user' => $user]);
     }
-    private function getRekening(Request $request)
+    private function getRekening($idRekening)
     {
-        $idRekening = $request->input('rekening');
-        return Rekening::where('kode_rekening', '=', $idRekening)->first();
+        return Rekening::find($idRekening);
     }
 
-    public function savePembayaran(Request $request, $perusahaan, $rekening)
+    public function savePembayaran(Request $request, $rekening)
     {
-        return Penerimaan::create([
+        return Pembayaran::create([
             'no_pembayaran' => $request->input('no_pembayaran'),
             'rekening_kas_id' => $rekening->rekening_id,
             'kode_rekening_kas' => $rekening->kode_rekening,
             'nama_rekening_kas' => $rekening->nama_rekening,
             'tanggal' => $request->input('tanggal'),
-            'keterangan' => $request->input('keterangan'),
             'jumlah' => 0
         ]);
     }
 
-    public function savePembayaranDetail($pembayaran, $details)
+    public function savePembayaranDetail($request, $pembayaran)
     {
-        $jumlah = 0;
-        foreach ($details as $detail) {
-            PenerimaanDetail::create([
+        $total = 0;
+        $rekenings = [];
+        $rekPengeluaran = $request->input('rekening_pengeluaran_id');
+        for ($i = 0; $i < count($rekPengeluaran); $i++)
+        {
+            $rek = $this->getRekeing($rekenings, $rekPengeluaran[$i]);
+            $jumlah = $request->input('jumlah')[$i];
+            PembayaranDetail::create([
                 'pembayaran_id' => $pembayaran->pembayaran_id,
-                'rekening_pengeluaran_id' => $detail->rekening_pengeluaran_id,
-                'kode_rekening_pengeluaran' => $detail->kode_rekening_pengeluaran,
-                'nama_rekening_pengeluaran' => $detail->nama_rekening_pengeluaran,
-                'keterangan'  => $detail->keterangan,
-                'jumlah'  => $detail->jumlah
+                'rekening_pengeluaran_id' => $rek->rekening_id,
+                'kode_rekening_pengeluaran' => $rek->kode_rekening,
+                'nama_rekening_pengeluaran' => $rek->nama_rekening,
+                'keterangan'  => $request->input('keterangan')[$i],
+                'jumlah'  => $jumlah,
             ]);
-            $jumlah += $detail->jumlah;
+            $total += $jumlah;
         }
-        return $jumlah;
+        return $total;
     }
 
     /**
@@ -121,30 +121,33 @@ class PembayaranController
      * @param $pembayaran
      * @return array
      */
-    public function saveJurnal($details, $rekening, Request $request, $pembayaran): array
+    public function saveJurnal(Request $request, $pembayaran): array
     {
         $jurnals = [];
         $rekenings = [];
         $total = 0;
-        $rek_kas = $this->getRekeing($rekenings, $rekening->rekening_id);
-        foreach ($details as $detail) {
-            $rek_pembayaran = $this->getRekeing($rekenings, $detail->rekening_id);
+        $rek_kas = $this->getRekeing($rekenings, $request->input('rekening'));
+        $rekPengeluaran = $request->input('rekening_pengeluaran_id');
+        for ($i = 0; $i < count($rekPengeluaran); $i++)
+        {
+            $rek = $this->getRekeing($rekenings, $rekPengeluaran[$i]);
+            $jumlah = intval($request->input('jumlah')[$i]);
             $jurnals[] = [
-                'kode_rekening' => $rek_pembayaran->kode_rekening,
+                'kode_rekening' => $rek->kode_rekening,
                 'tanggal' => $request->input('tanggal'),
                 'ref_id' => $pembayaran->pembayaran_id,
                 'ref_type' => 'pembayaran',
-                'jumlah' => $detail->jumlah,
+                'jumlah' => $jumlah,
                 'debit_kredit' => 'D'
             ];
-            $total += $details->jumlah;
+            $total += $jumlah;
         }
         $jurnals[] = [
             'kode_rekening' => $rek_kas->kode_rekening,
             'tanggal' => $request->input('tanggal'),
-            'ref_id' => $pembayaran->penerimaan_id,
+            'ref_id' => $pembayaran->pembayaran_id,
             'ref_type' => 'pembayaran',
-            'jumlah' => $jumlah,
+            'jumlah' => $total,
             'debit_kredit' => 'K'
         ];
         Jurnal::insert($jurnals);
