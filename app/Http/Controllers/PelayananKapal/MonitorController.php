@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 class MonitorController extends Controller
 {
 
-  public function show(Request $request, $user)
+  public function show(Request $request)
   {
-    $search = $request->input('search');
+   $search = $request->input('search');
 
-
+//dd($request);
     $page = @$request->input('page') >= 1 ? $request->input('page') : 1;
     $perPage = @$request->input('perPage') >= 1 ? $request->input('perPage') : 10;
 
@@ -37,7 +37,7 @@ class MonitorController extends Controller
     $total = $query->count();
     $data = $query->skip(($page - 1) * $perPage)->take($perPage)
       ->get();
-
+      $user="admin";
     $result = [
       "user" => $user,
       "request" => $request->input(),

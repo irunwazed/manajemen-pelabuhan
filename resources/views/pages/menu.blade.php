@@ -70,13 +70,13 @@
 
     <ul class="menu flex">
       <li>
-        <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="{{ URL::to('/admin/pelayanan-kapal'); }}">
+        <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="{{ URL::to('/admin/pelayanan-kapal')}}">
           <span class="mr-0">Pelayanan Kapal</span>
           <embed class="absolute right-0 top-4" width="10" src="{{URL::asset('assets/svg/arrow-down.svg')}}" />
         </a>
       </li>
       <li>
-        <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="{{ URL::to('/admin/pelayanan-bongkar-muat'); }}">
+        <a class="py-2 px-4 mx-2 text-gray-500 flex relative" href="{{ URL::to('/admin/pelayanan-bongkar-muat') }}">
           <span class="mr-0">Pelayanan Bongkar Muat</span>
           <embed class="absolute right-0 top-4" width="10" src="{{URL::asset('assets/svg/arrow-down.svg')}}" />
         </a>

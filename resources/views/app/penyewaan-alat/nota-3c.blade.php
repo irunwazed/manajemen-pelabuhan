@@ -73,7 +73,7 @@
 
         <div class="text-center mb-3 mt-5">
             <div>
-                <table class="mt-5 w-full border-solid border-2 border-slate-800">
+                <table class="mt-5 w-full border-solid border-2 border-slate-800 text-center">
                     <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white py-5">
                     <tr>
                         <th class="py-5 px-3">No</th>
@@ -114,10 +114,16 @@
                             </td>
                         </tr>
                     @endforeach
+                    @if(count($data) === 0)
+                        <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300 text-center">
+                            <td colspan="8">No Data Found</td>
+                        </tr>
+                    @endif
                     </tbody>
                 </table>
                 <div class="mt-5 pagination">
                     {{ $data->links() }}
+                    @if($totalData <= 10)<a href="javascript:void(0)" class="disabled" style="background: transparent;color: #000;">1</a>@endif
                 </div>
             </div>
         </div>

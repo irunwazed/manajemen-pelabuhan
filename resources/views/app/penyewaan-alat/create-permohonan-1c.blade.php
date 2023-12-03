@@ -67,7 +67,7 @@
     <div class="text-2xl ">
         Penyewaan Alat /
         <a href="{{url('admin/penyewaan-alat/permohonan-1c')}}"> Permohonan 1C </a>
-        / {{$subName}} Data
+        / @if(empty($data->tgl_noform_2c)) {{ $subName }}  @else View @endif Data
     </div>
     <hr class="border-b-2 border-black border-solid">
     <div class="font-bold text-2xl text-center pt-5">FORM PERMOHONAN 1C - PENYEWAAN ALAT</div>
@@ -246,7 +246,7 @@
                         <th>Tgl/Jam Mulai</th>
                         <th>Tgl/Jam Selesai</th>
                         <th>Harga</th>
-                        <th>Aksi</th>
+                        <th @if(empty($data->tgl_noform_2c)) "" @else style='display:none' @endif >Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -273,6 +273,7 @@
     });
 
     var pbauAlat1cId       = '{{$data->pbau_alat_1c_id ?? null}}';
+    var tglNoForm2c       = '{{$data->tgl_noform_2c ?? null}}';
     var pbauAlat1cIdDetail = null;
     var alatId             = null;
 
@@ -289,6 +290,11 @@
         $('.tambah-1c').hide();
         $('.edit-1c').show();
         $('.simpan-bottom').hide();
+    }
+
+    if(tglNoForm2c !== ""){
+        $('.simpan-bottom, .tambah-1c, .edit-1c, .tambah-alat, .edit-alat').hide();
+        $('input,select').prop("disabled",true);
     }
 
     // Handle pagination link clicks
@@ -571,6 +577,7 @@
                 if(data.data.length >= 1){
                     // Populate the table with the retrieved data
                     $.each(data.data, function (index, item) {
+                        var styleDiv = @if(empty($data->tgl_noform_2c)) "" @else "style=display:none" @endif ;
                         var row = '<tr class="border-solid border-2 border-slate-800 bg-slate-200 hover:bg-slate-300">';
                         row += '<td>' + item.kode_alat + '</td>';
                         row += '<td>' + item.nama_alat + '</td>';
@@ -581,7 +588,7 @@
                         row += '<td>' + item.tgl_mulai_mohon + '</td>';
                         row += '<td>' + item.tgl_selesai_mohon + '</td>';
                         row += '<td>' + (item.tarif_alat * item.minimal_pakai) + '</td>';
-                        row += '<td class="py-2 flex flex-wrap gap-1 justify-center ">' +
+                        row += '<td '+styleDiv+' class="py-2 flex flex-wrap gap-1 justify-center ">' +
                                 '<button data-record-id="'+item.pbau_alat_1c_detail+'" class="edit-button focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Edit</a>' +
                                 '<button data-record-id="'+item.pbau_alat_1c_detail+'" class="delete-button focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Delete</button>' +
                             '</td>';
@@ -602,101 +609,101 @@
                 console.log('Error:', error);
             }
         });
-
-        function updatePaginationLinks(pagination) {
-            var linksHtml = '';
-            if (pagination.prev_page_url) {
-                linksHtml += '<a href="' + pagination.prev_page_url + '">Previous</a>';
-            }
-            for (var i = 1; i <= pagination.last_page; i++) {
-                var activeClass = (i === pagination.current_page) ? 'disabled' : '';
-                linksHtml += '<a href="' + pagination.path + '?page=' + i + '" class="' + activeClass + '">' + i + '</a>';
-            }
-            if (pagination.next_page_url) {
-                linksHtml += '<a href="' + pagination.next_page_url + '">Next</a>';
-            }
-            $('.pagination').html(linksHtml);
+    }
+    
+    function updatePaginationLinks(pagination) {
+        var linksHtml = '';
+        if (pagination.prev_page_url) {
+            linksHtml += '<a href="' + pagination.prev_page_url + '">Previous</a>';
         }
+        for (var i = 1; i <= pagination.last_page; i++) {
+            var activeClass = (i === pagination.current_page) ? 'disabled' : '';
+            linksHtml += '<a href="' + pagination.path + '?page=' + i + '" class="' + activeClass + '">' + i + '</a>';
+        }
+        if (pagination.next_page_url) {
+            linksHtml += '<a href="' + pagination.next_page_url + '">Next</a>';
+        }
+        $('.pagination').html(linksHtml);
+    }
 
-        // Add this function to handle edit button click
-        $(document).on('click', '.edit-button', function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            
-            $("tr").removeClass('selected-row');
-            $(this).parent().parent().addClass('selected-row');
-            
-            pbauAlat1cIdDetail = $(this).data('record-id');
+    // Add this function to handle edit button click
+    $(document).on('click', '.edit-button', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        
+        $("tr").removeClass('selected-row');
+        $(this).parent().parent().addClass('selected-row');
+        
+        pbauAlat1cIdDetail = $(this).data('record-id');
 
+        $.ajax({
+            url: '{{ url("admin/penyewaan-alat/get-alat-detail/edit") }}',
+            type: 'GET',
+            data: { id: pbauAlat1cIdDetail },
+            dataType: 'json',
+            success: function (data) {
+                var data = data.data;
+                $('#alat').val(data.alat_id).trigger('change'); 
+                $('#date-start').val(data.tgl_mulai_mohon.split(' ')[0]);
+                $('#time-start').val(data.tgl_mulai_mohon.split(' ')[1]);
+                $('#date-end').val(data.tgl_selesai_mohon.split(' ')[0]);
+                $('#time-end').val(data.tgl_selesai_mohon.split(' ')[1]);
+                $('#jumlah_alat').val(data.jumlah_alat);
+                $('#satuan_tarif').val(data.satuan_tarif);
+                $('#harga_alat').val(data.tarif_alat);
+
+                $('button.edit-alat').prop('disabled', false);
+                $('button.tambah-alat').prop('disabled', true);
+
+                $('html, body').animate({
+                    scrollTop: $('#permohonan-form').offset().top
+                }, 'slow');
+            },
+            error: function (error) {
+                console.log('Error:', error);
+            }
+        });
+    });
+
+    $(document).on('click', '.delete-button', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        var deleteId = $(this).data('record-id');
+        
+        if (confirm('Are you sure you want to delete this record?')) {
             $.ajax({
-                url: '{{ url("admin/penyewaan-alat/get-alat-detail/edit") }}',
-                type: 'GET',
-                data: { id: pbauAlat1cIdDetail },
-                dataType: 'json',
-                success: function (data) {
-                    var data = data.data;
-                    $('#alat').val(data.alat_id).trigger('change'); 
-                    $('#date-start').val(data.tgl_mulai_mohon.split(' ')[0]);
-                    $('#time-start').val(data.tgl_mulai_mohon.split(' ')[1]);
-                    $('#date-end').val(data.tgl_selesai_mohon.split(' ')[0]);
-                    $('#time-end').val(data.tgl_selesai_mohon.split(' ')[1]);
-                    $('#jumlah_alat').val(data.jumlah_alat);
-                    $('#satuan_tarif').val(data.satuan_tarif);
-                    $('#harga_alat').val(data.tarif_alat);
-
-                    $('button.edit-alat').prop('disabled', false);
-                    $('button.tambah-alat').prop('disabled', true);
-
-                    $('html, body').animate({
-                        scrollTop: $('#permohonan-form').offset().top
-                    }, 'slow');
+                type: 'DELETE',
+                url: '{{ url("/admin/penyewaan-alat/get-alat-detail/delete") }}',
+                data: {id: deleteId},
+                success: function(response) {
+                    fetchData(1, pbauAlat1cId);
                 },
-                error: function (error) {
-                    console.log('Error:', error);
+                error: function(xhr) {
+                    console.error(xhr.responseJSON.error);
                 }
             });
-        });
+        }
+    });
 
-        $(document).on('click', '.delete-button', function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
+    $(document).on('click', 'button.tambah-alat', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation()
+        $('button.edit-alat').prop('disabled', true);
+        $('button.tambah-alat').prop('disabled', false);
+        buttonAlat = "tambah";
+        $('#permohonan-form').submit();
+    });
 
-            var deleteId = $(this).data('record-id');
-            
-            if (confirm('Are you sure you want to delete this record?')) {
-                $.ajax({
-                    type: 'DELETE',
-                    url: '{{ url("/admin/penyewaan-alat/get-alat-detail/delete") }}',
-                    data: {id: deleteId},
-                    success: function(response) {
-                        fetchData(1, pbauAlat1cId);
-                    },
-                    error: function(xhr) {
-                        console.error(xhr.responseJSON.error);
-                    }
-                });
-            }
-        });
+    $(document).on('click', 'button.edit-alat', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation()
 
-        $(document).on('click', 'button.tambah-alat', function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation()
-            $('button.edit-alat').prop('disabled', true);
-            $('button.tambah-alat').prop('disabled', false);
-            buttonAlat = "tambah";
-            $('#permohonan-form').submit();
-        });
-
-        $(document).on('click', 'button.edit-alat', function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation()
-
-            $('button.edit-alat').prop('disabled', false);
-            $('button.tambah-alat').prop('disabled', true);
-            buttonAlat = "edit";
-            $('#permohonan-form').submit();
-        });
-    }
+        $('button.edit-alat').prop('disabled', false);
+        $('button.tambah-alat').prop('disabled', true);
+        buttonAlat = "edit";
+        $('#permohonan-form').submit();
+    });
 
 </script>
 @endsection

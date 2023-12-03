@@ -6,6 +6,9 @@ use App\Http\Controllers\PelayananKapal\PermohonanAirController;
 use App\Http\Controllers\PelayananKapal\PermohonanPanduTundaController;
 
 
+Route::get('/pelayanan-kapal/monitoring', 'PelayananKapal\MonitorController@show');
+
+
 Route::prefix('/{user}/pelayanan-kapal')->group(function () {
     Route::get('/', function ($user) {
         $data = [

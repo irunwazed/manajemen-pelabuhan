@@ -126,12 +126,14 @@ class LahanController
                 'b.status_lunsum'
             )->get();
         $lokasi = DB::table('m_au_lahan_bangunan')->get()->toArray();
-
+        $perusahaan = DB::table('m_perusahaan')->get()->toArray();
         $data = array(
             'companyInfo' => $companyInfo,
             'lokasiInfo'  => $lokasi,
-            'user' => $user
+            'user' => $user,
+            'perusahaan'=> $perusahaan
         );
+        //dd($data);
         // echo "<pre>";
         // print_r($companyInfo);
         // die;
@@ -232,7 +234,8 @@ class LahanController
         $data->no_nota4e        = '';
         $data->tgl_nota4e       = date('Y-m-d');
         $data->status_lunsum    = $request->post('lumpsium') == 0 ? 'N' : 'Y';
-        $data->kode_rek         = $request->post('norek');
+        //salah nama field dari kode_rek menjadi kode_rek_jasa
+        $data->kode_rek_jasa         = $request->post('norek');
         $data->save();
 
         return redirect("$user/aneka-usaha/create-permohonan-sewa-lahan");

@@ -21,21 +21,31 @@ use App\Http\Controllers\Warehousing\PengeluaranBarangController;
 |
 */
 
-
+/*
 Route::get('/', function () {
     header("Location: login");
     die();
-});
+});*/
+//hanya yang belum berhasil login bisa ke halaman login
+Route::get('/login', 'LoginController@login')->name('login')->middleware('guest');
 
-Route::get('/login', 'LoginController@login');
+Route::post('/login', 'LoginController@doLogin')->middleware('guest');
+Route::post('/logout', 'LoginController@doLogout');
+Route::post('{user}/logout', 'LoginController@doLogout');
 
-Route::post('/login', 'LoginController@doLogin');
+//Route halaman utama sesuai dengan user ke pembagian menu utama
+Route::get('/{user}', function ($user) {
+    $data = [
+        "user" => $user
+    ];
+    return view('pages/admin', $data);
+})->middleware('auth');//untuk setiap action ke main menu hrs logi dan terauthentikasi.
 
-
+/*
 Route::get('/admin/menu', function () {
     return view('pages/menu');
 });
-
+*/
 Route::get('/tes', function () {
     return view('temp/res');
 });
@@ -48,7 +58,6 @@ Route::prefix('/{user}/pelayanan-barang')->group(function () {
         ];
         return view('app/pelayanan-barang', $data);
     });
-    
 
     Route::prefix('/pengeluaran-2b2')->group(function () {
         Route::get('/', [PengeluaranBarang2B2::class, 'show'])->name('get-2b2');
@@ -58,7 +67,7 @@ Route::prefix('/{user}/pelayanan-barang')->group(function () {
 
     Route::prefix('/nota-3b')->group(function () {
         Route::get('/', [Nota3B::class, 'show'])->name('nota-3b');
-        Route::get('/form-create/{pelayanan_kapal_id}', [Nota3B::class, 'form_create'])->name('form-2b2');
+        Route::get('/form-create/{pelayanan_kapal_id}', [Nota3B::class, 'form_create'])->name('form-3b');
         Route::post('/create3B', [Nota3B::class, 'create3B'])->name('create3B');
     });
 
@@ -75,19 +84,17 @@ Route::prefix('/{user}/pelayanan-barang')->group(function () {
         Route::post('/update-barang', [PenumpukanBarang2B1::class, 'updateBarang'])->name('update-Barang');
         Route::post('/create-2B1', [PenumpukanBarang2B1::class, 'create2B1'])->name('create-2B1');
     });
-
     Route::get('/{menu}', function ($user, $menu) {
         $data = [
             "user" => $user
         ];
-        return view('app/pelayanan-barang/'.$menu, $data);
+        return view('app/pelayanan-barang/' . $menu, $data);
     });
 });
 
+
 //batas untuk route barang
-
-
-
+//route untuk penyewaan alat
 Route::prefix('/{user}/penyewaan-alat')->group(function () {
     Route::get('/', function ($user) {
         $data = [
@@ -125,44 +132,50 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
 
     //sub menu 4
     Route::get('/nota-4c', 'Alat\PbauAlatController@indexNota4c');
+    Route::get('/form-4c/filter', 'Alat\PbauAlatController@indexNota4c');
     Route::get('/create-nota-4c/{id}', 'Alat\PbauAlatController@createNota4C');
     Route::get('/nota-4c/invoice/{id}', 'Alat\PbauAlatController@generateInvoice');
     Route::post('/submit-nota-4c/{id}', 'Alat\PbauAlatController@submitNota4c');
+    
 });
+//batas penyewaan alat
+
 
 //Route untuk aneka usaha
 Route::get('/perusahaan/{id}', [LahanController::class, 'companyinfoById'])->name('companyinfoById');
 Route::get('/perusahaan-lokasi/{id}', [LahanController::class, 'lahaninfoById'])->name('lahaninfoById');
 //Route::get('/pranota-permohonan-sewa-lahan', [pranotaLahan::class, 'praNota'])->name('praNota');
 
-
-    Route::prefix('/{user}/aneka-usaha/')->group(function () {
-   
-    Route::get('/', function ($user) {
-        $data = [
-            "user" => $user
-        ];
-        return view('app/aneka-usaha', $data);
-    });
+Route::prefix('/{user}/aneka-usaha/')->group(function () {
+    //routing untuk sewa lahan dan bangunan
     Route::get('/permohonan-sewa-lahan', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
     Route::post('/perusahaan-lahan-create', [LahanController::class, 'Lahancreate'])->name('lahanCreate');
     Route::get('/create-permohonan-sewa-lahan', [LahanController::class, 'companyInfo'])->name('companyInfo');
     Route::get('/list-permohonan-sewa-lahan', [LahanController::class, 'res'])->name('res');
-
-
- //routing bunker
- Route::get('/permohonan-sewa-bunker', 'AnekaUsaha\BunkerController@show');
-
-    Route::get('/{menu}', function ($user, $menu) {
-        $data = [
-            "user" => $user
-        ];
-        return view('app/aneka-usaha/' . $menu, $data);
+     //routing bunker
+     Route::prefix('sewa-bunker')->group(function () {
+     Route::get('/', [BunkerController::class, 'show'])->name('showBunker');
+     Route::get('/formCreate', [BunkerController::class, 'formCreate'])->name('formCreate');
+     Route::post('/getPerusahaan', [BunkerController::class, 'getPerusahaan'])->name('getPerusahaan');
     });
+    //Route::get('/permohonan-sewa-bunker', 'AnekaUsaha\BunkerController@show');
+
+        Route::get('/', function ($user) {
+            $data = [
+                "user" => $user
+            ];
+            return view('app/aneka-usaha', $data);
+        });
+
+        Route::get('/{menu}', function ($user, $menu) {
+            $data = [
+                "user" => $user
+            ];
+            return view('app/aneka-usaha/' . $menu, $data);
+        });
 });
 
-
-//Route Keuangan
+ //Route Keuangan
 Route::prefix('/{user}/keuangan')->group(function () {
     Route::get('/', function ($user) {
         $data = [
@@ -178,15 +191,7 @@ Route::prefix('/{user}/keuangan')->group(function () {
 
 });
 
-Route::get('/{user}', function ($user) {
-    $data = [
-        "user" => $user
-    ];
-    return view('pages/admin', $data);
-});
-
 //route untuk export import
-
 Route::prefix('/{user}/eksport-import')->group(function () {
     
     Route::get('/', function ($user) {
@@ -250,24 +255,6 @@ Route::post('/Manifest/hs_code','EksportImport\EksportController@hscode');
 
 });
 
-Route::get('/{user}', function ($user) {
-    $data = [
-        "user" => $user
-    ];
-    return view('pages/admin', $data);
-});
-
-Route::get('/{user}', function ($user) {
-    $data = [
-        "user" => $user
-    ];
-    return view('pages/admin', $data);
-});
-
-
-
-
-
 //route warehousing
 Route::prefix('/{user}/warehousing')->group(function () {
     Route::get('/', function ($user) {
@@ -309,7 +296,6 @@ Route::prefix('/{user}/management-user')->group(function () {
         ];
         return view('app/management-user', $data);
     });
-
     Route::get('/user', 'User\UserController@user');
     Route::get('/user/filter', 'User\UserController@user');
     Route::get('/add-user', 'User\UserController@userForm');
@@ -320,7 +306,7 @@ Route::prefix('/{user}/management-user')->group(function () {
     Route::get('/group-user/filter', 'User\UserController@groupUser');
     Route::get('/add-group-user', 'User\UserController@groupUserForm');
     Route::get('/edit-group-user/{id}', 'User\UserController@groupUserForm');
-    Route::post('/submit-group-user', 'User\UserController@submitGroupUser');
+    Route::post('/submit-group-user', 'User\UserController@submitGroupUser');    
 });
 
 // Route App

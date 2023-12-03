@@ -151,7 +151,7 @@
 
                                 <a data-modal-toggle="defaultModal" type="button"
                                     class="mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                                    onclick='editData({{ $row->pelayanan_kapal_rkbm_id }})'>
+                                    onclick='editData({{ $row->pelayanan_kapal_rkbm_barang_id }})'>
                                     Update Tarif</a>
                             </td>
                             </tr>
@@ -360,7 +360,7 @@
                 type: 'POST',
                 url: "{{ route('get-Barang', 'admin') }}",
                 data: {
-                    pelayanan_kapal_rkbm_id: data,
+                    pelayanan_kapal_rkbm_barang_id: data,
                 },
                 success: function(response) {
                     $("#nama_barang").val(response.nama_barang);

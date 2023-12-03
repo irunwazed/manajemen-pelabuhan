@@ -74,7 +74,7 @@
 
         <div class="text-center mb-3 mt-5">
             <div>
-                <table class="mt-5 w-full border-solid border-2 border-slate-800">
+                <table class="mt-5 w-full border-solid border-2 border-slate-800 text-center">
                     <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white py-5">
                     <tr>
                         <th class="py-5 px-3">No</th>
@@ -95,18 +95,25 @@
                             <td>{{ $item->nama_perusahaan }}</td>
                             <td>{{ $item->nama_kapal }}</td>
                             <td>{{ $item->keperluan }}</td>
-                            <td class="py-2 flex flex-wrap gap-1 justify-center">
+                            <td class="py-2 flex flex-wrap gap-1 justify-center h-[60px]">
                                 <!--<a href="" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>-->
-                                <a href="{{url('admin/penyewaan-alat/edit-permohonan-1c').'/'.$item->pbau_alat_1c_id }}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Edit</a>
-                                <a href="{{url('admin/penyewaan-alat/realisasi-bukti-1c').'/'.$item->pbau_alat_1c_id }}" class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-blue-900">Realisasi</a>
+                                @if(empty($item->tgl_noform_2c))
+                                    <a href="{{url('admin/penyewaan-alat/realisasi-bukti-1c').'/'.$item->pbau_alat_1c_id }}" class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-blue-900">Realisasi</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
+                    @if(count($data) === 0)
+                        <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300 text-center">
+                            <td colspan="7">No Data Found</td>
+                        </tr>
+                    @endif
                     </tbody>
                 </table>
                 
                 <div class="mt-5 pagination">
                     {{ $data->links() }}
+                    @if($totalData <= 10)<a href="javascript:void(0)" class="disabled" style="background: transparent;color: #000;">1</a>@endif
                 </div>
             </div>
         </div>

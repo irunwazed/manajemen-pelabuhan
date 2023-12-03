@@ -34,7 +34,11 @@
                         <td class="py-1">
                             <select id="barang" required name="perusahaan_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option value="">-- Pilih Perusahaan --</option>
-                                @foreach ($companyInfo as $dat)
+                                <!-- list perusahaan diubah dari companyInfo menjadi perusahaan langsung mengambil dari master
+                                 sedangkan companyInfo dianggap sudah pernah melakukan kontrak... semua perusahaan masih terbuka
+                                 untuk melakukan kontrak sewa lahan..diubah oleh frengki sinaga
+                                -->
+                                @foreach ($perusahaan as $dat)
                                 <option value="{{$dat->perusahaan_id}}">{{$dat->nama_perusahaan}}</option>
 
                                 @endforeach
@@ -265,6 +269,7 @@
             <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="text-base text-gray-900 bg-white border border-gray-300 px-6 py-2.5 rounded hover:opacity-80">Batal</a>
         </div>
     </form>
+    <!--
     <div class="text-center mb-3 mt-5">
         <div>
             <table class="mt-5 w-full border-solid border-2 border-slate-800 " style="white-space:nowrap;">
@@ -301,7 +306,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> -->
 </div>
 
 </div>

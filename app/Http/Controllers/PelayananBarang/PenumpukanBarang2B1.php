@@ -79,7 +79,7 @@ class PenumpukanBarang2B1 extends Controller
     public function getBarang(Request $request)
     {
         try {
-            $data = DB::table('t_pelayanan_kapal_rkbm_barang')->where('pelayanan_kapal_rkbm_id', $request->pelayanan_kapal_rkbm_id)->first();
+            $data = DB::table('t_pelayanan_kapal_rkbm_barang')->where('pelayanan_kapal_rkbm_barang_id', $request->pelayanan_kapal_rkbm_barang_id)->first();
 
             return response()->json($data);
         } catch (Exception $th) {

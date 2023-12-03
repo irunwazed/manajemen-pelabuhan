@@ -72,7 +72,7 @@
             <span class="text-red-500 font-semibold text-sm">{{ @$_GET['message'] }}</span>
             <form action="{{ url('/login') }}" method="post" id="login">
                 <div>
-                    <!-- {{ csrf_field() }} -->
+                    @csrf
                     <div>
                         <label for="username">Username</label>
                         <input class="w-full px-3 py-1 mt-0 mb-5 border-solid border-b-2 border-black focus: outline-none focus:ring-2 focus:border-none focus:ring-black placeholder:text-slate-400 placeholder:text-sm text-secondary text-base" type="text" name="username" id="username" required>
