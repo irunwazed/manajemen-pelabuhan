@@ -173,6 +173,11 @@ Route::prefix('/{user}/keuangan')->group(function () {
     Route::post('/penerimaan-baru', 'Keuangan\PenerimaanController@save');
 
     Route::get('/neraca', 'Keuangan\NeracaController@index')->name('neraca');
+
+    Route::get('/pembayaran', 'Keuangan\PembayaranController@index')->name('pembayaran-list');
+    Route::get('/pembayaran/{id}', 'Keuangan\PembayaranController@detail');
+    Route::get('/pembayaran-baru', 'Keuangan\PembayaranController@create');
+    Route::post('/pembayaran-baru', 'Keuangan\PembayaranController@save');
 });
 
 
