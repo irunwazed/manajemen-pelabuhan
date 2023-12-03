@@ -40,7 +40,6 @@
                     </thead>
                     <tbody>
                         <?php
-                        // SELECT a.no_seri_barang,a.hs_code_barang,a.uraian_barang,a.harga_satuan,b.satuan,c.no_pengajuan
                         foreach ($data_barang_pib as $key => $value) {
                             echo'
                             <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">

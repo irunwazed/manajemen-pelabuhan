@@ -157,14 +157,18 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         $data_header_pib = DB::table('t_header_pib')->get();
         $data_satuan = DB::table('m_satuan')->get();
         $data_kemasan = DB::table('m_kemasan')->get();
-        // SELECT a.no_seri_barang,a.hs_code_barang,a.uraian_barang,a.harga_satuan,b.satuan,c.no_pengajuan
-        // FROM t_data_barang_pib a
-        // LEFT JOIN m_satuan b ON a.satuan_id=b.satuan_id
-        // LEFT JOIN t_header_pib c ON a.header_pib_id=c.header_pib_id
         $data_barang_pib = DB::table('t_data_barang_pib')
         ->join('m_satuan', 't_data_barang_pib.satuan_id', '=','m_satuan.satuan_id')
         ->join('t_header_pib', 't_data_barang_pib.header_pib_id', '=', 't_header_pib.header_pib_id')
         ->select('t_data_barang_pib.no_seri_barang','t_data_barang_pib.hs_code_barang','t_data_barang_pib.uraian_barang','t_data_barang_pib.harga_satuan','m_satuan.satuan','t_header_pib.no_pengajuan')
+        ->get();
+        $data_kontainer_pib = DB::table('t_kontainer_pib')
+        ->join('t_header_pib', 't_kontainer_pib.header_pib_id', '=', 't_header_pib.header_pib_id')
+        ->select('t_kontainer_pib.seri_kontainer','t_kontainer_pib.no_kontainer','t_kontainer_pib.ukuran_kontainer','t_kontainer_pib.type_kontainer','t_header_pib.no_pengajuan')
+        ->get();
+        $data_kemasan_pib = DB::table('t_kemasan_pib')
+        ->join('t_header_pib', 't_kemasan_pib.header_pib_id', '=', 't_header_pib.header_pib_id')
+        ->select('t_kemasan_pib.seri_kemasan','t_kemasan_pib.jumlah_kemasan','t_kemasan_pib.jenis_kemasan','t_kemasan_pib.merk_kemasan','t_header_pib.no_pengajuan')
         ->get();
         $data = [
             "user" => $user,
@@ -179,6 +183,8 @@ Route::prefix('/{user}/eksport-import')->group(function () {
             "data_header_pib"=> $data_header_pib,
             "data_satuan"=> $data_satuan,
             "data_kemasan"=> $data_kemasan,
+            "data_kontainer_pib"=> $data_kontainer_pib,
+            "data_kemasan_pib"=> $data_kemasan_pib,
             "data_barang_pib"=> $data_barang_pib
         ];
         return view('app/eksport-import/'.$menu, $data);
@@ -205,6 +211,8 @@ Route::post('/import/save_pengangkutan','EksportImport\ImportController@savePeng
 Route::post('/import/save_transaksi','EksportImport\ImportController@saveTransaksi');
 Route::post('/import/save_pernyataan','EksportImport\ImportController@savePernyataan');
 Route::post('/import/save_barang','EksportImport\ImportController@saveBarang');
+Route::post('/import/save_kemasan','EksportImport\ImportController@saveKemasan');
+Route::post('/import/save_kontainer','EksportImport\ImportController@saveKontainer');
 
 //Route post export
 Route::post('/Eksport/save_header','EksportImport\EksportController@saveHeader');

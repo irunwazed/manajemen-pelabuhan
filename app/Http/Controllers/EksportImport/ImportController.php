@@ -92,11 +92,35 @@ class ImportController extends Controller
     ]);
     return redirect('admin/eksport-import/data-barang');
   }
+  public function saveKontainer(Request $request)
+  {
+    // insert data ke table
+    $simpan_data = DB::table('t_kontainer_pib')->insert([
+      'header_pib_id' => $request->header_pib,
+      'seri_kontainer' => $request->seri_kontainer,
+      'no_kontainer' => $request->no_kontainer,
+      'ukuran_kontainer' => $request->ukuran_kontainer,
+      'type_kontainer' => $request->type_kontainer
+    ]);
+    return redirect('admin/eksport-import/kemasan-kontainer');
+  }
+  public function saveKemasan(Request $request)
+  {
+    // insert data ke table
+    $simpan_data = DB::table('t_kemasan_pib')->insert([
+      'header_pib_id' => $request->header_pib,
+      'seri_kemasan' => $request->seri_kemasan,
+      'jumlah_kemasan' => $request->jumlah_kemasan,
+      'jenis_kemasan' => $request->jenis_kemasan,
+      'merk_kemasan' => $request->merk_kemasan
+    ]);
+    return redirect('admin/eksport-import/kemasan-kontainer');
+  }
   public function savePernyataan(Request $request)
   {
     // insert data ke table
     $simpan_data = DB::table('t_pernyataan_pib')->insert([
-      'header_pib_id' => $request->header_pib_id,
+      'header_pib_id' => $request->header_pib,
       'tempat_pernyataan' => $request->tempat_pernyataan,
       'tanggal_pernyataan' => $request->tanggal_pernyataan,
       'nama_pernyataan' => $request->nama_pernyataan,
