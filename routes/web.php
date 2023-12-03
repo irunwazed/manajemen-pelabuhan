@@ -155,6 +155,17 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         $data_kemasan = DB::table('m_kemasan')->get();
         $data_hs_code = DB::table('m_hs_code')->get();
         $data_header_pib = DB::table('t_header_pib')->get();
+        $data_satuan = DB::table('m_satuan')->get();
+        $data_kemasan = DB::table('m_kemasan')->get();
+        // SELECT a.no_seri_barang,a.hs_code_barang,a.uraian_barang,a.harga_satuan,b.satuan,c.no_pengajuan
+        // FROM t_data_barang_pib a
+        // LEFT JOIN m_satuan b ON a.satuan_id=b.satuan_id
+        // LEFT JOIN t_header_pib c ON a.header_pib_id=c.header_pib_id
+        $data_barang_pib = DB::table('t_data_barang_pib')
+        ->join('m_satuan', 't_data_barang_pib.satuan_id', '=','m_satuan.satuan_id')
+        ->join('t_header_pib', 't_data_barang_pib.header_pib_id', '=', 't_header_pib.header_pib_id')
+        ->select('t_data_barang_pib.no_seri_barang','t_data_barang_pib.hs_code_barang','t_data_barang_pib.uraian_barang','t_data_barang_pib.harga_satuan','m_satuan.satuan','t_header_pib.no_pengajuan')
+        ->get();
         $data = [
             "user" => $user,
             "data_pelabuhan" => $data_pelabuhan,
@@ -165,7 +176,10 @@ Route::prefix('/{user}/eksport-import')->group(function () {
             "data_cara_dagang"=> $data_cara_dagang,
             "data_kemasan"=> $data_kemasan,
             "data_hs_code"=> $data_hs_code,
-            "data_header_pib"=> $data_header_pib
+            "data_header_pib"=> $data_header_pib,
+            "data_satuan"=> $data_satuan,
+            "data_kemasan"=> $data_kemasan,
+            "data_barang_pib"=> $data_barang_pib
         ];
         return view('app/eksport-import/'.$menu, $data);
     });
@@ -190,6 +204,7 @@ Route::post('/import/save_header','EksportImport\ImportController@saveHeader');
 Route::post('/import/save_pengangkutan','EksportImport\ImportController@savePengangkutan');
 Route::post('/import/save_transaksi','EksportImport\ImportController@saveTransaksi');
 Route::post('/import/save_pernyataan','EksportImport\ImportController@savePernyataan');
+Route::post('/import/save_barang','EksportImport\ImportController@saveBarang');
 
 //Route post export
 Route::post('/Eksport/save_header','EksportImport\EksportController@saveHeader');

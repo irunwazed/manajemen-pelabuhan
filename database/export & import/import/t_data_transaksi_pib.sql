@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Nov 2023 pada 16.16
+-- Waktu pembuatan: 03 Des 2023 pada 14.00
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.13
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `t_data_transaksi_pib` (
   `data_transaksi_pib_id` int(11) NOT NULL,
+  `header_pib_id` int(11) NOT NULL,
   `valuta_pib` varchar(100) DEFAULT NULL,
   `ndpbm_pib` bigint(20) DEFAULT NULL,
   `jenis_transaksi` varchar(100) DEFAULT NULL,
@@ -50,7 +51,8 @@ CREATE TABLE `t_data_transaksi_pib` (
 -- Indeks untuk tabel `t_data_transaksi_pib`
 --
 ALTER TABLE `t_data_transaksi_pib`
-  ADD PRIMARY KEY (`data_transaksi_pib_id`);
+  ADD PRIMARY KEY (`data_transaksi_pib_id`),
+  ADD KEY `header_pib_id` (`header_pib_id`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang

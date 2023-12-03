@@ -45,6 +45,7 @@ class ImportController extends Controller
   {
     // insert data ke table
     $simpan_data = DB::table('t_data_transaksi_pib')->insert([
+      'header_pib_id' => $request->header_pib,
       'valuta_pib' => $request->valuta_pib,
       'ndpbm_pib' => $request->ndpbm_pib,
       'jenis_transaksi' => $request->jenis_transaksi,
@@ -58,6 +59,38 @@ class ImportController extends Controller
       'berat_bersih' => $request->berat_bersih
     ]);
     return redirect('admin/eksport-import/transaksi');
+  }
+  public function saveBarang(Request $request)
+  {
+    // insert data ke table
+    $simpan_data = DB::table('t_data_barang_pib')->insert([
+      'header_pib_id' => $request->header_pib,
+      'no_seri_barang' => $request->no_seri_barang,
+      'hs_code_barang' => $request->hs_code_barang,
+      'lartas_barang' => $request->lartas_barang,
+      'kode_barang' => $request->kode_barang,
+      'uraian_barang' => $request->uraian_barang,
+      'merk_barang' => $request->merk_barang,
+      'type_barang' => $request->type_barang,
+      'ukuran_barang' => $request->ukuran_barang,
+      'kondisi_barang' => $request->kondisi_barang,
+      'negara' => $request->negara,
+      'berat_bersih' => $request->berat_bersih,
+      'dokumen_lartas' => $request->dokumen_lartas,
+      'satuan_id' => $request->satuan_id,
+      'kemasan_id' => $request->kemasan_id,
+      'amount' => $request->amount,
+      'jenis_nilai' => $request->jenis_nilai,
+      'jatuh_tempo' => $request->jatuh_tempo,
+      'voluntary_declaration' => $request->voluntary_declaration,
+      'biaya_tambahan' => $request->biaya_tambahan,
+      'fob' => $request->fob,
+      'harga_satuan' => $request->harga_satuan,
+      'freight' => $request->freight,
+      'asuransi' => $request->asuransi,
+      'cif_rupiah' => $request->cif_rupiah
+    ]);
+    return redirect('admin/eksport-import/data-barang');
   }
   public function savePernyataan(Request $request)
   {
