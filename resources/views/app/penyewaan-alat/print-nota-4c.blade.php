@@ -44,11 +44,12 @@
                     <tr  class="text-start mb-4">
                         <td>2B2/Nota 3B</td>
                         <td>:</td>
-                        <td></td>
+                        <td>{{ $data->nonota3c ?? '' }}</td>
                     </tr>
                     <tr  class="text-start mb-4">
                         <td>Nota 4B</td>
                         <td>:</td>
+                        <td>{{ $data->nonota4c ?? '' }}</td>
                         <td></td>
                     </tr>
                 </table>

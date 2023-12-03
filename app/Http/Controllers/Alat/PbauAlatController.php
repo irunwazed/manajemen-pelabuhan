@@ -16,7 +16,7 @@ use Carbon\Carbon;
 class PbauAlatController extends Controller
 {
     //sub menu 1
-    public function index(Request $request)
+    public function index(Request $request, $user)
     {
         $tahun = $request->input('tahun');
         $noPermohonan1C = $request->input('no_permohonan_1c');
@@ -36,10 +36,10 @@ class PbauAlatController extends Controller
         $totalData = $data->count();
         $data = $data->paginate(10);
 
-        return view('app/penyewaan-alat.permohonan-1c', compact('data', 'tahun', 'noPermohonan1C', 'perusahaan', 'totalData'));
+        return view('app/penyewaan-alat.permohonan-1c', compact('data', 'tahun', 'noPermohonan1C', 'perusahaan', 'totalData', 'user'));
     }
 
-    public function create(Request $request)
+    public function create(Request $request, $user)
     {
 
         $data = [];
@@ -49,7 +49,7 @@ class PbauAlatController extends Controller
         $tools = Alat::all();
         $subName = "Buat";
 
-        return view('app/penyewaan-alat.create-permohonan-1c', compact('data', 'companies', 'ships', 'tools', 'subName'));
+        return view('app/penyewaan-alat.create-permohonan-1c', compact('data', 'companies', 'ships', 'tools', 'subName', 'user'));
     }
 
     public function submitPermohonan(Request $request, $user, $id)
@@ -92,7 +92,7 @@ class PbauAlatController extends Controller
         $tools   = Alat::all();
         $subName = "Edit";
 
-        return view('app/penyewaan-alat.create-permohonan-1c', compact('data', 'companies', 'ships', 'tools', 'subName'));
+        return view('app/penyewaan-alat.create-permohonan-1c', compact('data', 'companies', 'ships', 'tools', 'subName', 'user'));
     }
 
     public function getAlatDetail(Request $request)
@@ -232,7 +232,7 @@ class PbauAlatController extends Controller
 
 
     //sub menu 2
-    public function indexBukti2C(Request $request)
+    public function indexBukti2C(Request $request, $user)
     {
         $tahun = $request->input('tahun');
         $noPermohonan1C = $request->input('no_permohonan_1c');
@@ -252,7 +252,7 @@ class PbauAlatController extends Controller
         $totalData = $data->count();
         $data = $data->paginate(10);
 
-        return view('app/penyewaan-alat.bukti-2c', compact('data', 'tahun', 'noPermohonan1C', 'noForm2C', 'totalData'));
+        return view('app/penyewaan-alat.bukti-2c', compact('data', 'tahun', 'noPermohonan1C', 'noForm2C', 'totalData', 'user'));
     }
 
     public function realisasiBukti(Request $request, $user, $id)
@@ -264,7 +264,7 @@ class PbauAlatController extends Controller
         $tools   = Alat::all();
         $subName = "Edit";
 
-        return view('app/penyewaan-alat.create-bukti-2c', compact('data', 'companies', 'ships', 'tools', 'subName'));
+        return view('app/penyewaan-alat.create-bukti-2c', compact('data', 'companies', 'ships', 'tools', 'subName', 'user'));
     }
 
     public function submitTanggalBukti(Request $request)
@@ -331,7 +331,7 @@ class PbauAlatController extends Controller
     }
 
     //sub menu 3
-    public function indexNota3c(Request $request)
+    public function indexNota3c(Request $request, $user)
     {
         $noPermohonan1C = $request->input('no_permohonan_1c');
         $noForm2C = $request->input('no_form_2c');
@@ -352,7 +352,7 @@ class PbauAlatController extends Controller
         $totalData = $data->count();
         $data = $data->paginate(10);
 
-        return view('app/penyewaan-alat.nota-3c', compact('data', 'noPermohonan1C', 'noForm2C', 'noForm3C', 'totalData'));
+        return view('app/penyewaan-alat.nota-3c', compact('data', 'noPermohonan1C', 'noForm2C', 'noForm3C', 'totalData', 'user'));
     }
 
     public function createNota3c(Request $request, $user, $id)
@@ -396,7 +396,7 @@ class PbauAlatController extends Controller
         $summary["total_biaya"]    = $this->formatCurrency($summary["total_biaya"]);
 
 
-        return view('app/penyewaan-alat.create-nota-3c', compact('data', 'dataDetail', 'summary'));
+        return view('app/penyewaan-alat.create-nota-3c', compact('data', 'dataDetail', 'summary', 'user'));
     }
 
     public function submitNota3c(Request $request)
@@ -509,7 +509,7 @@ class PbauAlatController extends Controller
     }
 
     //sub menu 4
-    public function indexNota4c(Request $request)
+    public function indexNota4c(Request $request, $user)
     {
         $noPermohonan1C = $request->input('no_permohonan_1c');
         $noForm2C = $request->input('no_form_2c');
@@ -525,13 +525,15 @@ class PbauAlatController extends Controller
             $query->where('nonota3c', 'LIKE', "%$noForm3C%");
         })
         ->whereNotNull("noform_2c")
+        ->where("noform_2c", "<>", "")
         ->whereNotNull("nonota3c")
+        ->where("nonota3c", "<>", "")
         ->orderBy("pbau_alat_1c_id", "desc");
 
         $totalData = $data->count();
         $data = $data->paginate(10);
 
-        return view('app/penyewaan-alat.nota-4c', compact('data', 'noPermohonan1C', 'noForm2C', 'noForm3C', 'totalData'));
+        return view('app/penyewaan-alat.nota-4c', compact('data', 'noPermohonan1C', 'noForm2C', 'noForm3C', 'totalData', 'user'));
     }
 
     public function createNota4C(Request $request, $user, $id)
@@ -579,7 +581,7 @@ class PbauAlatController extends Controller
         $companies = Perusahaan::where("perusahaan_id", $data->perusahaan_id)->first();
         $ships     = Kapal::where("kapal_id", $data->kapal_id)->first();
 
-        return view('app/penyewaan-alat.create-nota-4c', compact('data', 'dataDetail', 'summary', 'companies', 'ships'));
+        return view('app/penyewaan-alat.create-nota-4c', compact('data', 'dataDetail', 'summary', 'companies', 'ships', 'user'));
     }
 
     public function submitNota4c(Request $request)
@@ -588,13 +590,15 @@ class PbauAlatController extends Controller
 
         try {
 
-            $arrPbauAlat = [
-                "nonota4c"       => $allParams["nota4c"],
-                "tgl_nota4c"   => date("Y-m-d H:i:s"),
-            ];
+            if($allParams["firstSubmitPrint"] !== "T"){
+                $arrPbauAlat = [
+                    "nonota4c"     => $allParams["nota4c"],
+                    "tgl_nota4c"   => date("Y-m-d H:i:s"),
+                ];
 
-            $pbauAlat = PbauAlat::findOrFail($allParams["id"]);
-            $pbauAlat->update($arrPbauAlat);
+                $pbauAlat = PbauAlat::findOrFail($allParams["id"]);
+                $pbauAlat->update($arrPbauAlat);
+            }
 
             return response()->json(['message' => 'Form updated successfully'], 200);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {

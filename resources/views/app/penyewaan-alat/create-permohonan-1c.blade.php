@@ -66,7 +66,7 @@
 <div class="">
     <div class="text-2xl ">
         Penyewaan Alat /
-        <a href="{{url('admin/penyewaan-alat/permohonan-1c')}}"> Permohonan 1C </a>
+        <a href="{{url($user.'/penyewaan-alat/permohonan-1c')}}"> Permohonan 1C </a>
         / @if(empty($data->tgl_noform_2c)) {{ $subName }}  @else View @endif Data
     </div>
     <hr class="border-b-2 border-black border-solid">
@@ -257,9 +257,9 @@
             </div>
         </div>
         <div class="text-start mt-3">
-            <a href="{{ url('admin/penyewaan-alat/permohonan-1c') }}" class="simpan-bottom text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">SIMPAN</a>
+            <a href="{{ url($user.'/penyewaan-alat/permohonan-1c') }}" class="simpan-bottom text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">SIMPAN</a>
             <a href="#" class="edit-1c text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">SIMPAN</a>
-            <a href="{{ url('admin/penyewaan-alat/permohonan-1c') }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">KEMBALI</a>
+            <a href="{{ url($user.'/penyewaan-alat/permohonan-1c') }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">KEMBALI</a>
         </div>
     </div>
 </div>
@@ -400,10 +400,10 @@
         formData.push({ name: 'tgl_selesai_mohon', value: dateTimeEnd });
         formData.push({ name: 'id', value: pbauAlat1cId });
 
-        var url      = '{{ url("admin/penyewaan-alat/create-permohonan-1c/store") }}';
+        var url      = '{{ url($user."/penyewaan-alat/create-permohonan-1c/store") }}';
 
         if(buttonAlat === "edit"){
-            url      = '{{ url("admin/penyewaan-alat/create-permohonan-1c/update") }}';
+            url      = '{{ url($user."/penyewaan-alat/create-permohonan-1c/update") }}';
             formData.push({ name: 'pbauAlat1cIdDetail', value: pbauAlat1cIdDetail });
         }
 
@@ -489,7 +489,7 @@
         }
         
         var formData = $('#permohonan-form').serializeArray();
-        var url      = '{{ url("admin/penyewaan-alat/submit-permohonan-1c/") }}' + '/{{ $data->pbau_alat_1c_id ?? 'noid' }}';
+        var url      = '{{ url($user."/penyewaan-alat/submit-permohonan-1c/") }}' + '/{{ $data->pbau_alat_1c_id ?? 'noid' }}';
 
         if(pbauAlat1cId !== null){
             formData.push({ name: 'id', value: pbauAlat1cId });
@@ -507,7 +507,7 @@
                     $('.alat-form').show();
                     $('.tambah-1c').hide();
                 } else {
-                    window.location.href = "{{ url('admin/penyewaan-alat/permohonan-1c') }}";
+                    window.location.href = "{{ url($user.'/penyewaan-alat/permohonan-1c') }}";
                 }
             },
             error: function (error) {
@@ -532,7 +532,7 @@
     function getAlat(sthis){
         $.ajax({
             type: 'GET',
-            url: '{{ url("admin/penyewaan-alat/get-alat") }}', 
+            url: '{{ url($user."/penyewaan-alat/get-alat") }}', 
             data: {id: sthis.value},
             success: function (response) {
                 if(response.code === 200){
@@ -567,7 +567,7 @@
 
     function fetchData(page, id) {
         $.ajax({
-            url: '{{ url("admin/penyewaan-alat/get-alat-detail") }}',
+            url: '{{ url($user."/penyewaan-alat/get-alat-detail") }}',
             type: 'GET',
             data: { page: page, id: id },
             dataType: 'json',
@@ -637,7 +637,7 @@
         pbauAlat1cIdDetail = $(this).data('record-id');
 
         $.ajax({
-            url: '{{ url("admin/penyewaan-alat/get-alat-detail/edit") }}',
+            url: '{{ url($user."/penyewaan-alat/get-alat-detail/edit") }}',
             type: 'GET',
             data: { id: pbauAlat1cIdDetail },
             dataType: 'json',
@@ -674,7 +674,7 @@
         if (confirm('Are you sure you want to delete this record?')) {
             $.ajax({
                 type: 'DELETE',
-                url: '{{ url("/admin/penyewaan-alat/get-alat-detail/delete") }}',
+                url: '{{ url($user."/penyewaan-alat/get-alat-detail/delete") }}',
                 data: {id: deleteId},
                 success: function(response) {
                     fetchData(1, pbauAlat1cId);

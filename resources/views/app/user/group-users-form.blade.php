@@ -15,7 +15,7 @@
         <div class="text-2xl ">Management User / Users</div>
         <hr class="border-b-2 border-black border-solid">
         <div class="font-bold text-2xl text-center pt-20">Form Group Akses</div>
-        <form id="form-group-user" action="{{url('admin/management-user/submit-group-user')}}" method="post" class="pt-16">
+        <form id="form-group-user" action="{{url($user.'/management-user/submit-group-user')}}" method="post" class="pt-16">
             <div class="flex flex-col items-center justify-start">
                 <div class="text-start w-8/12 mb-5">
                     <div>
@@ -58,7 +58,7 @@
         
             <div class="flex justify-center">
                 <button type="submit" class=" text-white float-left bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 focus:outline-none">Simpan</button>
-                <a href="{{ url('admin/management-user/group-user') }}" class="text-white float-left bg-black hover:bg-black-800 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 focus:outline-none ml-2">Kembali</a>
+                <a href="{{ url($user.'/management-user/group-user') }}" class="text-white float-left bg-black hover:bg-black-800 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 focus:outline-none ml-2">Kembali</a>
             </div>
         </form>
     </div>

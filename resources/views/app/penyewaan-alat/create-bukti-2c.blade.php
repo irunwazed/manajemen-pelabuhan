@@ -66,7 +66,7 @@
 <div class="">
     <div class="text-2xl ">
         Penyewaan Alat /
-        <a href="{{url('admin/penyewaan-alat/bukti-2c')}}"> Bukti 2C </a>
+        <a href="{{url($user.'/penyewaan-alat/bukti-2c')}}"> Bukti 2C </a>
         / Realisasi
     </div>
     <hr class="border-b-2 border-black border-solid">
@@ -234,7 +234,7 @@
         </div>
         <div class="text-start mt-3">
             <a href="#" class="simpan-realisasi text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">SIMPAN</a>
-            <a href="{{ url('admin/penyewaan-alat/permohonan-1c') }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">KEMBALI</a>
+            <a href="{{ url($user.'/penyewaan-alat/permohonan-1c') }}" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">KEMBALI</a>
         </div>
     </div>
 </div>
@@ -299,7 +299,7 @@
         formData.push({ name: 'tgl_selesai_realisasi', value: dateTimeEnd });
         formData.push({ name: 'id', value: pbauAlat1cId });
 
-        var url      = '{{ url("admin/penyewaan-alat/submit-realisasi-bukti-1c/") }}' + '/{{ $data->pbau_alat_1c_id ?? 'noid' }}';
+        var url      = '{{ url($user."/penyewaan-alat/submit-realisasi-bukti-1c/") }}' + '/{{ $data->pbau_alat_1c_id ?? 'noid' }}';
 
         $.ajax({
             type: 'POST',
@@ -374,14 +374,14 @@
         formData.push({ name: 'tgl_noform_2c', value: tanggal2C });
         formData.push({ name: 'id', value: pbauAlat1cId });
 
-        var url      = '{{ url("admin/penyewaan-alat/submit-realisasi/") }}' + '/{{ $data->pbau_alat_1c_id ?? 'noid' }}';
+        var url      = '{{ url($user."/penyewaan-alat/submit-realisasi/") }}' + '/{{ $data->pbau_alat_1c_id ?? 'noid' }}';
 
         $.ajax({
             type: 'POST',
             url: url, 
             data: formData,
             success: function (response) {
-                window.location.href = "{{ url('admin/penyewaan-alat/bukti-2c') }}";
+                window.location.href = "{{ url($user.'/penyewaan-alat/bukti-2c') }}";
             },
             error: function (error) {
                 $('.msg-api').html('<p class="text-red-500">Error submitting the form</p>').show();
@@ -400,7 +400,7 @@
     function getAlat(sthis){
         $.ajax({
             type: 'GET',
-            url: '{{ url("admin/penyewaan-alat/get-alat") }}', 
+            url: '{{ url($user."/penyewaan-alat/get-alat") }}', 
             data: {id: sthis.value},
             success: function (response) {
                 if(response.code === 200){
@@ -435,7 +435,7 @@
 
     function fetchData(page, id) {
         $.ajax({
-            url: '{{ url("admin/penyewaan-alat/get-alat-detail") }}',
+            url: '{{ url($user."/penyewaan-alat/get-alat-detail") }}',
             type: 'GET',
             data: { page: page, id: id },
             dataType: 'json',
@@ -493,7 +493,7 @@
     function fetchDataTanggal(){
 
         $.ajax({
-            url: '{{ url("admin/penyewaan-alat/get-tanggal-detail") }}',
+            url: '{{ url($user."/penyewaan-alat/get-tanggal-detail") }}',
             type: 'GET',
             data: { id: pbauAlat1cId },
             dataType: 'json',
