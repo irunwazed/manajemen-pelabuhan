@@ -76,7 +76,7 @@
                     <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
                         <td>1</td>
                         <td>Penyewaan Alat</td>
-                        <td>{{ $summary["total_biaya"] }}</td>
+                        <td>{{ $summary["sum_biaya_alat"] }}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -87,7 +87,7 @@
                         <tr>
                             <td class="w-5/12 ">Jumlah</td>
                             <td class="w-1/12">:</td>
-                            <td class="w-6/12">{{ $summary["total_biaya"] }}</td>
+                            <td class="w-6/12">{{ $summary["sum_biaya_alat"] }}</td>
                         </tr>
                         <tr>
                             <td class="">PPN</td>
