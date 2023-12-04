@@ -89,6 +89,14 @@ class ImportController extends Controller
   }
   public function saveBarang(Request $request)
   {
+    $file = $request->file('dokumen_lartas');
+    $filename = time() . '_databarang_' . $file->getClientOriginalName();
+
+    // File upload location
+    $location = 'files/pib';
+
+    // Upload file
+    $file->move($location, $filename);
     // insert data ke table
     $simpan_data = DB::table('t_data_barang_pib')->insert([
       'header_pib_id' => $request->header_pib,
@@ -103,7 +111,7 @@ class ImportController extends Controller
       'kondisi_barang' => $request->kondisi_barang,
       'negara' => $request->negara,
       'berat_bersih' => $request->berat_bersih,
-      'dokumen_lartas' => $request->dokumen_lartas,
+      'dokumen_lartas' => $location.'/'.$filename,
       'satuan_id' => $request->satuan_id,
       'kemasan_id' => $request->kemasan_id,
       'amount' => $request->amount,
@@ -118,6 +126,27 @@ class ImportController extends Controller
       'cif_rupiah' => $request->cif_rupiah
     ]);
     return redirect('admin/eksport-import/pungutan');
+  }
+  public function saveDokumenPendukung(Request $request)
+  {
+    $file = $request->file('nama_file');
+    $filename = time() . '_dokumenpendukung_' . $file->getClientOriginalName();
+
+    // File upload location
+    $location = 'files/pib';
+
+    // Upload file
+    $file->move($location, $filename);
+    // insert data ke table
+    $simpan_data = DB::table('t_dokument_pendukung_pib')->insert([
+      'header_pib_id' => $request->header_pib,
+      'no_seri' => $request->no_seri,
+      'jenis_dokumen' => $request->jenis_dokumen,
+      'nomor_dokumen' => $request->nomor_dokumen,
+      'tgl_dokumen' => $request->tgl_dokumen,
+      'nama_file' => $location.'/'.$filename
+    ]);
+    return redirect('admin/eksport-import/dokumen-pendukung');
   }
   public function saveKontainer(Request $request)
   {
