@@ -47,7 +47,7 @@ class LoginController extends Controller
                  ->orderBy('seq_menu','asc')
                  ->get();
                  session()->put('menu', $menu);
-                 
+
             $submenu=DB::table("tbl_menu")
             ->join('tbl_user_groups_menu','tbl_menu.id_menu','=','tbl_user_groups_menu.id_menu') 
             ->select('tbl_menu.id_menu','slug','parent','display','svg_menu')
@@ -102,7 +102,7 @@ class LoginController extends Controller
     Auth::logout();
     $request->session()->invalidate();
     $request->session()->regenerateToken();
-    $request->session()->flush();
+   // $request->session()->flush();
     return redirect('/login');
 
   }

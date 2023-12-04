@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title', 'pengeluaran Barang')
-
+<!---->
 @section('content')
     <div class="">
         <div class="text-2xl ">Warehousing / Pengeluaran Barang</div>

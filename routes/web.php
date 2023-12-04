@@ -9,7 +9,7 @@ use App\Http\Controllers\AnekaUsaha\LahanController;
 use App\Http\Controllers\PelayananBarang\PenumpukanBarang2B1;
 use App\Http\Controllers\PelayananBarang\PengeluaranBarang2B2;
 use App\Http\Controllers\Warehousing\PengeluaranBarangController;
-
+use App\Http\Controllers\AnekaUsaha\BunkerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
