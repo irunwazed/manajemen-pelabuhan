@@ -36,7 +36,7 @@ class ManifestController extends Controller
     // insert data ke table
     $simpan_data = DB::table('t_manifest_pengangkut_bol')->insert([
       'manifest_pengangkut_dataumum_id' => $request->manifest_pengangkut_dataumum_id,
-      'manifest_pengangkut_bol_id' => $request->manifest_pengangkut_bol_id,
+      //'manifest_pengangkut_bol_id' => $request->manifest_pengangkut_bol_id,
       'kelompok_pos' => $request->kelompok_pos,
       'nomor_pos' => $request->nomor_pos,
       'master_bol' => $request->master_bol,
@@ -53,7 +53,7 @@ class ManifestController extends Controller
       'berat' => $request->berat,
       'nama_kemasan' => $request->nama_kemasan,
       'total_kemasan' => $request->total_kemasan,
-      'flag' => $request->flag
+      //'flag' => $request->flag
 
     ]);
     return redirect('admin/eksport-import/bill-landing');
@@ -64,7 +64,7 @@ class ManifestController extends Controller
     // insert data ke table
     $simpan_data = DB::table('t_manifest_lampiran')->insert([
       'manifest_pengangkut_dataumum_id' => $request->manifest_pengangkut_dataumum_id,
-      'manifest_lampiran_id' => $request->manifest_lampiran_id,
+      //'manifest_lampiran_id' => $request->manifest_lampiran_id,
       'crewlist_file' => $request->crewlist_file,
       'daftar_penumpang_file' => $request->daftar_penumpang_file,
       'daftar_persediaan_file' => $request->daftar_persediaan_file,
@@ -77,10 +77,11 @@ class ManifestController extends Controller
     // insert data ke table
     $simpan_data = DB::table('t_manifest_pengangkut_bol_hscod')->insert([
       'manifest_pengangkut_hscod_id' => $request->manifest_pengangkut_hscod_id,
-      'manifest_pengangkut_bol_id' => $request->manifest_pengangkut_bol_id,
+       //'manifest_pengangkut_bol_id' => $request->manifest_pengangkut_bol_id,
       'hscode' => $request->hscode,
       'uraian' => $request->uraian,
-      'flag' => $request->flag,
+       //'flag' => $request->flag,
+
     ]);
     return redirect('admin/eksport-import/bill-landing');
   }

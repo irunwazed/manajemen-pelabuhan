@@ -15,6 +15,7 @@
     </div>
     <div class="h-56 grid grid-cols-2 gap-4">
         <div>
+        <form action="/Manifest/lampiran" method="POST" enctype="multipart/form-data">
             <table class="w-full">
                 <tr class="text-start">
                     <td>Create List</td>
@@ -38,6 +39,7 @@
                     </td>
                 </tr>
             </table>
+        </form>
         </div>
     </div>
 @endsection

@@ -22,6 +22,20 @@
     <div class="h-56 grid grid-cols-2 gap-4">
         <div>
             <table class="w-full">
+            <tr class="text-start">
+                    <td>Header PIB</td>
+                    <td></td>
+                    <td class="py-1">
+                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_pib" name="header_pib" required>
+                            <option value="">-- Pilih --</option>
+                            <?php
+                            foreach ($data_header_pib as $key => $value) {
+                                echo'<option value="'.$value->header_pib_id.'">'.$value->no_pengajuan.'</option>';
+                            }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
                 <tr class="text-start">
                     <td>Valuta</td>
                     <td></td>
@@ -163,6 +177,7 @@
                 <div class="p-6 space-y-6">
                     <div class="mt-5 grid grid-cols-1 gap-2">
                         <table class="w-full">
+                            
                             <tr class="text-start">
                                 <td>Seri</td>
                                 <td>:</td>

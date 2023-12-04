@@ -88,7 +88,7 @@
                     <option value="">-- Pilih --</option>
                         <?php
                         foreach ($kategori_ekspor as $key => $value) {
-                            echo'<option value="'.$value->kategori_ekspor_id.'">'.$value->kategori_ekspor.'</option>';
+                            echo'<option value="'.$value->kategroi_ekspor_id.'">'.$value->kategori_ekspor.'</option>';
                         }
                         ?>
                     </select>  

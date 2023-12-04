@@ -239,10 +239,10 @@ Route::post('/Eksport/save_laras','EksportImport\EksportController@saveLartas');
 Route::post('/Eksport/save_pernyataan','EksportImport\EksportController@savePernyataan');
 
 //Route manfest pengangkut
-Route::post('/Manifest/data_umum','EksportImport\EksportController@data_umum');
-Route::post('/Manifest/bill_landing','EksportImport\EksportController@bill_landing');
-Route::post('/Manifest/lampiran','EksportImport\EksportController@lampiran');
-Route::post('/Manifest/hs_code','EksportImport\EksportController@hscode');
+Route::post('/Manifest/data_umum','EksportImport\ManifestController@data_umum');
+Route::post('/Manifest/bill_landing','EksportImport\ManifestController@bill_landing');
+Route::post('/Manifest/lampiran','EksportImport\ManifestController@lampiran');
+Route::post('/Manifest/hs_code','EksportImport\ManifestController@hscode');
 
 // Route App
 require 'aneka-usaha/index.php';
