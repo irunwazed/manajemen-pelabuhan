@@ -33,7 +33,8 @@
                 <table class="mt-5 w-full border-solid border-2 border-slate-800">
                     <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white py-5">
                         <tr>
-                            <th class="py-2 px-3">Seri</th>
+                            <th>No. Pengajuan</th>
+                            <th>Seri</th>
                             <th>Jenis</th>
                             <th>Nomor</th>
                             <th>Tanggal</th>
@@ -41,13 +42,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
-                            <td> . </td>
-                            <td> . </td>
-                            <td> . </td>
-                            <td> . </td>
-                            <td> . </td>
-                        </tr>
+                        <?php
+                        foreach ($data_dokumen_pendukung_pib as $key => $value) {
+                            $url_file = URL::to('/'.$value->nama_file);
+                            echo'
+                            <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                                <td>'.$value->no_pengajuan.'</td>
+                                <td>'.$value->no_seri.'</td>
+                                <td>'.$value->jenis_dokumen.'</td>
+                                <td>'.$value->nomor_dokumen.'</td>
+                                <td>'.$value->tgl_dokumen.'</td>
+                                <td><a href="'.$url_file.'">Unduh</a></td>
+                            </tr>
+                            ';
+                        }
+                        ?>
                     </tbody>
                 </table>
                 @include('components.pagination')
@@ -64,7 +73,7 @@
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-black" style="text-align: center;">
                         DOKUMEN PENDUKUNG
                     </h3>
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="tambahdokumen">
+                    <button type="button" class="text-gray-400 bg-transparent hover:hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="tambahdokumen">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                         </svg>
@@ -72,39 +81,52 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form>
+                <form action="/import/save_dokumen_pendukung" method="POST" enctype="multipart/form-data">
                     <div class="p-6 space-y-6">
                         <div class="mt-5 grid gap-2">
                             <div>
                                 <table class="w-full">
                                     <tr class="text-start">
+                                        <td>Header PIB</td>
+                                        <td class="py-1">
+                                            <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_pib" name="header_pib" required>
+                                                <option value="">-- Pilih --</option>
+                                                <?php
+                                                foreach ($data_header_pib as $key => $value) {
+                                                    echo'<option value="'.$value->header_pib_id.'">'.$value->no_pengajuan.'</option>';
+                                                }
+                                                ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-start">
                                         <td>Seri</td>
                                         <td class="py-1">
-                                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                            <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="no_seri" name="no_seri" maxlength="10" required>
                                         </td>
                                     </tr>
                                     <tr class="text-start">
                                         <td>Jenis</td>
                                         <td class="py-1">
-                                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                            <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="jenis_dokumen" name="jenis_dokumen" maxlength="200" required>
                                         </td>
                                     </tr>
                                     <tr class="text-start">
                                         <td>No</td>
                                         <td class="py-1">
-                                            <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                            <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="nomor_dokumen" name="nomor_dokumen" maxlength="50" required>
                                         </td>
                                     </tr>
                                     <tr class="text-start">
                                         <td>Tanggal</td>
                                         <td class="py-1">
-                                            <input type="date" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                            <input type="date" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="tgl_dokumen" name="tgl_dokumen" required>
                                         </td>
                                     </tr>
                                     <tr class="text-start">
                                         <td>Browse</td>
                                         <td class="py-1">
-                                            <input type="file" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                            <input type="file" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="nama_file" name="nama_file" required>
                                         </td>
                                     </tr>
                                 </table>
@@ -113,7 +135,7 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
+                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
                         <button type="reset" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">BATAL</button>
                     </div>
                 </form>

@@ -170,6 +170,10 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         ->join('t_header_pib', 't_kemasan_pib.header_pib_id', '=', 't_header_pib.header_pib_id')
         ->select('t_kemasan_pib.seri_kemasan','t_kemasan_pib.jumlah_kemasan','t_kemasan_pib.jenis_kemasan','t_kemasan_pib.merk_kemasan','t_header_pib.no_pengajuan')
         ->get();
+        $data_dokumen_pendukung_pib = DB::table('t_dokument_pendukung_pib')
+        ->join('t_header_pib', 't_dokument_pendukung_pib.header_pib_id', '=', 't_header_pib.header_pib_id')
+        ->select('t_dokument_pendukung_pib.no_seri','t_dokument_pendukung_pib.jenis_dokumen','t_dokument_pendukung_pib.nomor_dokumen','t_dokument_pendukung_pib.tgl_dokumen','t_dokument_pendukung_pib.nama_file','t_header_pib.no_pengajuan')
+        ->get();
         $data = [
             "user" => $user,
             "id_param" => "",
@@ -186,6 +190,7 @@ Route::prefix('/{user}/eksport-import')->group(function () {
             "data_kemasan"=> $data_kemasan,
             "data_kontainer_pib"=> $data_kontainer_pib,
             "data_kemasan_pib"=> $data_kemasan_pib,
+            "data_dokumen_pendukung_pib"=> $data_dokumen_pendukung_pib,
             "data_barang_pib"=> $data_barang_pib
         ];
         return view('app/eksport-import/'.$menu, $data);
@@ -222,6 +227,7 @@ Route::post('/import/save_barang','EksportImport\ImportController@saveBarang');
 Route::post('/import/save_kemasan','EksportImport\ImportController@saveKemasan');
 Route::post('/import/save_kontainer','EksportImport\ImportController@saveKontainer');
 Route::post('/import/save_entitas','EksportImport\ImportController@saveEntitas');
+Route::post('/import/save_dokumen_pendukung','EksportImport\ImportController@saveDokumenPendukung');
 
 //Route post export
 Route::post('/Eksport/save_header','EksportImport\EksportController@saveHeader');
