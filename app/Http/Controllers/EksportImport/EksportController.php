@@ -109,7 +109,7 @@ class EksportController extends Controller
         'jenis_kemasan' => $request->jenis_kemasan,
         'merk_kemasan' => $request->merk_kemasan,
       ]);
-      return redirect('admin/eksport-import/kemasan-ex');
+      return redirect('admin/eksport-import/kemasan-kontainer-ex');
   }
 
   public function saveKontainer(Request $request){
@@ -121,7 +121,7 @@ class EksportController extends Controller
         'ukuran_kontainer' => $request->ukuran_kontainer,
         'type_kontainer' => $request->type_kontainer,
       ]);
-      return redirect('admin/eksport-import/kontainer-ex');
+      return redirect('admin/eksport-import/kemasan-kontainer-ex');
   }
 
   public function saveTransaksi(Request $request){
@@ -149,10 +149,10 @@ class EksportController extends Controller
      // insert data ke table
      DB::table('t_data_transaksi_peb_bank_devisa')->insert([
       //'data_transaksi_peb_bank_devisa_id' => 1,
-      'data_transaksi_peb_id' => $request->npwp,
-      'no_seri' => $request->nama,
-      'kode_bank' => $request->alamat,
-      'nama_bank'
+      //'data_transaksi_peb_id' => $request->npwp,
+      'no_seri' => $request->seri,
+      'kode_bank' => $request->kode_bank,
+      'nama_bank' => $request->nama_bank,
     ]);
     return redirect('admin/eksport-import/transaksi-ex');
   }

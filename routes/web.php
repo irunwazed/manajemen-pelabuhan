@@ -155,6 +155,7 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         $data_kemasan = DB::table('m_kemasan')->get();
         $data_hs_code = DB::table('m_hs_code')->get();
         $data_header_pib = DB::table('t_header_pib')->get();
+        $data_header_peb = DB::table('t_header_peb')->get();
         $data_satuan = DB::table('m_satuan')->get();
         $data_kemasan = DB::table('m_kemasan')->get();
         $data_barang_pib = DB::table('t_data_barang_pib')
@@ -186,6 +187,7 @@ Route::prefix('/{user}/eksport-import')->group(function () {
             "data_kemasan"=> $data_kemasan,
             "data_hs_code"=> $data_hs_code,
             "data_header_pib"=> $data_header_pib,
+            "data_header_peb"=> $data_header_peb,
             "data_satuan"=> $data_satuan,
             "data_kemasan"=> $data_kemasan,
             "data_kontainer_pib"=> $data_kontainer_pib,

@@ -22,7 +22,7 @@
     <div class="h-56 grid">
         <div class="text-start" style="padding-top: 0px;">
             <div>
-                <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">TAMBAH</button>
+                <div style="padding-top:0px;padding-bottom:10px;text-align:left;"><span class="font-bold text-2xl text-start">Data Barang</span></div>    
             </div>
         </div>
         <div class="text-center">
@@ -53,16 +53,17 @@
     <div style="padding-top:0px;padding-bottom:20px;text-align:center;"><span class="font-bold text-2xl text-start">TAMBAH BARANG</span></div>
     <div class="grid grid-cols-2 gap-4">
         <div>
+        <form id="uploadForm" action="/Eksport/save_header" method="POST" enctype="multipart/form-data">
             <table class="w-full">
                 <tr class="text-start">
                     <td>Header PIB</td>
                     <td></td>
                     <td class="py-1">
-                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_pib" name="header_pib" required>
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_peb" name="header_peb">
                             <option value="">-- Pilih --</option>
                             <?php
-                            foreach ($data_header_pib as $key => $value) {
-                                echo'<option value="'.$value->header_pib_id.'">'.$value->no_pengajuan.'</option>';
+                            foreach ($data_header_peb as $key => $value) {
+                                echo'<option value="'.$value->header_peb_id.'">'.$value->no_pengajuan.'</option>';
                             }
                             ?>
                         </select>
@@ -243,13 +244,14 @@
             </table>
         </div>
         <div class="text-left pt-5 mt-5">
-            <a href="#" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</a>
+        <button type="submit" onclick="submitForm()" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
         </div>
+       </form >
     </div>
     <br>
-    <div class="grid"><div class="grid grid grid-cols-2">
+    <div class="grid"><div class="grid grid grid-cols-4">
         <div class="text-2xl ">Dokumen Fasiltas Lartas</div>
-        <button data-modal-toggle="defaultModal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">TAMBAH</button>        
+        <button data-modal-toggle="defaultModal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800-right">TAMBAH</button>        
     </div>
     <br>
     <div class="text-center">

@@ -27,11 +27,11 @@
                     <td>Header PIB</td>
                     <td></td>
                     <td class="py-1">
-                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_pib" name="header_pib" required>
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_peb" name="header_peb">
                             <option value="">-- Pilih --</option>
                             <?php
-                            foreach ($data_header_pib as $key => $value) {
-                                echo'<option value="'.$value->header_pib_id.'">'.$value->no_pengajuan.'</option>';
+                            foreach ($data_header_peb as $key => $value) {
+                                echo'<option value="'.$value->header_peb_id.'">'.$value->no_pengajuan.'</option>';
                             }
                             ?>
                         </select>
@@ -121,7 +121,6 @@
             </table>
         </div>
     </div>
-   
     <div class="text-left pt-16 mt-16 pb-9">
         <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
     </div>
@@ -157,6 +156,7 @@
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
+                <form action="/Eksport/save_sarana_angkut" method="POST" enctype="multipart/form-data">
                 <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                         SARANA ANGKUT
@@ -171,7 +171,7 @@
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <div class="mt-5 grid grid-cols-1 gap-2">
-                    <form action="/Eksport/save_sarana_angkut" method="POST" enctype="multipart/form-data">
+                   
                         <table class="w-full">
                             <tr class="text-start">
                                 <td>Seri</td>
@@ -214,14 +214,14 @@
                             </td>
                             </tr>
                         </table>
-                    </form>
                     </div>
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button type="submit" data-modal-hide="defaultModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
-                    <button data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">BATAL</button>
+                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
+                    <button type="reset" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">BATAL</button>    
                 </div>
+                </form>
             </div>
         </div>
     </div>
