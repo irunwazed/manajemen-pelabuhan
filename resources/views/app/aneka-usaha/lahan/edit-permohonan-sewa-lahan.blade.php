@@ -5,10 +5,10 @@
     <div class="text-2xl ">Aneka Usaha / Permohonan Sewa Tanah Dan Bangunan</div>
     <hr class="border-b-2 border-black border-solid">
     <div class="font-bold text-2xl text-center pt-5">FORM PERMOHONAN SEWA TANAH & BANGUNAN</div>
-    <div class="font-bold text-2xl text-center pt-5">Entry Data</div>
-    <form action="{{route('lahanCreate', $user)}}" method="post">
+    <div class="font-bold text-2xl text-center pt-5">Edit Data</div>
+    <form action="{{route('LahanController.LahanUpdate.',$post->id)}}" method="post" id="frm1">
         @csrf
-
+        @method('PUT')
         <div class="font-bold text-2xl text-start pt-5">Form Kontrak</div>
 
         <div class="h-56 grid grid-cols-2 gap-4 content-center border-2">
@@ -30,7 +30,7 @@
                     </tr>
                     <tr class="text-start">
                         <td>Nama Perusahaan</td>
-                        <td>:</td>
+                        <td>: </td>
                         <td class="py-1">
                             <select id="barang" required name="perusahaan_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option value="">-- Pilih Perusahaan --</option>
@@ -47,7 +47,7 @@
                         <td>Alamat</td>
                         <td>:</td>
                         <td class="py-1">
-                            <input type="text" name="alamat" id="alamat" value="" disabled class=" mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                            <input type="text" value="{{ $data->no_kontrak}} " name="alamat" id="alamat" value="" disabled class=" mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                         </td>
                     </tr>
                 </table>
@@ -261,47 +261,11 @@
         <div class="text-center pt-16 mt-16 pb-9">
             <br>
             <a href=""><button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">Simpan</button></a>
-            <a href="#" class="text-base bg-yellow-600 text-yellow-100 px-6 py-2.5 rounded hover:opacity-80">Reset</a>
+            <a href="#" onclick="formReset()" class="text-base bg-yellow-600 text-yellow-100 px-6 py-2.5 rounded hover:opacity-80">Reset</a>
             <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="text-base text-gray-900 bg-white border border-gray-300 px-6 py-2.5 rounded hover:opacity-80">Batal</a>
         </div>
     </form>
-    <div class="text-center mb-3 mt-5">
-        <div>
-            <table class="mt-5 w-full border-solid border-2 border-slate-800 " style="white-space:nowrap;">
-                <thead class=" bg-gradient-to-r from-cyan-700 to-cyan-800 text-white py-5">
-                    <tr>
-                        <th class="py-5 px-3">No</th>
-                        <th>Tahun/No Kontrak</th>
-                        <th>Tanggal Permohonan</th>
-                        <th>Perusahaan</th>
-                        <th class="px-3">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($companyInfo as $dat)
-                    @if(($loop->index) %2 == 0)
 
-                    <tr class="border-solid border-1 border-slate-800 hover:bg-slate-300">
-                        @else
-                    <tr class="border-solid border-1 border-slate-800 bg-slate-200 hover:bg-slate-300">
-                        @endif
-                        <td> {{ $loop->index+1 }}</td>
-                        <td>{{ $dat->no_kontrak }}</td>
-                        <td>{{ $dat->tgl_kontrak }}</td>
-                        <td>{{ $dat->nama_perusahaan}}</td>
-                        <td>
-                            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                <a href="{{ url('admin/aneka-usaha/detail-permohonan-sewa-lahan') }}">View<a /></button>
-                            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><a href="{{ url('admin/aneka-usaha/edit-permohonan-sewa-lahan') }}">Edit<a /></button>
-                            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><a href="{{ url('admin/aneka-usaha/pranota-permohonan-sewa-lahan') }}">Pranota<a /></button>
-                            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><a href="{{ url('admin/aneka-usaha/nota-4g') }}"> Nota4G<a /></button>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
 </div>
 
 </div>
@@ -529,6 +493,10 @@
 
         $('#pembulatan').val(hasil);
 
+    }
+
+    function formReset() {
+        document.getElementById("frm1").reset();
     }
 </script>
 @endsection

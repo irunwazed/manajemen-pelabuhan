@@ -2,10 +2,10 @@
 @section('title', 'Aneka Usaha')
 @section('content')
 <div class="">
-    <div class="text-2xl ">Aneka Usaha / Edit Sewa Bunker</div>
+    <div class="text-2xl ">Aneka Usaha / Permohonan Sewa Tanah Dan Bangunan</div>
     <hr class="border-b-2 border-black border-solid">
-    <div class="font-bold text-2xl text-center pt-5">FORM PERMOHONAN SEWA BUNKER</div>
-    <div class="font-bold text-2xl text-center pt-5">Entry Data</div>
+    <div class="font-bold text-2xl text-center pt-5">FORM PERMOHONAN SEWA TANAH & BANGUNAN</div>
+    <!-- <div class="font-bold text-2xl text-center pt-5">Entry Data</div> -->
 
     <div class="font-bold text-2xl text-start pt-5">Form Kontrak</div>
     <div class="h-56 grid grid-cols-2 gap-4 content-center border-2">
@@ -17,10 +17,11 @@
                     <td class="py-1">
                         <div class="grid grid-cols-2 gap-1">
                             <div class="">
-                                <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                <input type="text" value=" {{$no_kontrak}}" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                             </div>
+
                             <div class="">
-                                <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                <input type="date" value=" {{$tgl_kontrak}}" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                             </div>
                         </div>
                     </td>
@@ -29,17 +30,19 @@
                     <td>Nama Perusahaan</td>
                     <td>:</td>
                     <td class="py-1">
-                        <select id="barang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="US">JAYA GROUP</option>
-                            <option value="CA">SAKTI MANTRA</option>
-                        </select>
+                        <!-- <select id="barang" value="nama_perusahaan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                             <option value="US">JAYA GROUP</option>
+                            <option value="CA">SAKTI MANTRA</option> 
+                        </select> -->
+                        <input type="text" disable value=" {{$nama_perusahaan}}" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>Alamat</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" disabled value="{{$alamat}}" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
             </table>
@@ -50,28 +53,28 @@
                     <td>Telephone</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" disabled value="{{$telephone}}" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Contact Person</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" value="{{$contact_person}}" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Contact Person's Phone</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" value="" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>NPWP</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" disabled value="{{$npwp_perusahaan}}" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
             </table>
@@ -92,18 +95,21 @@
                     <td>Jenis Properti</td>
                     <td>:</td>
                     <td class="py-1">
-                        <select id="barang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <!-- <select id="barang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="US">TANAH</option>
-                        </select>
+                        </select> -->
+                        <input type="text" disabled value="{{$jenis_properti}}" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>Lokasi</td>
                     <td>:</td>
                     <td class="py-1">
-                        <select id="barang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <input type="text" disabled value="{{$lokasi_id}}" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+
+                        <!-- <select id="barang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="US">LAPANGAN PENUMPUKAN</option>
-                        </select>
+                        </select> -->
                     </td>
                 </tr>
                 <tr class="text-start">
@@ -112,7 +118,7 @@
                     <td class="py-1">
                         <div class="grid grid-cols-5">
                             <div class="col-span-4">
-                                <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                <input type="text" value="{{$luas_lahan}}" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                             </div>
                             <div>
                                 <span class="font-bold text-center">M2</span>
@@ -126,11 +132,11 @@
                     <td class="py-1">
                         <div class="grid grid-cols-5">
                             <div class="col-span-2">
-                                <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                <input type="date" value="{{$periode_pakai_mulai}}" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                             </div>
                             <div class="inline-block align-middle text-center font-bold">S/D</div>
                             <div class="col-span-2">
-                                <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                <input type="date" value="{{$periode_pakai_selesai}}" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                             </div>
                         </div>
                     </td>
@@ -141,10 +147,10 @@
                     <td class="py-1">
                         <div class="grid grid-cols-3 gap-2">
                             <div>
-                                <input type="text" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                <input type="text" value="{{$jangka_waktu}}" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                             </div>
                             <div class="col-span-2">
-                                <input type="text" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                <input type="text" value="bulan" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                             </div>
                         </div>
 
@@ -157,7 +163,7 @@
                         <div class="grid grid-cols-9">
                             <div> Rp</div>
                             <div class="col-span-4">
-                                <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                <input type="text" value="{{$tarif}}" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                             </div>
                             <div class="col-span-4"> <span class="text-sm">/ Meter2-satuan jangka waktu</span></div>
                         </div>
@@ -177,7 +183,7 @@
                     <td>Keterangan</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" value="{{$keterangan}}" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
             </table>
@@ -188,14 +194,14 @@
                     <td>Biaya Sewa</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" value="{{$biaya_sewa}}" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Biaya PBB</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" value="biaya_pbb" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
@@ -204,7 +210,7 @@
                     <td class="py-1">
                         <div class="grid grid-cols-3">
                             <div>
-                                <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                <input type="text" value="11" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="text-black text-2xl font-bold">%</div>
@@ -221,42 +227,47 @@
                     <td>Biaya Administrasi</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" value="{{$biaya_admin}}" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Biaya Lainya</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" value="{{$biaya_lain}}" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Total Biaya</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" value="" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>Pembulatan Biaya</td>
                     <td>:</td>
                     <td class="py-1">
-                        <input type="text" disabled class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="text" disabled value="{{$biaya_sewa}}" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
-            </table>
-        </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <div class="text-center pt-16 mt-16 pb-9">
 
-        <a href="#" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">Simpan</a>
-        <a href="#" class="text-base bg-yellow-600 text-yellow-100 px-6 py-2.5 rounded hover:opacity-80">Reset</a>
-        <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="text-base text-gray-900 bg-white border border-gray-300 px-6 py-2.5 rounded hover:opacity-80">Batal</a>
+            </table>
+
+        </div>
+        <br>
+        <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" target="_blank">
+            <!-- <button style="align-content: center;" class=" btn bg-blue-600 text-blue-100 hover:bg-purple-600">Cetak </button> -->
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">CETAK</button>
+
+        </a>
+        <br>
+
+
     </div>
+    <br>
+    <br>
+
 </div>
 @endsection
 

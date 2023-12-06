@@ -232,10 +232,10 @@
     <div id="aneka-usaha-bar" class="z-10 hidden font-normal {{ @$user=='admin'?'overflow-y-scroll max-h-[500px]':'' }} bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
         <li>
-          <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-lahan')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Lahan & Bangunan</a>
+          <a href="{{url('admin/aneka-usaha/lahan/create-permohonan-sewa-lahan')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Lahan & Bangunan</a>
         </li>
         <li>
-          <a href="{{url('admin/aneka-usaha/create-permohonan-sewa-bunker')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Bunker</a>
+          <a href="{{url('admin/aneka-usaha/bunker/create-permohonan-sewa-bunker')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Permohonan Sewa Bunker</a>
         </li>
       </ul>
     </div>

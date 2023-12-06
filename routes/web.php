@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AnekaUsaha\LahanController;
-use App\Http\Controllers\AnekaUsaha\pranotaLahan;
-use App\Http\Controllers\AnekaUsaha\sewaLahancreate;
+use App\Http\Controllers\AnekaUsaha\lahan\pranotaController;
+use App\Http\Controllers\AnekaUsaha\lahan\pranotaLahan;
+use App\Http\Controllers\AnekaUsaha\lahan\sewaLahancreate;
+use App\Http\Controllers\AnekaUsaha\lahan\LahanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,44 +128,34 @@ Route::prefix('/{user}/penyewaan-alat')->group(function () {
     });
 });
 
-
-
-
-
-// Route::prefix('/{user}/aneka-usaha')->group(function () {
-
-//     Route::get('/', function ($user) {
-//         $data = [
-//             "user" => $user
-//         ];
-//         return view('app/aneka-usaha/', $data);
-//     });
-
-//     Route::get('/{menu}', function ($user, $menu) {
-//         $data = [
-//             "user" => $user
-//         ];
-//         return view('app/aneka-usaha/' . $menu, $data);
-//     });
-//     Route::get('/permohonan-sewa-lahan', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
-//     Route::get('/create-permohonan-sewa-lahan', [LahanController::class, 'companyInfo'])->name('companyInfo');
-//     Route::get('/pranota-permohonan-sewa-lahan', [pranotaLahan::class, 'praNota'])->name('praNota');
-//     Route::get('/perusahaan/{id}', [LahanController::class, 'companyinfoById']);
-//     Route::get('/perusahaan-lokasi/{id}', [LahanController::class, 'lahaninfoById']);
-//     Route::get('/perusahaan-sewa-detail', [pranotaLahan::class, 'praNota'])->name('praNota');
-//     Route::post('/{user}/perusahaan-lahan-create', [LahanController::class, 'Lahancreate'])->name('lahanCreate');
-// });
-
+//dropdown list perusahaan &lokasi
 Route::get('/perusahaan/{id}', [LahanController::class, 'companyinfoById'])->name('companyinfoById');
 Route::get('/perusahaan-lokasi/{id}', [LahanController::class, 'lahaninfoById'])->name('lahaninfoById');
-//Route::get('/pranota-permohonan-sewa-lahan', [pranotaLahan::class, 'praNota'])->name('praNota');
 
 
 Route::prefix('/{user}/aneka-usaha/')->group(function () {
-    Route::get('/permohonan-sewa-lahan', [LahanController::class, 'listSewaLahan'])->name('listSewaLahan');
-    Route::post('/perusahaan-lahan-create', [LahanController::class, 'Lahancreate'])->name('lahanCreate');
-    Route::get('/create-permohonan-sewa-lahan', [LahanController::class, 'companyInfo'])->name('companyInfo');
-    Route::get('/list-permohonan-sewa-lahan', [LahanController::class, 'res'])->name('res');
+
+    //permohonan Sewa 
+    Route::get('/lahan/permohonan-sewa-lahan', [LahanController::class, 'lahansewaList'])->name('listSewaLahan');
+    Route::get('/lahan/perusahaan-lahan-create', [LahanController::class, 'lahansewaListadd'])->name('lahansewaListadd');
+    Route::post('/lahan/perusahaan-lahan-create', [LahanController::class, 'Lahancreate'])->name('lahanCreate');
+    Route::post('/lahan/perusahaan-lahan-edit', [LahanController::class, 'LahanUpdate'])->name('LahanUpdate');
+
+    Route::get('/lahan/create-permohonan-sewa-lahan', [LahanController::class, 'companyInfo'])->name('companyInfo');
+    Route::get('/lahan/list-permohonan-sewa-lahan', [LahanController::class, 'res'])->name('res');
+
+
+    //pranota
+    Route::get('/lahan/pranota-permohonan-sewa-lahan/{id}', [pranotaController::class, 'praNota'])->name('praNota');
+
+    Route::get('/lahan/detail-permohonan-sewa-lahan/{id}', [pranotaController::class, 'praNotaDetail'])->name('praNotaDetail');
+
+    Route::get('/lahan/list_to_pranota/{id}', [pranotaController::class, 'listPranota'])->name('listPranota');
+
+    Route::get('/create-pdf/{id}', [pranotaController::class, 'exportPdf']);
+
+
+    //nota 4e
 
     Route::get('/', function ($user) {
         $data = [
@@ -179,6 +170,7 @@ Route::prefix('/{user}/aneka-usaha/')->group(function () {
         ];
         return view('app/aneka-usaha/' . $menu, $data);
     });
+    Route::get('/permohonan-sewa-detail', [LahanController::class, 'detailsewaLahan'])->name('sewalahandetail');
 });
 
 

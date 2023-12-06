@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Penyewaan Alat')
+@section('title', 'Aneka Usaha')
 
 
 @section('content')
@@ -11,16 +11,21 @@ $navigations = [];
 
 array_push($navigations, [
   "name" => "SEWA LAHAN & BANGUNAN",
-  "url" => "/" . @$user . "/aneka-usaha/create-permohonan-sewa-lahan",
+  "url" => "/" . @$user . "/aneka-usaha/lahan/permohonan-sewa-lahan",
 ]);
 
 array_push($navigations, [
   "name" => "SEWA BUNKER",
-  "url" => "/" . @$user . "/aneka-usaha/create-permohonan-sewa-bunker",
+  "url" => "/" . @$user . "/aneka-usaha/bunker/create-permohonan-sewa-bunker",
 ]);
 array_push($navigations, [
   "name" => "LIST SEWA LAHAN",
-  "url" => "/" . @$user . "/aneka-usaha/permohonan-sewa-lahan",
+  "url" => "/" . @$user . "/aneka-usaha/lahan/permohonan-sewa-lahan",
+]);
+
+array_push($navigations, [
+  "name" => "LIST SEWA BUNKER",
+  "url" => "/" . @$user . "/aneka-usaha/lahan/permohonan-sewa-lahan",
 ]);
 
 

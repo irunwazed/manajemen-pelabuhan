@@ -250,7 +250,13 @@
     </div>
     <br>
     <br>
+    <br>
+    <div class="text-center pt-16 mt-16 pb-9">
 
+        <a href="#" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">Simpan</a>
+        <a href="#" class="text-base bg-yellow-600 text-yellow-100 px-6 py-2.5 rounded hover:opacity-80">Reset</a>
+        <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="text-base text-gray-900 bg-white border border-gray-300 px-6 py-2.5 rounded hover:opacity-80">Batal</a>
+    </div>
 </div>
 @endsection
 
