@@ -2,7 +2,7 @@
 @section('title', 'Eksport-Import')
 @section('content')
     <div class="h-56 grid">
-        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PIB</div>
+        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PEB</div>
             <hr class="border-b-2 border-black border-solid">
             <nav>
                 <ul class="menu flex">
@@ -53,10 +53,10 @@
     <div style="padding-top:0px;padding-bottom:20px;text-align:center;"><span class="font-bold text-2xl text-start">TAMBAH BARANG</span></div>
     <div class="grid grid-cols-2 gap-4">
         <div>
-        <form id="uploadForm" action="/Eksport/save_header" method="POST" enctype="multipart/form-data">
+        <form id="uploadForm" action="/Eksport/save_data_barang" method="POST" enctype="multipart/form-data">
             <table class="w-full">
                 <tr class="text-start">
-                    <td>Header PIB</td>
+                    <td>Header PEB</td>
                     <td></td>
                     <td class="py-1">
                     <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_peb" name="header_peb">
@@ -154,7 +154,7 @@
                     <td>Satuan</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="satuan">
+                        <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="satuan">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
@@ -175,35 +175,35 @@
                     <td>Harga Fob</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" nama="harga_fob" >
+                        <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" nama="harga_fob" >
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>Volume</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" nama="volume" >
+                        <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" nama="volume" >
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>Berat Bersih</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" nama="berat_bersih" >
+                        <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" nama="berat_bersih" >
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>harga Satuan Fob</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" nama="satuan">
+                        <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" nama="satuan">
                     </td>
                 </tr>
                 <tr class="text-start">
                     <td>Biaya Tambahan</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" nama="biaya_tambahan" >
+                        <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" nama="biaya_tambahan" >
                     </td>
                 </tr>
                 <tr class="text-start">
@@ -217,7 +217,7 @@
                     <td>Harga Satuan</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="harga_satuan">
+                        <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="harga_satuan">
                     </td>
                 </tr>
                 <tr class="text-start">
@@ -244,7 +244,7 @@
             </table>
         </div>
         <div class="text-left pt-5 mt-5">
-        <button type="submit" onclick="submitForm()" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
+            <button type="submit"  class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
         </div>
        </form >
     </div>
@@ -287,6 +287,7 @@
         <div class="relative w-full max-w-2xl max-h-full">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <form id="uploadForm" action="/Eksport/save_lartas" method="POST" enctype="multipart/form-data">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -328,7 +329,7 @@
                                 <td>:</td>
                                 <td class="py-1">
                                 <input
-                                    type="text"
+                                    type="number"
                                     class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="nomor"
                                 >    
                                 </td>
@@ -338,7 +339,7 @@
                                 <td>:</td>
                                 <td class="py-1">
                                 <input
-                                    type="text"
+                                    type="date"
                                     class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="tanggal_dok"
                                 >    
                                 </td>
@@ -348,7 +349,7 @@
                                 <td>:</td>
                                 <td class="py-1">
                                 <input
-                                    type="text"
+                                    type="file"
                                     class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="nama_file"
                                 >    
                                 </td>
@@ -358,10 +359,11 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="defaultModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
-                    <button data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">BATAL</button>
+                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
+                    <button type="reset" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">BATAL</button>    
                 </div>
             </div>
+        </form>
         </div>
     </div>
     <!-- . MODAL -->

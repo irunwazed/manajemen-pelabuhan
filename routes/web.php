@@ -243,7 +243,7 @@ Route::post('/Eksport/save_kontainer','EksportImport\EksportController@saveKonta
 Route::post('/Eksport/save_data_transaksi','EksportImport\EksportController@saveTransaksi');
 Route::post('/Eksport/save_bank_devisa','EksportImport\EksportController@saveDevisa');
 Route::post('/Eksport/save_data_barang','EksportImport\EksportController@saveDataBarang');
-Route::post('/Eksport/save_laras','EksportImport\EksportController@saveLartas');
+Route::post('/Eksport/save_lartas','EksportImport\EksportController@saveLartas');
 Route::post('/Eksport/save_pernyataan','EksportImport\EksportController@savePernyataan');
 
 //Route manfest pengangkut

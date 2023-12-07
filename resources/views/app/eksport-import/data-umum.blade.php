@@ -36,7 +36,7 @@
                     <td>No Pengajuan</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_pengajuan">
+                        <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_pengajuan">
                     </td>
                 </tr>
                 <tr class="text-start">
@@ -57,7 +57,7 @@
                     <td>Tanggal Tiba</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="tgl_tiba">
+                        <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="tgl_tiba">
                     </td>
                 </tr>
                 <tr class="text-start">
@@ -78,21 +78,21 @@
                     <td>NPWP</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="npwp_perusahaan">
+                        <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="npwp_perusahaan">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>No Daftar</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_daftar">
+                        <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_daftar">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
                     <td>No Pengangkut</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_pengangkut">
+                        <input type="number" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_pengangkut">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">
@@ -106,7 +106,7 @@
                     <td>Tanggal Daftar</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="tgl_daftar">
+                        <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="tgl_daftar">
                     </td>
                 </tr>
                 <tr class="text-start mb-4">

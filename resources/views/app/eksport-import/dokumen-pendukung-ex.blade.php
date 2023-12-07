@@ -2,7 +2,7 @@
 @section('title', 'Eksport-Import')
 @section('content')
     <div class="h-56 grid">
-        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PIB</div>
+        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PEB</div>
             <hr class="border-b-2 border-black border-solid">
             <nav>
                 <ul class="menu flex">
@@ -94,37 +94,37 @@
                                 <tr class="text-start">
                                     <td>Seri</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="no_seri" name="no_seri">
+                                        <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="no_seri" name="no_seri">
                                     </td>
                                 </tr>
                                 <tr class="text-start mb-4">
                                     <td>Jenis</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="jenis_dokumen" name="jenis_dokumen">
+                                        <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="jenis_dokumen" name="jenis_dokumen">
                                     </td>
                                 </tr>
                                 <tr class="text-start">
                                     <td>Nomor</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="izin" name="izin">
+                                        <input type="number" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="izin" name="izin">
                                     </td>
                                 </tr>
                                 <tr class="text-start">
                                     <td>Izin</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="nomor_dokumen" name="nomor_dokumen">
+                                        <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="nomor_dokumen" name="nomor_dokumen">
                                     </td>
                                 </tr>
                                 <tr class="text-start">
                                     <td>Tanggal</td>
                                     <td class="py-1">
-                                        <input type="date" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="tgl_dokumen" name="tgl_dokumen">
+                                        <input type="date" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="tgl_dokumen" name="tgl_dokumen">
                                     </td>
                                 </tr>
                                 <tr class="text-start">
                                     <td>Browse</td>
                                     <td class="py-1">
-                                        <input type="file" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="nama_file" name="nama_file">
+                                        <input type="file" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400"  id="nama_file" name="nama_file">
                                     </td>
                                 </tr>
                             </table>

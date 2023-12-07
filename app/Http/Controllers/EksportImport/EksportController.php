@@ -194,7 +194,7 @@ class EksportController extends Controller
       'no_seri' => $request->no_seri,
       'jenis' => $request->jenis,
       'nomor' => $request->nomor,
-      'tanggal_dok' => $request->tanggal_dok,
+      //'tanggal_dok' => $request->tanggal_dok,
       'fasilitas' => $request->fasilitas,
       'izin'=> $request->izin,
       'nama_file'=> $request->nama_file,

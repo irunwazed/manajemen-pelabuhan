@@ -2,7 +2,7 @@
 @section('title', 'Eksport-Import')
 @section('content')
     <div class="h-56 grid">
-        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PIB</div>
+        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PEB</div>
             <hr class="border-b-2 border-black border-solid">
             <nav>
                 <ul class="menu flex">
@@ -107,7 +107,7 @@
                                 <td>:</td>
                                 <td class="py-1">
                                 <input
-                                    type="text"
+                                    type="number"
                                     class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="jumlah_kemasan"
                                 >
                                 </td>
@@ -184,7 +184,7 @@
                                 <td>:</td>
                                 <td class="py-1">
                                 <input
-                                    type="text"
+                                    type="number"
                                     class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_kontainer"
                                 >
                                 </td>
@@ -194,7 +194,7 @@
                                 <td>:</td>
                                 <td class="py-1">
                                 <input
-                                    type="text"
+                                    type="number"
                                     class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="ukuran_kontainer"
                                 >    
                                 </td>
