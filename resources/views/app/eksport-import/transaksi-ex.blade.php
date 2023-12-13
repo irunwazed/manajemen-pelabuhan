@@ -148,11 +148,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                </tr>
+                <?php
+                foreach ($data_bank_devisa as $key => $value) {
+                    echo'
+                    <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                        <td>'.$value->no_seri.'</td>
+                        <td>'.$value->kode_bank.'</td>
+                        <td>'.$value->nama_bank.'</td>
+                    </tr>
+                    ';
+                }
+                ?>
             </tbody>
         </table>
     </div>

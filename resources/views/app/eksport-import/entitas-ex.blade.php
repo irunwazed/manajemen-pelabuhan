@@ -146,14 +146,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                </tr>
+                <?php
+                foreach ($data_entitas_pemilik_barang as $key => $value) {
+                    echo'
+                    <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                        <td>'.$value->no_identitas.'</td>
+                        <td>'.$value->alamat.'</td>
+                        <td>'.$value->nama.'</td>
+                    </tr>
+                    ';
+                }
+                ?>
             </tbody>
         </table>
+        @include('components.pagination')
     </div>
     <!-- <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="font-semibold py-1 px-6 rounded-md hover:opacity-80 bg-blue-600 text-sm text-blue-100 hover:bg-purple-600">Update Tarif</button> -->
     <!-- Main modal -->

@@ -42,12 +42,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                </tr>
+                <?php
+                foreach ($data_kemasan_peb as $key => $value) {
+                    echo'
+                    <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                        <td>'.$value->seri_kemasan.'</td>
+                        <td>'.$value->jumlah_kemasan.'</td>
+                        <td>'.$value->jenis_kemasan.'</td>
+                        <td>'.$value->merk_kemasan.'</td>
+                    </tr>
+                    ';
+                }
+                ?>
             </tbody>
         </table>
         <table class="mt-5 w-full border-solid border-2 border-slate-800">
@@ -60,12 +66,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                </tr>
+            <?php
+                foreach ($data_kontainer_peb as $key => $value) {
+                    echo'
+                    <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                        <td>'.$value->seri_kontainer.'</td>
+                        <td>'.$value->no_kontainer.'</td>
+                        <td>'.$value->ukuran_kontainer.'</td>
+                        <td>'.$value->type_kontainer.'</td>
+                    </tr>
+                    ';
+                }
+                ?>
             </tbody>
         </table>
     </div>

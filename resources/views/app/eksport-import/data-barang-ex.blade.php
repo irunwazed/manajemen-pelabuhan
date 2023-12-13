@@ -38,13 +38,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
-                            <td> . </td>
-                            <td> . </td>
-                            <td> . </td>
-                            <td> . </td>
-                            <td> . </td>
-                        </tr>
+                        <?php
+                        foreach ($data_barang_peb as $key => $value) {
+                            echo'
+                            <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                                <td>'.$value->no_seri.'</td>
+                                <td>'.$value->hs_code.'</td>
+                                <td>'.$value->uraian.'</td>
+                                <td>'.$value->harga_fob.'</td>
+                                <td>'.$value->satuan.'</td>
+                            </tr>
+                            ';
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -268,15 +274,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
-                        <td> . </td>
-                        <td> . </td>
-                        <td> . </td>
-                        <td> . </td>
-                        <td> . </td>
-                        <td> . </td>
-                    </tr>
-                </tbody>
+                        <?php
+                        foreach ($data_lartas as $key => $value) {
+                            echo'
+                            <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                                <td>'.$value->no_seri.'</td>
+                                <td>'.$value->jenis.'</td>
+                                <td>'.$value->nomor.'</td>
+                                <td>'.$value->tanggal_dok.'</td>
+                                <td>'.$value->izin.'</td>
+                                <td>'.$value->nama_file.'</td>
+                            </tr>
+                            ';
+                        }
+                        ?>
+                    </tbody>
             </table>
         </div>
     </div>

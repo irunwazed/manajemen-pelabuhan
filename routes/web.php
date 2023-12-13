@@ -158,6 +158,14 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         $data_header_peb = DB::table('t_header_peb')->get();
         $data_satuan = DB::table('m_satuan')->get();
         $data_kemasan = DB::table('m_kemasan')->get();
+        $data_entitas_pemilik_barang = DB::table('t_entitas_peb_pemilik_barang')->get();
+        $data_dokumen_pendukung_peb = DB::table('t_dokument_pendukung_peb')->get();
+        $data_pengangkut_sarana_peb = DB::table('t_pengangkutan_peb_sarana')->get();
+        $data_bank_devisa = DB::table('t_data_transaksi_peb_bank_devisa')->get();
+        $data_kemasan_peb = DB::table('t_kemasan_peb')->get();
+        $data_kontainer_peb = DB::table('t_kontainer_peb')->get();
+        $data_barang_peb = DB::table('t_data_barang_peb')->get();
+        $data_lartas = DB::table('t_data_barang_peb_dok_fasilitas_lartas')->get();
         $data_barang_pib = DB::table('t_data_barang_pib')
         ->join('m_satuan', 't_data_barang_pib.satuan_id', '=','m_satuan.satuan_id')
         ->join('t_header_pib', 't_data_barang_pib.header_pib_id', '=', 't_header_pib.header_pib_id')
@@ -193,7 +201,15 @@ Route::prefix('/{user}/eksport-import')->group(function () {
             "data_kontainer_pib"=> $data_kontainer_pib,
             "data_kemasan_pib"=> $data_kemasan_pib,
             "data_dokumen_pendukung_pib"=> $data_dokumen_pendukung_pib,
-            "data_barang_pib"=> $data_barang_pib
+            "data_barang_pib"=> $data_barang_pib,
+            "data_entitas_pemilik_barang"=> $data_entitas_pemilik_barang,
+            "data_dokumen_pendukung_peb"=> $data_dokumen_pendukung_peb,
+            "data_pengangkut_sarana_peb" => $data_pengangkut_sarana_peb,
+            "data_kontainer_peb" => $data_kontainer_peb,
+            "data_kemasan_peb" => $data_kemasan_peb,
+            "data_bank_devisa" => $data_bank_devisa,
+            "data_barang_peb" => $data_barang_peb,
+            "data_lartas" => $data_lartas
         ];
         return view('app/eksport-import/'.$menu, $data);
     });

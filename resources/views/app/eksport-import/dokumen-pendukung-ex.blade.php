@@ -42,16 +42,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
-                            <td> . </td>
-                            <td> . </td>
-                            <td> . </td>
-                            <td> . </td>
-                            <td> . </td>
-                            <td> . </td>
-                        </tr>
+                        <?php
+                        foreach ($data_dokumen_pendukung_peb as $key => $value) {
+                            echo'
+                            <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                                <td>'.$value->no_identitas.'</td>
+                                <td>'.$value->jenis_dokumen.'</td>
+                                <td>'.$value->nomor_dokumen.'</td>
+                                <td>'.$value->izin.'</td>
+                                <td>'.$value->tgl_dokumen.'</td>
+                                <td>'.$value->nama_file.'</td>
+                            </tr>
+                            ';
+                        }
+                        ?>
                     </tbody>
                 </table>
+                @include('components.pagination')
             </div>
         </div>
     </div>
