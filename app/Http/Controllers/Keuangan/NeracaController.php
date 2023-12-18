@@ -23,6 +23,7 @@ select rek.kode_rekening, rek.nama_rekening,
 from m_kode_rekening as rek
 left join jurnal as jur on jur.kode_rekening like concat(rek.kode_rekening, '%')
 group by rek.kode_rekening, rek.nama_rekening
+having ifnull(sum(jur.debit), 0) > 0 or ifnull(sum(jur.kredit), 0) > 0
 order by rek.kode_rekening;";
 
     public function index(Request $request)
