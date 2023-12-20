@@ -59,7 +59,7 @@
         <td>{{@$row->no_rpkro }}</td>
         <td>{{@$row->nama_kapal }}</td>
         <td>{{@$row->nama_dermaga }}</td>
-        <td>{{ changeDateFormate(@$row->waktu_rencana) }}</td>
+       <td>{{ @$row->waktu_rencana }}
         <td>{{@$row->rpkro_flag=="2"?"DISETUJUI":(@$row->rpkro_flag=="1"?"PROSES VERIFIKASI":(@$row->rpkro_flag=="R"?"DITOLAK":"PROSESS PEMBUATAN")) }}</td>
         <td class="py-2 flex flex-wrap gap-1 justify-center ">
           @if(@$row->pelayanan_kapal_rpkro_id)
@@ -67,9 +67,11 @@
 
           <a href="rpkro/form?id={{ @$row->pelayanan_kapal_id }}&status=view" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
 
-          @if(@$row->rpkro_flag != '1' && @$row->rpkro_flag != '2' && @$row->rpkro_flag != 'R')
+          @if(@$row->rpkro_flag != '1' && @$row->rpkro_flag != '2' && @$row->rpkro_flag != 'R' && $user=="pelindo-kapal")
           <a href="rpkro/form?id={{ @$row->pelayanan_kapal_id }}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:focus:ring-yellow-900">Edit</a>
-          <a href="rpkro/kirim?id={{ @$row->pelayanan_kapal_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Kirim</a>
+          
+            <a href="rpkro/kirim?id={{ @$row->pelayanan_kapal_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">kirim</a>
+        
           @endif
           @else
           <a href="rpkro/form?id={{ @$row->pelayanan_kapal_id }}" class="text-white float-right bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">BUAT RPKRO</a>

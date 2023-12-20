@@ -2,52 +2,122 @@
 
 namespace App\Services\Keuangan;
 
+use App\Models\Jurnal;
+use App\Models\Nota;
+use App\Models\Perusahaan;
+use App\Models\Rekening;
+use App\Models\RekeningPiutangUsaha;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
 
 class PenerimaanService
 {
-    public function createNota($data)
+    /**
+     * @param $idPerusahaan perusahaan_id on table m_perusahaan
+     * @param $rekeningId rekening_id on table m_kode_rekening. kode_rekening format should 103.xx.xx.xx (PIUTANG USAHA)
+     * @param $jenis type of note, could be transaction type (4A, 4B, etc)
+     * @param $tanggal
+     * @param $jumlah note value, should be positif value
+     * @param $keterangan
+     * @return mixed
+     */
+    public function createNota($idPerusahaan, $rekeningId, $jenis, $tanggal, $jumlah, $keterangan)
     {
-        return DB::table(DB::raw('t_nota'))
-            ->insert($data);
+        $perusahaan = $this->getPerusahaan($idPerusahaan);
+
+        $rekening = $this->getRekening($rekeningId);
+
+        $kodeRekPendapatan = '700' . $jenis;
+        $rekPendapatan = Rekening::find($kodeRekPendapatan);
+        if ($rekPendapatan === null) {
+            $rekPendapatan = Rekening::find('7004L');
+        }
+
+        try {
+            DB::beginTransaction();
+            $nota = $this->buatNota($perusahaan, $rekening, $jenis, $tanggal, $jumlah, $keterangan);
+            $this->buatJurnal($rekening, $tanggal, $jumlah, $rekPendapatan);
+            DB::commit();
+            return $nota;
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
     }
 
-    public function list()
+    /**
+     * @param $idPerusahaan
+     * @return mixed
+     */
+    private function getPerusahaan($idPerusahaan)
     {
-        return DB::table(DB::raw('t_penerimaan'))
-            ->select(['t_penerimaan.penerimaan_id'
-                , 't_penerimaan.no_penerimaan'
-                , 'm_perusahaan.nama_perusahaan'
-                , 't_penerimaan.tanggal'
-                , 't_penerimaan.jumlah'])
-            ->leftJoin('m_perusahaan', 't_penerimaan.perusahaan_id', '=', 'm_perusahaan.perusahaan_id')
-            ->orderByDesc('t_penerimaan.tanggal')
-            ->get();
+        $perusahaan = Perusahaan::find($idPerusahaan);
+        if (!$perusahaan) {
+            throw new ModelNotFoundException("Perusahaan tidak diketemukan");
+        }
+        return $perusahaan;
     }
 
-    public function listNota($nomorMaster, $offset = 0, $limit = 20)
+    /**
+     * @param $rekeningId
+     * @return mixed
+     */
+    private function getRekening($rekeningId)
     {
-        return DB::table(DB::raw('t_nota'))
-            ->where('nomor_master', '=', $nomorMaster)
-            ->offset($offset)
-            ->limit($limit)
-            ->orderBy('tanggal', 'desc')
-            ->get();
+        $rekening = RekeningPiutangUsaha::find($rekeningId);
+        if (!$rekening) {
+            throw new ModelNotFoundException("Rekening tidak diketemukan atau bukan rekening pitang usaha");
+        }
+        return $rekening;
     }
 
-    private function selectQuery($offset, $limit)
+    /**
+     * @param $perusahaan
+     * @param $rekening
+     * @param type $jenis
+     * @param $tanggal
+     * @param note $jumlah
+     * @param $keterangan
+     * @return mixed
+     */
+    public function buatNota($perusahaan, $rekening, $jenis, $tanggal, $jumlah, $keterangan)
     {
-        return DB::table(DB::raw('t_master'))
-            ->select('nomor_master')
-            ->groupBy('nomor_master')
-            ->offset($offset)
-            ->limit($limit)
-            ->orderBy('nomor_master', 'desc');
-}
+        return Nota::create([
+            'perusahaan_id' => $perusahaan->perusahaan_id,
+            'nama_perusahaan' => $perusahaan->nama_perusahaan,
+            'rekening_id' => $rekening->rekening_id,
+            'jenis' => $jenis,
+            'tanggal' => $tanggal,
+            'jumlah' => abs($jumlah),
+            'terbayar' => 0,
+            'keterangan' => $keterangan
+        ]);
+    }
 
-    public function listMaster($offset = 0, $limit = 20)
+    /**
+     * @param $rekPiutangPendapatan
+     * @param $tanggal
+     * @param $jumlah
+     * @param $rekPendapatan
+     * @return void
+     */
+    public function buatJurnal($rekPiutangPendapatan, $tanggal, $jumlah, $rekPendapatan): void
     {
-        return $this->selectQuery($offset, $limit)
-            ->get();
+        $jurnals = [[
+            'kode_rekening' => $rekPiutangPendapatan->kode_rekening,
+            'tanggal' => $tanggal,
+//            'ref_id' => '',
+            'ref_type' => 'pedapatan',
+            'jumlah' => $jumlah,
+            'debit_kredit' => 'D'
+        ], [
+            'kode_rekening' => $rekPendapatan->kode_rekening,
+            'tanggal' => $tanggal,
+//            'ref_id' => '',
+            'ref_type' => 'pedapatan',
+            'jumlah' => $jumlah,
+            'debit_kredit' => 'K'
+        ]];
+        Jurnal::insert($jurnals);
     }
 }

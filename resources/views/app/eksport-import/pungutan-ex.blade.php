@@ -2,7 +2,7 @@
 @section('title', 'Eksport-Import')
 @section('content')
     <div class="h-56 grid">
-        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PIB</div>
+        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PEB</div>
             <hr class="border-b-2 border-black border-solid">
             <nav>
                 <ul class="menu flex">

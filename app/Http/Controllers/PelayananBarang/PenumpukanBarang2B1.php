@@ -116,18 +116,21 @@ class PenumpukanBarang2B1 extends Controller
         }
     }
 
-    public function create2B1(Request $request)
+    public function create2B1(Request $request,$user)
     {
+      // dd($request);
         try {
             $data = DB::table('t_pbau_penumpukan_2b1')->where('no_form2b1', $request->no_form2b1)->get();
-            if ($data) {
+            if ($data->count()>0) {
                 DB::table('t_pbau_penumpukan_2b1')->where('no_form2b1', $request->no_form2b1)->update([
                     "pelayanan_kapal_id" => $request->pelayanan_kapal_id,
                     "no_form2b1" => $request->no_form2b1,
                     "tgl_2b1" => $request->tgl_2b1,
                     "pelayanan_kapal_rkbm_id" => $request->pelayanan_kapal_rkbm_id
                 ]);
+               // dd("masuk",$request,$data);
             } else {
+               // 
                 DB::table('t_pbau_penumpukan_2b1')
                     ->insert([
                         "pelayanan_kapal_id" => $request->pelayanan_kapal_id,
@@ -135,9 +138,13 @@ class PenumpukanBarang2B1 extends Controller
                         "tgl_2b1" => $request->tgl_2b1,
                         "pelayanan_kapal_rkbm_id" => $request->pelayanan_kapal_rkbm_id
                     ]);
+                   // dd("else",$request);
+                  
             }
 
-            return redirect()->back()->withInput();
+           // return redirect()->back()->withInput();
+           return redirect("/".$user."/pelayanan-barang/penumpukan-2b1");
+          // return redirect()->back();
         } catch (Exception $e) {
             return response()->json($e);
         }

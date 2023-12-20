@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class Nota3B extends Controller
 {
     public function show(Request $request, $user)
@@ -64,6 +65,7 @@ class Nota3B extends Controller
         $trf_dermaga = DB::table('m_tarif_dermaga')->get();
         $trf_penumpukan = DB::table('m_tarif_penumpukan')->get();
         $masa_penumpukan = DB::table('m_masa_penumpukan')->get();
+       // dd( $head_form,)
         $result = [
             'head_form' => $head_form,
             'detail_form' => $detail_form,
@@ -75,6 +77,7 @@ class Nota3B extends Controller
                 'masa_penumpukan' => $masa_penumpukan
             ]
         ];
+      //  dd( $result);
         return view('app.pelayanan-barang.create-nota-3B', $result);
     }
 

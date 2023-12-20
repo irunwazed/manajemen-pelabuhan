@@ -54,7 +54,7 @@
         <td>{{ @$row->no_layanan_kapal }}</td>
         <td>{{ @$row->nama_kapal }}</td>
         <td>{{ @$row->nama_agen }}</td>
-        <td>{{ changeDateFormate(@$row->wkt_permohonan_spog) }}</td>
+        <td>{{ @$row->wkt_permohonan_spog }}</td>
         <td class="py-2 flex flex-wrap gap-1 justify-center ">
             <a href="./detail?id={{ @$row->pelayanan_kapal_id }}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:focus:ring-yellow-900">View</a>
           @if(@$row->flag_berangkat == 1)

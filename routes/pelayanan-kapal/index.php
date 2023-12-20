@@ -5,7 +5,6 @@ use App\Http\Controllers\PelayananKapal\Nota4AController;
 use App\Http\Controllers\PelayananKapal\PermohonanAirController;
 use App\Http\Controllers\PelayananKapal\PermohonanPanduTundaController;
 
-
 Route::get('/pelayanan-kapal/monitoring', 'PelayananKapal\MonitorController@show');
 
 

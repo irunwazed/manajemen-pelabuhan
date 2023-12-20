@@ -84,7 +84,7 @@
         <td>{{ @$row->no_permohonan_spog }}</td>
         <td>{{ @$row->nama_kapal }}</td>
         <td>{{ @$row->nama_agen }}</td>
-        <td>{{ changeDateFormate(@$row->wkt_permohonan_spog) }}</td>
+        <td>{{ @$row->wkt_permohonan_spog }}</td>
         <td>{{ @$row->flag_spog=="2"?"DISETUJUI":(@$row->flag_spog=="1"?"TUNGGU VERIFIKASI":(@$row->flag_spog=="R"?"DITOLAK":"DRAFT")) }}</td>
         <td class="py-2 flex flex-wrap gap-1 justify-center ">
 

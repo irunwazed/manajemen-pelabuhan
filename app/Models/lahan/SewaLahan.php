@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\lahan\SewaLahan;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -44,7 +44,11 @@ class SewaLahan extends Model
         'tgl_pranota',
         'no_nota4e',
         'tgl_nota4e',
+        'kode_rek',
         'status_lunsum',
-        'kode_rek'
+        'biaya_pbb',
+        'biaya_admin',
+        'biaya_lain'
+
     ];
 }

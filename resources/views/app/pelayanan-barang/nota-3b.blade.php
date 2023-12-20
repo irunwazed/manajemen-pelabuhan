@@ -75,7 +75,7 @@
                             <td>{{ $row->nama_kapal }}</td>
                             <td class="py-2 flex flex-wrap gap-1 justify-center ">
                                 @if (!$row->no_nota3b)
-                                    <a href="{{ route('form-2b2', ['user' => $user, 'pelayanan_kapal_id' => $row->pelayanan_kapal_id]) }}"
+                                    <a href="{{ route('form-3b', ['user' => $user, 'pelayanan_kapal_id' => $row->pelayanan_kapal_id]) }}"
                                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create
                                         Nota 3B</a>
                                 @endif

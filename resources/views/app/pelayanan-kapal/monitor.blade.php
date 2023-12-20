@@ -12,7 +12,7 @@
 
   <div class="text-center mb-3 mt-5">
     <div class="flex flex-wrap place-content-center my-2">
-      <h3>MONITORING</h3>
+      <h3>MONIROTING</h3>
     </div>
     <div class="place-content-center flex mt-5 mb-3">
       <form action="" method="get">

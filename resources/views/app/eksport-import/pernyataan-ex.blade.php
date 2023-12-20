@@ -2,7 +2,7 @@
 @section('title', 'Eksport Import')
 @section('content')
     <div class="h-56 grid">
-        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PIB</div>
+        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PEB</div>
             <hr class="border-b-2 border-black border-solid">
             <nav>
                 <ul class="menu flex">
@@ -20,9 +20,24 @@
         </div>
     </div>
     Dengan ini saya menyatakan bertanggung jawab atas kebenaran hal-hal yang diberitahukan dalam pemberitahuan ekspor Barang ini, serta bersedia dikenakan sanksi dengan ketentuan di bidang kepabeannan apabila terdapat kesalahan<br><br>
+    <form action="/Eksport/save_pernyataan" method="POST" enctype="multipart/form-data">
     <div class="h-56 grid grid-cols-2 gap-4">
         <div>
             <table class="w-full">
+                <tr class="text-start">
+                    <td>Header PEB</td>
+                    <td></td>
+                    <td class="py-1">
+                    <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_peb" name="header_peb">
+                            <option value="">-- Pilih --</option>
+                            <?php
+                            foreach ($data_header_peb as $key => $value) {
+                                echo'<option value="'.$value->header_peb_id.'">'.$value->no_pengajuan.'</option>';
+                            }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
                 <tr class="text-start">
                     <td>Tempat</td>
                     <td></td>
@@ -34,7 +49,7 @@
                     <td>Tanggal</td>
                     <td></td>
                     <td class="py-1">
-                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                        <input type="date" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
                     </td>
                 </tr>
                 <tr class="text-start">
@@ -54,12 +69,11 @@
             </table>
         </div>
     </div>
+    <br>
     <div class="text-left pb-9">
-        <a href="#" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</a>
-        <!-- <a href="#" class="text-base bg-yellow-600 text-yellow-100 px-6 py-2.5 rounded hover:opacity-80">Reset</a>
-        <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="text-base text-gray-900 bg-white border border-gray-300 px-6 py-2.5 rounded hover:opacity-80">Batal</a>
-            </div> -->
+        <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
     </div>
+    </form>
 @endsection
 
 @section('script')

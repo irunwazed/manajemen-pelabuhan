@@ -2,7 +2,7 @@
 @section('title', 'Eksport-Import')
 @section('content')
     <div class="h-56 grid">
-        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PIB</div>
+        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PEB</div>
             <hr class="border-b-2 border-black border-solid">
             <nav>
                 <ul class="menu flex">
@@ -76,6 +76,7 @@
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
+                <form id="uploadForm" action="/Eksport/save_kemasan" method="POST" enctype="multipart/form-data">
                 <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                         KEMASAN
@@ -90,7 +91,6 @@
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <div class="mt-5 grid grid-cols-1 gap-2">
-                    <form id="uploadForm" action="/Eksport/save_kemasan" method="POST" enctype="multipart/form-data">
                         <table class="w-full">
                             <tr class="text-start">
                                 <td>Seri</td>
@@ -107,7 +107,7 @@
                                 <td>:</td>
                                 <td class="py-1">
                                 <input
-                                    type="text"
+                                    type="number"
                                     class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="jumlah_kemasan"
                                 >
                                 </td>
@@ -133,14 +133,15 @@
                             </td>
                             </tr>
                         </table>
-                    </form>
+                   
                     </div>
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="defaultModalKemasan" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
-                    <button data-modal-hide="defaultModalKemasan" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">BATAL</button>
+                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
+                    <button type="reset" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">BATAL</button>    
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -152,6 +153,7 @@
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
+                <form id="uploadForm" action="/Eksport/save_kontainer" method="POST" enctype="multipart/form-data">
                 <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                         KONTAINER
@@ -166,7 +168,6 @@
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <div class="mt-5 grid grid-cols-1 gap-2">
-                    <form id="uploadForm" action="/Eksport/save_kemasan" method="POST" enctype="multipart/form-data">
                         <table class="w-full">
                             <tr class="text-start">
                                 <td>Seri</td>
@@ -183,7 +184,7 @@
                                 <td>:</td>
                                 <td class="py-1">
                                 <input
-                                    type="text"
+                                    type="number"
                                     class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="no_kontainer"
                                 >
                                 </td>
@@ -193,7 +194,7 @@
                                 <td>:</td>
                                 <td class="py-1">
                                 <input
-                                    type="text"
+                                    type="number"
                                     class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" name="ukuran_kontainer"
                                 >    
                                 </td>
@@ -209,14 +210,14 @@
                             </td>
                             </tr>
                         </table>
-                    </form>
                     </div>
                 </div>
                 <!-- Modal footer -->
-                <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="defaultModalKontainer" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
-                    <button data-modal-hide="defaultModalKontainer" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">BATAL</button>
+                <<div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
+                    <button type="reset" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">BATAL</button>    
                 </div>
+                </form>
             </div>
         </div>
     </div>

@@ -188,6 +188,7 @@ class RPKROController extends Controller
         "t_pelayanan_kapal_rpkro.pelayanan_kapal_rpkro_id",
         "t_pelayanan_kapal_rkbm.flag as rkbm_flag",
         "t_pelayanan_kapal_rpkro.flag as rpkro_flag",
+        "t_pelayanan_kapal_rpkro.flag_ppk as flag_ppk",
       ])
       ->leftJoin("t_pelayanan_kapal_rpkro", "t_pelayanan_kapal_rpkro.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")
       ->leftJoin("t_pelayanan_kapal_rkbm", "t_pelayanan_kapal_rkbm.pelayanan_kapal_id", "t_pelayanan_kapal.pelayanan_kapal_id")

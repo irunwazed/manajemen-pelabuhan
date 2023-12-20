@@ -35,41 +35,56 @@
         <table class="mt-5 w-full border-solid border-2 border-slate-800">
             <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white py-5">
                 <tr>
-                    <th class="py-2 px-3">Seri</th>
+                    <th>No. Pengajuan</th>
+                    <th>Seri</th>
                     <th>Jumlah</th>
                     <th>Jenis</th>
                     <th>Merek</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                </tr>
+                <?php
+                foreach ($data_kemasan_pib as $key => $value) {
+                    echo'
+                    <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                        <td>'.$value->no_pengajuan.'</td>
+                        <td>'.$value->seri_kemasan.'</td>
+                        <td>'.$value->jumlah_kemasan.'</td>
+                        <td>'.$value->jenis_kemasan.'</td>
+                        <td>'.$value->merk_kemasan.'</td>
+                    </tr>
+                    ';
+                }
+                ?>
             </tbody>
         </table>
         <table class="mt-5 w-full border-solid border-2 border-slate-800">
             <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white py-5">
                 <tr>
-                    <th class="py-2 px-3">Seri</th>
+                    <th>No. Pengajuan</th>
+                    <th>Seri</th>
                     <th>Nomor</th>
                     <th>Ukuran</th>
                     <th>Tipe</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                    <td style="text-align: center;"> . </td>
-                </tr>
+            <?php
+                foreach ($data_kontainer_pib as $key => $value) {
+                    echo'
+                    <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                        <td>'.$value->no_pengajuan.'</td>
+                        <td>'.$value->seri_kontainer.'</td>
+                        <td>'.$value->no_kontainer.'</td>
+                        <td>'.$value->ukuran_kontainer.'</td>
+                        <td>'.$value->type_kontainer.'</td>
+                    </tr>
+                    ';
+                }
+                ?>
             </tbody>
         </table>
     </div>
-
     <!-- MODAL -->
     <div id="tambahkemasan" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative w-full max-w-2xl max-h-full">
@@ -88,44 +103,57 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form>
-                <div class="p-6 space-y-6">
-                    <div class="mt-5 grid gap-2">
-                        <div>
-                            <table class="w-full">
-                                <tr class="text-start">
-                                    <td>Seri</td>
-                                    <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                                    </td>
-                                </tr>
-                                <tr class="text-start">
-                                    <td>Jumlah</td>
-                                    <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                                    </td>
-                                </tr>
-                                <tr class="text-start">
-                                    <td>Jenis</td>
-                                    <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                                    </td>
-                                </tr>
-                                <tr class="text-start">
-                                    <td>Merk</td>
-                                    <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
-                                    </td>
-                                </tr>
-                            </table>
+                <form action="/import/save_kemasan" method="POST" enctype="multipart/form-data">
+                    <div class="p-6 space-y-6">
+                        <div class="mt-5 grid gap-2">
+                            <div>
+                                <table class="w-full">
+                                    <tr class="text-start">
+                                        <td>Header PIB</td>
+                                        <td class="py-1">
+                                            <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_pib" name="header_pib" required>
+                                                <option value="">-- Pilih --</option>
+                                                <?php
+                                                foreach ($data_header_pib as $key => $value) {
+                                                    echo'<option value="'.$value->header_pib_id.'">'.$value->no_pengajuan.'</option>';
+                                                }
+                                                ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-start">
+                                        <td>Seri</td>
+                                        <td class="py-1">
+                                            <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="seri_kemasan" name="seri_kemasan" maxlength="10" required>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-start">
+                                        <td>Jumlah</td>
+                                        <td class="py-1">
+                                            <input type="number" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="jumlah_kemasan" name="jumlah_kemasan" maxlength="10" required>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-start">
+                                        <td>Jenis</td>
+                                        <td class="py-1">
+                                            <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="jenis_kemasan" name="jenis_kemasan" maxlength="100" required>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-start">
+                                        <td>Merk</td>
+                                        <td class="py-1">
+                                            <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="merk_kemasan" name="merk_kemasan" maxlength="100" required>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Modal footer -->
-                <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
-                    <button type="reset" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">BATAL</button>
-                </div>
+                    <!-- Modal footer -->
+                    <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
+                        <button type="reset" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">BATAL</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -147,33 +175,46 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form>
+                <form action="/import/save_kontainer" method="POST" enctype="multipart/form-data">
                 <div class="p-6 space-y-6">
                     <div class="mt-5 grid gap-2">
                         <div>
                             <table class="w-full">
                                 <tr class="text-start">
+                                    <td>Header PIB</td>
+                                    <td class="py-1">
+                                        <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_pib" name="header_pib" required>
+                                            <option value="">-- Pilih --</option>
+                                            <?php
+                                            foreach ($data_header_pib as $key => $value) {
+                                                echo'<option value="'.$value->header_pib_id.'">'.$value->no_pengajuan.'</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="text-start">
                                     <td>Seri</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                        <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="seri_kontainer" name="seri_kontainer" maxlength="10" required>
                                     </td>
                                 </tr>
                                 <tr class="text-start">
-                                    <td>Jumlah</td>
+                                    <td>Nomor</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                        <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="no_kontainer" name="no_kontainer" maxlength="20" required>
                                     </td>
                                 </tr>
                                 <tr class="text-start">
-                                    <td>Jenis</td>
+                                    <td>Ukuran</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                        <input type="number" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="ukuran_kontainer" name="ukuran_kontainer" maxlength="10" required>
                                     </td>
                                 </tr>
                                 <tr class="text-start">
-                                    <td>Merk</td>
+                                    <td>Tipe</td>
                                     <td class="py-1">
-                                        <input type="text" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400">
+                                        <input type="text" class="mt-1 block w-full px-3 py-2 border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="type_kontainer" name="type_kontainer" maxlength="50" required>
                                     </td>
                                 </tr>
                             </table>
@@ -182,7 +223,7 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
+                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
                     <button type="reset" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">BATAL</button>
                 </div>
                 </form>
@@ -191,6 +232,5 @@
     </div>
     <!-- MODAL -->
 @endsection
-
 @section('script')
 @endsection

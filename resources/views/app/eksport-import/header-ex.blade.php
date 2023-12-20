@@ -2,7 +2,7 @@
 @section('title', 'Eksport Import')
 @section('content')
     <div class="h-56 grid">
-        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PIB</div>
+        <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PEB</div>
             <hr class="border-b-2 border-black border-solid">
             <nav>
                 <ul class="menu flex">
@@ -88,7 +88,7 @@
                     <option value="">-- Pilih --</option>
                         <?php
                         foreach ($kategori_ekspor as $key => $value) {
-                            echo'<option value="'.$value->kategori_ekspor_id.'">'.$value->kategori_ekspor.'</option>';
+                            echo'<option value="'.$value->kategroi_ekspor_id.'">'.$value->kategori_ekspor.'</option>';
                         }
                         ?>
                     </select>  
@@ -144,7 +144,7 @@
             </tr>
         </table>
         <div class="text-left pt-16 mt-16 pb-9">
-            <button type="submit" onclick="submitForm()" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
+            <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
         </div>
     </form>
     </div>

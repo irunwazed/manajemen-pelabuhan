@@ -21,4 +21,8 @@ class Penerimaan extends Model
         "jumlah"
     ];
 
+    protected $casts = [
+        'rekening_id' => 'string',
+    ];
+
 }

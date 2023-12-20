@@ -38,6 +38,7 @@ class LoginController extends Controller
           $groupUser=DB::table("tbl_user_groups")->where("id_user_groups", $user->level)->first();
           $link = $groupUser->nama_groups;
           session()->put('usergroup', $groupUser->nama_groups);
+          session()->put('role', $groupUser->nama_groups);
           //session untuk menyimpan data perusahaan sebagai agen ataupun pbm
           //set session menu
           $menu = DB::table("tbl_menu")
@@ -78,7 +79,7 @@ class LoginController extends Controller
             session()->put('agen_nama_perusahaan', @$agen->nama_perusahaan);
             session()->put('agen_alamat_perusahaan', @$agen->alamat);
             session()->put('agen_pic', @$agen->pic);
-          }elseif($link === ''){
+          }elseif($link === 'pbm'){
             $pbm = DB::table("m_perusahaan")->where("user_id", $user->id)->first();
             session()->put('name', @$pbm->nama_perusahaan);
             

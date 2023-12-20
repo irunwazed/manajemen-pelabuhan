@@ -216,9 +216,9 @@
               <td class="text-center py-4">{{ $loop->index+1 }}</td>
               <td class="text-center">{{ @$rowDokumen->nama_dokumen }}</td>
               <td class="text-center">{{ @$rowDokumen->no_dokumen }}</td>
-              <td class="text-center">{{ changeDateFormate(@$rowDokumen->tgl_dikeluarkan) }}</td>
-              <td class="text-center">{{ changeDateFormate(@$rowDokumen->tanggal_expired) }}</td>
-              <td class="text-center">{{ changeDateFormate(@$rowDokumen->tgl_endorsment) }}</td>
+              <td class="text-center">{{ @$rowDokumen->tgl_dikeluarkan }}</td>
+              <td class="text-center">{{ @$rowDokumen->tanggal_expired }}</td>
+              <td class="text-center">{{ @$rowDokumen->tgl_endorsment }}</td>
             </tr>
             @endforeach
           </tbody>
@@ -249,10 +249,10 @@
               <td class="text-center">{{ @$rowCrew->kode_pelaut }}</td>
               <td>{{ @$rowCrew->nama }}</td>
               <td>{{ @$rowCrew->jenis_kelamin }}</td>
-              <td>{{ changeDateFormate(@$rowCrew->tgl_lahir) }}</td>
+              <td>{{ @$rowCrew->tgl_lahir }}</td>
               <td>{{ @$rowCrew->kebangsaan }}</td>
               <td>{{ @$rowCrew->no_buku_pelaut }}</td>
-              <td>{{ changeDateFormate(@$rowCrew->tgl_expired_sertifikasi) }}</td>
+              <td>{{ @$rowCrew->tgl_expired_sertifikasi }}</td>
               <td>{{ @$rowCrew->jabatan }}</td>
             </tr>
             @endforeach
@@ -470,7 +470,7 @@
             @foreach(@$dataRPKRO as $row)
             <tr class="hover:bg-slate-200">
               <td class="text-center">{{ @$row->no_permohonan_spog }}</td>
-              <td class="text-center">{{ changeDateFormate(@$row->wkt_permohonan_spog) }}</td>
+              <td class="text-center">{{ @$row->wkt_permohonan_spog }}</td>
               <td class="text-center"></td>
             </tr>
             @endforeach

@@ -55,13 +55,13 @@
         <td>{{ @$row->nama_agen }}</td>
         <td>{{ @$row->no_layanan_kapal }}</td>
         <td>{{ @$row->no_pkk }}</td>
-        <td>{{ changeDateFormate(@$row->wkt_permohonan_spog) }}</td>
+        <td>{{ @$row->wkt_permohonan_spog}}</td>
         <td>{{ @$row->nama_kapal }}</td>
         <td class="py-2 flex flex-wrap gap-1 justify-center ">
 
           <a href="./spb/detail?id={{ @$row->pelayanan_kapal_id }}" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">View</a>
           @if(@$row->flag_spb == 1 || @$row->flag_spb == 0 || @$row->flag_spb == NULL)
-          <a href="./spb/detail?id={{ @$row->pelayanan_kapal_id }}&status=edit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Verifikasi</a>
+          <a href="./spb/detail?id={{ @$row->pelayanan_kapal_id }}&status=edit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">verifikasi</a>
           @endif
 
         </td>

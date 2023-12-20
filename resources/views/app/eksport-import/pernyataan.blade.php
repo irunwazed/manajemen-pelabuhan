@@ -30,7 +30,7 @@
                         <td>Header PIB</td>
                         <td></td>
                         <td class="py-1">
-                            <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_pib_id" name="header_pib_id" required>
+                            <select class="mt-1 block w-full px-3 py-2 bg-white border border-slate-800 rounded-md text-sm shadow-sm placeholder-slate-400" id="header_pib" name="header_pib" required>
                                 <option value="">-- Pilih --</option>
                                 <?php
                                 foreach ($data_header_pib as $key => $value) {
@@ -74,12 +74,8 @@
         <br>
         <div class="text-left pb-9">
             <button type="submit" class="text-base bg-blue-600 text-blue-100 px-6 py-2.5 rounded hover:opacity-80">SIMPAN</button>
-            <!-- <a href="#" class="text-base bg-yellow-600 text-yellow-100 px-6 py-2.5 rounded hover:opacity-80">Reset</a>
-            <a href="{{url('admin/aneka-usaha/permohonan-sewa-lahan')}}" class="text-base text-gray-900 bg-white border border-gray-300 px-6 py-2.5 rounded hover:opacity-80">Batal</a>
-                </div> -->
         </div>
     </form>
 @endsection
-
 @section('script')
 @endsection

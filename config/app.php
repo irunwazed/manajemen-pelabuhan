@@ -229,6 +229,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+       //ditambah untuk aneka usaha sewa lahan oleh jhon meyer
+        'PDF' => Barryvdh\DomPDF\Facades\Pdf::class,
 
     ],
 

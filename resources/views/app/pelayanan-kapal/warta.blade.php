@@ -64,7 +64,7 @@
             <td>{{$row->no_layanan_kapal }}</td>
             <td>{{$row->no_pkk }}</td>
             <td>{{$row->nama_kapal }}</td>
-            <td>{{ changeDateFormate($row->waktu_tiba) }}</td>
+            <td>{{ $row->waktu_tiba }}</td>
             <td class="py-2 flex flex-wrap gap-1 justify-center ">
               @if($row->flag == 0)
               <a href="{{ url('/'.$user) }}/pelayanan-kapal/pengajuan-pkk?id={{$row->pelayanan_kapal_id }}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:focus:ring-yellow-900" data-tooltip-target="tooltip-edit" data-tooltip-placement="top">

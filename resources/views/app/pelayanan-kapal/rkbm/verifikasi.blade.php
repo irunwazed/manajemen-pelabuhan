@@ -69,7 +69,7 @@
         <td>{{$row->no_pkk }}</td>
         <td>{{$row->nama_agen }}</td>
         <td>{{$row->nama_kapal }}</td>
-        <td>{{ changeDateFormate($row->waktu_aktual_kedatangan) }}</td>
+        <td>{{$row->waktu_aktual_kedatangan}}</td>
         <td class="py-2 flex flex-wrap gap-1 justify-center ">
 
           @if($row->rkbm_flag == 1)

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Keuangan;
 
+use App\Models\Jurnal;
 use App\Models\Nota;
 use App\Models\Penerimaan;
 use App\Models\PenerimaanDetail;
@@ -11,7 +12,6 @@ use App\Models\RekeningKas;
 use App\Services\Keuangan\PenerimaanService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
 
 class PenerimaanController
 {
@@ -68,14 +68,15 @@ class PenerimaanController
     {
         $perusahaan = $this->getPerusahaan($request);
         $rekening = $this->getRekening($request);
+        $notas = Nota::find($request->input('nota'));
 
         try {
             DB::beginTransaction();
             $penerimaan = $this->savePenerimaan($request, $perusahaan, $rekening);
-            $notas = Nota::find($request->input('nota'));
             $jumlah = $this->savePenerimaanDetail($notas, $penerimaan);
             $penerimaan->jumlah = $jumlah;
             $penerimaan->save();
+            $jurnals = $this->saveJurnal($notas, $rekening, $request, $penerimaan);
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
@@ -130,23 +131,55 @@ class PenerimaanController
         return $jumlah;
     }
 
-    public function getMaster(Request $request)
+    /**
+     * @param $notas
+     * @param $rekening
+     * @param Request $request
+     * @param $penerimaan
+     * @return array
+     */
+    public function saveJurnal($notas, $rekening, Request $request, $penerimaan): array
     {
-        try {
-            return DataTables::of(
-                $this->service->listMaster()
-            )->addColumn('action', function ($data) {
-                if ($data) {
-                    return view($this->view . 'action')
-                        ->with([
-                            'data' => $data
-                        ]);
-                } else {
-                    return '';
-                }
-            })->make(true);
-        } catch (\Exception $ex) {
-            dd($ex);
+        $jurnals = [];
+        $rekenings = [];
+        foreach ($notas as $nota) {
+            $rek_kas = $this->getRekeing($rekenings, $rekening->rekening_id);
+            $rek_piutang = $this->getRekeing($rekenings, $nota->rekening_id);
+            $jurnals[] = [
+                'kode_rekening' => $rek_kas->kode_rekening,
+                'tanggal' => $request->input('tanggal'),
+                'ref_id' => $penerimaan->penerimaan_id,
+                'ref_type' => 'penerimaan',
+                'jumlah' => $nota->jumlah,
+                'debit_kredit' => 'D'
+            ];
+            $jurnals[] = [
+                'kode_rekening' => $rek_piutang->kode_rekening,
+                'tanggal' => $request->input('tanggal'),
+                'ref_id' => $penerimaan->penerimaan_id,
+                'ref_type' => 'penerimaan',
+                'jumlah' => $nota->jumlah,
+                'debit_kredit' => 'K'
+            ];
         }
+        Jurnal::insert($jurnals);
+        return $jurnals;
+    }
+
+    /**
+     * @param array $rekenings
+     * @param $nota
+     * @return mixed
+     */
+    public function getRekeing(array $rekenings, $rekeningId)
+    {
+        $rek_piutang = isset($rekenings[$rekeningId]);
+        if (isset($rekenings[$rekeningId])) {
+            $rek_piutang = $rekenings[$rekeningId];
+        } else {
+            $rek_piutang = Rekening::find($rekeningId);
+            $rekenings[$rek_piutang->rekening_id] = $rek_piutang;
+        }
+        return $rek_piutang;
     }
 }
