@@ -3,10 +3,10 @@
 @section('content')
 
     <div class="">
-        <div class="text-2xl ">Neraca</div>
-        <hr class="border-b-2 border-black border-solid">
+        <div class="text-2xl print-section">Neraca</div>
+        <hr class="border-b-2 border-black border-solid print-section">
         <form id="filter-neraca" method="get">
-            <div class="grid grid-cols-4 gap-2 pt-16">
+            <div class="grid grid-cols-3 gap-2 pt-16">
                 <div class="text-start w-full">
                     <div>
                         <label>KODE REKENING</label>
@@ -21,9 +21,14 @@
                         <button class="text-white mt-6 bg-red-600 hover:bg-blue-800 focus:ring-4 focus:bg-red-600 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-600 focus:outline-none dark:focus:bg-red-600" onclick="resetForm()" >Reset</button>
                     </div>
                 </div>
+                <div class="text-start w-full flex justify-end">
+                    <button onclick="window.print()" class="text-white mt-6 bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
+                        Print
+                    </button>
+                </div>
             </div>
         </form>
-        <div class="mb-3 mt-5">
+        <div class="mb-3 mt-5 print-section">
             <div>
                 <table class="mt-5 w-full border-solid border-2 border-slate-800">
                     <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white py-5">
@@ -59,6 +64,21 @@
                 });
         }
     </script>
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .print-section, .print-section * {
+                visibility: visible;
+            }
+            .print-section {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
 @endsection
 
 @section('script')
