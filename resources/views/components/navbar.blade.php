@@ -302,24 +302,28 @@
     </a>
   </li>
   <li>
-    <button class="py-2 px-4 mx-2 text-gray-500 flex relative" data-dropdown-toggle="pengguna-bar">
-      <span class="mr-0">Pengguna</span>
-      <svg class="w-2.5 h-2.5 ml-2.5 top-4 absolute right-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-      </svg>
-    </button>
-
-    <div id="pengguna-bar" class="z-10 hidden font-normal {{ @$user=='admin'?'overflow-y-scroll max-h-[500px]':'' }} bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-      <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-        <li>
-          <a href="{{url(@$user.'/management-user/user')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pengguna</a>
-        </li>
-        <li>
-          <a href="{{url(@$user.'/management-user/group-user')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Akses Pengguna</a>
-        </li>
-      </ul>
-    </div>
-
+      <button class="py-2 px-4 mx-2 text-gray-500 flex relative" data-dropdown-toggle="keuangan">
+          <span class="mr-0">Keuangan</span>
+          <svg class="w-2.5 h-2.5 ml-2.5 top-4 absolute right-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+          </svg>
+      </button>
+      <div id="keuangan" class="z-10 hidden font-normal {{ @$user=='admin'?'overflow-y-scroll max-h-[500px]':'' }} bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+              <li>
+                  <a href="{{url('admin/keuangan/penerimaan')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penerimaan Pembayaran</a>
+              </li>
+              <li>
+                  <a href="{{url('admin/keuangan/pembayaran')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pembayaran Tagihan</a>
+              </li>
+              <li>
+                  <a href="{{url('admin/keuangan/laporan-pendapatan')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Laporan Pendapatan</a>
+              </li>
+              <li>
+                  <a href="{{url('admin/keuangan/neraca')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Neraca</a>
+              </li>
+          </ul>
+      </div>
   </li>
 </ul>
 -->
