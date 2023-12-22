@@ -18,6 +18,10 @@ array_push($navigations, [
   "url" => "/" . @$user . "/keuagan/pembayaran",
 ]);
 array_push($navigations, [
+    "name" => "Laporan Pendapatan",
+    "url" => "/" . @$user . "/keuagan/laporan-pendapatan",
+]);
+array_push($navigations, [
   "name" => "Neraca",
   "url" => "/" . @$user . "/keuangan/neraca",
 ]);

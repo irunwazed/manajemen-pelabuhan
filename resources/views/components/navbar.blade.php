@@ -268,6 +268,9 @@
                   <a href="{{url('admin/keuangan/pembayaran')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pembayaran Tagihan</a>
               </li>
               <li>
+                  <a href="{{url('admin/keuangan/laporan-pendapatan')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Laporan Pendapatan</a>
+              </li>
+              <li>
                   <a href="{{url('admin/keuangan/neraca')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Neraca</a>
               </li>
           </ul>
