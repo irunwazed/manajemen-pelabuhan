@@ -210,6 +210,8 @@ Route::prefix('/{user}/keuangan')->group(function () {
     Route::get('/penerimaan-baru', 'Keuangan\PenerimaanController@create');
     Route::post('/penerimaan-baru', 'Keuangan\PenerimaanController@save');
 
+    Route::get('/laporan-pendapatan', 'Keuangan\LaporanController@pendapatan')->name('laporan-pendapatan');
+
     Route::get('/neraca', 'Keuangan\NeracaController@index')->name('neraca');
 
     Route::get('/pembayaran', 'Keuangan\PembayaranController@index')->name('pembayaran-list');
