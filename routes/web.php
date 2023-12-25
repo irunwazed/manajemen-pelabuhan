@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -145,7 +146,7 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         return view('app/eksport-import', $data);
     });
 
-    Route::get('/{menu}', function ($user, $menu) {
+    Route::get('/{menu}', function ($user, $menu, Request $request) {
         $data_pelabuhan = DB::table('m_pelabuhan')->get();
         $data_jenis_impor = DB::table('m_jenis_impor')->get();
         $data_jenis_ekspor = DB::table('m_jenis_ekspor')->get();
@@ -183,9 +184,17 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         ->join('t_header_pib', 't_dokument_pendukung_pib.header_pib_id', '=', 't_header_pib.header_pib_id')
         ->select('t_dokument_pendukung_pib.no_seri','t_dokument_pendukung_pib.jenis_dokumen','t_dokument_pendukung_pib.nomor_dokumen','t_dokument_pendukung_pib.tgl_dokumen','t_dokument_pendukung_pib.nama_file','t_header_pib.no_pengajuan')
         ->get();
+        $data_rekap_pib = DB::table('t_header_pib as a')
+        ->where('a.no_pengajuan', 'like', '%' . $request->input('search') . '%')
+        ->join('t_pernyataan_pib as b', 'a.header_pib_id', '=', 'b.header_pib_id','left')
+        ->select('a.header_pib_id','a.no_pengajuan','b.tanggal_pernyataan',
+        DB::raw('(SELECT COUNT(c.dokumen_pendukung_pib_id) FROM t_dokument_pendukung_pib as c WHERE c.header_pib_id = a.header_pib_id) as jumlah_dokumen'))
+        ->get();
         $data = [
             "user" => $user,
             "id_param" => "",
+            "query_get_param_search" => $request->input('search'),
+            "data_rekap_pib" => $data_rekap_pib,
             "data_pelabuhan" => $data_pelabuhan,
             "data_jenis_impor" => $data_jenis_impor,
             "data_cara_bayar" => $data_cara_bayar,
