@@ -3,16 +3,16 @@
 @section('content')
 
     <div class="">
-        <div class="text-2xl print-section">Neraca</div>
+        <div class="text-2xl print-section">Laporan Pendapatan</div>
         <hr class="border-b-2 border-black border-solid print-section">
         <form id="filter-neraca" method="get">
             <div class="grid grid-cols-3 gap-2 pt-16">
                 <div class="text-start w-full">
                     <div>
-                        <label>KODE REKENING</label>
+                        <label>CARI</label>
                     </div>
                     <div>
-                        <input type="text" value="{{$kodeRekening}}" name="kode_rekening" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <input type="text" value="{{$search}}" name="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
                 </div>
                 <div class="text-start">
@@ -33,21 +33,23 @@
                 <table class="mt-5 w-full border-solid border-2 border-slate-800">
                     <thead class=" bg-gradient-to-r from-primary-awal to-primary text-white py-5">
                     <tr>
+                        <th>Tanggal</th>
+                        <th>Nama Perusahaan</th>
                         <th>Kode Rekening</th>
                         <th>Nama Rekening</th>
-                        <th class="text-right">Debit</th>
-                        <th class="text-right">Kredit</th>
-{{--                        <th class="text-right">Saldo</th>--}}
+                        <th>Keterangan</th>
+                        <th class="text-right">Jumlah</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($neraca as $index => $item)
+                    @foreach($laporan as $index => $item)
                         <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                            <td>{{ $item->tanggal }}</td>
+                            <td>{{ $item->nama_perusahaan }}</td>
                             <td>{{ $item->kode_rekening }}</td>
                             <td>{{ $item->nama_rekening }}</td>
-                            <td class="text-right">{{ number_format($item->debit, 0, ',', '.') }}</td>
-                            <td class="text-right">{{ number_format($item->kredit, 0, ',', '.') }}</td>
-{{--                            <td class="text-right">{{ number_format($item->saldo, 0, ',', '.') }}</td>--}}
+                            <td>{{ $item->keterangan }}</td>
+                            <td class="text-right">{{ number_format($item->jumlah, 0, ',', '.') }}</td>
                         </tr>
                     @endforeach
                     </tbody>
