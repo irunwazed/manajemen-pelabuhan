@@ -8,7 +8,7 @@
 7. Pelindo-pbau
 8. Pelindo-keuangan
 9. admin
-
+ 
  -->
 <ul class="menu flex">
   @foreach(@session()->get("menu") as $navigation)

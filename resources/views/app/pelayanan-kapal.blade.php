@@ -6,7 +6,7 @@
 @section('content')
 
 <?php
-
+/*
 $navigations = [];
 
 array_push($navigations, [
@@ -84,9 +84,9 @@ array_push($navigations, [
   "singkatan" => "MONITORING",
   "url" => "/" . @$user . "/pelayanan-kapal/monitor",
 ]);
-
+*/
 //dd($navigations);
-
+//dd(@session()->get("submenu"))
 ?>
 
 <div class="px-3 mb-20">
@@ -100,30 +100,10 @@ array_push($navigations, [
   </div>
 
   <div class="mt-8 grid grid-cols-3 gap-6">
-    @foreach($navigations as $navigation)
-    @if(@$user === "admin")
-    <a href="{{ url('').$navigation['url'] }}" class="py-10 px-20 text-center border-solid border-black border-2 rounded-lg shadow-lg hover:cursor-pointer hover:shadow-2xl hover:bg-slate-200">
-      {{ $navigation['name'] }}
-    </a>
-    @elseif(($navigation['singkatan']==="SIMLALA" || $navigation['singkatan']==="SPOG" || $navigation['singkatan']==="KEBERANGKATAN"  || $navigation['singkatan']==="MONITORING" || $navigation['singkatan']==="SPB"  || $navigation['singkatan']==="PKK" || $navigation['singkatan']==="SPM")  && @$user === "agen-kapal")
-    <a href="{{ url('').$navigation['url'] }}" class="py-10 px-20 text-center border-solid border-black border-2 rounded-lg shadow-lg hover:cursor-pointer hover:shadow-2xl hover:bg-slate-200">
-      {{ $navigation['name'] }}
-    </a>
-    @elseif(($navigation['singkatan']==="PPK" || $navigation['singkatan']==="RPKRO"  || $navigation['singkatan']==="RKBM"  || $navigation['singkatan']==="MONITORING" || $navigation['singkatan']==="RPKRO"  || $navigation['singkatan']==="PKK" || $navigation['singkatan']==="SPM")  && @$user === "petugas-lala")
-    <a href="{{ url('').$navigation['url'] }}" class="py-10 px-20 text-center border-solid border-black border-2 rounded-lg shadow-lg hover:cursor-pointer hover:shadow-2xl hover:bg-slate-200">
-      {{ $navigation['name'] }}
-    </a>
-    @elseif(($navigation['singkatan']==="RPKRO" || $navigation['singkatan']==="PANDU"  || $navigation['singkatan']==="AIR"  || $navigation['singkatan']==="MONITORING" || $navigation['singkatan']==="NOTA4")  && @$user === "pelindo-kapal")
-    <a href="{{ url('').$navigation['url'] }}" class="py-10 px-20 text-center border-solid border-black border-2 rounded-lg shadow-lg hover:cursor-pointer hover:shadow-2xl hover:bg-slate-200">
-      {{ $navigation['name'] }}
-    </a>
-    @elseif(($navigation['singkatan']==="SPM" || $navigation['singkatan']==="SPOG"  || $navigation['singkatan']==="KEPELAUTAN"  || $navigation['singkatan']==="MONITORING" || $navigation['singkatan']==="SPB")  && @$user === "syahbandar")
-    <a href="{{ url('').$navigation['url'] }}" class="py-10 px-20 text-center border-solid border-black border-2 rounded-lg shadow-lg hover:cursor-pointer hover:shadow-2xl hover:bg-slate-200">
-      {{ $navigation['name'] }}
-    </a>
-    @elseif(($navigation['singkatan']==="RKBM" || $navigation['singkatan']==="MONITORING" )  && @$user === "pbm")
-    <a href="{{ url('').$navigation['url'] }}" class="py-10 px-20 text-center border-solid border-black border-2 rounded-lg shadow-lg hover:cursor-pointer hover:shadow-2xl hover:bg-slate-200">
-      {{ $navigation['name'] }}
+    @foreach(@session()->get("submenu") as $navigation)
+    @if($navigation->parent == "1")
+    <a href="{{url('/').'/'.session()->get("usergroup").''.$navigation->slug}}" class="py-10 px-20 text-center border-solid border-black border-2 rounded-lg shadow-lg hover:cursor-pointer hover:shadow-2xl hover:bg-slate-200">
+      {{ $navigation->display }}
     </a>
     @endif
     @endforeach
