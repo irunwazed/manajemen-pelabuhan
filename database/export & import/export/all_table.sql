@@ -33,5 +33,3 @@ MODIFY COLUMN data_barang_peb_dok_fasilitas_lartas_id INT AUTO_INCREMENT PRIMARY
 
 ALTER TABLE t_pernyataan_peb 
 MODIFY COLUMN pernyataan_peb_id INT AUTO_INCREMENT PRIMARY KEY;
-
-
