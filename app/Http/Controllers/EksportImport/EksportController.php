@@ -56,6 +56,16 @@ class EksportController extends Controller
   }
 
   public function saveDokumenPendukung(Request $request){
+    
+      $file = $request->file('nama_file');
+      $filename = time() . '_dokumenpendukung_' . $file->getClientOriginalName();
+
+      //File upload location
+      $location = 'files/peb';
+      
+      // Upload file
+      $file->move($location, $filename);
+
       // insert data ke table
       DB::table('t_dokument_pendukung_peb')->insert([
         'header_peb_id' => $request->header_peb_id,
@@ -64,7 +74,7 @@ class EksportController extends Controller
         'izin' => $request->izin,
         'nomor_dokumen' => $request->nomor_dokumen,
         'tgl_dokumen' => $request->tgl_dokumen,
-        'nama_file' => $request->nama_file,
+        'nama_file' => $location.'/'.$filename
       ]);
       return redirect('admin/eksport-import/dokumen-pendukung-ex');
   }
@@ -79,7 +89,6 @@ class EksportController extends Controller
         'pelabuhan_muat_ekspor_id'=> $request->pelabuhan_muat_ekspor_id,
         'pelabuhan_muat_bongkar'=> $request->pelabuhan_muat_bongkar,
         'negara_tujuan_ekspor'=> $request->negara_tujuan_ekspor,
-        //'pelabuhan_muat_tujuan'=> $request->alamat,
         'tanggal_perkiraan_ekspor'=> $request->tanggal_perkiraan_ekspor,
         'lokasi_pemeriksaan'=> $request->lokasi_pemeriksaan,
         'tgl_pemeriksaan'=> $request->tgl_pemeriksaan,
@@ -115,7 +124,6 @@ class EksportController extends Controller
   public function saveKontainer(Request $request){
        // insert data ke table
        DB::table('t_kontainer_peb')->insert([
-        //'header_peb_id' => $request->npwp,
         'seri_kontainer' => $request->seri_kontainer,
         'no_kontainer' => $request->no_kontainer,
         'ukuran_kontainer' => $request->ukuran_kontainer,
@@ -127,12 +135,9 @@ class EksportController extends Controller
   public function saveTransaksi(Request $request){
       // insert data ke table
       DB::table('t_data_transaksi_peb')->insert([
-      //'data_transaksi_peb_id' => 1,
-      //'header_peb_id' => $request->npwp,
       'valuta' => $request->valuta,
       'ndpbm' => $request->ndpbm,
       'cara_pembayaran_id' => $request->cara_pembayaran_id,
-      //'cara_pembayaran' => $request->cara_pembayaran,
       'nilai_ekspor' => $request->nilai_ekspor,
       'freight' => $request->freight,
       'asuransi' => $request->asuransi,
@@ -148,8 +153,6 @@ class EksportController extends Controller
   public function saveDevisa(Request $request){
      // insert data ke table
      DB::table('t_data_transaksi_peb_bank_devisa')->insert([
-      //'data_transaksi_peb_bank_devisa_id' => 1,
-      //'data_transaksi_peb_id' => $request->npwp,
       'no_seri' => $request->seri,
       'kode_bank' => $request->kode_bank,
       'nama_bank' => $request->nama_bank,
@@ -160,7 +163,6 @@ class EksportController extends Controller
   public function saveDataBarang(Request $request){
      // insert data ke table
      DB::table('t_data_barang_peb')->insert([
-      //'data_barang_peb_id' => 1,
       'header_peb_id' => $request->header_peb_id,
       'no_seri' => $request->no_seri,
       'hs_code' => $request->hs_code,
@@ -172,7 +174,6 @@ class EksportController extends Controller
       'ukuran'  => $request->ukuran,
       'negara_asal_barang' => $request->negara_asal_barang,
       'daerah_asal_barang' => $request->daerah_asal_barang,
-      //'satuan_id'  => $request->satuan_id,
       'satuan' => $request->satuan,
       'kemasan_id'  => $request->kemasan_id,
       'kemasan'  => $request->kemasan,
@@ -185,19 +186,26 @@ class EksportController extends Controller
   
   }
 
-
   public function saveLartas(Request $request){
+
+    $file = $request->file('nama_file');
+    $filename = time() . '_dokumenlartas_' . $file->getClientOriginalName();
+
+    //File upload location
+    $location = 'files/peb';
+    
+    // Upload file
+    $file->move($location, $filename);
+
     // insert data ke table
     DB::table('t_data_barang_peb_dok_fasilitas_lartas')->insert([
-      //'data_barang_peb_dok_fasilitas_lartas_id' => 1,
       'data_barang_peb_id' => $request->data_barang_peb_id,
       'no_seri' => $request->no_seri,
       'jenis' => $request->jenis,
       'nomor' => $request->nomor,
-      //'tanggal_dok' => $request->tanggal_dok,
       'fasilitas' => $request->fasilitas,
       'izin'=> $request->izin,
-      'nama_file'=> $request->nama_file,
+      'nama_file'=> $location.'/'.$filename
     ]);
     return redirect('admin/eksport-import/data-barang-ex');
   }
@@ -205,7 +213,6 @@ class EksportController extends Controller
   public function savePernyataan(Request $request){
       // insert data ke table
       DB::table('t_pernyataan_peb')->insert([
-        //'pernyataan_peb_id' => 1,
         'header_peb_id' => $request->header_peb_id,
         'tempat' => $request->tempat,
         'tanggal' => $request->tanggal,
