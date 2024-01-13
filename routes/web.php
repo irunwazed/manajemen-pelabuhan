@@ -190,6 +190,13 @@ Route::prefix('/{user}/eksport-import')->group(function () {
         ->select('a.header_pib_id','a.no_pengajuan','b.tanggal_pernyataan',
         DB::raw('(SELECT COUNT(c.dokumen_pendukung_pib_id) FROM t_dokument_pendukung_pib as c WHERE c.header_pib_id = a.header_pib_id) as jumlah_dokumen'))
         ->get();
+        $data_rekap_peb = DB::table('t_header_peb as a')
+        ->where('a.no_pengajuan', 'like', '%' . $request->input('search') . '%')
+        ->join('t_pernyataan_peb as b', 'a.header_peb_id', '=', 'b.header_peb_id','left')
+        ->select('a.header_peb_id','a.no_pengajuan','b.tanggal_pernyataan',
+        DB::raw('(SELECT COUNT(c.dokumen_pendukung_peb_id) FROM t_dokument_pendukung_peb as c WHERE c.header_peb_id = a.header_peb_id) as jumlah_dokumen'))
+        ->get();
+
         $data = [
             "user" => $user,
             "id_param" => "",
@@ -218,7 +225,8 @@ Route::prefix('/{user}/eksport-import')->group(function () {
             "data_kemasan_peb" => $data_kemasan_peb,
             "data_bank_devisa" => $data_bank_devisa,
             "data_barang_peb" => $data_barang_peb,
-            "data_lartas" => $data_lartas
+            "data_lartas" => $data_lartas,
+            "data_rekap_peb" => $data_rekap_peb
         ];
         return view('app/eksport-import/'.$menu, $data);
     });

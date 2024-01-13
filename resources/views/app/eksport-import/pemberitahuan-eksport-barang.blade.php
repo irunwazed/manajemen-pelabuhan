@@ -9,21 +9,7 @@
 <div class="">
     <div class="text-2xl ">Eksport-Import / Pembuatan Dokumen PEB</div>
     <hr class="border-b-2 border-black border-solid">
-    <!-- Horizontal Navbar -->
     <br>
-    <!-- <nav>
-        <ul>
-            <li><a href="{{url('admin/eksport-import/header-ex')}}">HEADER</a></li>
-            <li><a href="{{url('admin/eksport-import/entitas-ex')}}">ENTITAS</a></li>
-            <li><a href="{{url('admin/eksport-import/dokumen-pendukung-ex')}}">DOKUMEN PENDUKUNG</a></li>
-            <li><a href="{{url('admin/eksport-import/pengangkutan-ex')}}">DATA PENGANGKUTAN</a></li>
-            <li><a href="{{url('admin/eksport-import/kemasan-kontainer-ex')}}">KEMASAN DAN KONTAINER</a></li>
-            <li><a href="{{url('admin/eksport-import/transaksi-ex')}}">DATA TRANSAKSI</a></li>
-            <li><a href="{{url('admin/eksport-import/data-barang-ex')}}">DATA BARANG</a></li>
-            <li><a href="{{url('admin/eksport-import/pungutan-ex')}}">PUNGUTAN</a></li>
-            <li><a href="{{url('admin/eksport-import/pernyataan-ex')}}">PERNYATAAN</a></li>
-        </ul>
-    </nav> -->
 </div>
 <div class="">
       <div class="text-center mb-3 mt-5">
@@ -48,6 +34,22 @@
             <th>Aksi</th>
           </tr>
         </thead>
+        <tbody>
+          <?php
+          foreach ($data_rekap_peb as $key => $value) {
+              echo'
+              <tr class="border-solid border-2 border-slate-800 hover:bg-slate-300">
+                  <td style="text-align:center;">'.$value->no_pengajuan.'</td>
+                  <td style="text-align:center;">'.$value->header_pib_id.'</td>
+                  <td style="text-align:center;">'.$value->tanggal_pernyataan.'</td>
+                  <td style="text-align:center;">'.$value->jumlah_dokumen.' Dokumen</td>
+                  <td style="text-align:center;"><a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Cetak</a></td>
+              </tr>
+              ';
+          }
+          ?>
+        </tbody>
+
       </table>
       @include('components.pagination')
   </div>
